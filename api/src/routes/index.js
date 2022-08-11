@@ -9,4 +9,9 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 
+router.get("/home/marqui", (req,res)=>{
+    res.send("Holaaa")
+})
+
+
 module.exports = router;
