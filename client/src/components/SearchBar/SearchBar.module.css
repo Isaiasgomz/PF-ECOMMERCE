@@ -20,3 +20,6 @@
     padding: 5px;
     width: 3vw;
 }
+.searchButton:hover{
+    cursor: pointer;
+}
