@@ -13,7 +13,7 @@ router.post('/', async (req,res)=>{
         if(!customerName || !email || !password){
             return res.status(400).json({error: "Missing required dates"});
         }
-        const newCustomer = await Costumer.create({
+        const newCustomer = await Customer.create({
         customerName,
         email,
         password
