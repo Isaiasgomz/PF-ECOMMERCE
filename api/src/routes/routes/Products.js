@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const router = Router();
-const axios = require('axios')
+const axios = require('axios');
+const { productByName, listProducts } = require('../controllers/productsController');
 
 router.get('/', async (req, res) => {
     const { name } = req.query;
@@ -14,7 +15,7 @@ router.get('/', async (req, res) => {
     }else{
         let products = await axios.get('api');
         try {
-            let allProducts= await listProducts(products)
+            let allProducts= await listProducts(products.data)
             res.status(201).send(allProducts)
         } catch (error) {
             res.status(200).send(await listProducts())
