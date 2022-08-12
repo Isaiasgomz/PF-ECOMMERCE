@@ -23,3 +23,7 @@
 .searchButton:hover{
     cursor: pointer;
 }
+
+.searchBar:focus{
+    outline: none;
+}
