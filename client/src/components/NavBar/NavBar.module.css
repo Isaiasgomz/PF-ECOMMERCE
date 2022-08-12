@@ -1,0 +1,24 @@
+.container{
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap ;
+    justify-content: space-around;
+    height: 5vh;
+    padding: 10px;
+}
+
+.carrito{
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+.carrito:hover{
+    cursor: pointer;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
