@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
       unique: true,
       validate: {
         isEmail: {
-          msg: "Must be a valid email address",
+          msg: "tiene que ser un email valido",
         }
       }
     },
@@ -29,7 +29,7 @@ module.exports = (sequelize) => {
     },
     cart: {
       type: DataTypes.STRING, //VER
-      defaultValue: 'The Cart is empty!'
+      defaultValue: 'el carrito esta vacio'
     },
     address: {
       type: DataTypes.STRING, //VER

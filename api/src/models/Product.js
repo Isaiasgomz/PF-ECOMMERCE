@@ -5,9 +5,10 @@ module.exports = (sequelize) => {
     // defino el modelo
     sequelize.define('Product', {
         id:{
-            type: DataTypes.UUIDV4,
+            type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true
+            
         },
         productName: {
             type: DataTypes.STRING,
@@ -25,6 +26,15 @@ module.exports = (sequelize) => {
             type: DataTypes.TEXT,
             allowNull: false,
         }, 
+        category: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        quantity: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue:0
+        }, 
         qualification: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -36,14 +46,5 @@ module.exports = (sequelize) => {
         reviews: {
             type: DataTypes.TEXT,
         }, 
-        quantity: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            defaultValue:0
-        }, 
-        category: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        }
     });
 };
