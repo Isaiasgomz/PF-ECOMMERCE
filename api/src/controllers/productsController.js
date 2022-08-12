@@ -3,15 +3,12 @@ const api = require("../jsonProducts.js");
 
 module.exports ={
     /* producto por query */
-    productByName: async function (productName){
-        let product = await Product.findAll({
-            where: {
-                productName                
-            }
-        })
+    productByName: async function (name){
+        let product = await Product.findAll()
         if (product.length === 0) {
             throw 'el producto no existe';
         } else {
+            product = product.filter(e=>e.productName.toLowerCase().includes(name.toLowerCase()))
             return product;
         }
     },
@@ -33,7 +30,6 @@ module.exports ={
                 }
                 return obj;
             })
-            console.log(filtrado)
             await Product.bulkCreate(filtrado);
             return filtrado;
         }else{
