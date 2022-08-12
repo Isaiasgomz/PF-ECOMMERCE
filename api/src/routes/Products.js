@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 const axios = require('axios');
-const { productByName, listProducts } = require('../controllers/productsController');
+const { productByName, listProducts, productDetail } = require('../controllers/productsController');
 
 router.get('/', async (req, res) => {
     const { name } = req.query;
@@ -26,8 +26,8 @@ router.get('/', async (req, res) => {
 router.get('/:idProduct', async (req, res) => {
     const { idProduct } = req.params;
     try {
-        let l = await countryDetail(idPais.toUpperCase());
-        res.status(200).send(l);
+        let prodDetail = await productDetail(idProduct);
+        res.status(200).send(prodDetail);
     } catch (error) {
         res.status(404).send(error);
     }
