@@ -45,6 +45,10 @@ module.exports = (sequelize) => {
         }, 
         reviews: {
             type: DataTypes.TEXT,
-        }, 
+        },
+        brand:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        } 
     });
 };
