@@ -1,4 +1,4 @@
-const {Op, Product, Costumer} =require('../../db');
+const {Op, Product} =require('../../db');
 module.exports ={
     productByName: async function (productName){
         let product = await Product.findAll({
