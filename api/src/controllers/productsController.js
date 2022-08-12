@@ -1,5 +1,6 @@
 const {Op, Product} =require('../db');
 module.exports ={
+    /* producto por query */
     productByName: async function (productName){
         let product = await Product.findAll({
             where: {
@@ -36,6 +37,15 @@ module.exports ={
         } /* si no tiene argumentos, significa que ya esta cargada la db */else {
             let allProducts = await Product.findAll();
             return allProducts;
+        }
+    },
+    /* detalle de producto por params */
+    productDetail: async function(idProduct){
+        let product = await Product.findByPk(idProduct)
+        if (!product) {
+            throw 'el id del producto solicitado no existe';
+        } else {
+            return product;
         }
     }
 }
