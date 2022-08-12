@@ -8,7 +8,7 @@ carrito
 domicilio */
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('customer', {
+  sequelize.define('Customer', {
     customerName: {
       type: DataTypes.STRING,
       allowNull: false,
