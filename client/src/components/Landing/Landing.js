@@ -1,13 +1,10 @@
 import React from "react";
-import NavBar from "../NavBar/NavBar";
-import Menu from "../Menu/Menu";
-import Footer from "../Footer/Footer";
+
 
 function Landing() {
   return (
     <div className="container">
-      <NavBar />
-      <Menu />
+
       <div
         id="carouselExampleIndicators"
         class="carousel slide"
@@ -98,7 +95,7 @@ function Landing() {
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <Footer />
+
     </div>
   );
 }
