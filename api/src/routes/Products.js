@@ -5,21 +5,15 @@ const { productByName, listProducts, productDetail } = require('../controllers/p
 
 router.get('/', async (req, res) => {
     const { name } = req.query;
+    try {
     if(name){
-        try {
             let productName = await productByName(name);
             res.status(200).send(productName);
-        } catch (error) {
-            res.status(404).send(error);
-        }
     }else{
-        let products = await axios.get('api');
-        try {
-            let allProducts= await listProducts(products.data)
+            let allProducts=await listProducts()
             res.status(201).send(allProducts)
-        } catch (error) {
-            res.status(200).send(await listProducts())
-        }
+    }}catch (error) {
+        res.status(404).send(error);
     }
 })
 

@@ -1,41 +1,38 @@
 const {Op, Product} =require('../db');
+const api = require("../jsonProducts.js");
+
 module.exports ={
     /* producto por query */
-    productByName: async function (productName){
-        let product = await Product.findAll({
-            where: {
-                productName                
-            }
-        })
+    productByName: async function (name){
+        let product = await Product.findAll()
         if (product.length === 0) {
             throw 'el producto no existe';
         } else {
+            product = product.filter(e=>e.productName.toLowerCase().includes(name.toLowerCase()))
             return product;
         }
     },
     /* meter todos los productos desde la api a la base de datos */
-    listProducts: async function(data){
-        
-        if (data) {
+    listProducts: async function(){
+        const allProducts = await Product.findAll()
+        if(allProducts.length===0){
             let obj = {}
-            let filtrado = data.map(e => {
-
+            let filtrado = api.map(e => {
                 obj = {
-                    productName,
-                    price,
-                    image,
-                    description,
-                    qualification,
-                    reviews,
-                    quantity,
-                    category
+                    productName:e.name,
+                    price:e.price,
+                    image:e.image,
+                    brand:e.brand,
+                    description:e.description,
+                    qualification:e.calification,
+                    stock:e.quantity,
+                    category:e.categories
                 }
                 return obj;
             })
             await Product.bulkCreate(filtrado);
             return filtrado;
-        } /* si no tiene argumentos, significa que ya esta cargada la db */else {
-            let allProducts = await Product.findAll();
+        }else{
             return allProducts;
         }
     },

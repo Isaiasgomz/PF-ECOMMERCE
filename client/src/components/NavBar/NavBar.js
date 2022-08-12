@@ -1,30 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
+import styles from "../NavBar/NavBar.module.css"
+import SearchBar from '../SearchBar/SearchBar'
 
-
-/* const [search, setSearch] = useState({name:""})
-
-const onChange = (e) => {
-  setSearch({
-      ...search,
-      [e.target.name]: e.target.value
-  })
-} */
 
 function NavBar() {
+
+
+
   return (
 
-    <div>
+    <div className={styles.container}>
 
-      {/* <Link to="/home"><button>place holder</button></Link>
-
-      NavBar
-      <form>
-      <input type="text" name="name" value={search.name} onChange={onChange}></input>
-      <button type='submit'>search</button>
-      </form> */}
-
+      <Link to="/home"><button className={styles.carrito}><i className="fa-solid fa-house"> </i> Place Holder Icono Landing</button></Link>
+      <SearchBar />
+      <div className={styles.buttons}>
+        <Link to="/Login"><button className={styles.carrito}> Login</button></Link>
+        <Link to="/SignUp"><button className={styles.carrito}> SignUp</button></Link>
+        <Link to="/cart"><button className={styles.carrito}><i className="fa-solid fa-cart-shopping"></i> Carrito</button></Link>
       </div>
+    </div>
   )
 }
 
