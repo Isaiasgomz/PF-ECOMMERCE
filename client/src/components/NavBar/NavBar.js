@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 
 const [search, setSearch] = useState({name:""})
@@ -14,6 +15,9 @@ function NavBar() {
   return (
 
     <div>
+
+      <Link to="/home"><button><i class="fa-solid fa-house"></i></button></Link>
+
       NavBar
       <form>
       <input type="text" name="name" value={search.name} onChange={onChange}></input>
