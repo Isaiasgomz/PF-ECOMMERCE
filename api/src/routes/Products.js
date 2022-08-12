@@ -23,7 +23,15 @@ router.get('/', async (req, res) => {
     }
 })
 
-
+router.get('/:idProduct', async (req, res) => {
+    const { idProduct } = req.params;
+    try {
+        let l = await countryDetail(idPais.toUpperCase());
+        res.status(200).send(l);
+    } catch (error) {
+        res.status(404).send(error);
+    }
+})
 
 
 
