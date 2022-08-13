@@ -1,26 +1,31 @@
 
 const initialState = {
-    Products:[],
-    Detail:[]
+    Products: [],
+    Detail: [],
+    productDetail:{}
 }
 
-export default function rootReducer(state= initialState, action){
+export default function rootReducer(state = initialState, action) {
     switch (action.type) {
-        case '  GET_PRODUCTS':
+        case 'GET_PRODUCTS':
             return {
                 ...state,
                 product: action.payload
-                }
+            }
 
-        case ' POST_PRODUCT':{
+        case ' POST_PRODUCT':
             return {
                 ...state
             }
-        }
 
-        case 'POST_ CUSTOMER':
+        case 'POST_ CUSTOMER':// VER
             return {
                 ...state
+            }
+        case 'PRODUCT_DETAIL':
+            return {
+                ...state,
+                productDetail: action.payload
             }
             
         default:
