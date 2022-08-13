@@ -5,17 +5,11 @@ module.exports = (sequelize) => {
         email: {
             type: DataTypes.STRING,
             allowNull: false,
-            primaryKey: true,
             validate: {
                 isEmail: {
                 msg: "Debe ser un email válido"}
             },
         }, 
-        idProduct: {
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
-            allowNull: false,
-        },
         qualification: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -27,5 +21,7 @@ module.exports = (sequelize) => {
         review: {
             type: DataTypes.TEXT,
         },
+    },{
+        timestamps:false
     });
 };

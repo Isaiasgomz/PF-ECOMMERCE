@@ -1,5 +1,6 @@
 const { Op, Product } = require('../db');
 const api = require("../jsonProducts.js");
+const Review = require('../models/Review');
 
 module.exports = {
     /* producto por query */
@@ -40,10 +41,14 @@ module.exports = {
     /* detalle de producto por params */
     productDetail: async function (idProduct) {
         try {
-            let product = await Product.findByPk(idProduct)
+            let product = await Product.findByPk(idProduct, {
+                include: ["reviews"]
+            } )
+            console.log(product)
             return product;
         } catch (error) {
-            throw 'el id del producto solicitado no existe';
+            throw error;
         }
     }
 }
+
