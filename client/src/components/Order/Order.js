@@ -71,24 +71,29 @@ function Order() {
     <div>Order
       <h2>INOFRMACION DE CONTACTO</h2>
       <form>
-
+      <label for='name'>Nombre</label>
       <input required='true' type="text" 
-      placeholder='Name' 
+      name='name' value={input.name}
+      placeholder='Camila Yokoo' 
       onChange={(e) => handleInput(e)}></input>
       {
         errors.name && (
         <p>{errors.name}</p>)
       }
 
-      <input required='true' type="email" 
-      placeholder='Email'
+      <label for='email'>Correo</label>
+      <input required='true' type="email"
+      name='email' value={input.email} 
+      placeholder='user@email.com'
       onChange={(e) => handleInput(e)}></input>
       {
         errors.email && (
         <p>{errors.email}</p>)
       }
 
+      <label for='direction'>Direccion</label>
       <input required='true' type="text" 
+      name='direction' value={input.direction}
       placeholder='Direccion'
       onChange={(e) => handleInput(e)}></input>
       {
@@ -96,7 +101,9 @@ function Order() {
         <p>{errors.direction}</p>)
       }
 
+      <label for='departament'>Departamento</label>
       <input required='true' type="number" 
+      name='departament' value={input.departament}
       placeholder='Departamento' 
       onChange={(e) => handleInput(e)}></input>
       {
@@ -104,15 +111,18 @@ function Order() {
         <p>{errors.departament}</p>)
       }
 
+      <label for='city'>Ciudad</label>
       <input required='true' type="text"
-       placeholder='Ciudad' 
-       onChange={(e) => handleInput(e)}></input>
+      name='country' value={input.country}
+      placeholder='Ciudad' 
+      onChange={(e) => handleInput(e)}></input>
        {
         errors.city && (
         <p>{errors.city}</p>)
       }
-
-      <input required='true' type="text" 
+      <label for='country'>Pais</label>
+      <input required='true' type="text"
+      name='country' value={input.country} 
       placeholder='Pais' 
       onChange={(e) => handleInput(e)}></input>
       {
@@ -120,15 +130,19 @@ function Order() {
         <p>{errors.country}</p>)
       }
 
+      <label for='state'>Estado</label>
       <input required='true' type="text"
-       placeholder='Estado' 
-       onChange={(e) => handleInput(e)}></input>
+      name='state' value={input.telephone}
+      placeholder='Estado' 
+      onChange={(e) => handleInput(e)}></input>
        {
         errors.state && (
         <p>{errors.state}</p>)
       }
 
-      <input required='true' type="number" 
+      <label for='cp'>C.P.</label>
+      <input required='true' type="number"
+      name='cp' value={input.cp} 
       placeholder='Codigo Postal' 
       onChange={(e) => handleInput(e)}></input>
       {
@@ -136,7 +150,9 @@ function Order() {
         <p>{errors.cp}</p>)
       }
 
-      <input required='true' type="number" 
+      <label for='telephone'>Telefono</label>
+      <input required='true' type="number"
+      name='telephone' value={input.telephone}
       placeholder='Telefono' 
       onChange={(e) => handleInput(e)}></input>
       {
