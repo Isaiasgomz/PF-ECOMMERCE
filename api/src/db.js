@@ -42,6 +42,11 @@ User.belongsToMany(Product,{through:"products_user"}) // VER ****************
 /* RELACION ENTRE PRODUCTO Y REVIEW */
 Product.hasMany(Review, { as: "reviews" });
 Review.belongsTo(Product);
+/* RELACION ENTRE Usuario Y REVIEW */
+User.hasMany(Review, { as: "reviews" });
+Review.belongsTo(User);
+
+
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

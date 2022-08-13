@@ -1,5 +1,7 @@
 const { Router } = require("express");
-const {Customer} = require('../db')
+const { userDetail } = require("../controllers/userController");
+const {Customer} = require('../db');
+const { route } = require("./Review");
 
 const router = Router()
 
@@ -25,6 +27,16 @@ router.post('/', async (req,res)=>{
     }
 })
 
+router.get('/:idUser', async(req,res)=>{
+    const {idUser} = req.params
+    try {
+        let userD = await userDetail(idUser);
+        res.status(200).send(userD);
+    } catch (error) {
+        console.log(error)
+        res.status(404).send(error);
+    }
+})
 
 
 module.exports= router

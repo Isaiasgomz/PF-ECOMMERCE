@@ -6,7 +6,7 @@ module.exports = {
         try{if(!obj.email || !obj.qualification || !obj.review || !obj.ProductIdProduct) throw 'Falta enviar datos obligatorios';
         else{
             let objReview= {
-                email:obj.email,
+                UserEmail:obj.email,
                 qualification:obj.qualification,
                 review:obj.review,
                 ProductIdProduct:obj.ProductIdProduct

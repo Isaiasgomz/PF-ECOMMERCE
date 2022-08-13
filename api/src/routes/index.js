@@ -4,12 +4,16 @@ const router = Router();
 // Ejemplo: const authRouter = require('./auth.js');
 const products = require('./Products.js');
 const review = require('./Review.js');
-
+const customer = require ('./Customer');
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-router.use('/review', review)
-router.use('/products', products)
 
+/* postear reviews */
+router.use('/review', review)
+/* traer productos, buscar productos por query y detalle de producto */
+router.use('/products', products)
+/* crear usuario y traer detalle de usuario */
+router.use('/user', customer)
 
 
 module.exports = router;
