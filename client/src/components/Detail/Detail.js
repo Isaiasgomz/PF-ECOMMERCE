@@ -32,19 +32,12 @@ function Detail(props) {
 
                 <div >
                     <h2 className="h22">Reviews</h2>
-                    {/* <div className="actdet">
-                        {act.length > 0 ? act?.map(e => {
-                            return <div className="eachAct" key={e.id}>
-                                <h3>Name: {e.name}</h3>
-                                <p>Difficulty: {e.difficulty}</p>
-                                <p>Duration: {e.duration}</p>
-                                <p>Season to do: {e.season}</p>
-                            </div>
-                        }) : <div className="notact">
-                            This Country does not have any activities yet
-                            <p>Click here to add one</p> <NavLink exact to='/CreateActivity' > <button className="btn-nice-act-a"> Create Activity</button></NavLink>
-                        </div>}
-                    </div> */}
+                    {reviews.length ===0? 'No existe reviews aun': <div>
+                        <p>Valoracion: {reviews.qualification} </p>
+                        <p>Comentario: {reviews.review} </p>
+                        <p>Usuario: {reviews.email}  </p>
+                         </div> }
+                    
                 </div>
             </div>
 
