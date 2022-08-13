@@ -1,0 +1,27 @@
+.buttons{
+    border: none;
+    padding: 20px;
+    font-size: 50px;
+    color: rgb(194, 194, 194);
+    background-color: transparent;   
+}
+
+.buttons:hover{
+    color: white;
+}
+
+.categories{
+    background-color: rgb(20, 20, 20);
+}
+
+.selector{
+    background-color: rgb(20, 20, 20);
+    color: rgb(223, 223, 223);
+    border: none;
+    font-size: 20px;
+}
+
+.selector:focus{
+    outline: none;
+}
+

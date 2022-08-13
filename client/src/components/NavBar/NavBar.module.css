@@ -8,17 +8,21 @@
     padding: 10px;
 }
 
-.carrito{
+.cart{
     background-color: transparent;
     color: white;
     border: none;
 }
 
-.carrito:hover{
+.cart:hover{
     cursor: pointer;
 }
 
 .buttons{
     display: flex;
     justify-content: space-between;
+}
+.menus{
+    display: flex;
+    flex-direction: column;
 }
