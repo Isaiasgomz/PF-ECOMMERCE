@@ -4,6 +4,7 @@
     flex-direction: row;
     flex-wrap: wrap ;
     justify-content: space-around;
+    align-items: center;
     height: 5vh;
     padding: 10px;
 }
@@ -21,6 +22,7 @@
 .buttons{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .menus{
     display: flex;
