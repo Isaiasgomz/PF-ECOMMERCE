@@ -49,6 +49,46 @@ module.exports = {
         } catch (error) {
             throw error;
         }
+    },
+    // create a new product
+    createProduct: async function (productName, price, image, description, quantity, category) {
+        try {
+            const newProduct = await Product.create({
+                productName,
+                price, 
+                image, 
+                description,
+                quantity, 
+                category
+            })
+            return newProduct
+        } catch (error) {
+            throw new Error(error);
+        }
+    },
+    // update product
+    updateProduct:  async function(idProduct,ProductModify){
+        try {
+           await Product.update(ProductModify, {
+                where: {
+                    id: idProduct
+                }
+            })
+        } catch (error) {
+           throw new Error(error); 
+        }
+    },
+    // delete product
+    deleteProduct: async function(idProduct){
+        try {
+           await Product.destroy({
+                where: {
+                  id: idProduct
+                }
+            })
+        } catch (error) {
+            throw new Error(error);
+        }
     }
 }
 
