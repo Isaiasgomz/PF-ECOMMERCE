@@ -22,24 +22,12 @@ module.exports = {
             throw error;
         }
     },
+    /* Creacion de personal data */
     userPdata: async function (email, pData){
         try{if(!pData.fullname || !pData.address || !pData.city || !pData.country || !pData.CP ) throw 'faltan datos obligatorios';
         else{
-            /* let obj={
-                shippingAddress:[]
-            } */
-            /* obj={
-                UserEmail:email,
-                fullname:pData.fullname,
-                address:pData.address,
-                city:pData.city,
-                country:pData.country,
-                CP:pData.CP,
-                shippingAddress: obj.shippingAddress.concat( !pData.shippingAddress?pData.address:pData.shippingAddress),
-                telephone:!pData.telephone?'':pData.telephone
-            } */
             let [newPData, created] = await PersonalData.findOrCreate({
-                where :{fullname:pData.fullname},
+                where :{ UserEmail: email },
                 defaults:{
                         UserEmail:email,
                         fullname:pData.fullname,
@@ -51,11 +39,21 @@ module.exports = {
                         telephone:pData.telephone
                 }
             });
-            console.log(created)
-            /* await newPData.addUsers(email) */
-            return newPData
+            return newPData;
         }}catch(e){
             return e;
+        }
+    },
+    /* Actualizacion de personal data */
+    updatePersonalData: async function(email,dataModify){
+        try {
+            await PersonalData.update(dataModify, {
+                where: {
+                    UserEmail: email
+                }
+            })
+        } catch (error) {
+            throw new Error(error); 
         }
     }
 }

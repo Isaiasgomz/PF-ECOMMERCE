@@ -1,6 +1,5 @@
-const { Op, Product } = require('../db');
+const { Op, Product, Review } = require('../db');
 const api = require("../jsonProducts.js");
-const Review = require('../models/Review');
 
 module.exports = {
     /* producto por query */
@@ -42,10 +41,11 @@ module.exports = {
     productDetail: async function (idProduct) {
         try {
             let product = await Product.findByPk(idProduct, {
-                include: ["reviews"]
+                include: [{
+                    model:Review
+                }]
             } )
-            console.log(product)
-            return product;
+                return product;
         } catch (error) {
             throw error;
         }
@@ -69,11 +69,12 @@ module.exports = {
     // update product
     updateProduct:  async function(idProduct,ProductModify){
         try {
-           await Product.update(ProductModify, {
+             await Product.update(ProductModify, {
                 where: {
-                    id: idProduct
+                    idProduct: idProduct
                 }
             })
+            
         } catch (error) {
            throw new Error(error); 
         }
@@ -83,7 +84,7 @@ module.exports = {
         try {
            await Product.destroy({
                 where: {
-                  id: idProduct
+                    idProduct: idProduct
                 }
             })
         } catch (error) {

@@ -40,13 +40,13 @@ const { User, Product, Review, Cart, PersonalData } = sequelize.models;
 Product.belongsToMany(User, { through: Cart })
 User.belongsToMany(Product, { through: Cart }) 
 /* RELACION ENTRE PRODUCTO Y REVIEW */
-Product.hasMany(Review, { as: "reviews" });
+Product.hasMany(Review);
 Review.belongsTo(Product);
 /* RELACION ENTRE USUARIO Y REVIEW */
-User.hasMany(Review/* , { as: "reviews" } */);
+User.hasMany(Review);
 Review.belongsTo(User);
 /* RELACION ENTRE USUARIO Y PERSONALDATA(P/COMPLETAR EN EL PERFIL PARA ENVIO) */
-User.hasOne(PersonalData/* ,{as: "personalData"} */);
+User.hasOne(PersonalData);
 PersonalData.belongsTo(User);
 
 

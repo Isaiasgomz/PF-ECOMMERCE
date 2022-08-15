@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     shippingAddress: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY(DataTypes.STRING),
       /* defaultValue: '' */
     },
     city: {

@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { userDetail, userPdata } = require("../controllers/userController");
+const { userDetail, userPdata, updatePersonalData } = require("../controllers/userController");
 const {User} = require('../db');
 const { route } = require("./Review");
 
@@ -26,7 +26,7 @@ router.post('/', async (req,res)=>{
         res.status(404).json(error)
     }
 })
-
+/* detalle de usuario */
 router.get('/:idUser', async(req,res)=>{
     const {idUser} = req.params
     try {
@@ -37,7 +37,7 @@ router.get('/:idUser', async(req,res)=>{
         res.status(404).send(error);
     }
 })
-
+/* crear personal data del usuario */
 router.post('/:idUser/personalData', async(req,res)=>{
     const {idUser} = req.params
     try {
@@ -48,5 +48,14 @@ router.post('/:idUser/personalData', async(req,res)=>{
         res.status(404).send(error);
     }
 })
-
+/* actualizar personal data de usuario */
+router.patch('/:idUser/updatePersonalData', async(req,res)=>{
+    const {idUser} = req.params
+    try {
+        updatePersonalData(idUser, req.body)
+        res.status(200).send('Datos Personales actualizados!')
+    } catch (error) {
+        res.status(404).send(error)
+    }
+})
 module.exports= router
