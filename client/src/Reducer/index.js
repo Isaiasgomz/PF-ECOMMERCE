@@ -3,7 +3,8 @@ const initialState = {
     Products: [],
     Detail: [],
     productDetail:{},
-    reviews:[]
+    reviews:[],
+    user: {}
 }
 
 export default function rootReducer(state = initialState, action) {

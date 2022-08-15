@@ -1,0 +1,9 @@
+.buttonLog{
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+.buttonLog:hover{
+    cursor: pointer;
+}
