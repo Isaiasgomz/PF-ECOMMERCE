@@ -21,6 +21,7 @@ module.exports = {
             let obj = {}
             let filtrado = api.map(e => {
                 obj = {
+                    
                     productName: e.name,
                     price: e.price,
                     image: e.image,

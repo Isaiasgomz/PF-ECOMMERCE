@@ -1,11 +1,13 @@
 import React from 'react'
-import Footer from '../Footer/Footer'
+import Cards from '../Cards/Cards.js'
+
 
 
 function Home() {
+
   return (
     <div>
-      <Footer/>
+      <Cards/>
     </div>
   )
 }

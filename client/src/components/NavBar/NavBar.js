@@ -12,7 +12,7 @@ function NavBar() {
     <div className={styles.menus}>
       <div className={styles.container}>
 
-        <Link to="/home"><button className={styles.cart}><i className="fa-solid fa-house"> </i> Place Holder Icono Landing</button></Link>
+        <Link to="/"><button className={styles.cart}><i className="fa-solid fa-house"> </i> Place Holder Icono Landing</button></Link>
         <SearchBar />
         <div className={styles.buttons}>
           <Link to="/Login"><button className={styles.cart}> Login</button></Link>

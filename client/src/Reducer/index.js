@@ -11,7 +11,7 @@ export default function rootReducer(state = initialState, action) {
         case 'GET_PRODUCTS':
             return {
                 ...state,
-                product: action.payload
+                Products: action.payload
             }
 
         case ' POST_PRODUCT':

@@ -14,10 +14,13 @@
     align-items: center;
     justify-content: center;
     border-right:2px solid black ;
+    padding: 5px 5px 5px 5px;
+overflow:hidden;
 }
 
-
+/* comentario: le agregue height para que no sobresalga de la card */
 .img{
+    height: 70%;
     width: 90%;
 }
 

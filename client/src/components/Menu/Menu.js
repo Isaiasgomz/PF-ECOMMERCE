@@ -6,7 +6,7 @@ import styles from "./Menu.module.css"
 function Menu() {
   return <div className={styles.categories}>
 
-    <Link to="/allProducts"><button className={styles.buttons}><i class="fa-solid fa-toolbox"></i></button></Link>
+    <Link to="/home"><button className={styles.buttons}><i className="fa-solid fa-toolbox"></i></button></Link>
     <Link to="/monitor"><button className={styles.buttons}><i className="fa-solid fa-desktop"></i> </button></Link>
     <Link to="/laptop"><button className={styles.buttons}><i className="fa-solid fa-laptop"></i> </button></Link>
     <Link to="/mouse"><button className={styles.buttons}><i className="fa-solid fa-computer-mouse"></i> </button></Link>
