@@ -32,8 +32,7 @@ module.exports = {
                 }
                 return obj;
             })
-            await Product.bulkCreate(filtrado);
-            return filtrado;
+            return await Product.bulkCreate(filtrado);
         } else {
             return allProducts;
         }

@@ -1,32 +1,36 @@
-const {DataTypes} = require('sequelize');
+const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    // defino el modelo
-    sequelize.define('PersonalData', {
-      email:{
-        type: DataTypes.STRING,
-        allowNull: false,
-        primaryKey:true,
-        validate: {
-          isEmail: {
-            msg: "Debe ser un email válido",
-          }
-        }
-      },
-      name:{
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      address:{
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      shippingAddress:{
-        type: DataTypes.STRING,
-      },
-      CP:{
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      }
-    });
+  // defino el modelo
+  sequelize.define('PersonalData', {
+    fullname: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    shippingAddress: {
+      type: DataTypes.STRING,
+      /* defaultValue: '' */
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    country: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    CP: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    telephone: {
+      type: DataTypes.INTEGER
+    }
+  }, {
+    timestamps: false
+  });
 };
