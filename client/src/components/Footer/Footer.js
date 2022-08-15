@@ -13,9 +13,9 @@ function Footer() {
         <button className={style.buttonFooter}>About</button>
       </div>
       <div className={style.containerIcons}>
-      <i class="fa-brands fa-instagram"></i>
-      <i class="fa-brands fa-facebook-f"></i>
-      <i class="fa-brands fa-linkedin-in"></i>
+      <i className="fa-brands fa-instagram"></i>
+      <i className="fa-brands fa-facebook-f"></i>
+      <i className="fa-brands fa-linkedin-in"></i>
       </div>
     </div>
     ) ;
