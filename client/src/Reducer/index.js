@@ -26,7 +26,8 @@ export default function rootReducer(state = initialState, action) {
         case 'PRODUCT_DETAIL':
             return {
                 ...state,
-                productDetail: action.payload
+                productDetail: action.payload,
+                reviews: action.payload.reviews
             }
             
         default:
