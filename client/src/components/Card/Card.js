@@ -22,7 +22,7 @@ function Card({name,price,img,calification}) {
             precision={0.5}
             readOnly
           />
-          <i class="fa-solid fa-cart-plus"></i>
+          <i className="fa-solid fa-cart-plus"></i>
         </div>
       </div>
     

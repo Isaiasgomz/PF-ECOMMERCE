@@ -29,7 +29,7 @@ module.exports = {
                     description: e.description,
                     qualification: e.calification,
                     stock: e.quantity,
-                    category: e.categories
+                    category: e.categories[0]
                 }
                 return obj;
             })
