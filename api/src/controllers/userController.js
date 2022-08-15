@@ -14,7 +14,10 @@ module.exports = {
                 }
             ]
             } )
-            return user;
+            if(user.length===0) throw 'Usuario no encontrado';
+            else{
+                return user;
+            }
         } catch (error) {
             throw error;
         }
@@ -22,20 +25,34 @@ module.exports = {
     userPdata: async function (email, pData){
         try{if(!pData.fullname || !pData.address || !pData.city || !pData.country || !pData.CP ) throw 'faltan datos obligatorios';
         else{
-            let obj={
+            /* let obj={
                 shippingAddress:[]
-            }
-            obj={
+            } */
+            /* obj={
                 UserEmail:email,
                 fullname:pData.fullname,
                 address:pData.address,
                 city:pData.city,
                 country:pData.country,
                 CP:pData.CP,
-                shippingAddress: !pData.shippingAddress?pData.address:pData.shippingAddress,
+                shippingAddress: obj.shippingAddress.concat( !pData.shippingAddress?pData.address:pData.shippingAddress),
                 telephone:!pData.telephone?'':pData.telephone
-            }
-            let newPData = await PersonalData.create(obj);
+            } */
+            let [newPData, created] = await PersonalData.findOrCreate({
+                where :{fullname:pData.fullname},
+                defaults:{
+                        UserEmail:email,
+                        fullname:pData.fullname,
+                        address:pData.address,
+                        city:pData.city,
+                        country:pData.country,
+                        CP:pData.CP,
+                        shippingAddress: pData.shippingAddress,
+                        telephone:pData.telephone
+                }
+            });
+            console.log(created)
+            /* await newPData.addUsers(email) */
             return newPData
         }}catch(e){
             return e;
