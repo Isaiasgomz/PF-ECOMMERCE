@@ -1,11 +1,16 @@
 import React from 'react'
-import Footer from '../Footer/Footer'
+import Cards from '../Cards/Cards.js'
+import styles from "./Home.module.css"
 
 
-function Home() {
+
+function Home(props) {
+
+  const category = props.match.params
+
   return (
-    <div>
-      <Footer/>
+    <div className={styles.cardsContainer}> 
+      <Cards filter={category}/>
     </div>
   )
 }

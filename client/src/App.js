@@ -14,8 +14,10 @@ function App() {
     <div className="App">
       <Route path="/" component={NavBar} />
       <Route exact path="/home" component={Home} />
+      <Route exact path="/category/:category" component={Home} />
       <Route exact path="/" component={Landing} />
       <Route path={"/"} component={Footer}/>
+
     </div>
   );
 }
