@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getProductDetail } from "../../Actions";
+import { createReview, getProductDetail } from "../../Actions";
 
 function Detail(props) {
   const id = props.match.params?.id;
@@ -9,35 +9,38 @@ function Detail(props) {
   const reviews = useSelector(state => state.reviews)
   const [state, setState] = useState({
     qualification: '',
-    review: 0
-})
+    review: '',
+    ProductIdProduct: id,
+    email: ""
+  })
   useEffect(() => {
     dispatch(getProductDetail(id))
   }, [dispatch, id])
-/* submit del form */
+  /* submit del form */
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createReview(state))
     setState({
       qualification: '',
-      review: 0
-  })
-}
-/* handle de select de valoracion */
-const handleChange = (e) => {
-  setError(validate({ ...state, [e.target.name]: e.target.value }))
-  if (e.target.name === 'difficulty') {
-      setState({
-          ...state,
-          [e.target.name]: parseInt(e.target.value)
-      })
-  } else {
-      setState({
-          ...state,
-          [e.target.name]: e.target.value
-      })
+      review: '',
+      ProductIdProduct: id,
+      email: ""
+    })
   }
-}
+  /* handle de select de valoracion */
+  const handleChange = (e) => {
+    if (e.target.name === 'qualification') {
+      setState({
+        ...state,
+        [e.target.name]: parseInt(e.target.value)
+      })
+    } else {
+      setState({
+        ...state,
+        [e.target.name]: e.target.value
+      })
+    }
+  }
   return (
     <div>
       <div className="conteiner-act">
@@ -62,12 +65,25 @@ const handleChange = (e) => {
               'No existen reviews aun'
               <form onSubmit={handleSubmit}>
                 <label> Valoracion:</label>
-                <select name="qualification" value={state.qualification} onChange={handleChange}></select>
+                <select name="qualification" value={state.qualification} onChange={handleChange}>
+                  <option value='1'>1</option>
+                  <option value='2'>2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <label> Comentario:</label>
+                <input type='textarea' name='review' value={state.review} onChange={handleChange} />
               </form>
             </div> : <div>
-              <p>Valoracion: {reviews.qualification} </p>
-              <p>Comentario: {reviews.review} </p>
-              <p>Usuario: {reviews.email}  </p>
+              {reviews?.map(e => {
+                return <div>
+                  <p>Valoracion: {e.qualification} </p>
+                  <p>Comentario: {e.review} </p>
+                  <p>Usuario: {e.email}  </p>
+                </div>
+              })}
+
             </div>}
 
         </div>

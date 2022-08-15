@@ -1,29 +1,37 @@
 import axios from 'axios';
 
-export function getProducts(){
-    return async function(dispatch){
+export function getProducts() {
+    return async function (dispatch) {
         const allData = await axios.get('http://localhost:3001/products')
-        return dispatch({type:'GET_PRODUCTS', payload: allData.data})
+        return dispatch({ type: 'GET_PRODUCTS', payload: allData.data })
     }
 }
 
-export function postProduct(product){
-    return async function (dispatch){
-       const newProduct = await axios.post('http://localhost:3001/products',product)
+export function postProduct(product) {
+    return async function (dispatch) {
+        const newProduct = await axios.post('http://localhost:3001/products', product)
         return newProduct
     }
 }
 
-export function postCustomer(customer){
-    return async function (dispatch){
-        const newCustomer = await axios.post('http://localhost:3001/customers',customer)
+export function postCustomer(customer) {
+    return async function (dispatch) {
+        const newCustomer = await axios.post('http://localhost:3001/customers', customer)
         return newCustomer
     }
 }
 
-export function getProductDetail(id){
-    return async function (dispatch){
+export function getProductDetail(id) {
+    return async function (dispatch) {
         const productDetail = await axios.get(`http://localhost:3001/products/${id}`)
-        return dispatch({type:'PRODUCT_DETAIL',payload:productDetail.data})
+        return dispatch({ type: 'PRODUCT_DETAIL', payload: productDetail.data })
     }
 }
+export function createReview(obj) {
+    return async function (dispatch) {
+        return axios.post(`http://localhost:3001/review`, { obj })
+            .then(data => alert('Review added!'))
+            .catch(error => alert(error.response.data))
+    }
+}
+
