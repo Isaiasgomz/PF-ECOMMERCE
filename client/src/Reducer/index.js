@@ -49,7 +49,7 @@ export default function rootReducer(state = initialState, action) {
             case 'ACTUAL_USER':
             return {
                 ...state,
-                User: action.payload
+                user: action.payload
             }
         default:
             return state
