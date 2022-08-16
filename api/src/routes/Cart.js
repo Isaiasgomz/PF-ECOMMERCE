@@ -33,9 +33,8 @@ router.get("/:email", async (req, res) => {
     let user = await User.findOne({
       where: { email: email },
       include: [{
-        model: Cart,
-        attributes: ["quantity"],
-        through: { attributes: [] },
+        model: Product,
+        through: { attributes: ["quantity"] },
       }],
     });
     user
