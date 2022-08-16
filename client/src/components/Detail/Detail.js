@@ -83,7 +83,18 @@ function Detail(props) {
                   <p>Usuario: {e.email}  </p>
                 </div>
               })}
-
+              <form onSubmit={handleSubmit}>
+                <label> Valoracion:</label>
+                <select name="qualification" value={state.qualification} onChange={handleChange}>
+                  <option value='1'>1</option>
+                  <option value='2'>2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <label> Comentario:</label>
+                <input type='textarea' name='review' value={state.review} onChange={handleChange} />
+              </form>
             </div>}
 
         </div>

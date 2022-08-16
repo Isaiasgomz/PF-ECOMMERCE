@@ -1,6 +1,18 @@
-.cardsContainer{
+
+.homeContainer{
+    display: flex;  
+    flex-direction: row; 
+    justify-content: center;
+
+}
+.cardsContaier{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.filterContainer{
+    display: flex;
+    justify-content: center;
 }

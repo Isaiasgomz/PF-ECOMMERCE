@@ -1,6 +1,7 @@
 
 const initialState = {
     Products: [],
+    productsByName: [],
     Detail: [],
     productDetail:{},
     reviews:[],
@@ -13,6 +14,16 @@ export default function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 Products: action.payload
+            }
+        case "GET_PRODUCTS_BY_NAME":
+            return{
+                ...state,
+                productsByName: action.payload
+            }
+        case "CLEAR_SEARCH":
+            return{
+                ...state,
+                productsByName: action.payload
             }
 
         case ' POST_PRODUCT':
@@ -30,7 +41,16 @@ export default function rootReducer(state = initialState, action) {
                 productDetail: action.payload,
                 reviews: action.payload.reviews
             }
-            
+        case 'SORT_PRODUCT':
+            return {
+                ...state,
+                Products: action.payload
+            }
+            case 'ACTUAL_USER':
+            return {
+                ...state,
+                User: action.payload
+            }
         default:
             return state
     }

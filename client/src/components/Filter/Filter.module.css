@@ -1,0 +1,16 @@
+.filterContainer{
+    margin: 10px;
+    padding: 20px;
+    height: 150px;
+    width: 150px;
+    background-color: gray;
+    border-radius: 15px;
+    
+}
+
+.selector{
+    background-color: rgb(20, 20, 20);
+    color: rgb(223, 223, 223);
+    border: none;
+    font-size: 17px;
+}

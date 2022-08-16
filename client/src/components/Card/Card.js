@@ -15,13 +15,13 @@ function Card({name,price,img,calification}) {
         </div>
         <div className={style.containerPriceCart}>
           <p>${price}</p>
-          <Rating
+          {/* <Rating
             name="half-rating"
             size="small"
             defaultValue={Number(calification)}
             precision={0.5}
             readOnly
-          />
+          /> */}
           <i className="fa-solid fa-cart-plus"></i>
         </div>
       </div>

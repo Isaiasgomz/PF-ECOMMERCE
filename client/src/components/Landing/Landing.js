@@ -1,13 +1,10 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getProducts } from '../../Actions/index.js';
 
 
 function Landing() {
 
-    /////////////////////// me traigo el estado global
-
-    const { Products } = useSelector(state => state)
 
     /////////////////////// declaro el dispatch
   
@@ -21,7 +18,7 @@ function Landing() {
 
   return (
     <div className="container">
-      {console.log(Products)}
+      
       <div
         id="carouselExampleIndicators"
         className="carousel slide"
