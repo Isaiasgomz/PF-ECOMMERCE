@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
+import { useDispatch } from "react-redux";
+import { getProductsByName } from '../../Actions'
 import styles from "../SearchBar/SearchBar.module.css"
 
 function SearchBar() {
+
+  const dispatch = useDispatch()
+
 
   const [search, setSearch] = useState({name:""})
   
@@ -12,10 +17,19 @@ function SearchBar() {
     })
   }
 
+  const onSubmit = (e) => {
+    e.preventDefault()
+    if(search.name === ""){return}
+        else{
+        dispatch(getProductsByName(search.name))
+        }
+        setSearch({name:""})
+  }
+
   return (
     <div>
       
-      <form>
+      <form onSubmit={onSubmit}>
     <input className={styles.searchBar} type="text" name="name" value={search.name} onChange={onChange}></input>
     <button className={styles.searchButton} type='submit'><i className="fa-solid fa-magnifying-glass"></i></button>
     </form>
