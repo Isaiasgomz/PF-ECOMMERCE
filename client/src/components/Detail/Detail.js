@@ -7,11 +7,12 @@ function Detail(props) {
   const dispatch = useDispatch();
   const product = useSelector(state => state.productDetail)
   const reviews = useSelector(state => state.reviews)
+  const user = useSelector(state=>state.user)
   const [state, setState] = useState({
     qualification: '',
     review: '',
     ProductIdProduct: id,
-    email: ""
+    email: user.email
   })
   useEffect(() => {
     dispatch(getProductDetail(id))
