@@ -5,6 +5,7 @@ const router = Router();
 const products = require('./Products.js');
 const review = require('./Review.js');
 const user = require ('./User');
+const cart = require ('./Cart.js')
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
@@ -15,5 +16,6 @@ router.use('/products', products)
 /* crear , traer detalle , crear personal data y actualizar personal data de usuario  */
 router.use('/user', user)
 
+router.use('/cart', cart)
 
 module.exports = router;
