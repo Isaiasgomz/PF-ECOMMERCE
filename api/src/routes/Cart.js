@@ -6,14 +6,22 @@ const { productByName } = require("../controllers/productsController");
 const router = Router();
 
 //agregar un producto a la lista cart de un usuario
-router.get("/", async (req, res) => {
-  const { product } = req.query;
+router.post("/", async (req, res) => {
+  const { idProduct, email } = req.body;
 
-  if (product) {
-    let productName = await productByName(product);
-    if (productName) {
+  try{
+      if (idProduct && email) {
+   let user = await User.findByPk(email)
+   let product = await Product.findByPk(idProduct)
+   await user.addProduct(product);
 
-    }
+     res.status(200).send("Se ha añadido al carrito") 
+  } else {
+    res.status(400).send("Debes loguearte para añadir al carrito.")
+  }
+
+  } catch(error){
+    res.status(404).send(error)
   }
 });
 
@@ -23,12 +31,12 @@ router.get("/:email", async (req, res) => {
 
   if (email) {
     let user = await User.findOne({
-      where: { email: { [Op.iLike]: `%${email}%` } },
-      include: {
+      where: { email: email },
+      include: [{
         model: Cart,
         attributes: ["quantity"],
         through: { attributes: [] },
-      },
+      }],
     });
     user
       ? res.status(200).json(user)
