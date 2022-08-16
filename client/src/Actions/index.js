@@ -25,10 +25,11 @@ export function postProduct(product) {
     }
 }
 
-export function postCustomer(customer) {
+export function postUser(user) {
     return async function (dispatch) {
-        const newCustomer = await axios.post('http://localhost:3001/customers', customer)
-        return newCustomer
+        const newUser = await axios.post('http://localhost:3001/user', {user})
+        .catch(error => alert(error.response.data))
+        return dispatch({ type: 'ACTUAL_USER', payload: newUser.data })
     }
 }
 
@@ -39,7 +40,7 @@ export function getProductDetail(id) {
     }
 }
 export function createReview(obj) {
-    return async function (dispatch) {
+    return async function () {
         return axios.post(`http://localhost:3001/review`, { obj })
             .then(data => alert('Review added!'))
             .catch(error => alert(error.response.data))

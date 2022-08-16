@@ -13,10 +13,6 @@ module.exports = (sequelize) => {
             msg: "Debe ser un email válido",}
         }
     },
-    password:{
-        type: DataTypes.STRING, // AUTH0 AUTENTICACION!!!
-        allowNull: false,   
-    },
     admin:{
         type:DataTypes.BOOLEAN,
         defaultValue: true,

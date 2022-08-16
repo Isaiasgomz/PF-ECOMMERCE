@@ -46,7 +46,11 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 Products: action.payload
             }
-            
+            case 'ACTUAL_USER':
+            return {
+                ...state,
+                User: action.payload
+            }
         default:
             return state
     }
