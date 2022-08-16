@@ -32,9 +32,7 @@ let obj={}
 
   return (
     isAuthenticated && (
-      <div>
         <p className={style.mailUser}>{user.email}</p>
-      </div>
     )
   );
 };
