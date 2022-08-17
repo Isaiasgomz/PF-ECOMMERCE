@@ -1,4 +1,4 @@
-const { Op, User, Review, PersonalData, PurchaseOrder } = require('../db');
+const { Op, User, Review, PersonalData, PurchaseOrder , Product } = require('../db');
 
 
 
@@ -13,11 +13,15 @@ module.exports = {
                     model:PersonalData
                 },{
                     model:PurchaseOrder
+                },{
+                    model:Product,
+                    attributes:["idProduct"],
+                    through: { attributes: [] }
                 }
-
-            ]
+            ],
+            
             } )
-            if(user.length===0) throw 'Usuario no encontrado';
+            if(!user) throw 'Usuario no encontrado';
             else{
                 return user;
             }
