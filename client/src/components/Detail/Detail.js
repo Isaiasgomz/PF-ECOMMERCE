@@ -84,6 +84,8 @@ function Detail(props) {
                   <p>Usuario: {e.email}  </p>
                 </div>
               })}
+              {Object.Keys(user).length>0?
+              <div>
               <form onSubmit={handleSubmit}>
                 <label> Valoracion:</label>
                 <select name="qualification" value={state.qualification} onChange={handleChange}>
@@ -96,6 +98,8 @@ function Detail(props) {
                 <label> Comentario:</label>
                 <input type='textarea' name='review' value={state.review} onChange={handleChange} />
               </form>
+              </div>: <p> Necesitas loguearte para dejar comentario</p>
+              }
             </div>}
 
         </div>
