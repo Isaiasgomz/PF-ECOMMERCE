@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { clearAllFilters, clearSearch, getProducts, sortProductByBrand, sortProductByCategory, sortProductByPrice } from '../../Actions'
+import { clearAllFilters, getProducts, sortProductByBrand, sortProductByCategory, sortProductByPrice } from '../../Actions'
 import styles from "./Filter.module.css"
 
 
@@ -46,7 +46,7 @@ function Filter(props) {
     }
 
     const sortByBrand = (e) => {
-        /* dispatch(clearSearch()) */
+        
         if (e.target.value === "default") { dispatch(getProducts()); dispatch(clearAllFilters()) }
         let productSorted = (
             !!productsByName?.length
@@ -62,7 +62,7 @@ function Filter(props) {
     }
 
     const sortByCategory = (e) => {
-        /* dispatch(clearSearch()) */
+        
         if (e.target.value === "default") { dispatch(getProducts()); dispatch(clearAllFilters()) }
         let productSorted = (
             !!productsByName?.length
@@ -132,8 +132,7 @@ function Filter(props) {
             </select>
 
             <select className={styles.selector} onChange={sortByCategory}>
-                <option value="default">Select a Category</option>
-                <option value="default">All Category</option>
+                <option value="default">All Categories</option>
                 {category?.map((e, index) => <option key={index} value={e}>{e}</option>)}
             </select>
 
