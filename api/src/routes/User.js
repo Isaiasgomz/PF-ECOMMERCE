@@ -5,8 +5,6 @@ const { route } = require("./Review");
 
 const router = Router()
 
-
-
 // REVISAR DIFERENCIAS CON AUTH0 Y MODELO DB
 router.post('/', async (req,res)=>{
     try {

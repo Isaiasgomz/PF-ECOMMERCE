@@ -5,7 +5,8 @@ const router = Router();
 const products = require('./Products.js');
 const review = require('./Review.js');
 const user = require ('./User');
-const cart = require ('./Cart.js')
+const cart = require ('./Cart.js');
+const purchases = require ('./Purchase.js');
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
@@ -17,5 +18,7 @@ router.use('/products', products)
 router.use('/user', user)
 
 router.use('/cart', cart)
+
+router.use('/purchases', purchases)
 
 module.exports = router;

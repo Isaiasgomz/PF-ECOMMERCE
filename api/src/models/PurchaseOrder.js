@@ -5,19 +5,13 @@ module.exports = (sequelize) => {
     sequelize.define('PurchaseOrder', {
         orderN:{
             type: DataTypes.INTEGER,
+            autoIncrement: true,
             primaryKey:true,            
-        },
-        email:{
-            type: DataTypes.STRING,
-            allowNull: false,            
-            validate: {
-                isEmail: {
-                msg: "Debe ser un email válido",
-                }
-            }
         },
         date:{
             type: DataTypes.DATEONLY,           
         },
+    },{
+        timestamps:false
     });
 ;}
