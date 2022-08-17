@@ -7,8 +7,7 @@ module.exports = {
             if(!email) throw 'Faltan datos obligatorios';
                 else{
                     let order= {
-                            UserEmail: email/* ,
-                            date */
+                            UserEmail: email
                     }
                     let newOrder = await PurchaseOrder.create(order);
                     return newOrder;

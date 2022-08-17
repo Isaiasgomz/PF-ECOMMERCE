@@ -23,7 +23,6 @@ router.post('/', async (req,res)=>{
                 admin:user.admin
             }
     })
-    console.log(newUser)
     res.status(200).json(newUser)
     } catch (error) {
         res.status(400).json(error)

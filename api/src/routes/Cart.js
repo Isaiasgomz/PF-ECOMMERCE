@@ -1,29 +1,43 @@
 const { Router } = require("express");
-const { User, Cart, Product } = require("../db");
+const { User, Product } = require("../db");
 const { Op } = require("sequelize");
 const { productByName } = require("../controllers/productsController");
 
 const router = Router();
-
 //agregar un producto a la lista cart de un usuario
 router.post("/", async (req, res) => {
   const { idProduct, email } = req.body;
+  
+  try {
+    if (idProduct && email) {
+      let user = await User.findByPk(email)
+      let product = await Product.findAll({
+        where: {
+          idProduct: idProduct
+        }
+      })
+      await user.addProducts(product);
 
-  try{
-      if (idProduct && email) {
-   let user = await User.findByPk(email)
-   let product = await Product.findByPk(idProduct)
-   await user.addProduct(product);
+      res.status(200).send("Se ha añadido al carrito")
+    } else {
+      res.status(400).send("Debes loguearte para añadir al carrito.")
+    }
 
-     res.status(200).send("Se ha añadido al carrito") 
-  } else {
-    res.status(400).send("Debes loguearte para añadir al carrito.")
-  }
-
-  } catch(error){
+  } catch (error) {
     res.status(404).send(error)
   }
 });
+
+router.post("/:idProduct", async (req, res) => {
+  
+  const { idProduct,quantity } = req.body;
+  try {
+    let addQuantity = await postQuantity(idProduct, quantity);
+    res.status(201).send(addQuantity);
+  } catch (error) {
+    res.status(400).send(error)
+  }
+})
 
 //mostrar los productos que estan agregados al carrito
 router.get("/:email", async (req, res) => {
