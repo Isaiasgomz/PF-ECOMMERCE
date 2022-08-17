@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { User, Cart, Product } = require("../db");
+const { User, Product } = require("../db");
 const { Op } = require("sequelize");
 const { productByName } = require("../controllers/productsController");
 
@@ -24,6 +24,17 @@ router.post("/", async (req, res) => {
     res.status(404).send(error)
   }
 });
+
+router.post("/:email", async (req, res) => {
+  const {email} = req.params;
+  const {quantity} = req.body;
+  try {
+    let addQuantity = await postQuantity(email, quantity);
+    res.status(201).send(addQuantity);
+  } catch (error) {
+    res.status(400).send(error)
+    }
+})
 
 //mostrar los productos que estan agregados al carrito
 router.get("/:email", async (req, res) => {
