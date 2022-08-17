@@ -18,7 +18,7 @@ router.use('/products', products)
 router.use('/user', user)
 
 router.use('/cart', cart)
-
+/* Orden de compra */
 router.use('/purchases', purchases)
 
 module.exports = router;

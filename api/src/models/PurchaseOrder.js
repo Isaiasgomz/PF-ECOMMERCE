@@ -9,7 +9,8 @@ module.exports = (sequelize) => {
             primaryKey:true,            
         },
         date:{
-            type: DataTypes.DATEONLY,           
+            type: DataTypes.DATEONLY,
+            defaultValue: DataTypes.NOW           
         },
     },{
         timestamps:false
