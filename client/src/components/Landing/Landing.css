@@ -15,8 +15,11 @@
 }
 
 .carousel-inner {
-  display: inline-block;
+  height: 650px;
   width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .d-block {

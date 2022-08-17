@@ -5,7 +5,8 @@ const initialState = {
     Detail: [],
     productDetail:{},
     reviews:[],
-    user: {}
+    user: {},
+    productsBackUp:[]
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -13,7 +14,8 @@ export default function rootReducer(state = initialState, action) {
         case 'GET_PRODUCTS':
             return {
                 ...state,
-                Products: action.payload
+                Products: action.payload,
+                productsBackUp: action.payload
             }
         case "GET_PRODUCTS_BY_NAME":
             return{

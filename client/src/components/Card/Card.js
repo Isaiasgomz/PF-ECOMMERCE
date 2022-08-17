@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from "./Card.module.css"
 import { Rating } from "@mui/material";
 
-function Card({name,price,img,calification}) {
+function Card({name,price,img,calification,ob,store}) {
+
+  // const [storageP, setStorageP] = useState([]);
+  
+  // const storageProducts = (o)=>{
+  //   let arr = []
+  //   arr.push(o)
+  //   setStorageP([...storageP,o])
+  //   console.log(arr)
+  //   localStorage.setItem("productsCart", JSON.stringify(storageP))
+  // }
+
   return (
     <div className={style.containerCard}>
       <div className={style.containerImg}>
@@ -22,7 +33,7 @@ function Card({name,price,img,calification}) {
             precision={0.5}
             readOnly
           /> */}
-          <i className="fa-solid fa-cart-plus"></i>
+          <i onClick={()=>store()} className="fa-solid fa-cart-plus"></i>
         </div>
       </div>
     
