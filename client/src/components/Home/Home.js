@@ -17,7 +17,7 @@ function Home(props) {
   
   return (
     <div className={styles.homeContainer}>
-     <div className={styles.filterContainer}><Filter/></div> 
+     <div className={styles.filterContainer}><Filter filter={category}/></div> 
     <div className={styles.cardsContainer}> <Cards filter={category}/> </div>
     </div>
   )

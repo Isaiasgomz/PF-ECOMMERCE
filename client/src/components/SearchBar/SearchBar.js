@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from "react-redux";
+/* import { Link } from 'react-router-dom'; */
 import { getProductsByName } from '../../Actions'
 import styles from "../SearchBar/SearchBar.module.css"
 
@@ -31,7 +32,7 @@ function SearchBar() {
       
       <form onSubmit={onSubmit}>
     <input className={styles.searchBar} type="text" name="name" value={search.name} onChange={onChange}></input>
-    <button className={styles.searchButton} type='submit'><i className="fa-solid fa-magnifying-glass"></i></button>
+    {/* <Link to="/search"> */}<button className={styles.searchButton} type='submit' onSubmit={onSubmit}><i className="fa-solid fa-magnifying-glass"></i></button>{/* </Link> */}
     </form>
     
     </div>

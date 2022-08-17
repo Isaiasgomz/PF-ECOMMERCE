@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { sortProductByPrice } from '../../Actions'
+import { clearAllFilters, clearSearch, getProducts, sortProductByBrand, sortProductByCategory, sortProductByPrice } from '../../Actions'
 import styles from "./Filter.module.css"
 
 
-function Filter() {
-    
-    const {productsByName} = useSelector(state => state)
+function Filter(props) {
+
+    const { AllProducts } = useSelector(state => state)
+    const { productsByCategory } = useSelector(state => state)
+    const { productsByBrand } = useSelector(state => state)
+    const { productsByName } = useSelector(state => state)
     const { Products } = useSelector(state => state)
     const dispatch = useDispatch()
 
+    
+
     function sortByPrice(e) {
+        if (e.target.value === "default") { return }
         if (e.target.value === "cheaper") {
             let productSorted = (productsByName.length === 0 ? Products : productsByName).sort((product1, product2) => {
                 if (product1.price < product2.price) {
@@ -35,34 +41,106 @@ function Filter() {
                 }
             })
 
-            dispatch(sortProductByPrice(productSorted))     
+            dispatch(sortProductByPrice(productSorted))
         }
     }
 
-    let brands = (productsByName.length === 0 ? Products : productsByName)?.map( e => e.brand)
-    let unique = new Set(brands)
-    let final = [...unique]
+    const sortByBrand = (e) => {
+        /* dispatch(clearSearch()) */
+        if (e.target.value === "default") { dispatch(getProducts()); dispatch(clearAllFilters()) }
+        let productSorted = (
+            !!productsByName?.length
+                ?
+                productsByName
+                :
+                !!productsByCategory?.length
+                    ?
+                    productsByCategory
+                    :
+                    AllProducts).filter(g => g.brand === e.target.value)
+        dispatch(sortProductByBrand(productSorted))
+    }
 
-    console.log(final)
+    const sortByCategory = (e) => {
+        /* dispatch(clearSearch()) */
+        if (e.target.value === "default") { dispatch(getProducts()); dispatch(clearAllFilters()) }
+        let productSorted = (
+            !!productsByName?.length
+                ?
+                productsByName
+                :
+                !!productsByBrand?.length
+                    ?
+                    productsByBrand
+                    :
+                    AllProducts).filter(g => g.category === e.target.value)
+        dispatch(sortProductByCategory(productSorted))
+    }
+
+    const clearFilters = (e) =>{
+        dispatch(clearAllFilters())
+        dispatch(getProducts())
+    }
+
+    ////////////// aca estan todas con las categorias //////////////
+    let arrCat =
+
+        !!productsByName?.length ? productsByName?.map(e => e.category)
+            :
+            !!productsByBrand?.length
+                ?
+                productsByBrand?.map(e => e.category)
+
+                :
+                AllProducts?.map(e => e.category)
+
+    let categorias = new Set(arrCat)
+    const category = [...categorias]
 
 
-  
-  return (
-    <div className={styles.filterContainer}> 
+    ///////////// aca estan todas las marcas //////////////////////
 
-      <select className={styles.selector} onChange={sortByPrice}>
-        <option>Order by Price</option>
-        <option value="cheaper">cheaper</option>
-        <option value="expensive">expensive</option>
-      </select>
+    let arrMarca =
 
-      <select>
-        <option>Select a Brand</option>
-        {final?.map((e,index) => <option key={index} value={e}>{e}</option>)}
-      </select>
+        !!productsByName?.length ? productsByName?.map(e => e.brand)
+            :
+            !!productsByCategory?.length
+                ?
+                productsByCategory?.map(e => e.brand)
 
-    </div>
-  )
+                :
+                AllProducts?.map(e => e.brand)
+
+    let marcas = new Set(arrMarca)
+
+    const brands = [...marcas]
+
+
+
+    return (
+        <div className={styles.filterContainer}>
+
+            <select className={styles.selector} onChange={sortByPrice}>
+                <option value="default">Order by Price</option>
+                <option value="cheaper">cheaper</option>
+                <option value="expensive">expensive</option>
+            </select>
+
+            <select className={styles.selector} onChange={sortByBrand}>
+                <option value="default">All Brands</option>
+                {brands?.map((e, index) => <option key={index} value={e}>{e}</option>)}
+            </select>
+
+            <select className={styles.selector} onChange={sortByCategory}>
+                <option value="default">Select a Category</option>
+                <option value="default">All Category</option>
+                {category?.map((e, index) => <option key={index} value={e}>{e}</option>)}
+            </select>
+
+            <button onClick={clearFilters}>clear</button>
+
+        </div>
+    )
 }
 
 export default Filter

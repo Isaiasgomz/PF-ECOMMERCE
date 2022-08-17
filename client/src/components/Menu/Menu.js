@@ -9,21 +9,23 @@ function Menu() {
 
   
   const {productsByName} = useSelector(state => state)
-  const dispatch = useDispatch()
+   const dispatch = useDispatch()
 
-  const clear = () =>{
+  const clear = (e) =>{
     if(productsByName?.length === 0){return}
     dispatch(clearSearch())
+    
   }
 
-  return <div className={styles.categories}>
 
-    <Link to="/home"><button className={styles.buttons} onClick={clear} ><i className="fa-solid fa-toolbox"></i></button></Link>
-    <Link to="/category/monitor"><button className={styles.buttons} onClick={clear}><i className="fa-solid fa-desktop"></i> </button></Link>
-    <Link to="/category/laptop"><button className={styles.buttons} onClick={clear}><i className="fa-solid fa-laptop"></i> </button></Link>
-    <Link to="/category/mouse"><button className={styles.buttons} onClick={clear}><i className="fa-solid fa-computer-mouse"></i> </button></Link>
-    <Link to="/category/keyboard"><button className={styles.buttons} onClick={clear}><i className="fa-solid fa-keyboard"></i> </button></Link>
-    <Link to="/category/headset"><button className={styles.buttons} onClick={clear}><i className="fa-solid fa-headset"></i> </button></Link>
+  return <div className={styles.categories}>
+    
+    <Link to="/home"><button className={styles.buttons} onClick={clear} ><i className="fa-solid fa-home"></i></button></Link>
+    <Link to="/category/monitor"><button className={styles.buttons} name="monitor" onClick={clear}><i className="fa-solid fa-desktop"></i> </button></Link>
+    <Link to="/category/laptop"><button className={styles.buttons} name="laptop" onClick={clear}><i className="fa-solid fa-laptop"></i> </button></Link>
+    <Link to="/category/mouse"><button className={styles.buttons} name="mouse" onClick={clear}><i className="fa-solid fa-mouse"></i> </button></Link>
+    <Link to="/category/keyboard"><button className={styles.buttons} name="keyboard" onClick={clear}><i className="fa-solid fa-keyboard"></i> </button></Link>
+    <Link to="/category/headset"><button className={styles.buttons} name="headset" onClick={clear}><i className="fa-solid fa-headset"></i> </button></Link>
 {
     <select className={styles.selector}>
       <option>All products</option>

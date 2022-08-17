@@ -1,11 +1,14 @@
 
 const initialState = {
+    AllProducts: [],
     Products: [],
+    productsByCategory: [],
+    productsByBrand: [],
     productsByName: [],
     Detail: [],
-    productDetail:{},
-    reviews:[],
-    user: {}
+    productDetail: {},
+    reviews: [],
+    user: {},
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -13,15 +16,17 @@ export default function rootReducer(state = initialState, action) {
         case 'GET_PRODUCTS':
             return {
                 ...state,
+                AllProducts: action.payload,
                 Products: action.payload
             }
         case "GET_PRODUCTS_BY_NAME":
-            return{
+            return {
                 ...state,
-                productsByName: action.payload
+                productsByName: action.payload,
+                Products: action.payload
             }
         case "CLEAR_SEARCH":
-            return{
+            return {
                 ...state,
                 productsByName: action.payload
             }
@@ -41,12 +46,32 @@ export default function rootReducer(state = initialState, action) {
                 productDetail: action.payload,
                 reviews: action.payload.reviews
             }
-        case 'SORT_PRODUCT':
+        case 'SORT_PRODUCT_PRICE':
             return {
                 ...state,
                 Products: action.payload
             }
-            
+        case 'SORT_PRODUCT_BRAND':
+            return {
+                ...state,
+                productsByBrand: action.payload,
+                Products: action.payload
+            }
+        case 'SORT_PRODUCT_CATEGORY':
+            return {
+                ...state,
+                productsByCategory: action.payload,
+                Products: action.payload
+            }
+        case "CLEAR_FILTERS":
+            return {
+                ...state,
+                Products: [],
+                productsByCategory: [],
+                productsByBrand: [],
+                productsByName: [],
+            }
+
         default:
             return state
     }
