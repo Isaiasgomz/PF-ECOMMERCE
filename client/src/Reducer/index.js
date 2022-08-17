@@ -6,9 +6,11 @@ const initialState = {
     productsByBrand: [],
     productsByName: [],
     Detail: [],
-    productDetail: {},
-    reviews: [],
+    productDetail:{},
+    reviews:[],
     user: {},
+    productsBackUp:[]
+
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -17,7 +19,9 @@ export default function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 AllProducts: action.payload,
-                Products: action.payload
+                Products: action.payload,
+                productsBackUp: action.payload
+
             }
         case "GET_PRODUCTS_BY_NAME":
             return {
@@ -57,6 +61,7 @@ export default function rootReducer(state = initialState, action) {
                 productsByBrand: action.payload,
                 Products: action.payload
             }
+
         case 'SORT_PRODUCT_CATEGORY':
             return {
                 ...state,
@@ -70,6 +75,12 @@ export default function rootReducer(state = initialState, action) {
                 productsByCategory: [],
                 productsByBrand: [],
                 productsByName: [],
+            }
+
+            case 'ACTUAL_USER':
+            return {
+                ...state,
+                user: action.payload
             }
 
         default:

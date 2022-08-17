@@ -1,10 +1,11 @@
 .containerCard{
     border: 2px solid black;
-    width: 500px;
-    height: 120px;
+    width: 600px;
+    height: 175px;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    border-radius: 10px;
 }
 
 .containerImg{
@@ -41,6 +42,9 @@ overflow:hidden;
     justify-content: center;
     border-bottom: 2px solid black;
 }
+.containerTitle p{
+    margin: 0;
+}
 
 .containerPriceCart{
     width: 80%;
@@ -48,4 +52,8 @@ overflow:hidden;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.containerPriceCart p{
+    margin: 0;
 }

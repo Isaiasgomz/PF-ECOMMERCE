@@ -6,7 +6,9 @@ module.exports = (sequelize) => {
   sequelize.define('Cart', {
     quantity: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      // allowNull: false,
     },
-  }); 
+  },{
+    timestamps:false
+}); 
 };

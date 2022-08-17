@@ -1,35 +1,33 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getProducts } from '../../Actions/index.js';
+import { getProducts } from "../../Actions/index.js";
+import "./Landing.css";
 
 
 function Landing() {
+  /////////////////////// declaro el dispatch
 
+  const dispatch = useDispatch();
 
-    /////////////////////// declaro el dispatch
-  
-    const dispatch = useDispatch()
-  
-    /////////////////////// al montar el componente me traigo los productos
-  
-    useEffect(() => { dispatch(getProducts()) },[dispatch])
-  
+  /////////////////////// al montar el componente me traigo los productos
 
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
 
   return (
-    <div className="container">
-      
+    <div class="container">
       <div
         id="carouselExampleIndicators"
-        className="carousel slide"
+        class="carousel slide"
         data-bs-ride="true"
       >
-        <div className="carousel-indicators">
+        <div class="carousel-indicators">
           <button
             type="button"
             data-bs-target="#carouselExampleIndicators"
             data-bs-slide-to="0"
-            className="active"
+            class="active"
             aria-current="true"
             aria-label="Slide 1"
           ></button>
@@ -45,50 +43,88 @@ function Landing() {
             data-bs-slide-to="2"
             aria-label="Slide 3"
           ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="3"
+            aria-label="Slide 4"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="4"
+            aria-label="Slide 5"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="5"
+            aria-label="Slide 6"
+          ></button>
         </div>
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img
-              src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1120&q=80"
-              className="d-block w-100"
-              alt="..."
-            />
-          </div>
-          <div className="carousel-item">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
             <img
               src="https://cdn.mos.cms.futurecdn.net/xyiGWw8VkpBkeEXifog8Jh.jpg"
-              className="d-block w-100"
+              class="d-block"
               alt="..."
             />
           </div>
-          <div className="carousel-item">
+          <div class="carousel-item">
             <img
               src="https://dlcdnrog.asus.com/rog/media/1640742394134.jpg"
-              className="d-block w-100"
+              class="d-block"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://www.redsharknews.com/hubfs/ASUS_14X_Space_Edition2-jpg.jpeg"
+              class="d-block"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://press.razer.com/wp-content/uploads/2019/01/Blade-15-2019-Advanced-Model-Studio-Photo-02-1-1024x683.png"
+              class="d-block"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://nissei.com/media/wysiwyg/Triton_500_SE_AGW_KSP01.jpg"
+              class="d-block"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://i.blogs.es/6c6cdf/acer-predator-helios-300/1366_2000.jpeg"
+              class="d-block"
               alt="..."
             />
           </div>
         </div>
         <button
-          className="carousel-control-prev"
+          class="carousel-control-prev"
           type="button"
           data-bs-target="#carouselExampleIndicators"
           data-bs-slide="prev"
         >
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
         </button>
         <button
-          className="carousel-control-next"
+          class="carousel-control-next"
           type="button"
           data-bs-target="#carouselExampleIndicators"
           data-bs-slide="next"
         >
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
         </button>
       </div>
-
     </div>
   );
 }

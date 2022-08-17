@@ -1,9 +1,9 @@
-const { Op, User, Review, PersonalData } = require('../db');
+const { Op, User, Review, PersonalData, PurchaseOrder } = require('../db');
 
 
 
 module.exports = {
-    /* detalle de producto por params */
+    /* detalle de producto por params + review + personal data */
     userDetail: async function (email) {
         try {
             let user = await User.findByPk(email, {
@@ -11,7 +11,10 @@ module.exports = {
                     model:Review
                 },{
                     model:PersonalData
+                },{
+                    model:PurchaseOrder
                 }
+
             ]
             } )
             if(user.length===0) throw 'Usuario no encontrado';

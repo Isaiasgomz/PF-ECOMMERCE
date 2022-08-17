@@ -18,10 +18,15 @@ function NavBar() {
   return (
     <div className={styles.menus}>
       <div className={styles.container}>
+        <div className={styles.divs}>
 
-        <Link to="/"><button className={styles.cart}><i className="fa-solid fa-house"> </i> Place Holder Icono Landing</button></Link>
+          <Link to="/"><button className={styles.cart}><i className="fa-solid fa-house"> </i> Place Holder Icono Landing</button></Link>
 
-        <SearchBar />
+        </div>
+        <div className={styles.divs}>
+
+          <SearchBar />
+        </div>
         <div className={styles.buttons}>
           
           {isAuthenticated?(
@@ -37,7 +42,7 @@ function NavBar() {
         </div>
 
       </div>
-      <div ><Menu /></div>
+      <div className={styles.a} ><Menu /></div>
     </div>
   )
 }
