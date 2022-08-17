@@ -32,7 +32,7 @@ export default function rootReducer(state = initialState, action) {
         case "CLEAR_SEARCH":
             return {
                 ...state,
-                productsByName: action.payload
+                productsByBrand: action.payload
             }
 
         case ' POST_PRODUCT':
