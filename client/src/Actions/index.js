@@ -71,3 +71,10 @@ export function sortProductByCategory(array){
 export function clearAllFilters(){
     return { type: "CLEAR_FILTERS" }
  }
+
+ export function setCart(arr){
+    return{
+        type: "SET_CART",
+        payload:arr
+    }
+}
