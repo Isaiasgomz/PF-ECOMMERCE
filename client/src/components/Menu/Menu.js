@@ -1,40 +1,44 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { clearSearch } from "../../Actions";
+import { clearAllFilters, clearSearch, getProducts, sortProductByCategory } from "../../Actions";
 import styles from "./Menu.module.css"
 
 
 function Menu() {
 
-  
+  const {AllProducts} = useSelector(state => state)
   const {productsByName} = useSelector(state => state)
    const dispatch = useDispatch()
 
   const clear = (e) =>{
-    if(productsByName?.length === 0){return}
-    dispatch(clearSearch())
+    
+    dispatch(getProducts())
     
   }
 
+  const sortByCategory = (e) => {
+    console.log(e)
+    let productSorted = AllProducts?.filter(g => g.category === e)
+    dispatch(sortProductByCategory(productSorted))
+    dispatch(clearSearch())
+}
+
+let categorias = new Set(AllProducts?.map(e => e.category))
+const category = [...categorias]
 
   return <div className={styles.categories}>
     
     <Link to="/home"><button className={styles.buttons} onClick={clear} ><i className="fa-solid fa-home"></i></button></Link>
-    <Link to="/category/monitor"><button className={styles.buttons} name="monitor" onClick={clear}><i className="fa-solid fa-desktop"></i> </button></Link>
-    <Link to="/category/laptop"><button className={styles.buttons} name="laptop" onClick={clear}><i className="fa-solid fa-laptop"></i> </button></Link>
-    <Link to="/category/mouse"><button className={styles.buttons} name="mouse" onClick={clear}><i className="fa-solid fa-mouse"></i> </button></Link>
-    <Link to="/category/keyboard"><button className={styles.buttons} name="keyboard" onClick={clear}><i className="fa-solid fa-keyboard"></i> </button></Link>
-    <Link to="/category/headset"><button className={styles.buttons} name="headset" onClick={clear}><i className="fa-solid fa-headset"></i> </button></Link>
-{
-    <select className={styles.selector}>
-      <option>All products</option>
-      <option>monitor</option>
-      <option>laptop</option>
-      <option>mouse</option>
-      <option>keyboard</option>
-      <option>headset</option>
-    </select>}
+    
+    {category?.map( (e,index) => {
+    
+      if(e === "Monitors"){
+        return (<Link to="/home"><button key={e} className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}><i className={`fa-solid fa-desktop`}></i></button></Link>)
+
+      }
+      return (<Link to="/home"><button key={e} className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}><i className={`fa-solid fa-${e.toLowerCase().slice(0,-1)}`}></i> </button></Link>)
+    })}
 
   </div>;
 }
