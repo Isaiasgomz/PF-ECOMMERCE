@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from "./Card.module.css"
 import { Rating } from "@mui/material";
 
-function Card({name,price,img,calification}) {
+function Card({name,price,img,calification,localStor,ob}) {
+
+
+
   return (
     <div className={style.containerCard}>
       <div className={style.containerImg}>
@@ -22,7 +25,7 @@ function Card({name,price,img,calification}) {
             precision={0.5}
             readOnly
           /> */}
-          <i className="fa-solid fa-cart-plus"></i>
+          <i onClick={()=>localStor(ob)} className="fa-solid fa-cart-plus"></i>
         </div>
       </div>
     

@@ -10,6 +10,8 @@ import Order from "./components/Order/Order";
 import Payment from "./components/Payment/Payment"
 import CreateProduct from "./components/CreateProduct/CreateProduct";
 
+
+
 function App() {
   return (
     <div className="App">
@@ -19,12 +21,12 @@ function App() {
       <Route exact path="/category/:category" component={Home} />
       <Route exact path="/" component={Landing} />
       <Route exact path="/about" component={About} />
-
-
       <Route exact path="/shoppingCar" component={ShoppingCar} />
       <Route exact path="/order" component={Order} />
       <Route exact path="/payment" component={Payment} />
       <Route exact path="/createProduct" component={CreateProduct} /> 
+      <Route exact path={"/cart"} component={ShoppingCar} />
+      <Route path={"/"} component={Footer} />
 
     </div>
   );

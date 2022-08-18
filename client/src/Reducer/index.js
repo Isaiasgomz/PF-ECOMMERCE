@@ -1,11 +1,17 @@
 
 const initialState = {
+    AllProducts: [],
     Products: [],
+    productsByCategory: [],
+    productsByBrand: [],
     productsByName: [],
     Detail: [],
     productDetail:{},
     reviews:[],
-    user: {}
+    user: {},
+    productsBackUp:[],
+    cart:[]
+
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -13,17 +19,21 @@ export default function rootReducer(state = initialState, action) {
         case 'GET_PRODUCTS':
             return {
                 ...state,
-                Products: action.payload
+                AllProducts: action.payload,
+                Products: action.payload,
+                productsBackUp: action.payload
+
             }
         case "GET_PRODUCTS_BY_NAME":
-            return{
+            return {
                 ...state,
-                productsByName: action.payload
+                productsByName: action.payload,
+                Products: action.payload
             }
         case "CLEAR_SEARCH":
-            return{
+            return {
                 ...state,
-                productsByName: action.payload
+                productsByBrand: action.payload
             }
 
         case ' POST_PRODUCT':
@@ -41,16 +51,45 @@ export default function rootReducer(state = initialState, action) {
                 productDetail: action.payload,
                 reviews: action.payload.reviews
             }
-        case 'SORT_PRODUCT':
+        case 'SORT_PRODUCT_PRICE':
             return {
                 ...state,
                 Products: action.payload
             }
+        case 'SORT_PRODUCT_BRAND':
+            return {
+                ...state,
+                productsByBrand: action.payload,
+                Products: action.payload
+            }
+
+        case 'SORT_PRODUCT_CATEGORY':
+            return {
+                ...state,
+                productsByCategory: action.payload,
+                Products: action.payload
+            }
+        case "CLEAR_FILTERS":
+            return {
+                ...state,
+                Products: [],
+                productsByCategory: [],
+                productsByBrand: [],
+                productsByName: [],
+            }
+
             case 'ACTUAL_USER':
             return {
                 ...state,
                 user: action.payload
             }
+
+            case "SET_CART":
+            return{
+                ...state,
+                cart: action.payload
+            }
+
         default:
             return state
     }

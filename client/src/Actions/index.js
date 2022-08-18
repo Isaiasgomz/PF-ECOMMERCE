@@ -49,8 +49,32 @@ export function createReview(obj) {
 
 export function sortProductByPrice(array){
     return {
-        type: "SORT_PRODUCT",
+        type: "SORT_PRODUCT_PRICE",
         payload: array
     }
 }
 
+export function sortProductByBrand(array){
+    return {
+        type: "SORT_PRODUCT_BRAND",
+        payload: array
+    }
+}
+
+export function sortProductByCategory(array){
+    return {
+        type: "SORT_PRODUCT_CATEGORY",
+        payload: array
+    }
+}
+
+export function clearAllFilters(){
+    return { type: "CLEAR_FILTERS" }
+ }
+
+ export function setCart(arr){
+    return{
+        type: "SET_CART",
+        payload:arr
+    }
+}
