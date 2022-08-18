@@ -6,11 +6,11 @@ const initialState = {
     productsByBrand: [],
     productsByName: [],
     Detail: [],
-    productDetail:{},
-    reviews:[],
+    productDetail: {},
+    reviews: [],
     user: {},
-    productsBackUp:[],
-    cart:[]
+    productsBackUp: [],
+    cart: []
 
 }
 
@@ -78,16 +78,21 @@ export default function rootReducer(state = initialState, action) {
                 productsByName: [],
             }
 
-            case 'ACTUAL_USER':
+        case 'ACTUAL_USER':
             return {
                 ...state,
                 user: action.payload
             }
 
-            case "SET_CART":
-            return{
+        case "SET_CART":
+            return {
                 ...state,
                 cart: action.payload
+            }
+        case "CLEAR_DETAIL":
+            return {
+                ...state,
+                productDetail: action.payload
             }
 
         default:

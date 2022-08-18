@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import style from "./Card.module.css"
 import { Rating } from "@mui/material";
+import { Link } from "react-router-dom";
 
-function Card({name,price,img,calification,localStor,ob}) {
+function Card({name,price,img,calification,localStor,ob,id}) {
 
 
 
   return (
     <div className={style.containerCard}>
       <div className={style.containerImg}>
-        <img className={style.img} src={img} alt={name} />
+       <Link to={`/detail/${id}`}> <img className={style.img} src={img} alt={name} /> </Link>
       </div>
       <div className={style.containerInfo}>
         <div className={style.containerTitle}>

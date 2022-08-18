@@ -78,3 +78,10 @@ export function clearAllFilters(){
         payload:arr
     }
 }
+
+export function clearDetail(){
+    return{
+        type: "CLEAR_DETAIL",
+        payload:{}
+    }
+}

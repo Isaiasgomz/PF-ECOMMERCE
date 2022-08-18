@@ -9,6 +9,7 @@ import ShoppingCar from './components/ShoppingCar/ShoppingCar'
 import Order from "./components/Order/Order";
 import Payment from "./components/Payment/Payment"
 import CreateProduct from "./components/CreateProduct/CreateProduct";
+import Detail from "./components/Detail/Detail";
 
 
 
@@ -17,7 +18,7 @@ function App() {
     <div className="App">
       <Route path="/" component={NavBar} />
       <Route exact path="/home" component={Home} />
-      <Route exact path="/category/:category" component={Home} />
+      <Route exact path="/detail/:id" component={Detail} />
       <Route exact path="/" component={Landing} />
       <Route exact path="/about" component={About} />
       <Route exact path="/shoppingCar" component={ShoppingCar} />
