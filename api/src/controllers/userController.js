@@ -13,10 +13,6 @@ module.exports = {
                     model:PersonalData
                 },{
                     model:PurchaseOrder
-                },{
-                    model:Product,
-                    attributes:["idProduct"],
-                    through: { attributes: [] }
                 }
             ],
             
