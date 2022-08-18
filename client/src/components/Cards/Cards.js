@@ -37,7 +37,7 @@ const Cards = (props) => {
   //Paginado.
   const [pageNumber, setPageNumber] = useState(0);
 
-  const productsPerPage = 5;
+  const productsPerPage = 10;
   const pagesVisited = pageNumber * productsPerPage;
 
   const displayProducts = Products.slice(
@@ -76,6 +76,8 @@ const Cards = (props) => {
         nextLabel={"Next"}
         pageCount={pageCount}
         onPageChange={changePage}
+        pageRangeDisplayed={1}
+        marginPagesDisplayed={1}
         containerClassName={"pagBottons"}
         previousLinkClassName={"previousButton"}
         nextLinkClassName={"nextButton"}
