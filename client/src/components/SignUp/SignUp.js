@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {postCustomer} from '/client/src/Actions/index'
+
 import {useDispatch} from 'react-redux'
 
 function validate (input){
@@ -44,7 +44,7 @@ function SignUp() {
 
   const  handleSubmit = (e)=>{
     e.preventDefault()
-    dispatch(postCustomer(customer))
+
     setCustomer({
     name: '',
     email: '',

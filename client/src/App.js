@@ -9,6 +9,7 @@ import ShoppingCar from './components/ShoppingCar/ShoppingCar'
 import Order from "./components/Order/Order";
 import Payment from "./components/Payment/Payment"
 import CreateProduct from "./components/CreateProduct/CreateProduct";
+import SignUp from "./components/SignUp/SignUp";
 
 
 
@@ -28,6 +29,8 @@ function App() {
       <Route exact path={"/cart"} component={ShoppingCar} />
       <Route path={"/"} component={Footer} />
 
+
+      <Route exact path="/sign" component={SignUp} />
     </div>
   );
 }
