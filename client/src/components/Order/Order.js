@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 // import useSelector from 'react-redux'
 import {NavLink} from 'react-router-dom'
+import styles from './Order.module.css'
 
 function validate (input){
   const errors = {}
@@ -68,108 +69,109 @@ function Order() {
   }
 
   return (
-    <div>Order
+    <div className={styles.productContainer}>
       <h2>INOFRMACION DE CONTACTO</h2>
       <form>
-      <label for='name'>Nombre</label>
-      <input required='true' type="text" 
+      <label htmlFor='name'>Nombre</label>
+      <input className={styles.formInput} required={true} type="text" 
       name='name' value={input.name}
       placeholder='Camila Yokoo' 
-      onChange={(e) => handleInput(e)}></input>
+      onChange={(e) => handleInput(e)}/><br/>
       {
         errors.name && (
-        <p>{errors.name}</p>)
+        <p className={styles.textError} >{errors.name}</p>)
       }
 
-      <label for='email'>Correo</label>
-      <input required='true' type="email"
+      <label htmlFor='email'>Correo</label>
+      <input className={styles.formInput} required={true} type="email"
       name='email' value={input.email} 
       placeholder='user@email.com'
-      onChange={(e) => handleInput(e)}></input>
+      onChange={(e) => handleInput(e)}/><br/>
       {
         errors.email && (
-        <p>{errors.email}</p>)
+        <p className={styles.textError} >{errors.email}</p>)
       }
 
-      <label for='direction'>Direccion</label>
-      <input required='true' type="text" 
+      <label htmlFor='direction'>Direccion</label>
+      <input className={styles.formInput} required={true} type="text" 
       name='direction' value={input.direction}
       placeholder='Direccion'
-      onChange={(e) => handleInput(e)}></input>
+      onChange={(e) => handleInput(e)}/><br/>
       {
         errors.direction && (
-        <p>{errors.direction}</p>)
+        <p className={styles.textError} >{errors.direction}</p>)
       }
 
-      <label for='departament'>Departamento</label>
-      <input required='true' type="number" 
+      <label htmlFor='departament'>Departamento</label>
+      <input className={styles.formInput} required={true} type="number" 
       name='departament' value={input.departament}
       placeholder='Departamento' 
-      onChange={(e) => handleInput(e)}></input>
+      onChange={(e) => handleInput(e)}/><br/>
       {
         errors.departament && (
-        <p>{errors.departament}</p>)
+        <p className={styles.textError} >{errors.departament}</p>)
       }
 
-      <label for='city'>Ciudad</label>
-      <input required='true' type="text"
+      <label htmlFor='city'>Ciudad</label>
+      <input className={styles.formInput} required={true} type="text"
       name='country' value={input.country}
       placeholder='Ciudad' 
-      onChange={(e) => handleInput(e)}></input>
+      onChange={(e) => handleInput(e)}/><br/>
        {
         errors.city && (
-        <p>{errors.city}</p>)
+        <p className={styles.textError} >{errors.city}</p>)
       }
-      <label for='country'>Pais</label>
-      <input required='true' type="text"
+      <label htmlFor='country'>Pais</label>
+      <input className={styles.formInput} required={true} type="text"
       name='country' value={input.country} 
       placeholder='Pais' 
-      onChange={(e) => handleInput(e)}></input>
+      onChange={(e) => handleInput(e)}/><br/>
       {
         errors.country && (
-        <p>{errors.country}</p>)
+        <p className={styles.textError} >{errors.country}</p>)
       }
 
-      <label for='state'>Estado</label>
-      <input required='true' type="text"
+      <label htmlFor='state'>Estado</label>
+      <input className={styles.formInput} required={true} type="text"
       name='state' value={input.telephone}
       placeholder='Estado' 
-      onChange={(e) => handleInput(e)}></input>
+      onChange={(e) => handleInput(e)}/><br/>
        {
         errors.state && (
-        <p>{errors.state}</p>)
+        <p className={styles.textError} >{errors.state}</p>)
       }
 
-      <label for='cp'>C.P.</label>
-      <input required='true' type="number"
+      <label htmlFor='cp'>C.P.</label>
+      <input className={styles.formInput} required={true} type="number"
       name='cp' value={input.cp} 
       placeholder='Codigo Postal' 
-      onChange={(e) => handleInput(e)}></input>
+      onChange={(e) => handleInput(e)}/><br/>
       {
         errors.cp && (
-        <p>{errors.cp}</p>)
+        <p className={styles.textError} >{errors.cp}</p>)
       }
 
-      <label for='telephone'>Telefono</label>
-      <input required='true' type="number"
+      <label htmlFor='telephone'>Telefono</label>
+      <input className={styles.formInput} required={true} type="number"
       name='telephone' value={input.telephone}
       placeholder='Telefono' 
-      onChange={(e) => handleInput(e)}></input>
+      onChange={(e) => handleInput(e)}/><br/>
       {
         errors.telephone && (
-        <p>{errors.telephone}</p>)
+        <p className={styles.textError}>{errors.telephone}</p>)
       }
 
 
 
       <NavLink to={'/checkout'}>
-
-      <input type={'submit'}>Pagar</input>
+      <input type={'submit'} value={'Confirmar'} />
       </NavLink>
       
       </form>
 
+      <NavLink to={'/home'}>
       <button>Regresar</button>
+      </NavLink>
 
 
       <div>
