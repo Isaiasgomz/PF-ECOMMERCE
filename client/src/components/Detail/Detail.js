@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { createReview, getProductDetail } from "../../Actions";
+import { clearDetail, createReview, getProductDetail } from "../../Actions";
+import style from "./Detail.module.css";
 
 function Detail(props) {
   const id = props.match.params?.id;
   const dispatch = useDispatch();
   const product = useSelector(state => state.productDetail)
   const reviews = useSelector(state => state.reviews)
-  const user = useSelector(state=>state.user)
+  const user = useSelector(state => state.user)
   const [state, setState] = useState({
     qualification: '',
     review: '',
@@ -16,6 +17,9 @@ function Detail(props) {
   })
   useEffect(() => {
     dispatch(getProductDetail(id))
+    return () => {
+      dispatch(clearDetail())
+    }
   }, [dispatch, id])
   /* submit del form */
   const handleSubmit = (e) => {
@@ -42,15 +46,17 @@ function Detail(props) {
       })
     }
   }
+  /*   let objK = Object.Keys(user); */
   return (
-    <div>
-      <div className="conteiner-act">
-        <div className="countrdetail">
-          <h1>product details</h1>
+    <div className={style.conteiner}>
+      <div >
+        <div >
+          
           <h2>{product.name}</h2>
+          <img src={product.image} alt="" />
           <h2>{product.productName}</h2>
           <p>{product.brand}</p>
-          <img className="imgdet" src={product.image} alt="" />
+          
           <h4>{product.price}</h4>
           <p>{product.description}</p>
           <p>{product.category}</p>
@@ -61,7 +67,7 @@ function Detail(props) {
         <br />
         <div >
           <h2 className="h22">Reviews</h2>
-          {reviews.length === 0 ?
+          {reviews?.length === 0 ?
             <div>
               'No existen reviews aun'
               <form onSubmit={handleSubmit}>
@@ -84,21 +90,21 @@ function Detail(props) {
                   <p>Usuario: {e.email}  </p>
                 </div>
               })}
-              {Object.Keys(user).length>0?
-              <div>
-              <form onSubmit={handleSubmit}>
-                <label> Valoracion:</label>
-                <select name="qualification" value={state.qualification} onChange={handleChange}>
-                  <option value='1'>1</option>
-                  <option value='2'>2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-                <label> Comentario:</label>
-                <input type='textarea' name='review' value={state.review} onChange={handleChange} />
-              </form>
-              </div>: <p> Necesitas loguearte para dejar comentario</p>
+              {Object.keys(user).length > 0 ?
+                <div>
+                  <form onSubmit={handleSubmit}>
+                    <label> Valoracion:</label>
+                    <select name="qualification" value={state.qualification} onChange={handleChange}>
+                      <option value='1'>1</option>
+                      <option value='2'>2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <label> Comentario:</label>
+                    <input type='textarea' name='review' value={state.review} onChange={handleChange} />
+                  </form>
+                </div> : <p> Necesitas loguearte para dejar comentario</p>
               }
             </div>}
 
