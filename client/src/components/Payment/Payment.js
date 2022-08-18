@@ -1,9 +1,12 @@
 import React from 'react';
-import { PayPalButton } from 'react-paypal-button';
+import { PayPalButton } from 'react-paypal-button-v2';
+import { useHistory } from 'react-router-dom';
 
 // npm i react-paypal-button-v2  react v-- 17
 
 const Payment = () => {
+
+  const history = useHistory()
  
   
 
@@ -39,18 +42,18 @@ const Payment = () => {
     <div className="Payment">
       <div className="Payment-content">
         <h3>Resument del pedido:</h3>
-        {cart.map((item) => (
-          <div className="Payment-item" key={item.title}>
+        {
+          <div className="Payment-item" >
             <div className="Payment-element">
-              <h4>{item.title}</h4>
+              <h4>Mac</h4>
               <span>
                 $
                 {' '}
-                {item.price}
+                {123}
               </span>
             </div>
           </div>
-        ))}
+        }
         <div className="Payment-button">
           <PayPalButton
             paypalOptions={paypalOtions}

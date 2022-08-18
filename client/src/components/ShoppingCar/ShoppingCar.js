@@ -4,6 +4,9 @@ import {setCart } from '../../Actions'
 import style from "./ShoppingCar.module.css"
 
 
+
+
+
 function ShoppingCar(){
   const dispatch = useDispatch()
   const cart = useSelector(state=> state.cart)
@@ -25,5 +28,6 @@ function ShoppingCar(){
       </div>
     )
   }
+
 
 export default ShoppingCar

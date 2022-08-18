@@ -1,0 +1,32 @@
+.productContainer{
+
+    width: 700px;
+    height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    margin-left: 600px;
+    /* padding-left: 10px;
+    padding-top: 40px; */
+    flex-direction: column;
+    border-radius: 15px;
+    box-shadow: 0 4px 4px 4px #94bbe9 ;
+    background-color: whitesmoke;
+
+    
+}
+
+.formInput{
+    background-color: #97adc689;
+    width: 500px;
+    height: 30px;
+    margin: 50px 10px 10px 10px;
+    border-radius: 8px;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+.textError{
+    color: red;
+}

@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import {postProduct} from '/client/src/Actions/index'
-import {useDisptach} from 'react-redux'
+import {useDispatch} from 'react-redux'
+import { postProduct } from "../../Actions";
+import styles from './CreateProduct.module.css'
 
 
 function validate (input){
   const errors = {}
   if(!input.productName){
-    errors.name = 'Es Nombre es requerido'
+    errors.productName = 'Es Nombre es requerido'
   }
   if(!input.price){
     errors.price = 'Es Precio es requerido'
@@ -23,11 +24,12 @@ function validate (input){
   if(!input.category){
     errors.category = 'La Categoria es requerida'
   }
+  return errors
 }
 
 function CreateProduct() {
 
-  const dispatch = useDisptach()
+  const dispatch = useDispatch()
 
   const [product, setProduct] = useState({
     productName: '',
@@ -38,7 +40,7 @@ function CreateProduct() {
     category: '',
   })
 
-  cosnt [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState({})
 
   const handleInput = (e) =>{
     setProduct({
@@ -52,7 +54,7 @@ function CreateProduct() {
     }))
   }
 
-  const hanldeSubmit = (e)=>{
+  const handleSubmit = (e)=>{
     e.preventDefault()
 
     dispatch(postProduct(product))
@@ -69,63 +71,65 @@ function CreateProduct() {
   }
   
   return (
-    <div>CreateProduct
-      <form onSubmit={()=> hanldeSubmit(e)}>
-        <label for='productName'>Nombre</label>
-        <input type={'text'} placeholder={'Nombre de Producto'}
-         name={'productName'} value={product.name}
-          onChange={()=> handleInput(e)} />
-          {
-            errors.name && (
-              <p>{errors.name}</p>
+    <div className={styles.productContainer}>CreateProduct
+    
+      <form onSubmit={(e)=> handleSubmit(e)}>
+        <label htmlFor='productName'>Nombre</label>
+        <input className={styles.formInput} type={'text'} placeholder={'Nombre de Producto'}
+         name={'productName'} value={product.productName}
+          onChange={(e)=> handleInput(e)} /><br/>
+                    {
+            errors.productName && (
+              <p className={styles.textError}>{errors.productName}</p>
           )}
 
-        <label for='price'>Precio</label>
-        <input type={'number'} placeholder={'Precio'}
+        <label htmlFor='price'>Precio</label>
+        <input className={styles.formInput} type={'number'} placeholder={'Precio'}
          name={'price'} value={product.price} 
-          onChange={()=> handleInput(e)} />
+          onChange={(e)=> handleInput(e)} /><br/>
           {
             errors.price && (
-              <p>{errors.price}</p>
+              <p className={styles.textError} >{errors.price}</p>
           )}
 
-        <label for='image'>Imagen</label>
-        <input type={'text'} placeholder={'Imagen'}
+        <label htmlFor='image'>Imagen</label>
+        <input className={styles.formInput} type={'text'} placeholder={'Imagen'}
         name={'image'} value={product.image} 
-        onChange={()=> handleInput(e)} />
+        onChange={(e)=> handleInput(e)} /><br/>
           {
             errors.image && (
-              <p>{errors.image}</p>
+              <p className={styles.textError} >{errors.image}</p>
           )}
 
-        <label for='description'>Description</label>
-        <input type={'text'} placeholder={'descripcion'}
+        <label htmlFor='description'>Description</label>
+        <input className={styles.formInput} type={'text'} placeholder={'descripcion'}
         name={'description'} value={product.description} 
-        onChange={()=> handleInput(e)} />
+        onChange={(e)=> handleInput(e)} /><br/>
           {
             errors.description && (
-            <p>{errors.description}</p>
+            <p className={styles.textError} >{errors.description}</p>
           )}
 
-        <label for='quantity'>Cantidad</label>
-        <input type={'number'} placeholder={'Cantidad'} 
+        <label htmlFor='quantity'>Cantidad</label>
+        <input className={styles.formInput}  type={'number'} placeholder={'Cantidad'} 
         name={'quantity'} value={product.quantity}  
-        onChange={()=> handleInput(e)} />
+        onChange={(e)=> handleInput(e)} /><br/>
         {
           errors.quantity && (
-            <p>{errors.quantity}</p>
+            <p className={styles.textError} >{errors.quantity}</p>
         )}
-        <label for='category'>Categoria</label>
-        < input type={'text'} placeholder={'Categoria'}
+        <label htmlFor='category'>Categoria</label>
+        < input className={styles.formInput} type={'text'} placeholder={'Categoria'}
          name={'category'} value={product.category}  
-          onChange={()=> handleInput(e)}/>
+          onChange={(e)=> handleInput(e)}/><br/>
           {
             errors && (
-              < p>{errors.category}</p>
+              < p className={styles.textError}>{errors.category}</p>
           )}
 
-        <button type="submit" value={'Crear Product'} />
+        <button type='submit'>Crear</button>
       </form>
+      
 
     </div>
   )
