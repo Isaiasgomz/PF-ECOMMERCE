@@ -66,6 +66,8 @@ const Cards = (props) => {
   return (
     <div>
       {displayProducts}
+      <div className="paginate">
+
       <ReactPaginate
         previousLabel={"Previous"}
         nextLabel={"Next"}
@@ -76,6 +78,7 @@ const Cards = (props) => {
         nextLinkClassName={"nextButton"}
         activeClassName={"paginationActive"}
       />
+      </div>
     </div>
   );
 };

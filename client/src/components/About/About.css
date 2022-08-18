@@ -8,7 +8,7 @@
 }
 
 .containerCardAbout {
-  width: 60%;
+  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -23,7 +23,9 @@
 }
 
 .containerCardAbout4 {
+  width: 100%;
   display: flex;
+  justify-content: center;
 }
 
 /* From uiverse.io by @abrahamcalsin */
