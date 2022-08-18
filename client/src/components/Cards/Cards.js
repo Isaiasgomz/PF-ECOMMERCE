@@ -37,7 +37,7 @@ const Cards = (props) => {
   //Paginado.
   const [pageNumber, setPageNumber] = useState(0);
 
-  const productsPerPage = 10;
+  const productsPerPage = 5;
   const pagesVisited = pageNumber * productsPerPage;
 
   const displayProducts = Products.slice(
@@ -64,12 +64,15 @@ const Cards = (props) => {
   };
   //------------
   return (
-    <div>
+    <div className="containerCardsComponent">
+      <div className="containerCardProducts">
+
       {displayProducts}
+      </div>
       <div className="paginate">
 
       <ReactPaginate
-        previousLabel={"Previous"}
+        previousLabel={"Prev"}
         nextLabel={"Next"}
         pageCount={pageCount}
         onPageChange={changePage}
