@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { setCart, sortProductByPrice } from "../../Actions";
-
 import ReactPaginate from "react-paginate";
 import "./Cards.css";
 
