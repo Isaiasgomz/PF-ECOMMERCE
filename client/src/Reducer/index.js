@@ -36,7 +36,7 @@ export default function rootReducer(state = initialState, action) {
                 productsByBrand: action.payload
             }
 
-        case ' POST_PRODUCT':
+        case ' POST_PRODUCT'://???
             return {
                 ...state
             }
