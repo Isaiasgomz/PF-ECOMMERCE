@@ -2,6 +2,7 @@ const { Router } = require("express");
 const { User, Product } = require("../db");
 const { Op } = require("sequelize");
 const { productByName } = require("../controllers/productsController");
+const { postQuantity } = require("../controllers/cartsController");
 
 const router = Router();
 //agregar un producto a la lista cart de un usuario
