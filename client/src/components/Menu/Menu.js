@@ -29,15 +29,15 @@ const category = [...categorias]
 
   return <div className={styles.categories}>
     
-    <Link to="/home"><button className={styles.buttons} onClick={clear} ><i className="fa-solid fa-home"></i></button></Link>
+    <Link to="/home"><button className={styles.buttons} onClick={clear} > All Products  <i className="fa-solid fa-home"></i></button></Link>
     
     {category?.map( (e,index) => {
     
       if(e === "Monitors"){
-        return (<Link to="/home"><button key={e} className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}><i className={`fa-solid fa-desktop`}></i></button></Link>)
+        return (<Link to="/home"><button key={e} className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}>{e}  <i className={`fa-solid fa-desktop`}></i></button></Link>)
 
       }
-      return (<Link to="/home"><button key={e} className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}><i className={`fa-solid fa-${e.toLowerCase().slice(0,-1)}`}></i> </button></Link>)
+      return (<Link to="/home"><button key={e} className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}>{e}  <i className={`fa-solid fa-${e.toLowerCase().slice(0,-1)}`}></i></button></Link>)
     })}
 
   </div>;

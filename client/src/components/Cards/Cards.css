@@ -1,3 +1,15 @@
+.containerCardsComponent{
+    width: 45vw;
+}
+
+.containerCardProducts{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .pagBottons {
     width: 80%;
     height: 40px;
@@ -25,6 +37,9 @@
     background-color: rgb(131, 128, 128);
 }
 
-.nextButton{
-    background-color: red;
+.paginate{
+    margin-top: 30px;
+    width: 95%;
+    display: flex;
+    justify-content: center;
 }
