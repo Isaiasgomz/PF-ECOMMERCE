@@ -12,6 +12,8 @@ import CreateProduct from "./components/CreateProduct/CreateProduct";
 import Detail from "./components/Detail/Detail";
 import SignUp from "./components/SignUp/SignUp";
 import ResumeOrder from "./components/ResumeOrder/ResumeOrder"
+import ContextProvider from "./components/contexto/contextProvider";
+
 
 
 
@@ -19,6 +21,7 @@ import ResumeOrder from "./components/ResumeOrder/ResumeOrder"
 function App() {
   return (
     <div className="App">
+      <ContextProvider>
       <Route path="/" component={NavBar} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/detail/:id" component={Detail} />
@@ -35,6 +38,7 @@ function App() {
       
 
       <Route exact path="/sign" component={SignUp} />
+      </ContextProvider>
     </div>
   );
 }

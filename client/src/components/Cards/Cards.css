@@ -1,45 +1,26 @@
-.containerCardsComponent{
-    width: 45vw;
-}
-
-.containerCardProducts{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.pagBottons {
-    width: 80%;
-    height: 40px;
+.pageNumbers {
     list-style: none;
-    display: flex;
-    justify-content: center;
+    display:flex;
 }
 
-.pagBottons a { 
-    padding: 10px;
-    margin:8px;
-    border-radius: 5px;
-    border: 1px solid gray;
-    color: gray;
+.pageNumbers li{
+    padding:10px;
+    border: 1px solid black;
+    cursor: pointer;
+    margin:6px;
+}
+
+.pageNumbers li.active {
+    background-color: rgb(146, 144, 144);
+}
+
+.pageNumbers li button {
+    background-color: transparent;
+    border: none;
+    color: black;
     cursor: pointer;
 }
 
-.pagBottons a:hover {
-    color: white;
-    background-color: rgb(131, 128, 128);
-}
-
-.paginationActive a {
-    color: white;
-    background-color: rgb(131, 128, 128);
-}
-
-.paginate{
-    margin-top: 30px;
-    width: 95%;
-    display: flex;
-    justify-content: center;
+.pageNumbers li button:hover {
+    background-color: rgb(146, 144, 144);
 }

@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearAllFilters, getProducts, sortProductByBrand, sortProductByCategory, sortProductByPrice } from '../../Actions'
+import { createCont } from '../contexto/contextProvider'
 import styles from "./Filter.module.css"
 
 
-function Filter(props) {
+function Filter() {
 
     const { AllProducts } = useSelector(state => state)
     const { productsByCategory } = useSelector(state => state)
@@ -12,8 +13,8 @@ function Filter(props) {
     const { productsByName } = useSelector(state => state)
     const { Products } = useSelector(state => state)
     const dispatch = useDispatch()
-
     
+    const {setCurrentPage} = useContext(createCont)
 
     function sortByPrice(e) {
         if (e.target.value === "default") { return }
@@ -28,6 +29,7 @@ function Filter(props) {
                 }
             })
             dispatch(sortProductByPrice(productSorted))
+            setCurrentPage(1);
         }
 
         if (e.target.value === "expensive") {
@@ -42,6 +44,7 @@ function Filter(props) {
             })
 
             dispatch(sortProductByPrice(productSorted))
+            setCurrentPage(1);
         }
     }
 
@@ -59,6 +62,7 @@ function Filter(props) {
                     :
                     AllProducts).filter(g => g.brand === e.target.value)
         dispatch(sortProductByBrand(productSorted))
+        setCurrentPage(1);
     }
 
     const sortByCategory = (e) => {
@@ -75,6 +79,7 @@ function Filter(props) {
                     :
                     AllProducts).filter(g => g.category === e.target.value)
         dispatch(sortProductByCategory(productSorted))
+        setCurrentPage(1);
     }
 
     const clearFilters = (e) =>{
