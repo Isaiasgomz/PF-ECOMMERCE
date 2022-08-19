@@ -9,6 +9,9 @@ import ShoppingCar from './components/ShoppingCar/ShoppingCar'
 import Order from "./components/Order/Order";
 import Payment from "./components/Payment/Payment"
 import CreateProduct from "./components/CreateProduct/CreateProduct";
+import Detail from "./components/Detail/Detail";
+import SignUp from "./components/SignUp/SignUp";
+
 
 
 
@@ -17,7 +20,7 @@ function App() {
     <div className="App">
       <Route path="/" component={NavBar} />
       <Route exact path="/home" component={Home} />
-      <Route exact path="/category/:category" component={Home} />
+      <Route exact path="/detail/:id" component={Detail} />
       <Route exact path="/" component={Landing} />
       <Route exact path="/about" component={About} />
       <Route exact path="/shoppingCar" component={ShoppingCar} />
@@ -27,6 +30,8 @@ function App() {
       <Route exact path={"/cart"} component={ShoppingCar} />
       <Route path={"/"} component={Footer} />
 
+
+      <Route exact path="/sign" component={SignUp} />
     </div>
   );
 }

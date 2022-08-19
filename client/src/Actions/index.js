@@ -78,3 +78,26 @@ export function clearAllFilters(){
         payload:arr
     }
 }
+
+export function clearDetail(){
+    return{
+        type: "CLEAR_DETAIL",
+        payload:{}
+    }
+}
+
+export function postNorder(numberOrder){
+    return async function () {
+        return axios.post(`http://localhost:3001/purchases`, {numberOrder})
+            .then(data => console.log('numero de orden enviado'))
+            .catch(error => alert(error.response.data))
+    }
+}
+
+export function postShoppingCart(cart){
+    return async function () {
+        return axios.post(`http://localhost:3001/cart`, {cart})
+            .then(data => console.log('carrito guardado'))
+            .catch(error => alert(error.response.data))
+    }
+}

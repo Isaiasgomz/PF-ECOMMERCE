@@ -7,7 +7,7 @@ module.exports = {
         try {
             let product = await Product.findAll()
             product = product.filter(e => e.productName.toLowerCase().includes(name.toLowerCase()))
-            if (product.length === 0) throw 'el producto no existe';
+            if (product.length === 0) throw 'El producto no existe';
             return product;
         } catch (error) {
             throw error;
@@ -19,8 +19,7 @@ module.exports = {
         if (allProducts.length === 0) {
             let obj = {}
             let filtrado = api.map(e => {
-                obj = {
-                    
+                obj = {                    
                     productName: e.name,
                     price: e.price,
                     image: e.image,
@@ -28,7 +27,7 @@ module.exports = {
                     description: e.description,
                     qualification: e.calification,
                     stock: e.quantity,
-                    category: e.categories[0]
+                    category: e.categories[0],
                 }
                 return obj;
             })
@@ -51,15 +50,16 @@ module.exports = {
         }
     },
     // create a new product
-    createProduct: async function (productName, price, image, description, quantity, category) {
+    createProduct: async function (productName, price, image, description, category, stock, brand) {
         try {
             const newProduct = await Product.create({
                 productName,
                 price, 
                 image, 
-                description,
-                quantity, 
-                category
+                description, 
+                category,
+                stock,
+                brand
             })
             return newProduct
         } catch (error) {
@@ -67,29 +67,16 @@ module.exports = {
         }
     },
     // update product
-    updateProduct:  async function(idProduct,ProductModify){
+    updateProduct:  async function(idProduct, ProductModify){
         try {
              await Product.update(ProductModify, {
                 where: {
                     idProduct: idProduct
                 }
             })
-            
         } catch (error) {
            throw new Error(error); 
         }
     },
-    // delete product
-    deleteProduct: async function(idProduct){
-        try {
-           await Product.destroy({
-                where: {
-                    idProduct: idProduct
-                }
-            })
-        } catch (error) {
-            throw new Error(error);
-        }
-    }
 }
 
