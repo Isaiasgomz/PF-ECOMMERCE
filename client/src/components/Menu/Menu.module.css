@@ -5,21 +5,20 @@
 
     font-size: 22px;
 
-    color: rgb(194, 194, 194);
+    color: black;
     background-color: transparent;   
 }
 
 .buttons:hover{
-    color: white;
+    color: #91C612;
 }
 
 .categories{
-    background-color: rgb(3, 3, 3);
+    background-color: #EEEEEE;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60%;
-
+    height: 65%;
 }
 
 .selector{
