@@ -1,48 +1,59 @@
-.containerFooter{
-    background-color: black;
-    width: 100%;
-    height: 75px;
-    display: flex;
-    align-items: center;
+.containerFooter {
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  color: white;
+  display: flex;
+  align-items: center;
+  border-top: 2px solid gray;
 }
 
-.containerCopy{
-    width: 33%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.containerCopy {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.copyright{
-    color: white;
-    margin: 0;
+.copyright {
+  color: white;
+  margin: 0;
 }
 
-.containerButtons{
-    width: 33%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.containerButtons {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.buttonFooter{
-    color: white;
-    border: none;
-    background-color: transparent;
+.buttonFooter {
+  color: white;
+  border: none;
+  background-color: transparent;
 }
 
-.containerIcons{
-    width: 33%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
+.containerIcons {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .containerIcons i {
-    color: white;
+  color: white;
 }
 
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  margin: 0;
+  margin-bottom: 60px;
+}

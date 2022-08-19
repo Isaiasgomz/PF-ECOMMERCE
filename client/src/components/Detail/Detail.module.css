@@ -1,3 +1,107 @@
-.conteiner{
-    background-color: aliceblue;
+.conteiner {
+    background-color: rgb(255, 255, 255);
+    font-family: sans-serif;
+}
+
+.product {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.img {
+
+    margin: 20px;
+    padding: 20px;
+}
+
+.infoConteiner {
+    margin: 10px;
+    padding: 20px;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.nameConteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.titulo {
+    font-family: sans-serif;
+    font-size: 34px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.priceConteiner {
+    color: #2f6f7e;
+    font-size: 30px;
+    font-weight: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.price {
+    display: flex;
+    flex-direction: column;
+    margin-right: 150px;
+    text-align: start;
+}
+
+.textPrice {
+    font-size: 17px;
+    color: #939393;
+}
+
+
+
+.garantiaConteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #91C612;
+}
+
+.miniGarantia {
+    margin-left: 9px;
+}
+
+.miniGarantia1 {
+    margin-left: 14px;
+}
+
+.miniGarantia2 {
+    margin-left: 12px;
+}
+
+.buttonConteiner {}
+
+.button {
+    color: white;
+    border: none;
+    border-radius: 4px;
+    background-color: #3483FA;
+    padding: 13px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.button:hover {
+    
+    background-color: #5294f7;
+    
+}
+.reviewConteiner {
+    background-color: red;
 }
