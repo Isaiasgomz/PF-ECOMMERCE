@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {Dropdown, DropdownItem, DropdownMenu,DropdownToggle} from "reactstrap" 
 import { clearAllFilters, getProducts, sortProductByBrand, sortProductByCategory, sortProductByPrice } from '../../Actions'
 import styles from "./Filter.module.css"
 
