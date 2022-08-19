@@ -2,11 +2,10 @@
     font-family: Arial, Helvetica, sans-serif;
     border: none;
     padding: 20px;
-
     font-size: 22px;
-
     color: rgb(194, 194, 194);
-    background-color: transparent;   
+    background-color: transparent;
+    font-weight: 10;
 }
 
 .buttons:hover{
@@ -19,6 +18,7 @@
     align-items: center;
     justify-content: center;
     height: 60%;
+    
 
 }
 

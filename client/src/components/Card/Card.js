@@ -26,7 +26,8 @@ function Card({name,price,img,calification,localStor,ob,id}) {
             precision={0.5}
             readOnly
           /> */}
-          <i onClick={()=>localStor(ob)} className="fa-solid fa-cart-plus"></i>
+          <div className={style.buttonCarrito}><i onClick={()=>localStor(ob)} className="fa-solid fa-cart-plus"></i></div>
+          
         </div>
       </div>
     
