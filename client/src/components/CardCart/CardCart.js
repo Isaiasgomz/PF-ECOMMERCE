@@ -10,7 +10,10 @@ const CardCart = ({obj}) => {
             <div className={style.containerCard}>
 
                 <div className={style.containerImg}>
-                    <img className={style.img} src={obj.image} alt={obj.productName}/>
+                    <div className={style.SupportContainerImg}>
+
+                        <img className={style.img} src={obj.image} alt={obj.productName}/>
+                    </div>
                 </div>
                 <div className={style.containerInfo}>
                     <div className={style.containerName}>
