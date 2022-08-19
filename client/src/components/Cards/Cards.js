@@ -46,8 +46,8 @@ const {currentPage, setCurrentPage} = useContext(createCont)
   const [itemsPerPage, setItemsPerPage] = useState(10); //cantidad de elementos por pagina 
 
   //Definimos 3 estados mas para limitar los numeros de las paginas
-  const [pageNumberLimit, setPageNumberLimit] = useState(1); //cuantos numeros queremos mostrar
-  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(1); //cantidad maxima de numeros
+  const [pageNumberLimit, setPageNumberLimit] = useState(3); //cuantos numeros queremos mostrar
+  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5); //cantidad maxima de numeros
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0); //cantidad minima de numeros
 
   const handleClick = (event) => {
@@ -136,9 +136,9 @@ const {currentPage, setCurrentPage} = useContext(createCont)
         <li>
           <button onClick={handlePrev} disabled={currentPage === pages[0] ? true : false}>Prev</button>
         </li>
-       
+       {pageIncrementBtn}
         {renderPageNumbers}
-    
+      {pageDecrementBtn}
         <li>
           <button onClick={handleNext} disabled={currentPage === pages[pages.length -1] ? true : false}>Next</button>
         </li>
