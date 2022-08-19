@@ -9,9 +9,13 @@ function ResumeOrder() {
   const cart = useSelector((state) => state.cart);
 
   useEffect(() => {
-    let x = JSON.parse(localStorage.getItem("ProductCartLocalStorage"));
+    let x = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
     dispatch(setCart(x));
   }, []);
+
+
+
+
 
   const total = cart.map(e => e.price).reduce((a,b) => a + b, 0);
 

@@ -12,11 +12,17 @@
     gap: 20px;
 }
 
+.pageNumbers {
+    display: flex;
+    list-style:none;
+}
+
 .pageNumbers li{
     padding:10px;
     border: 1px solid black;
     cursor: pointer;
     margin:6px;
+   
 }
 
 .pageNumbers li.active {
