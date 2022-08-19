@@ -5,7 +5,6 @@ import { getProductsByName } from '../../Actions'
 import styles from "../SearchBar/SearchBar.module.css"
 
 function SearchBar() {
-
   const dispatch = useDispatch()
 
 
@@ -25,6 +24,7 @@ function SearchBar() {
         dispatch(getProductsByName(search.name))
         }
         setSearch({name:""})
+        
   }
 
   return (
