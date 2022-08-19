@@ -16,6 +16,12 @@ function Detail(props) {
     ProductIdProduct: id,
     email: user.email
   })
+  const [toggleState, setToggleState] = useState(1);
+
+  const toggleTab = (index) => {
+    setToggleState(index)
+  }
+
   useEffect(() => {
     dispatch(getProductDetail(id))
     return () => {
@@ -47,7 +53,7 @@ function Detail(props) {
       })
     }
   }
-  /*   let objK = Object.Keys(user); */
+
   return (
     <div className={style.conteiner}>
 
@@ -61,10 +67,10 @@ function Detail(props) {
           <div className={style.nameConteiner}>
             <span className={style.titulo}>{product.productName}</span>
             <div>
-           <span>Categoria: </span> <span>{product.category}</span>
-           </div>
+              <span>Categoria: </span> <span>{product.category}</span>
+            </div>
           </div>
-          
+
           <div className={style.priceConteiner}>
             <div className={style.price}>
               <span>$ {product.price} </span>
@@ -73,7 +79,7 @@ function Detail(props) {
             <div className={style.price}>
               <span>$ {Math.round(product.price / 12)}.99</span>
               <span className={style.textPrice}>12 cuotas sin interes </span>
-              
+
             </div>
           </div>
           <div className={style.garantiaConteiner}>
@@ -92,53 +98,72 @@ function Detail(props) {
       </div>
       <br />
       <div className={style.reviewConteiner}>
-        
-        <div className={style.descriptionConteiner}>
-          <p>{product.brand}</p>
-          <p>{product.description}</p>
-          <p>{product.qualification}</p>
+
+        <div className={style.blocTabs}>
+          <div className={toggleState === 1 ? style.activeTabs : style.tabs} onClick={() => toggleTab(1)}>Descripcion</div>
+          <div className={toggleState === 2 ? style.activeTabs : style.tabs} onClick={() => toggleTab(2)}>Opiniones</div>
         </div>
-        <h2 className="h22">Opiniones</h2>
-        {reviews?.length === 0 ?
-          <div>
-            'No existen reviews aun'
-            <form onSubmit={handleSubmit}>
-              <label> Valoracion:</label>
-              <select name="qualification" value={state.qualification} onChange={handleChange}>
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-              <label> Comentario:</label>
-              <input type='textarea' name='review' value={state.review} onChange={handleChange} />
-            </form>
-          </div> : <div>
-            {reviews?.map(e => {
-              return <div>
-                <p>Valoracion: {e.qualification} </p>
-                <p>Comentario: {e.review} </p>
-                <p>Usuario: {e.email}  </p>
-              </div>
-            })}
-            {Object.keys(user).length > 0 ?
-              <div>
-                <form onSubmit={handleSubmit}>
-                  <label> Valoracion:</label>
-                  <select name="qualification" value={state.qualification} onChange={handleChange}>
-                    <option value='1'>1</option>
-                    <option value='2'>2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-                  <label> Comentario:</label>
-                  <input type='textarea' name='review' value={state.review} onChange={handleChange} />
-                </form>
-              </div> : <p> Necesitas loguearte para dejar comentario</p>
-            }
-          </div>}
+
+        <div className={style.contentTabs}>
+          <div className={toggleState === 1 ? style.activeContent : style.content}>
+            <div className={style.descriptionConteiner}>
+              <div className={style.title}>MARCA</div>
+              {/* <hr className={style.reviewHr}/> */}
+              <div className={style.txt}>{product.brand}</div>
+              <div className={style.title}>TEXTO</div>
+              <div className={style.txt}>{product.description}</div>
+              <span>{product.qualification}</span>
+            </div>
+          </div>
+          <div className={toggleState === 2 ? style.activeContent : style.content}>
+            <div className={style.reviewsConteiner}>
+              {reviews?.length === 0 ?
+                <div>
+                  'No existen reviews aun'
+                  <form onSubmit={handleSubmit}>
+                    <label> Valoracion:</label>
+                    <select name="qualification" value={state.qualification} onChange={handleChange}>
+                      <option value='1'>1</option>
+                      <option value='2'>2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <label> Comentario:</label>
+                    <input type='textarea' name='review' value={state.review} onChange={handleChange} />
+                  </form>
+                </div> : <div>
+                  {reviews?.map(e => {
+                    return <div>
+                      <p>Valoracion: {e.qualification} </p>
+                      <p>Comentario: {e.review} </p>
+                      <p>Usuario: {e.email}  </p>
+                    </div>
+                  })}
+                  {Object.keys(user).length > 0 ?
+                    <div>
+                      <form onSubmit={handleSubmit}>
+                        <label> Valoracion:</label>
+                        <select name="qualification" value={state.qualification} onChange={handleChange}>
+                          <option value='1'>1</option>
+                          <option value='2'>2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
+                        <label> Comentario:</label>
+                        <input type='textarea' name='review' value={state.review} onChange={handleChange} />
+                      </form>
+                    </div> : <p> Necesitas loguearte para dejar comentario</p>
+                  }
+                </div>}
+
+            </div>
+          </div>
+        </div>
+
+
+
       </div>
     </div>
   )
