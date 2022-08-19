@@ -5,29 +5,35 @@ import { setCart, sortProductByPrice } from "../../Actions";
 import "./Cards.css";
 import { createCont } from "../contexto/contextProvider";
 
-const Cards = () => {
+
+const Cards = (props) => {
+
   const { Products } = useSelector((state) => state);
   const { productsByName } = useSelector((state) => state);
   const dispatch = useDispatch();
 
+
 const {currentPage, setCurrentPage} = useContext(createCont)
+
+
 
   let x = [];
   const addProductCartStorage = (o) => {
-    let filtered = x.filter((e) => e.idProduct === o.idProduct);
-    if (filtered.length) return;
+    let a = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
+    
 
-    let a = JSON.parse(localStorage.getItem("ProductCartLocalStorage"));
     if (a) {
+      let filtered = a.filter((e) => e.idProduct === o.idProduct);
+      if (filtered.length) return;
       x = [...a, o];
       console.log(x);
-      localStorage.setItem("ProductCartLocalStorage", JSON.stringify(x));
+      localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
       console.log(x);
       return;
     }
 
     x = [...x, o];
-    localStorage.setItem("ProductCartLocalStorage", JSON.stringify(x));
+    localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
     console.log(x);
   };
   useEffect(() => {
@@ -37,7 +43,6 @@ const {currentPage, setCurrentPage} = useContext(createCont)
   }, []);
 
   //Paginado.
-  // const [currentPage, setCurrentPage] = useState(1); //pagina actual
   const [itemsPerPage, setItemsPerPage] = useState(10); //cantidad de elementos por pagina 
 
   //Definimos 3 estados mas para limitar los numeros de las paginas
