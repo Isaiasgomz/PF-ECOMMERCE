@@ -4,28 +4,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCart, sortProductByPrice } from "../../Actions";
 import ReactPaginate from "react-paginate";
 import "./Cards.css";
+import { useHistory } from "react-router-dom";
 
 const Cards = (props) => {
   const { Products } = useSelector((state) => state);
   const { productsByName } = useSelector((state) => state);
   const dispatch = useDispatch();
 
+  const history = useHistory()
+
   let x = [];
   const addProductCartStorage = (o) => {
-    let filtered = x.filter((e) => e.idProduct === o.idProduct);
-    if (filtered.length) return;
+    let a = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
+    
 
-    let a = JSON.parse(localStorage.getItem("ProductCartLocalStorage"));
     if (a) {
+      let filtered = a.filter((e) => e.idProduct === o.idProduct);
+      if (filtered.length) return;
       x = [...a, o];
       console.log(x);
-      localStorage.setItem("ProductCartLocalStorage", JSON.stringify(x));
+      localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
       console.log(x);
       return;
     }
 
     x = [...x, o];
-    localStorage.setItem("ProductCartLocalStorage", JSON.stringify(x));
+    localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
     console.log(x);
   };
   useEffect(() => {
@@ -66,7 +70,6 @@ const Cards = (props) => {
   return (
     <div className="containerCardsComponent">
       <div className="containerCardProducts">
-
       {displayProducts}
       </div>
       <div className="paginate">

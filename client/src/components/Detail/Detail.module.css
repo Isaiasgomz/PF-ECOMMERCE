@@ -97,11 +97,114 @@
     cursor: pointer;
     transition: 0.3s ease;
 }
+
 .button:hover {
-    
+
     background-color: #5294f7;
+
+}
+
+/* ---------------------------------------------------tabs........... */
+.reviewConteiner {
+
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 50%;
+    /* height: 300px; */
+    background: #ffffff;
+    margin-top: 5px;
+    word-break: break-all;
+
+}
+
+
+.blocTabs {
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background:#91C612;
+}
+
+.tabs {
+    
+    transition: 0.3s ease;
+    padding: 5px;
+    text-align: center;
+    width: 50%;
+    background: rgb(255, 255, 255);
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+    position: relative;
+    outline: none;
+}
+
+.tabs:focus{
+    background-color: #f18686;
+    opacity: 0.2;
+    transition: 0.2s;
+}
+
+/* .tabs:not(:last-child) {
+
+    border-right: 1px solid rgba(0, 0, 0, 0.274);
+} */
+
+.activeTabs {
+    margin-bottom: 5px;
+    transition: 0.3s ease;
+    padding: 5px;
+    width: 50%;
+    background: rgb(255, 255, 255);
+    
     
 }
-.reviewConteiner {
-    background-color: red;
+
+
+.contentTabs {
+
+    flex-grow: 1;
+}
+
+.content {
+
+    margin: 0;
+    padding: 0;
+    background: white;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.activeContent {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align:start ;
+    padding: 15px;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+
+
+.title{
+width: 300px;
+border-bottom: 2px solid #91C612;
+margin-bottom: 5px;
+padding-bottom: 1px;
+text-align: start;
+font:400 16px/28px Montserrat,sans-serif;
+letter-spacing: 2px;
+}
+
+.txt{
+margin: 20px;
+margin-left: 0;
+font:15px sans-serif;
+position: relative;
 }

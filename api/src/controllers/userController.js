@@ -61,9 +61,9 @@ module.exports = {
     updateUser: async function(email, admin){
         console.log(email, admin)
         try {
-            await User.update(admin, {
+            await User.update({admin:admin}, {
                 where: {
-                    email
+                    email:email
                 }
             })
         } catch (error) {

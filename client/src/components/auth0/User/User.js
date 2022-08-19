@@ -17,8 +17,7 @@ let obj={}
     }
   }else{
      obj = {
-      email: user.email,
-      admin: false
+      email: user.email
     }
   }
 

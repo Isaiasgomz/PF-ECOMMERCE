@@ -3,22 +3,21 @@
     border: none;
     padding: 20px;
     font-size: 22px;
-    color: rgb(194, 194, 194);
-    background-color: transparent;
-    font-weight: 10;
+    color: black;
+    background-color: transparent;   
+
 }
 
 .buttons:hover{
-    color: white;
+    color: #91C612;
 }
 
 .categories{
-    background-color: rgb(3, 3, 3);
+    background-color: #EEEEEE;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60%;
-    
+    height: 65%;
 
 }
 
