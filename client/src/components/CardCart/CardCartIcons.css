@@ -8,3 +8,7 @@
 .fa-circle-minus{
     color: #91C612;
 }
+
+i:hover{
+    cursor: pointer;
+}

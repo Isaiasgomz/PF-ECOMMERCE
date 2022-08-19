@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import {setCart } from '../../Actions'
 import CardCart from '../CardCart/CardCart'
 import style from "./ShoppingCar.module.css"
+import swal from 'sweetalert';
 
 
 
@@ -16,7 +17,35 @@ function ShoppingCar(){
     let x = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"))
     dispatch(setCart(x))
 
-  },[])
+  },[dispatch])
+
+  const deleteProduct = (o)=>{
+
+    swal({
+      title: "Estás seguro?",
+      text: "Una vez eliminado, no puedes recuperar el producto seleccionado.",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        let x = cart.filter((e)=> e.idProduct !== o.idProduct)
+      dispatch(setCart(x))
+      localStorage.setItem("ProductCartLocalStoragev3",JSON.stringify(x))
+        swal("Poof! El producto ha sido eliminado correctamente!", {
+          icon: "success",
+        });
+      } else {
+        swal("El producto se ha salvado!");
+      }
+    });
+
+    // let x = cart.filter((e)=> e.idProduct !== o.idProduct)
+    // dispatch(setCart(x))
+    // localStorage.setItem("ProductCartLocalStoragev3",JSON.stringify(x))
+    // alert("Producto borrado correctamente!")
+  }
 
   
 
@@ -30,7 +59,7 @@ function ShoppingCar(){
       </div>
 
        <div className={style.cards}>
-          {cart&& cart.map(e=><CardCart obj={e}/>)}
+          {cart&& cart.map(e=><CardCart deleteP={deleteProduct} obj={e}/>)}
        </div>
 
       </div>
