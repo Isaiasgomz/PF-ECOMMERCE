@@ -120,6 +120,17 @@ const {currentPage, setCurrentPage} = useContext(createCont)
 
   return (
     <div>
+       <ul className="pageNumbers">
+        <li>
+          <button onClick={handlePrev} disabled={currentPage === pages[0] ? true : false}>Prev</button>
+        </li>
+       {pageIncrementBtn}
+        {renderPageNumbers}
+      {pageDecrementBtn}
+        <li>
+          <button onClick={handleNext} disabled={currentPage === pages[pages.length -1] ? true : false}>Next</button>
+        </li>
+      </ul>
       {currentItems?.map((e, index) => (
         <Card
           localStor={addProductCartStorage}
@@ -132,17 +143,6 @@ const {currentPage, setCurrentPage} = useContext(createCont)
           key={index}
         />
       ))}
-      <ul className="pageNumbers">
-        <li>
-          <button onClick={handlePrev} disabled={currentPage === pages[0] ? true : false}>Prev</button>
-        </li>
-       {pageIncrementBtn}
-        {renderPageNumbers}
-      {pageDecrementBtn}
-        <li>
-          <button onClick={handleNext} disabled={currentPage === pages[pages.length -1] ? true : false}>Next</button>
-        </li>
-      </ul>
     </div>
   );
 };
