@@ -12,7 +12,7 @@ const purchases = require ('./Purchase.js');
 
 /* postear reviews */
 router.use('/review', review)
-/* traer productos, buscar productos por query, trae detalle de producto, actualiza producto, borra producto*/
+/* traer productos, buscar productos por query, trae detalle de producto, crea y actualiza producto*/
 router.use('/products', products)
 /* crear , traer detalle , crear personal data y actualizar personal data de usuario  */
 router.use('/user', user)

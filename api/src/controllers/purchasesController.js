@@ -15,11 +15,11 @@ module.exports = {
             return e;
         }
     },
+
     getOrder: async function (email){
         try{
             if(!email) throw 'Faltan datos obligatorios';
-                else{
-                    
+                else{                   
                     let newOrder = await PurchaseOrder.findOne({
                         where:{
                             UserEmail:email
