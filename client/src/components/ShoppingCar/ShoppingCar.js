@@ -1,11 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCart } from "../../Actions";
-
 import { Link } from "react-router-dom";
-
 import CardCart from "../CardCart/CardCart";
-
 import style from "./ShoppingCar.module.css";
 import swal from "sweetalert";
 
