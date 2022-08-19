@@ -19,6 +19,7 @@ import ResumeOrder from "./components/ResumeOrder/ResumeOrder"
 function App() {
   return (
     <div className="App">
+
       <Route path="/" component={NavBar} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/detail/:id" component={Detail} />
@@ -32,9 +33,9 @@ function App() {
       <Route exact path={"/cart"} component={ShoppingCar} />
       
       <Route path={"/"} component={Footer} />
-      
 
       <Route exact path="/sign" component={SignUp} />
+
     </div>
   );
 }

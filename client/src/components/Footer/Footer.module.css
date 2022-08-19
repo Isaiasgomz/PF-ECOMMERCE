@@ -37,6 +37,10 @@
   background-color: transparent;
 }
 
+.buttonFooter:hover {
+    color: #91C612;
+}
+
 .containerIcons {
   width: 33%;
   height: 100%;

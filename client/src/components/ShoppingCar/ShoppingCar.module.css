@@ -1,5 +1,21 @@
 .containerCart{
-    border: 2px solid red;
     width: 100%;
     height: auto;
+    padding: 25px;
 }
+
+.containerInfo{
+
+    height: 15%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+ .cards{
+    height: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+} 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearAllFilters, getProducts, sortProductByBrand, sortProductByCategory, sortProductByPrice } from '../../Actions'
 import styles from "./Filter.module.css"
@@ -13,11 +13,23 @@ function Filter(props) {
     const { Products } = useSelector(state => state)
     const dispatch = useDispatch()
 
+    const [dropDown, setDropDown] = useState(false)
+    const [dropDown2, setDropDown2] = useState(false)
+    const [dropDown3, setDropDown3] = useState(false)
     
+    const openCloseDropDown = () =>{
+        setDropDown(!dropDown);
+    }
+    const openCloseDropDown2 = () =>{
+        setDropDown2(!dropDown2);
+    }
+    const openCloseDropDown3 = () =>{
+        setDropDown3(!dropDown3);
+    }
 
     function sortByPrice(e) {
         if (e.target.value === "default") { return }
-        if (e.target.value === "cheaper") {
+        if (e.target.textContent.slice(2) === "Menor precio") {
             let productSorted = (productsByName.length === 0 ? Products : productsByName).sort((product1, product2) => {
                 if (product1.price < product2.price) {
                     return -1
@@ -30,7 +42,7 @@ function Filter(props) {
             dispatch(sortProductByPrice(productSorted))
         }
 
-        if (e.target.value === "expensive") {
+        if (e.target.textContent.slice(2) === "Mayor precio") {
             let productSorted = (productsByName.length === 0 ? Products : productsByName).sort((product1, product2) => {
                 if (product1.price < product2.price) {
                     return 1
@@ -46,8 +58,8 @@ function Filter(props) {
     }
 
     const sortByBrand = (e) => {
-        
-        if (e.target.value === "default") { dispatch(getProducts()); dispatch(clearAllFilters()) }
+        console.log(e.target.textContent.slice(2))
+        if (e.target.textContent.slice(2) === "Todas las marcas") { dispatch(getProducts()); dispatch(clearAllFilters()) }
         let productSorted = (
             !!productsByName?.length
                 ?
@@ -57,13 +69,13 @@ function Filter(props) {
                     ?
                     productsByCategory
                     :
-                    AllProducts).filter(g => g.brand === e.target.value)
+                    AllProducts).filter(g => g.brand === e.target.textContent.slice(2))
         dispatch(sortProductByBrand(productSorted))
     }
 
     const sortByCategory = (e) => {
-        
-        if (e.target.value === "default") { dispatch(getProducts()); dispatch(clearAllFilters()) }
+        console.log(e.target.textContent.slice(2))
+        if (e.target.textContent.slice(2) === "Todas las categorias") { dispatch(getProducts()); dispatch(clearAllFilters()) }
         let productSorted = (
             !!productsByName?.length
                 ?
@@ -73,11 +85,13 @@ function Filter(props) {
                     ?
                     productsByBrand
                     :
-                    AllProducts).filter(g => g.category === e.target.value)
+                    AllProducts).filter(g => g.category === e.target.textContent.slice(2))
         dispatch(sortProductByCategory(productSorted))
     }
 
     const clearFilters = (e) =>{
+        setDropDown(false)
+        setDropDown2(false)
         dispatch(clearAllFilters())
         dispatch(getProducts())
     }
@@ -119,14 +133,38 @@ function Filter(props) {
 
     return (
         <div className={styles.filterContainer}>
+           
+           <div className={styles.tituloDiv}>
+            <span className={styles.titulo}>Filtros</span>
+           <button className={styles.buttonClear}onClick={clearFilters}>Borrar filtros</button>
+           </div>
 
-            <select className={styles.selector} onChange={sortByPrice}>
-                <option value="default">Order by Price</option>
-                <option value="cheaper">cheaper</option>
-                <option value="expensive">expensive</option>
-            </select>
 
-            <select className={styles.selector} onChange={sortByBrand}>
+            <div className={styles.toggle} onClick={openCloseDropDown3}><span>Precio</span><span className={styles.span}><i class="fa-solid fa-chevron-down"></i></span></div>
+            {dropDown3? 
+            <div>
+            <div className={styles.toggleItem} value="Menor precio" onClick={sortByPrice}><span>- Menor precio</span></div>
+            <div className={styles.toggleItem} value="Mayor precio" onClick={sortByPrice}><span>- Mayor precio</span></div>
+            </div>
+            :null}
+        
+            <div className={styles.toggle} onClick={openCloseDropDown}><span>Categorias</span><span className={styles.span}><i class="fa-solid fa-chevron-down"></i></span></div>
+            {dropDown? 
+            <div>
+            {category?.map((e, index) => <div className={styles.toggleItem} key={index} value={e} onClick={sortByCategory}><span>- {e}</span></div>)}
+            <div className={styles.toggleItem} value="Todas las categorias" onClick={sortByCategory}><span>- Todas las categorias</span></div>
+            </div>
+            :null}
+
+            <div className={styles.toggle} onClick={openCloseDropDown2}><span >Marcas </span><span className={styles.span}><i class="fa-solid fa-chevron-down"></i></span></div>
+            {dropDown2? 
+            <div>
+            {brands?.map((e, index) => <div className={styles.toggleItem} key={index} value={e} onClick={sortByBrand}><span>- {e}</span></div>) }
+            <div className={styles.toggleItem} value="Todas las marcas" onClick={sortByBrand}><span>- Todas las marcas</span></div>
+            </div>
+            :null}
+
+         {/*    <select className={styles.selector} onChange={sortByBrand}>
                 <option value="default">All Brands</option>
                 {brands?.map((e, index) => <option key={index} value={e}>{e}</option>)}
             </select>
@@ -134,9 +172,17 @@ function Filter(props) {
             <select className={styles.selector} onChange={sortByCategory}>
                 <option value="default">All Categories</option>
                 {category?.map((e, index) => <option key={index} value={e}>{e}</option>)}
+            </select> 
+            
+             <select className={styles.selector} onChange={sortByPrice}>
+                <option value="default">Order by Price</option>
+                <option value="cheaper">cheaper</option>
+                <option value="expensive">expensive</option>
             </select>
 
-            <button onClick={clearFilters}>clear</button>
+            */}
+
+            
 
         </div>
     )
