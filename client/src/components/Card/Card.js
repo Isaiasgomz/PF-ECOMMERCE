@@ -15,7 +15,7 @@ function Card({name,price,img,calification,localStor,ob,id}) {
       <div className={style.containerInfo}>
         <div className={style.containerTitle}>
 
-          <p>{name}</p>
+        <Link to={`/detail/${id}`}> <p>{name}</p></Link>
         </div>
         <div className={style.containerPriceCart}>
           <p>${price}</p>
