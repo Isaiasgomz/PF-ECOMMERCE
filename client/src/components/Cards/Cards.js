@@ -15,20 +15,21 @@ const Cards = (props) => {
 
   let x = [];
   const addProductCartStorage = (o) => {
-    let filtered = x.filter((e) => e.idProduct === o.idProduct);
-    if (filtered.length) return;
+    let a = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
+    
 
-    let a = JSON.parse(localStorage.getItem("ProductCartLocalStoragev2"));
     if (a) {
+      let filtered = a.filter((e) => e.idProduct === o.idProduct);
+      if (filtered.length) return;
       x = [...a, o];
       console.log(x);
-      localStorage.setItem("ProductCartLocalStoragev2", JSON.stringify(x));
+      localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
       console.log(x);
       return;
     }
 
     x = [...x, o];
-    localStorage.setItem("ProductCartLocalStoragev2", JSON.stringify(x));
+    localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
     console.log(x);
   };
   useEffect(() => {

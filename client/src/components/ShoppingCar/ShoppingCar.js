@@ -13,7 +13,7 @@ function ShoppingCar(){
   const cart = useSelector(state=> state.cart)
 
   useEffect(()=>{
-    let x = JSON.parse(localStorage.getItem("ProductCartLocalStoragev2"))
+    let x = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"))
     dispatch(setCart(x))
 
   },[])

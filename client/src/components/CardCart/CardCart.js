@@ -6,7 +6,7 @@ import "./CardCartIcons.css"
 const CardCart = ({obj}) => {
 
     return (
-        <div className={style.containerCart}>
+
             <div className={style.containerCard}>
 
                 <div className={style.containerImg}>
@@ -29,7 +29,6 @@ const CardCart = ({obj}) => {
                     </div>
                 </div>
             </div>
-        </div>
     );
 }
 
