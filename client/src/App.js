@@ -11,6 +11,7 @@ import Payment from "./components/Payment/Payment"
 import CreateProduct from "./components/CreateProduct/CreateProduct";
 import Detail from "./components/Detail/Detail";
 import SignUp from "./components/SignUp/SignUp";
+import ResumeOrder from "./components/ResumeOrder/ResumeOrder"
 
 
 
@@ -27,9 +28,11 @@ function App() {
       <Route exact path="/order" component={Order} />
       <Route exact path="/payment" component={Payment} />
       <Route exact path="/createProduct" component={CreateProduct} /> 
+      <Route exact path={"/resumeOrder"} component={ResumeOrder}/>
       <Route exact path={"/cart"} component={ShoppingCar} />
+      
       <Route path={"/"} component={Footer} />
-
+      
 
       <Route exact path="/sign" component={SignUp} />
     </div>
