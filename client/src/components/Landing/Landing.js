@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { getProducts } from "../../Actions/index.js";
 import "./Landing.css";
 
-
 function Landing() {
   /////////////////////// declaro el dispatch
 
@@ -16,114 +15,148 @@ function Landing() {
   }, [dispatch]);
 
   return (
-    <div className="container">
-      <div
-        id="carouselExampleIndicators"
-        className="carousel slide"
-        data-bs-ride="true"
-      >
-        <div className="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            className="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="3"
-            aria-label="Slide 4"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="4"
-            aria-label="Slide 5"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="5"
-            aria-label="Slide 6"
-          ></button>
-        </div>
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img
-              src="https://cdn.mos.cms.futurecdn.net/xyiGWw8VkpBkeEXifog8Jh.jpg"
-              className="d-block"
-              alt="..."
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="https://dlcdnrog.asus.com/rog/media/1640742394134.jpg"
-              className="d-block"
-              alt="..."
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="https://www.redsharknews.com/hubfs/ASUS_14X_Space_Edition2-jpg.jpeg"
-              className="d-block"
-              alt="..."
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="https://press.razer.com/wp-content/uploads/2019/01/Blade-15-2019-Advanced-Model-Studio-Photo-02-1-1024x683.png"
-              className="d-block"
-              alt="..."
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="https://nissei.com/media/wysiwyg/Triton_500_SE_AGW_KSP01.jpg"
-              className="d-block"
-              alt="..."
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="https://i.blogs.es/6c6cdf/acer-predator-helios-300/1366_2000.jpeg"
-              className="d-block"
-              alt="..."
-            />
-          </div>
-        </div>
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="prev"
+    <div className="cont">
+      <div className="containerLanding">
+        <div
+          id="carouselExampleIndicators"
+          className="carousel slide"
+          data-bs-ride="true"
         >
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="next"
-        >
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
-        </button>
+          <div className="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="0"
+              className="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="4"
+              aria-label="Slide 5"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="5"
+              aria-label="Slide 6"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="6"
+              aria-label="Slide 7"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="7"
+              aria-label="Slide 8"
+            ></button>
+          </div>
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img
+                src="https://www.computerlounge.co.nz/Data/Media/Images/Brand/HyperX/hyperx-brand-banner.jpg"
+                className="d-block"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="https://dobleclicknet.com/wp-content/uploads/2019/07/banner_redragon.jpg"
+                className="d-block"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="https://dlcdnwebimgs.asus.com/gain/77614B08-0FD4-41FB-9517-ADB95C1F4546/fwebp"
+                className="d-block"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="https://www.techlandbd.com/image/catalog/Monitor/Samsung/samsung_Monitors-min.jpg"
+                className="d-block"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="https://webonline.macstore.mx/img/categorias-productos/accesorios/perifericos/banner_perifericos.jpg"
+                className="d-block"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="https://newsletters.pcel.com/assets/templates/template-6109/banner-landing-logitech-28-09-21.jpg"
+                className="d-block"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0566/0989/8694/files/JBL-Headphone-Series-Category-Banner.jpg?v=1635476150"
+                className="d-block"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="https://bangho.vteximg.com.br/arquivos/ids/159692/banner-notebook-desktop-v4.png?v=637405225029700000"
+                className="d-block"
+                alt="..."
+              />
+            </div>
+          </div>
+          <button
+            className="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev"
+          >
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button
+            className="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next"
+          >
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Next</span>
+          </button>
+        </div>
       </div>
     </div>
   );
