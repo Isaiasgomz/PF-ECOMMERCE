@@ -13,6 +13,7 @@ function ResumeOrder() {
     dispatch(setCart(x));
   }, []);
 
+  const total = cart.map(e => e.price).reduce((a,b) => a + b, 0);
 
   return (
     <div>
@@ -27,7 +28,7 @@ function ResumeOrder() {
             </div>
           ))}
       </div>
-      <div>Total: </div>
+      <div>Total: {total} </div>
       <div>
         <Link to="/shoppingCar">
           <button>Volver al carrito</button>
