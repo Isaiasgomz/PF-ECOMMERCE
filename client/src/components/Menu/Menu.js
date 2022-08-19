@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { clearAllFilters, clearSearch, getProducts, sortProductByCategory } from "../../Actions";
+import { createCont } from "../contexto/contextProvider";
 import styles from "./Menu.module.css"
 
 
@@ -11,6 +12,7 @@ function Menu() {
   const {productsByName} = useSelector(state => state)
    const dispatch = useDispatch()
 
+   const {setCurrentPage} = useContext(createCont)
   const clear = (e) =>{
     
     dispatch(getProducts())
@@ -22,6 +24,7 @@ function Menu() {
     let productSorted = AllProducts?.filter(g => g.category === e)
     dispatch(sortProductByCategory(productSorted))
     dispatch(clearSearch())
+    setCurrentPage(1);
 }
 
 let categorias = new Set(AllProducts?.map(e => e.category))
