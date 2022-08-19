@@ -1,9 +1,7 @@
-const { Op, User, Review, PersonalData, PurchaseOrder , Product } = require('../db');
-
-
+const { Op, User, Review, PersonalData, PurchaseOrder , ShoppingCart } = require('../db');
 
 module.exports = {
-    /* detalle de producto por params + review + personal data */
+    /* Detalle de usuario por params + review + personal data */
     userDetail: async function (email) {
         try {
             let user = await User.findByPk(email, {
@@ -12,10 +10,10 @@ module.exports = {
                 },{
                     model:PersonalData
                 },{
-                    model:PurchaseOrder
+                    model:PurchaseOrder,
+                    include: ShoppingCart
                 }
-            ],
-            
+            ],            
             } )
             if(!user) throw 'Usuario no encontrado';
             else{
@@ -27,7 +25,7 @@ module.exports = {
     },
     /* Creacion de personal data */
     userPdata: async function (email, pData){
-        try{if(!pData.fullname || !pData.address || !pData.city || !pData.country || !pData.CP ) throw 'faltan datos obligatorios';
+        try{if(!pData.fullname || !pData.address || !pData.city || !pData.country || !pData.CP ) throw 'Faltan datos obligatorios';
         else{
             let [newPData, created] = await PersonalData.findOrCreate({
                 where :{ UserEmail: email },
@@ -48,7 +46,7 @@ module.exports = {
         }
     },
     /* Actualizacion de personal data */
-    updatePersonalData: async function(email,dataModify){
+    updatePersonalData: async function(email, dataModify){
         try {
             await PersonalData.update(dataModify, {
                 where: {
@@ -58,5 +56,18 @@ module.exports = {
         } catch (error) {
             throw new Error(error); 
         }
-    }
+    },
+    /* Usuario admin nuevo */
+    updateUser: async function(email, admin){
+        console.log(email, admin)
+        try {
+            await User.update(admin, {
+                where: {
+                    email
+                }
+            })
+        } catch (error) {
+            throw new Error(error); 
+        }
+    },
 }
