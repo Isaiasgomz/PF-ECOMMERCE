@@ -8,25 +8,13 @@ const router = Router();
 //agregar un producto a la lista cart de un usuario
 router.post("/", async (req, res) => {
   const {cart} = req.body;
-  console.log("req.body:", req.body);
   try {
-    let newCart = await postCart(cart)
+      let newCart = await postCart(cart)
       res.status(200).send(newCart)
   } catch (error) {
-    res.status(404).send(error)
-  }
+      res.status(404).send(error)
+    }
 });
-
-/* router.post("/:idProduct", async (req, res) => {
-  
-  const { idProduct,quantity } = req.body;
-  try {
-    let addQuantity = await postQuantity(idProduct, quantity);
-    res.status(201).send(addQuantity);
-  } catch (error) {
-    res.status(400).send(error)
-  }
-}) */
 
 //mostrar los productos que estan agregados al carrito
 router.get("/:email", async (req, res) => {

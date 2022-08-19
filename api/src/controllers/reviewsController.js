@@ -3,7 +3,7 @@ const {Review} = require("../db");
 module.exports = {
     postReview: async function (obj){
         
-        try{if(!obj.email || !obj.qualification || !obj.review || !obj.ProductIdProduct) throw 'Falta enviar datos obligatorios';
+        try{if(!obj.email || !obj.qualification || !obj.review || !obj.ProductIdProduct) throw 'Faltan datos obligatorios';
         else{
             let objReview= {
                 UserEmail:obj.email,

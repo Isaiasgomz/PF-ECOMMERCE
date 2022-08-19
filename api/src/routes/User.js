@@ -1,19 +1,17 @@
 const { Router } = require("express");
-const { userDetail, userPdata, updatePersonalData } = require("../controllers/userController");
+const { userDetail, userPdata, updatePersonalData, updateUser } = require("../controllers/userController");
 const {User} = require('../db');
 const { route } = require("./Review");
 
 const router = Router()
 
-// REVISAR DIFERENCIAS CON AUTH0 Y MODELO DB
+/* post de usuario */
 router.post('/', async (req,res)=>{
     try {
-        const  {user} = req.body
-          
+        const  {user} = req.body          
         if(!user.email){
-            return res.status(400).json({error: "Missing required dates"});
-        }
-         
+            return res.status(400).json({error: "Faltan datos obligatorios"});
+        }         
         const [newUser,created] = await User.findOrCreate({
             where:{
                 email:user.email
@@ -28,6 +26,7 @@ router.post('/', async (req,res)=>{
         res.status(400).json(error)
     }
 })
+
 /* detalle de usuario */
 router.get('/:idUser', async(req,res)=>{
     const {idUser} = req.params
@@ -35,10 +34,10 @@ router.get('/:idUser', async(req,res)=>{
         let userD = await userDetail(idUser);
         res.status(200).send(userD);
     } catch (error) {
-        console.log(error)
         res.status(404).send(error);
     }
 })
+
 /* crear personal data del usuario */
 router.post('/:idUser/personalData', async(req,res)=>{
     const {idUser} = req.params
@@ -46,10 +45,10 @@ router.post('/:idUser/personalData', async(req,res)=>{
         let pData = await userPdata(idUser,req.body);
         res.status(200).send(pData);
     } catch (error) {
-        console.log(error)
         res.status(404).send(error);
     }
 })
+
 /* actualizar personal data de usuario */
 router.patch('/:idUser/updatePersonalData', async(req,res)=>{
     const {idUser} = req.params
@@ -60,4 +59,16 @@ router.patch('/:idUser/updatePersonalData', async(req,res)=>{
         res.status(404).send(error)
     }
 })
+
+/* actualizar usuario admin */
+router.patch('/updateUser', async(req,res)=>{
+    const {email, admin} = req.body;
+    try {
+        updateUser(email, admin);
+        res.status(200).send('Nuevo administrador creado!')
+    } catch (error) {
+        res.status(404).send(error)
+    }
+})
+
 module.exports= router

@@ -42,25 +42,25 @@ const { User, Product, ShoppingCart, Review, PersonalData, PurchaseOrder } = seq
 User.belongsToMany(Product, { through: 'Cart' })  */
 
 
-/* RELACION ENTRE PRODUCTO Y REVIEW */
+/* RELACIÓN ENTRE PRODUCTO Y REVIEW */
 Product.hasMany(Review);
 Review.belongsTo(Product);
-/* RELACION ENTRE USUARIO Y REVIEW */
+/* RELACIÓN ENTRE USUARIO Y REVIEW */
 User.hasMany(Review);
 Review.belongsTo(User);
-/* RELACION ENTRE USUARIO Y PERSONALDATA(P/COMPLETAR EN EL PERFIL PARA ENVIO) */
+/* RELACIÓN ENTRE USUARIO Y PERSONALDATA(P/COMPLETAR EN EL PERFIL PARA ENVIO) */
 User.hasOne(PersonalData);
 PersonalData.belongsTo(User);
-/* RELACION ENTRE USUARIO Y PURCHASEORDER */
+/* RELACIÓN ENTRE USUARIO Y PURCHASEORDER */
 User.hasMany(PurchaseOrder);
 PurchaseOrder.belongsTo(User);
-/* RELACION ENTRE PRODUCTO Y CARRITO */
+/* RELACIÓN ENTRE PRODUCTO Y CARRITO */
 Product.hasMany(ShoppingCart);
 ShoppingCart.belongsTo(Product);
-/* RELACION ENTRE USUARIO Y CARRITO */
+/* RELACIÓN ENTRE USUARIO Y CARRITO */
 User.hasMany(ShoppingCart);
 ShoppingCart.belongsTo(User);
-/*  */
+/* RELACIÓN ENTRE ORDEN Y CARRITO */
 PurchaseOrder.hasOne(ShoppingCart)
 ShoppingCart.belongsTo(PurchaseOrder);
 
