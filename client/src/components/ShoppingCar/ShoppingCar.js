@@ -19,6 +19,10 @@ function ShoppingCar(){
 
   },[dispatch])
 
+
+
+
+
   const deleteProduct = (o)=>{
 
     swal({
@@ -41,10 +45,6 @@ function ShoppingCar(){
       }
     });
 
-    // let x = cart.filter((e)=> e.idProduct !== o.idProduct)
-    // dispatch(setCart(x))
-    // localStorage.setItem("ProductCartLocalStoragev3",JSON.stringify(x))
-    // alert("Producto borrado correctamente!")
   }
 
   
@@ -56,10 +56,11 @@ function ShoppingCar(){
         <div className={style.containerPrice}>
           <h2>Precio total: $</h2>
         </div>
+        <button>Comprar</button>
       </div>
 
        <div className={style.cards}>
-          {cart&& cart.map(e=><CardCart deleteP={deleteProduct} obj={e}/>)}
+          {cart&& cart.map(e=><CardCart key={e.idProduct} deleteP={deleteProduct} obj={e}/>)}
        </div>
 
       </div>

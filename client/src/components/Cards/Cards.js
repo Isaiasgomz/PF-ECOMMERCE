@@ -4,14 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCart, sortProductByPrice } from "../../Actions";
 import ReactPaginate from "react-paginate";
 import "./Cards.css";
-import { useHistory } from "react-router-dom";
+
 
 const Cards = (props) => {
   const { Products } = useSelector((state) => state);
   const { productsByName } = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const history = useHistory()
+
+
 
   let x = [];
   const addProductCartStorage = (o) => {

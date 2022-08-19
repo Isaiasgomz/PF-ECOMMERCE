@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { clearDetail, createReview, getProductDetail, setCart } from "../../Actions";
+import { clearDetail, createReview, getProductDetail } from "../../Actions";
 import style from "./Detail.module.css";
 import Divider from '@mui/material/Divider';
-import { useAuth0, User } from "@auth0/auth0-react";
 
 function Detail(props) {
   const id = props.match.params?.id;
@@ -15,16 +14,20 @@ function Detail(props) {
     qualification: '',
     review: '',
     ProductIdProduct: id,
-    email: user.email ? user.email : ''
+    email: user.email
   })
-
   const [toggleState, setToggleState] = useState(1);
 
   const toggleTab = (index) => {
     setToggleState(index)
   }
 
-
+  useEffect(() => {
+    dispatch(getProductDetail(id))
+    return () => {
+      dispatch(clearDetail())
+    }
+  }, [dispatch, id])
   /* submit del form */
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,38 +49,11 @@ function Detail(props) {
     } else {
       setState({
         ...state,
-        [e.target.name]: e.target.value,
-        email:user.email
+        [e.target.name]: e.target.value
       })
     }
   }
-  /* agregar al carrito */
-  let x = [];
-  const addProductCartStorage = (o) => {
-    let a = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
-    
 
-    if (a) {
-      let filtered = a.filter((e) => e.idProduct === o.idProduct);
-      if (filtered.length) return;
-      x = [...a, o];
-      console.log(x);
-      localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
-      console.log(x);
-      return;
-    }
-
-    x = [...x, o];
-    localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
-    console.log(x);
-  };
-  useEffect(() => {
-    dispatch(getProductDetail(id))
-    return () => {
-      dispatch(setCart(x));
-      dispatch(clearDetail())
-    }
-  }, [dispatch, id])
   return (
     <div className={style.conteiner}>
 
@@ -116,7 +92,7 @@ function Detail(props) {
             </div>
           </div>
           <div className={style.buttonConteiner}>
-            <button onClick={() => addProductCartStorage(product)} className={style.button}>Agregar al carrito</button>
+            <button className={style.button}>Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -132,6 +108,7 @@ function Detail(props) {
           <div className={toggleState === 1 ? style.activeContent : style.content}>
             <div className={style.descriptionConteiner}>
               <div className={style.title}>MARCA</div>
+              {/* <hr className={style.reviewHr}/> */}
               <div className={style.txt}>{product.brand}</div>
               <div className={style.title}>TEXTO</div>
               <div className={style.txt}>{product.description}</div>
@@ -145,7 +122,7 @@ function Detail(props) {
                   'No existen reviews aun'
                   <form onSubmit={handleSubmit}>
                     <label> Valoracion:</label>
-                    <select name="qualification" value={state?.qualification} onChange={handleChange}>
+                    <select name="qualification" value={state.qualification} onChange={handleChange}>
                       <option value='1'>1</option>
                       <option value='2'>2</option>
                       <option value="3">3</option>
@@ -153,7 +130,7 @@ function Detail(props) {
                       <option value="5">5</option>
                     </select>
                     <label> Comentario:</label>
-                    <input type='textarea' name='review' value={state?.review} onChange={handleChange} />
+                    <input type='textarea' name='review' value={state.review} onChange={handleChange} />
                   </form>
                 </div> : <div>
                   {reviews?.map(e => {
@@ -163,11 +140,11 @@ function Detail(props) {
                       <p>Usuario: {e.email}  </p>
                     </div>
                   })}
-                   {Object.keys(user).length > 0 ?
+                  {Object.keys(user).length > 0 ?
                     <div>
                       <form onSubmit={handleSubmit}>
                         <label> Valoracion:</label>
-                        <select name="qualification" value={state?.qualification} onChange={handleChange}>
+                        <select name="qualification" value={state.qualification} onChange={handleChange}>
                           <option value='1'>1</option>
                           <option value='2'>2</option>
                           <option value="3">3</option>
@@ -175,7 +152,7 @@ function Detail(props) {
                           <option value="5">5</option>
                         </select>
                         <label> Comentario:</label>
-                        <input type='textarea' name='review' value={state?.review} onChange={handleChange} />
+                        <input type='textarea' name='review' value={state.review} onChange={handleChange} />
                       </form>
                     </div> : <p> Necesitas loguearte para dejar comentario</p>
                   }
