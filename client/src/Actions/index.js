@@ -42,20 +42,12 @@ export function getProductDetail(id) {
 export function createReview(obj) {
     return async function () {
         console.log(obj)
-        return axios.post(`http://localhost:3001/review`, { obj })
+        return axios.post(`http://localhost:3001/review`,  obj )
             .then(data => alert('Review added!'))
             .catch(error => alert(error.response.data))
     }
 }
 
-/* export function getReview(obj) {
-    return async function () {
-        console.log(obj)
-        const reviews= axios.get(`http://localhost:3001/review`, { obj })
-        return dispatch({ type: 'PRODUCT_DETAIL', payload: productDetail.data })
-            .catch(error => alert(error.response.data))
-    }
-} */
 
 export function sortProductByPrice(array){
     return {

@@ -49,7 +49,7 @@ export default function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 productDetail: action.payload,
-                reviews: action.payload.reviews
+                reviews: action.payload.Reviews
             }
         case 'SORT_PRODUCT_PRICE':
             return {
