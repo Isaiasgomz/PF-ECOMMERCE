@@ -1,0 +1,14 @@
+.fa-circle-plus{
+    color: #3483FA;
+}
+.fa-trash-can{
+    color: red;
+}
+
+.fa-circle-minus{
+    color: #91C612;
+}
+
+i:hover{
+    cursor: pointer;
+}

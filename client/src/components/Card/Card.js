@@ -3,19 +3,19 @@ import style from "./Card.module.css"
 import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
 
-function Card({name,price,img,calification,localStor,ob,id}) {
 
+function Card({name,price,img,calification,localStor,ob,id}) {
 
 
   return (
     <div className={style.containerCard}>
       <div className={style.containerImg}>
-       <Link to={`/detail/${id}`}> <img className={style.img} src={img} alt={name} /> </Link>
+       <img className={style.img} src={img} alt={name} /> 
       </div>
       <div className={style.containerInfo}>
         <div className={style.containerTitle}>
 
-          <p>{name}</p>
+        <Link to={`/detail/${id}`}> <p>{name}</p></Link>
         </div>
         <div className={style.containerPriceCart}>
           <p>${price}</p>
@@ -26,7 +26,8 @@ function Card({name,price,img,calification,localStor,ob,id}) {
             precision={0.5}
             readOnly
           /> */}
-          <i onClick={()=>localStor(ob)} className="fa-solid fa-cart-plus"></i>
+          <div className={style.buttonCarrito}><i onClick={()=>localStor(ob)} className="fa-solid fa-cart-plus"></i></div>
+          
         </div>
       </div>
     

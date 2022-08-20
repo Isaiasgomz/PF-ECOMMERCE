@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { clearDetail, createReview, getProductDetail } from "../../Actions";
+import { clearDetail, createReview, getProductDetail, setCart } from "../../Actions";
 import style from "./Detail.module.css";
 import Divider from '@mui/material/Divider';
 
@@ -54,6 +54,30 @@ function Detail(props) {
     }
   }
 
+
+  // add to cart
+
+  let x = [];
+  const addProductCartStorage = (o) => {
+    let a = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
+    
+
+    if (a) {
+      let filtered = a.filter((e) => e.idProduct === o.idProduct);
+      if (filtered.length) return;
+      x = [...a, o];
+      console.log(x);
+      localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
+      console.log(x);
+      return;
+    }
+
+    x = [...x, o];
+    localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
+    console.log(x);
+  };
+  
+
   return (
     <div className={style.conteiner}>
 
@@ -92,7 +116,7 @@ function Detail(props) {
             </div>
           </div>
           <div className={style.buttonConteiner}>
-            <button className={style.button}>Agregar al carrito</button>
+            <button onClick={()=>addProductCartStorage(product)} className={style.button}>Agregar al carrito</button>
           </div>
         </div>
       </div>

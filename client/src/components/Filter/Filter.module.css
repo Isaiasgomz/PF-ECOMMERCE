@@ -1,12 +1,38 @@
 .filterContainer{
-    margin: 10px;
-    padding: 20px;
-    height: 150px;
-    width: 200px;
-    background-color: gray;
+    margin-bottom: 25px;
+    
+    text-align: start;
+    background-color: transparent;
     border-radius: 15px;
+    height: auto;
     
+}
+
+.titulo{
+    font-size: 30px;
+    color: rgb(180, 180, 180);
+    font-family: sans-serif;
     
+}
+
+.tituloDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.buttonClear{
+    background-color: rgb(104, 187, 255);
+    border: none;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 130px;
+    border-radius: 7px;
+    color: white;
+   
+}
+.buttonClear:hover{
+    background-color: rgb(139, 203, 255);
+
 }
 
 .selector{
@@ -16,4 +42,43 @@
     font-size: 17px;
     width: 160px;
     margin-bottom: 5px;
+}
+
+.toggle{
+    background-color: white;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.637);
+    margin-top: 5px;
+    border-radius: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 7px;
+    width: 350px;
+}
+
+.toggle:hover{
+    background-color: rgb(236, 236, 236);
+}
+
+.toggleItem{
+    background-color: white;
+    color: rgb(104, 104, 104);
+    cursor: pointer; 
+    font-size: 14px;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.637);
+    padding: 5px;
+}
+.toggleItem:hover{
+    background-color: rgb(236, 236, 236);
+}
+
+.span{
+    font-size: 10px;
+    font-weight: bold;
+    color:  rgb(104, 187, 255);
+    margin-right: 5px;
 }

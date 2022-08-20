@@ -56,18 +56,5 @@ module.exports = {
         } catch (error) {
             throw new Error(error); 
         }
-    },
-    /* Usuario admin nuevo */
-    updateUser: async function(email, admin){
-        console.log(email, admin)
-        try {
-            await User.update(admin, {
-                where: {
-                    email
-                }
-            })
-        } catch (error) {
-            throw new Error(error); 
-        }
-    },
+    }, 
 }
