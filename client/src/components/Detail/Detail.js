@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { clearDetail, createReview, getProductDetail, setCart } from "../../Actions";
+import { clearDetail, createReview, getProductDetail } from "../../Actions";
 import style from "./Detail.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 import { withStyles } from '@material-ui/core/styles';
 import Boxx from '@mui/material/Box';
-import Input from '@mui/material/Input';
 import TextField from '@mui/material/TextField';
+import { prom, validate } from "./detailFunctions";
 
-const ariaLabel = { 'aria-label': 'description' };
 
 const StyledRating = withStyles({
   iconFilled: {
@@ -34,6 +33,10 @@ function Detail(props) {
     ProductIdProduct: id,
     email: user.email
   })
+  const [errors, setErrors] = useState({})
+  /* promedio */
+  let promedio = reviews?.map(e => e.qualification)
+  let promResult = prom(promedio);
 
   /* button login */
   const { loginWithRedirect } = useAuth0()
@@ -76,6 +79,10 @@ function Detail(props) {
         email: user.email
       })
     }
+    setErrors(validate({
+      ...state,
+      [e.target.name]: e.target.value
+    }))
   }
 
   // add to cart
@@ -98,7 +105,7 @@ function Detail(props) {
     localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
     console.log(x);
   };
-  
+
 
   return (
     <div className={style.conteiner}>
@@ -111,7 +118,7 @@ function Detail(props) {
             <span className={style.titulo}>{product.productName}</span>
             <div className={style.ratinggeneralReview}>
               <Box component="fieldset" mb={3} borderColor="transparent">
-                <StyledRating name="read-only" value={3} size="large" readOnly />
+                <StyledRating name="read-only" value={promResult ? promResult : 0} size="large" readOnly />
               </Box>
             </div>
             <div>
@@ -138,7 +145,7 @@ function Detail(props) {
             </div>
           </div>
           <div className={style.buttonConteiner}>
-            <button onClick={()=>addProductCartStorage(product)} className={style.button}>Agregar al carrito</button>
+            <button onClick={() => addProductCartStorage(product)} className={style.button}>Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -207,12 +214,17 @@ function Detail(props) {
                                 <label>Vimos que compraste este producto, dejanos tu opinion!</label>
                                 <hr />
                                 <Box component="fieldset" mb={3} borderColor="transparent">
-                                  <Rating
+                                  <StyledRating
                                     name="qualification"
-                                    value={state?.qualification}
+                                    value={Number(state?.qualification)}
                                     onChange={handleChange}
                                   />
                                 </Box>
+                                
+                                {
+                                  errors.qualification && (
+                                    <p className={style.textError} >{errors.qualification}</p>)
+                                }
                                 <TextField
                                   fullWidth
                                   name='review'
@@ -223,8 +235,13 @@ function Detail(props) {
                                   placeholder="Minimo 5 palabras"
                                   multiline
                                   variant="filled"
+                                  error={errors.review?.split(" ").length>1}
                                 />
-                                <button className={style.loginButton} type="submit">Opinar!</button>
+                                {
+                                  errors.review && (
+                                    <p className={style.textError} >{errors.review}</p>)
+                                }
+                                <button disabled={Object.keys(errors).length>0 || state.review.length===0 } className={style.loginButton} type="submit">Opinar!</button>
                               </Boxx>
                               <hr />
                             </div>
@@ -249,10 +266,15 @@ function Detail(props) {
                                 <Box component="fieldset" mb={3} borderColor="transparent">
                                   <StyledRating
                                     name="qualification"
-                                    value={state?.qualification}
+                                    value={Number(state?.qualification)}
                                     onChange={handleChange}
                                   />
                                 </Box>
+
+                                {
+                                  errors.qualification && (
+                                    <p className={style.textError} >{errors.qualification}</p>)
+                                }
                                 <TextField
                                   fullWidth
                                   name='review'
@@ -263,8 +285,14 @@ function Detail(props) {
                                   placeholder="Minimo 5 palabras"
                                   multiline
                                   variant="filled"
+                                  error={errors.review?.split(" ").length>1}
                                 />
-                                <button className={style.loginButton} type="submit">Opinar!</button>
+                                
+                                {
+                                  errors.review && (
+                                    <p className={style.textError} >{errors.review}</p>)
+                                }
+                                <button disabled={Object.keys(errors).length>0 || state.review.length===0 } className={style.loginButton} type="submit">Opinar!</button>
                               </Boxx>
                               <hr />
                             </div>

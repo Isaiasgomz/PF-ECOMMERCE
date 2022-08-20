@@ -3,6 +3,11 @@
     font-family: sans-serif;
 }
 
+.textError{
+    font-size: 13px;
+    color: red;
+}
+
 .product {
     display: flex;
     flex-direction: row;
@@ -185,14 +190,14 @@
     position: relative;
 }
 
-/* ....................reviews....................... */
+ reviews
 
 .reviewsConteiner{
     display: flex;
     flex-direction: column;
     font: 15px sans-serif;
 }
-/* sin reviews sin login */
+ sin reviews sin login 
 .noNoConteiner{
     display: flex;
     flex-direction: column;
@@ -217,7 +222,7 @@
     opacity: 0.7;
     transition: 0.3s ease;
 }
-/* con reviews sin login */
+ con reviews sin login 
 
 .mapReviewConteiner{
     display: flex;
