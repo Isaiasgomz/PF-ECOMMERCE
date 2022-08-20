@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getProducts } from "../../Actions/index.js";
 import "./Landing.css";
+import CarouselMarcas from "./CarouselMarcas/CarouselMarcas.js";
 
 function Landing() {
   /////////////////////// declaro el dispatch
@@ -159,10 +160,8 @@ function Landing() {
         </div>
       </div>
 
-      <h2 className="titleMarcas">¡Las mejores marcas están en Pull Origin!</h2>
-      <div className="containerCarousel2">
-        
-      </div>
+      <h2 className="titleMarcas">¡Las mejores marcas las encontras en TechStore!</h2>
+      <CarouselMarcas></CarouselMarcas>
     </div>
   );
 }
