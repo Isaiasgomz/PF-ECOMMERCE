@@ -3,8 +3,8 @@ import style from "./Card.module.css"
 import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
 
-function Card({name,price,img,calification,localStor,ob,id}) {
 
+function Card({name,price,img,calification,localStor,ob,id}) {
 
 
   return (

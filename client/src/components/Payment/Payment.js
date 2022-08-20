@@ -14,7 +14,7 @@ const Payment = () => {
   
 
   const paypalOtions = {
-    clientId: 'ATN4MgsCVKSXinkSTL1YqlANTikW5fXyo5C7TkyVUG7JB0DTr1G2aabkWFF9Uz6kKo61tL48cfWpomc4',
+    clientId: 'AffjftSi14wqkpaYtcSOkUIOqN3cmYxIW3-51TX84jsgecsOs4lvssCHtzi08_6axU8T1_9_f6CegucW',
     intent: 'capture',
     currency: 'USD'
   }
@@ -26,15 +26,16 @@ const Payment = () => {
 
   const handlePaymentSuccess = (data) => {
     console.log(data);
-    if (data.status === 'COMPLETED') {
-      /* dispatch(postNorder(data.ALGO))
-      let shoppingCart = cart.map(e=>{
-        e
-      })
-      dispatch(postShoppingCart(shoppingCart)) */
-      alert('Payment completed successfully')
-      history.push('/checkout/success')
-    }
+ 
+    /* dispatch(postNorder(data.orderID))
+    let shoppingCart = cart.map(e=>{
+      e
+    })
+    dispatch(postShoppingCart(shoppingCart)) */
+
+    
+    alert('Payment completed successfully')
+      history.push('/payment/success')
   }
 
   
@@ -49,26 +50,15 @@ const Payment = () => {
   return (
     <div className="Payment">
       <div className="Payment-content">
-        <h3>Resument del pedido:</h3>
-        {
-          <div className="Payment-item" >
-            <div className="Payment-element">
-              <h4>Mac</h4>
-              <span>
-                $
-                {' '}
-                {123}
-              </span>
-            </div>
-          </div>
-        }
-        <div className="Payment-button">
+        <h3>Resument del pedido:</h3><br/>
+     
+        <br/><div className="Payment-button">
           <PayPalButton
             paypalOptions={paypalOtions}
             buttonStyles={buttonStyles}
             amount={handleSumTotal()}
+            onApprove={data => handlePaymentSuccess(data)}
             onPaymentStart={() => console.log('Start Payment')}
-            onPaymentSuccess={data => handlePaymentSuccess(data)}
             onPaymentError={error => console.log(error)}
             onPaymentCancel={data => console.log(data)}
           />

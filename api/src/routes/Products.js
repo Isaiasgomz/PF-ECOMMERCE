@@ -42,7 +42,7 @@ router.post('/create', async (req,res)=>{
 router.patch('/update/:id', async (req,res) =>{
     try {
         const {id} = req.params
-        updateProduct(id, req.body)
+        await updateProduct(id, req.body)
         res.status(200).send('Producto actualizado!')
     } catch (error) {
         res.status(404).send(error)

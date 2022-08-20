@@ -10,7 +10,8 @@ const initialState = {
     reviews: [],
     user: {},
     productsBackUp: [],
-    cart: []
+    cart: [],
+    personalData: {},
 
 }
 
@@ -93,6 +94,11 @@ export default function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 productDetail: action.payload
+            }
+        case 'USER_DATA':
+            return {
+                ...state,
+                personalData: action.payload
             }
 
         default:

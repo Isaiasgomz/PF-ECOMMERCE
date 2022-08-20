@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { userDetail, userPdata, updatePersonalData, updateUser } = require("../controllers/userController");
+const { userDetail, userPdata, updatePersonalData } = require("../controllers/userController");
 const {User} = require('../db');
 const { route } = require("./Review");
 
@@ -55,17 +55,6 @@ router.patch('/:idUser/updatePersonalData', async(req,res)=>{
     try {
         await updatePersonalData(idUser, req.body)
         res.status(200).send('Datos Personales actualizados!')
-    } catch (error) {
-        res.status(404).send(error)
-    }
-})
-
-/* actualizar usuario admin */
-router.patch('/updateUser', async(req,res)=>{
-    const {email, admin} = req.body;
-    try {
-        await updateUser(email,admin);
-        res.status(200).send('Nuevo administrador creado!')
     } catch (error) {
         res.status(404).send(error)
     }

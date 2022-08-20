@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Cards from "../Cards/Cards.js";
 import Filter from "../Filter/Filter.js";
 import styles from "./Home.module.css";
@@ -7,6 +7,8 @@ import { getProducts } from "../../Actions/index.js";
 
 function Home(props) {
   const dispatch = useDispatch();
+
+  const [currentPage, setCurrentPage] = useState(1); //pagina actual
 
   useEffect(() => {
     dispatch(getProducts());
@@ -17,11 +19,11 @@ function Home(props) {
   return (
     <div className={styles.homeContainer}>
       <div className={styles.filterContainer}>
-        <Filter filter={category} />
+        <Filter setCurrentPage={setCurrentPage} filter={category} />
       </div>
       <div className={styles.cardsContainer}>
         {" "}
-        <Cards filter={category} />{" "}
+        <Cards currentPage={currentPage} setCurrentPage={setCurrentPage} filter={category} />{" "}
       </div>
     </div>
   );

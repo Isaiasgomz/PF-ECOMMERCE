@@ -21,6 +21,7 @@ const StyledRating = withStyles({
   },
 })(Rating);
 
+
 function Detail(props) {
   const id = props.match.params?.id;
   const dispatch = useDispatch();
@@ -31,16 +32,25 @@ function Detail(props) {
     qualification: '',
     review: '',
     ProductIdProduct: id,
-    email: user.email ? user.email : ''
+    email: user.email
   })
+
   /* button login */
   const { loginWithRedirect } = useAuth0()
   /* tabs */
+
   const [toggleState, setToggleState] = useState(1);
   const toggleTab = (index) => {
     setToggleState(index)
   }
 
+
+  useEffect(() => {
+    dispatch(getProductDetail(id))
+    return () => {
+      dispatch(clearDetail())
+    }
+  }, [dispatch, id])
   /* submit del form */
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -67,7 +77,8 @@ function Detail(props) {
       })
     }
   }
-  /* agregar al carrito */
+
+  // add to cart
   let x = [];
   const addProductCartStorage = (o) => {
     let a = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
@@ -87,13 +98,8 @@ function Detail(props) {
     localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
     console.log(x);
   };
-  useEffect(() => {
-    dispatch(getProductDetail(id))
-    return () => {
-      dispatch(setCart(x));
-      dispatch(clearDetail())
-    }
-  }, [dispatch, id])
+  
+
   return (
     <div className={style.conteiner}>
       <div className={style.product}>
@@ -132,7 +138,7 @@ function Detail(props) {
             </div>
           </div>
           <div className={style.buttonConteiner}>
-            <button onClick={() => addProductCartStorage(product)} className={style.button}>Agregar al carrito</button>
+            <button onClick={()=>addProductCartStorage(product)} className={style.button}>Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -279,6 +285,7 @@ function Detail(props) {
                       }</div>}
                   </div>}
               </div>
+
             </div>
           </div>
         </div>
