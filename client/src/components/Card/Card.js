@@ -3,8 +3,8 @@ import style from "./Card.module.css"
 import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
 
-function Card({name,price,img,calification,localStor,ob,id}) {
 
+function Card({name,price,img,calification,localStor,ob,id}) {
 
 
   return (
@@ -15,7 +15,7 @@ function Card({name,price,img,calification,localStor,ob,id}) {
       <div className={style.containerInfo}>
         <div className={style.containerTitle}>
 
-          <p>{name}</p>
+        <Link to={`/detail/${id}`}> <p>{name}</p></Link>
         </div>
         <div className={style.containerPriceCart}>
           <p>${price}</p>

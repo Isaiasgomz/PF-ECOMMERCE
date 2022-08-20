@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
+
+import React, { useContext, useEffect, useState } from 'react'
+
 import { useDispatch, useSelector } from 'react-redux'
-import {Dropdown, DropdownItem, DropdownMenu,DropdownToggle} from "reactstrap" 
 import { clearAllFilters, getProducts, sortProductByBrand, sortProductByCategory, sortProductByPrice } from '../../Actions'
+import { createCont } from '../contexto/contextProvider'
 import styles from "./Filter.module.css"
 
 
-function Filter(props) {
+function Filter() {
 
     const { AllProducts } = useSelector(state => state)
     const { productsByCategory } = useSelector(state => state)
@@ -13,6 +15,10 @@ function Filter(props) {
     const { productsByName } = useSelector(state => state)
     const { Products } = useSelector(state => state)
     const dispatch = useDispatch()
+
+    
+    const {setCurrentPage} = useContext(createCont)
+
 
     const [dropDown, setDropDown] = useState(false)
     const [dropDown2, setDropDown2] = useState(false)
@@ -41,6 +47,7 @@ function Filter(props) {
                 }
             })
             dispatch(sortProductByPrice(productSorted))
+            setCurrentPage(1);
         }
 
         if (e.target.textContent.slice(2) === "Mayor precio") {
@@ -55,6 +62,7 @@ function Filter(props) {
             })
 
             dispatch(sortProductByPrice(productSorted))
+            setCurrentPage(1);
         }
     }
 
@@ -72,6 +80,7 @@ function Filter(props) {
                     :
                     AllProducts).filter(g => g.brand === e.target.textContent.slice(2))
         dispatch(sortProductByBrand(productSorted))
+        setCurrentPage(1);
     }
 
     const sortByCategory = (e) => {
@@ -88,6 +97,7 @@ function Filter(props) {
                     :
                     AllProducts).filter(g => g.category === e.target.textContent.slice(2))
         dispatch(sortProductByCategory(productSorted))
+        setCurrentPage(1);
     }
 
     const clearFilters = (e) =>{
