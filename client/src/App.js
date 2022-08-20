@@ -11,6 +11,9 @@ import Payment from "./components/Payment/Payment"
 import CreateProduct from "./components/CreateProduct/CreateProduct";
 import Detail from "./components/Detail/Detail";
 import SignUp from "./components/SignUp/SignUp";
+import NotFound from "./components/NotFound/NotFound";
+import Success from "./components/Success/Success";
+
 
 
 
@@ -23,7 +26,7 @@ function App() {
       <Route exact path="/detail/:id" component={Detail} />
       <Route exact path="/" component={Landing} />
       <Route exact path="/about" component={About} />
-      <Route exact path="/shoppingCar" component={ShoppingCar} />
+      {/* <Route exact path="/shoppingCar" component={ShoppingCar} /> */}
       <Route exact path="/order" component={Order} />
       <Route exact path="/payment" component={Payment} />
       <Route exact path="/createProduct" component={CreateProduct} /> 
@@ -32,6 +35,9 @@ function App() {
 
 
       <Route exact path="/sign" component={SignUp} />
+
+      <Route exact path="/payment/success" component={Success} />
+      <Route path='/notfound' component={NotFound} />
     </div>
   );
 }

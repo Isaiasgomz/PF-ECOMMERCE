@@ -1,37 +1,32 @@
 import React, { useState } from 'react'
-// import useSelector from 'react-redux'
-import {NavLink} from 'react-router-dom'
+import {NavLink, useHistory} from 'react-router-dom'
+import  {useDispatch, useSelector} from 'react-redux'
+import {postUserData} from '../../Actions/index.js'
 import styles from './Order.module.css'
 
 function validate (input){
   const errors = {}
 
-  if(!input.name){
-    errors.name = 'El nombre es requerido'
+  if(!input.fullname){
+    errors.fullname = 'El nombre es requerido'
   }
   if(!input.email){
-    errors.name = 'El email es requerido'
+    errors.email = 'El email es requerido'
   }
-  if(!input.direction){
-    errors.name = 'La direccion es requerida'
-  }
-  if(!input.departament){
-    errors.name = 'El numero de departamento es requerido'
+  if(!input.address){
+    errors.address = 'La direccion es requerida'
   }
   if(!input.city){
-    errors.name = 'La ciudad es requerida'
+    errors.city = 'La ciudad es requerida'
   }
   if(!input.country){
-    errors.name = 'El pais es requerido'
+    errors.country = 'El pais es requerido'
   }
-  if(!input.state){
-    errors.name = 'El nombre del estado es requerido'
-  }
-  if(!input.cp){
-    errors.name = 'El codigo postal es requerido'
+  if(!input.CP){
+    errors.CP = 'El codigo postal es requerido'
   }
   if(!input.telephone){
-    errors.name = 'El numero de telefono es requerido'
+    errors.telephone = 'El numero de telefono es requerido'
   }
 
   return errors
@@ -40,15 +35,20 @@ function validate (input){
 
 function Order() {
 
+  const  dispatch = useDispatch()
+
+  const user = useSelector(state => state.user)
+
+  const  history = useHistory()
+
+
   const [input, setInput] = useState({
-    name:'',
+    fullname:'',
     email:'',
-    direction:'',
-    departament:'',
+    address:'',
     city:'',
     country:'',
-    state:'',
-    cp:'',
+    CP:'',
     telephone:'',
   })
 
@@ -68,18 +68,36 @@ function Order() {
 
   }
 
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    console.log(input)
+    dispatch(postUserData(user.email,input))
+    setInput({
+    fullname:'',
+    email:'',
+    address:'',
+    city:'',
+    country:'',
+    CP:'',
+    telephone:'',
+    })
+
+    history.push('/payment')
+    
+  }
+
   return (
     <div className={styles.productContainer}>
       <h2>INOFRMACION DE CONTACTO</h2>
-      <form>
-      <label htmlFor='name'>Nombre</label>
+      <form onSubmit={(e) => handleSubmit(e)}>
+      <label htmlFor='fullname'>Nombre</label>
       <input className={styles.formInput} required={true} type="text" 
-      name='name' value={input.name}
+      name='fullname' value={input.fullname}
       placeholder='Camila Yokoo' 
       onChange={(e) => handleInput(e)}/><br/>
       {
-        errors.name && (
-        <p className={styles.textError} >{errors.name}</p>)
+        errors.fullname && (
+        <p className={styles.textError} >{errors.fullname}</p>)
       }
 
       <label htmlFor='email'>Correo</label>
@@ -92,14 +110,14 @@ function Order() {
         <p className={styles.textError} >{errors.email}</p>)
       }
 
-      <label htmlFor='direction'>Direccion</label>
+      <label htmlFor='address'>Direccion</label>
       <input className={styles.formInput} required={true} type="text" 
-      name='direction' value={input.direction}
+      name='address' value={input.address}
       placeholder='Direccion'
       onChange={(e) => handleInput(e)}/><br/>
       {
-        errors.direction && (
-        <p className={styles.textError} >{errors.direction}</p>)
+        errors.address && (
+        <p className={styles.textError} >{errors.address}</p>)
       }
 
       <label htmlFor='departament'>Departamento</label>
@@ -114,7 +132,7 @@ function Order() {
 
       <label htmlFor='city'>Ciudad</label>
       <input className={styles.formInput} required={true} type="text"
-      name='country' value={input.country}
+      name='city' value={input.city}
       placeholder='Ciudad' 
       onChange={(e) => handleInput(e)}/><br/>
        {
@@ -131,24 +149,14 @@ function Order() {
         <p className={styles.textError} >{errors.country}</p>)
       }
 
-      <label htmlFor='state'>Estado</label>
-      <input className={styles.formInput} required={true} type="text"
-      name='state' value={input.telephone}
-      placeholder='Estado' 
-      onChange={(e) => handleInput(e)}/><br/>
-       {
-        errors.state && (
-        <p className={styles.textError} >{errors.state}</p>)
-      }
-
-      <label htmlFor='cp'>C.P.</label>
+      <label htmlFor='CP'>C.P.</label>
       <input className={styles.formInput} required={true} type="number"
-      name='cp' value={input.cp} 
+      name='CP' value={input.CP} 
       placeholder='Codigo Postal' 
       onChange={(e) => handleInput(e)}/><br/>
       {
-        errors.cp && (
-        <p className={styles.textError} >{errors.cp}</p>)
+        errors.CP && (
+        <p className={styles.textError} >{errors.CP}</p>)
       }
 
       <label htmlFor='telephone'>Telefono</label>
@@ -163,13 +171,13 @@ function Order() {
 
 
 
-      <NavLink to={'/checkout'}>
+      
       <input type={'submit'} value={'Confirmar'} />
-      </NavLink>
+      
       
       </form>
 
-      <NavLink to={'/home'}>
+      <NavLink to={'/resumeOrder'}>
       <button>Regresar</button>
       </NavLink>
 
