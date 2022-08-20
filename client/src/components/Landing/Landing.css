@@ -40,8 +40,8 @@
 .titleMarcas {
   display: flex;
   justify-content: left;
-  margin-left: 310px;
-  margin-top: 25px;
+  margin-left: 250px;
+  margin-top: 30px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 27px;
+  font-size: 30px;
 }
