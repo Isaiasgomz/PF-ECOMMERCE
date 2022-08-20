@@ -23,21 +23,21 @@ function App() {
     <div className="App">
 
       <ContextProvider>
-        <Route path="/" component={NavBar} />
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/detail/:id" component={Detail} />
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/shoppingCar" component={ShoppingCar} />
-        <Route exact path="/order" component={Order} />
-        <Route exact path="/payment" component={Payment} />
-        <Route exact path="/createProduct" component={CreateProduct} />
+        <Route path={"/"} component={NavBar} />
+        <Route exact path={"/"} component={Landing} />
+        <Route path={"/"} component={Footer} />
+        <Route exact path={"/home"} component={Home} />
+        <Route exact path={"/detail/:id"} component={Detail} />
+        <Route exact path={"/about"} component={About} />
+        <Route exact path={"/shoppingCar"} component={ShoppingCar} />
+        <Route exact path={"/order"} component={Order} />
+        <Route exact path={"/payment"} component={Payment} />
+        <Route exact path={"/createProduct"} component={CreateProduct} />
         <Route exact path={"/resumeOrder"} component={ResumeOrder} />
         <Route exact path={"/cart"} component={ShoppingCar} />
-        <Route path={"/"} component={Footer} />
-        <Route exact path="/sign" component={SignUp} />
-        <Route exact path="/payment/success" component={Success} />
-        <Route path='/notfound' component={NotFound} />
+        <Route exact path={"/sign"} component={SignUp} />
+        <Route exact path={"/payment/success"} component={Success} />
+        <Route path={"/notfound"} component={NotFound} />
       </ContextProvider>
 
     </div>
