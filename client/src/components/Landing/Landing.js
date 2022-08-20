@@ -15,8 +15,8 @@ function Landing() {
   }, [dispatch]);
 
   return (
-    <div className="cont">
-      <div className="containerLanding">
+    <div className="containerLanding">
+      <div className="containerCarousel1">
         <div
           id="carouselExampleIndicators"
           className="carousel slide"
@@ -157,6 +157,11 @@ function Landing() {
             <span className="visually-hidden">Next</span>
           </button>
         </div>
+      </div>
+
+      <h2 className="titleMarcas">¡Las mejores marcas están en Pull Origin!</h2>
+      <div className="containerCarousel2">
+        
       </div>
     </div>
   );
