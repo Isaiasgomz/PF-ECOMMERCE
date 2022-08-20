@@ -10,10 +10,7 @@ import swal from "sweetalert";
 function ShoppingCar() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  useEffect(() => {
-    let x = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
-    dispatch(setCart(x));
-  }, [dispatch]);
+  
 
   let y = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
   let productsFromLocalStorage = Array.from(y)
@@ -57,14 +54,24 @@ function ShoppingCar() {
     });
   };
 
+  useEffect(() => {
+    let x = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
+    dispatch(setCart(x));
+    return()=>{
+      dispatch(setCart(productsFromLocalStorage))
+    }
+  }, [dispatch]);
+
   return (
     <div className={style.containerCart}>
       <div className={style.containerInfo}>
+      <Link to={"/home"}>
+      <button>Seguir comprando</button>
+      </Link>
         <h2>Mi orden</h2>
         <div className={style.containerPrice}>
           <h2>Precio total: ${price}</h2>
         </div>
-        <button>Comprar</button>
         <div>
           <Link to="/resumeOrder">
             <button>Resumen de la orden</button>
