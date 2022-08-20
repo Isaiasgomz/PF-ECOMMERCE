@@ -65,11 +65,13 @@ function ShoppingCar() {
   return (
     <div className={style.containerCart}>
       <div className={style.containerInfo}>
+      <Link to={"/home"}>
+      <button>Seguir comprando</button>
+      </Link>
         <h2>Mi orden</h2>
         <div className={style.containerPrice}>
           <h2>Precio total: ${price}</h2>
         </div>
-        <button>Comprar</button>
         <div>
           <Link to="/resumeOrder">
             <button>Resumen de la orden</button>
