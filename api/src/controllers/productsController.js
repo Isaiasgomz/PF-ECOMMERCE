@@ -5,7 +5,10 @@ module.exports = {
     /* producto por query */
     productByName: async function (name) {
         try {
-            let product = await Product.findAll()
+            let product = await Product.findAll({
+                where: {
+                    disabled: false
+                }})
             product = product.filter(e => e.productName.toLowerCase().includes(name.toLowerCase()))
             if (product.length === 0) throw 'El producto no existe';
             return product;
@@ -33,13 +36,22 @@ module.exports = {
             })
             return await Product.bulkCreate(filtrado);
         } else {
-            return allProducts;
+            const enableProducts = await Product.findAll(
+                {
+                    where: {
+                        disabled: false
+                    }}
+            );
+            return enableProducts;
         }
     },
     /* detalle de producto por params */
     productDetail: async function (idProduct) {
         try {
             let product = await Product.findByPk(idProduct, {
+                where: {
+                    disabled: false,
+                },
                 include: [{
                     model:Review
                 }]

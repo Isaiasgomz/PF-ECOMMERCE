@@ -9,7 +9,7 @@ function ResumeOrder() {
   const cart = useSelector((state) => state.cart);
 
   useEffect(() => {
-    let x = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
+    let x = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"))
     dispatch(setCart(x));
   }, []);
 
@@ -17,7 +17,11 @@ function ResumeOrder() {
 
 
 
-  const total = cart.map(e => e.price).reduce((a,b) => a + b, 0);
+  const total = cart.reduce((acc, o)=>{
+    let cant = o.quantity ? o.quantity : 1
+  acc += o.price * cant
+  return acc
+},0)
 
   return (
     <div>
@@ -29,6 +33,7 @@ function ResumeOrder() {
               <img src={e.image} alt="img not found" />
               <p>{e.productName}</p>
               <p>{e.price}</p>
+              <p>Cantidad: {e.quantity}</p>
             </div>
           ))}
       </div>
