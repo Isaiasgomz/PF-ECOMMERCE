@@ -24,12 +24,16 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     CP: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     telephone: {
-      type: DataTypes.INTEGER
-    }
+      type: DataTypes.STRING
+    },
+    departament: {
+      type: DataTypes.STRING,
+      
+    },
   }, {
     timestamps: false
   });

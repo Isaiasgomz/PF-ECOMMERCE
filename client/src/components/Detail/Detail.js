@@ -2,7 +2,24 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { clearDetail, createReview, getProductDetail } from "../../Actions";
 import style from "./Detail.module.css";
-import Divider from '@mui/material/Divider';
+import { useAuth0 } from "@auth0/auth0-react";
+import Rating from '@material-ui/lab/Rating';
+import Box from '@material-ui/core/Box';
+import { withStyles } from '@material-ui/core/styles';
+import Boxx from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { prom, validate } from "./detailFunctions";
+
+
+const StyledRating = withStyles({
+  iconFilled: {
+    color: '#bcf13f',
+  },
+  iconHover: {
+    color: '#bcf13f',
+  },
+})(Rating);
+
 
 function Detail(props) {
   const id = props.match.params?.id;
@@ -16,11 +33,20 @@ function Detail(props) {
     ProductIdProduct: id,
     email: user.email
   })
-  const [toggleState, setToggleState] = useState(1);
+  const [errors, setErrors] = useState({})
+  /* promedio */
+  let promedio = reviews?.map(e => e.qualification)
+  let promResult = prom(promedio);
 
+  /* button login */
+  const { loginWithRedirect } = useAuth0()
+  /* tabs */
+
+  const [toggleState, setToggleState] = useState(1);
   const toggleTab = (index) => {
     setToggleState(index)
   }
+
 
   useEffect(() => {
     dispatch(getProductDetail(id))
@@ -49,28 +75,56 @@ function Detail(props) {
     } else {
       setState({
         ...state,
-        [e.target.name]: e.target.value
+        [e.target.name]: e.target.value,
+        email: user.email
       })
     }
+    setErrors(validate({
+      ...state,
+      [e.target.name]: e.target.value
+    }))
   }
+
+  // add to cart
+  let x = [];
+  const addProductCartStorage = (o) => {
+    let a = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
+
+
+    if (a) {
+      let filtered = a.filter((e) => e.idProduct === o.idProduct);
+      if (filtered.length) return;
+      x = [...a, o];
+      console.log(x);
+      localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
+      console.log(x);
+      return;
+    }
+
+    x = [...x, o];
+    localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
+    console.log(x);
+  };
+
 
   return (
     <div className={style.conteiner}>
-
       <div className={style.product}>
-
         <div className={style.img}>
           <img src={product.image} alt="" />
         </div>
-
         <div className={style.infoConteiner}>
           <div className={style.nameConteiner}>
             <span className={style.titulo}>{product.productName}</span>
+            <div className={style.ratinggeneralReview}>
+              <Box component="fieldset" mb={3} borderColor="transparent">
+                <StyledRating name="read-only" value={promResult ? promResult : 0} size="large" readOnly />
+              </Box>
+            </div>
             <div>
               <span>Categoria: </span> <span>{product.category}</span>
             </div>
           </div>
-
           <div className={style.priceConteiner}>
             <div className={style.price}>
               <span>$ {product.price} </span>
@@ -79,7 +133,6 @@ function Detail(props) {
             <div className={style.price}>
               <span>$ {Math.round(product.price / 12)}.99</span>
               <span className={style.textPrice}>12 cuotas sin interes </span>
-
             </div>
           </div>
           <div className={style.garantiaConteiner}>
@@ -92,78 +145,178 @@ function Detail(props) {
             </div>
           </div>
           <div className={style.buttonConteiner}>
-            <button className={style.button}>Agregar al carrito</button>
+            <button onClick={() => addProductCartStorage(product)} className={style.button}>Agregar al carrito</button>
           </div>
         </div>
       </div>
       <br />
-      <div className={style.reviewConteiner}>
-
-        <div className={style.blocTabs}>
-          <div className={toggleState === 1 ? style.activeTabs : style.tabs} onClick={() => toggleTab(1)}>Descripcion</div>
-          <div className={toggleState === 2 ? style.activeTabs : style.tabs} onClick={() => toggleTab(2)}>Opiniones</div>
-        </div>
-
-        <div className={style.contentTabs}>
-          <div className={toggleState === 1 ? style.activeContent : style.content}>
-            <div className={style.descriptionConteiner}>
-              <div className={style.title}>MARCA</div>
-              {/* <hr className={style.reviewHr}/> */}
-              <div className={style.txt}>{product.brand}</div>
-              <div className={style.title}>TEXTO</div>
-              <div className={style.txt}>{product.description}</div>
-              <span>{product.qualification}</span>
-            </div>
+      <div className={style.bottomConteiner}>
+        <div className={style.reviewConteiner}>
+          <div className={style.blocTabs}>
+            <div className={toggleState === 1 ? style.activeTabs : style.tabs} onClick={() => toggleTab(1)}>Descripcion</div>
+            <div className={toggleState === 2 ? style.activeTabs : style.tabs} onClick={() => toggleTab(2)}>Opiniones</div>
           </div>
-          <div className={toggleState === 2 ? style.activeContent : style.content}>
-            <div className={style.reviewsConteiner}>
-              {reviews?.length === 0 ?
-                <div>
-                  'No existen reviews aun'
-                  <form onSubmit={handleSubmit}>
-                    <label> Valoracion:</label>
-                    <select name="qualification" value={state.qualification} onChange={handleChange}>
-                      <option value='1'>1</option>
-                      <option value='2'>2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                    </select>
-                    <label> Comentario:</label>
-                    <input type='textarea' name='review' value={state.review} onChange={handleChange} />
-                  </form>
-                </div> : <div>
-                  {reviews?.map(e => {
-                    return <div>
-                      <p>Valoracion: {e.qualification} </p>
-                      <p>Comentario: {e.review} </p>
-                      <p>Usuario: {e.email}  </p>
+          <div className={style.contentTabs}>
+            <div className={toggleState === 1 ? style.activeContent : style.content}>
+              <div className={style.descriptionConteiner}>
+                <div className={style.title}>MARCA</div>
+                <div className={style.txt}>{product.brand}</div>
+                <div className={style.title}>TEXTO</div>
+                <div className={style.txt}>{product.description}</div>
+                <span>{product.qualification}</span>
+              </div>
+            </div>
+            <div className={toggleState === 2 ? style.activeContent : style.content}>
+              <div className={style.reviewsConteiner}>
+                {reviews?.length === 0 && Object.keys(user).length === 0 ?
+                  <div className={style.noNoConteiner}>
+                    <div className={style.noExisteReviews}>
+                      <span> No existen opiniones de este producto</span>
                     </div>
-                  })}
-                  {Object.keys(user).length > 0 ?
-                    <div>
-                      <form onSubmit={handleSubmit}>
-                        <label> Valoracion:</label>
-                        <select name="qualification" value={state.qualification} onChange={handleChange}>
-                          <option value='1'>1</option>
-                          <option value='2'>2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                        </select>
-                        <label> Comentario:</label>
-                        <input type='textarea' name='review' value={state.review} onChange={handleChange} />
-                      </form>
-                    </div> : <p> Necesitas loguearte para dejar comentario</p>
-                  }
-                </div>}
+                    <div className={style.needLog}>
+                      <span> Necesitas loguearte para dejar comentario</span>
+                      <hr />
+                      <button className={style.loginButton}> Login</button>
+                    </div>
+                  </div> : <div>
+                    {reviews?.length !== 0 && Object.keys(user).length === 0 ?
+                      <div>
+                        <div className={style.needLog}>
+                          <span className={style.needLogText}> Necesitas loguearte para dejar comentario</span>
+                          <button className={style.loginButton} onClick={() => loginWithRedirect()}>Log In</button>
+                        </div>
+                        <hr />{reviews?.map(e => {
+                          return <div key={e.id} className={style.mapReviewConteiner}>
+                            <div className={style.valoracion}>
+                              <Box component="fieldset" mb={3} borderColor="transparent">
+                                <StyledRating name="read-only" value={e.qualification} readOnly />
+                              </Box>
+                            </div>
+                            <div className={style.comentario}>
+                              <span>{e.review} </span>
+                            </div>
+                            <hr />
+                          </div>
+                        })}
+                      </div> : <div>{
+                        reviews?.length === 0 && Object.keys(user).length !== 0 ?
+                          <div className={style.noRsiUserConteiner}>
+                            <div className={style.formConteiner}>
+                              <Boxx
+                                onSubmit={handleSubmit}
+                                component="form"
+                                sx={{
+                                  '& > :not(style)': { m: 1 },
+                                }}
+                                noValidate
+                                autoComplete="off"
+                              >
+                                <label>Vimos que compraste este producto, dejanos tu opinion!</label>
+                                <hr />
+                                <Box component="fieldset" mb={3} borderColor="transparent">
+                                  <StyledRating
+                                    name="qualification"
+                                    value={Number(state?.qualification)}
+                                    onChange={handleChange}
+                                  />
+                                </Box>
+                                
+                                {
+                                  errors.qualification && (
+                                    <p className={style.textError} >{errors.qualification}</p>)
+                                }
+                                <TextField
+                                  fullWidth
+                                  name='review'
+                                  value={state?.review}
+                                  onChange={handleChange}
+                                  id="filled-textarea"
+                                  label="Tu opinion"
+                                  placeholder="Minimo 5 palabras"
+                                  multiline
+                                  variant="filled"
+                                  error={errors.review?.split(" ").length>1}
+                                />
+                                {
+                                  errors.review && (
+                                    <p className={style.textError} >{errors.review}</p>)
+                                }
+                                <button disabled={Object.keys(errors).length>0 || state.review.length===0 } className={style.loginButton} type="submit">Opinar!</button>
+                              </Boxx>
+                              <hr />
+                            </div>
+                            <div className={style.noExisteReviews}>
+                              <span> No existen opiniones de este producto</span>
+                            </div>
+                          </div> : <div className={style.siRsiUserConteiner}>
+                            <div className={style.formConteiner}>
+                              <Boxx
+                                onSubmit={handleSubmit}
+                                component="form"
+                                sx={{
+                                  '& > :not(style)': { m: 1 },
+                                  width: 1000,
+                                  maxWidth: '100%',
+                                }}
+                                noValidate
+                                autoComplete="off"
+                              >
+                                <label>Vimos que compraste este producto, dejanos tu opinion!</label>
+                                <hr />
+                                <Box component="fieldset" mb={3} borderColor="transparent">
+                                  <StyledRating
+                                    name="qualification"
+                                    value={Number(state?.qualification)}
+                                    onChange={handleChange}
+                                  />
+                                </Box>
+
+                                {
+                                  errors.qualification && (
+                                    <p className={style.textError} >{errors.qualification}</p>)
+                                }
+                                <TextField
+                                  fullWidth
+                                  name='review'
+                                  value={state?.review}
+                                  onChange={handleChange}
+                                  id="filled-textarea"
+                                  label="Tu opinion"
+                                  placeholder="Minimo 5 palabras"
+                                  multiline
+                                  variant="filled"
+                                  error={errors.review?.split(" ").length>1}
+                                />
+                                
+                                {
+                                  errors.review && (
+                                    <p className={style.textError} >{errors.review}</p>)
+                                }
+                                <button disabled={Object.keys(errors).length>0 || state.review.length===0 } className={style.loginButton} type="submit">Opinar!</button>
+                              </Boxx>
+                              <hr />
+                            </div>
+                            {reviews?.map(e => {
+                              return <div key={e.id} className={style.mapReviewConteiner}>
+                                <div className={style.valoracion}>
+                                  <Box component="fieldset" mb={3} borderColor="transparent" >
+                                    <StyledRating name="read-only" value={e.qualification} readOnly />
+                                  </Box>
+                                </div>
+                                <div className={style.comentario}>
+                                  <span>{e.review} </span>
+                                </div>
+                                <hr />
+                              </div>
+                            })}
+                          </div>
+                      }</div>}
+                  </div>}
+              </div>
 
             </div>
           </div>
         </div>
-
-
-
       </div>
     </div>
   )
