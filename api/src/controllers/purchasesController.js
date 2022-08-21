@@ -20,10 +20,13 @@ module.exports = {
         try{
             if(!email) throw 'Faltan datos obligatorios';
                 else{                   
-                    let newOrder = await PurchaseOrder.findOne({
+                    let newOrder = await PurchaseOrder.findAll({
                         where:{
                             UserEmail:email
-                        }
+                        },
+                        include: [{
+                            model:ShoppingCart
+                        }]
                     });
                     return newOrder;
         }}catch(e){
