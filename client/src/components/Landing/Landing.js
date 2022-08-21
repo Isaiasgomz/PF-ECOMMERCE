@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getProducts } from "../../Actions/index.js";
 import "./Landing.css";
+import CarouselMarcas from "./CarouselMarcas/CarouselMarcas.js";
 
 function Landing() {
   /////////////////////// declaro el dispatch
@@ -15,8 +16,8 @@ function Landing() {
   }, [dispatch]);
 
   return (
-    <div className="cont">
-      <div className="containerLanding">
+    <div className="containerLanding">
+      <div className="containerCarousel1">
         <div
           id="carouselExampleIndicators"
           className="carousel slide"
@@ -158,6 +159,9 @@ function Landing() {
           </button>
         </div>
       </div>
+
+      <h2 className="titleMarcas">¡Las mejores marcas las encontras en TechStore!</h2>
+      <CarouselMarcas></CarouselMarcas>
     </div>
   );
 }
