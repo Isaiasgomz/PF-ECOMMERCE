@@ -1,3 +1,12 @@
+@-webkit-keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -7,14 +16,15 @@
   }
 }
 .containerCarouselMarcas {
-  width: 1444px;
-  background-color: #eeeeee;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background-color: #EEEEEE;
   margin-left: 250px;
   margin-right: 250px;
+  margin-top: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   border-radius: 20px;
-  margin-top: 40px;
 }
 .slider {
   background: white;
@@ -23,16 +33,11 @@
   margin: auto;
   overflow: hidden;
   position: relative;
-  width: 1400px;
-  margin-left: 20px;
+  width: 100%;
 }
 .slider::before,
 .slider::after {
-  background: linear-gradient(
-    to right,
-    rgb(255, 255, 255) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
   content: "";
   height: 100px;
   position: absolute;
@@ -49,9 +54,10 @@
   top: 0;
 }
 .slider .slide-track {
+  -webkit-animation: scroll 40s linear infinite;
   animation: scroll 40s linear infinite;
   display: flex;
-  width: 3500px;
+  width: calc(250px * 14);
 }
 .slider .slideLogo {
   height: 100px;

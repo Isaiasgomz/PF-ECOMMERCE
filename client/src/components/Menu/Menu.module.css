@@ -9,6 +9,7 @@
 }
 
 .buttons:hover{
+    transition: 0.3s ease;
     color: #91C612;
 }
 

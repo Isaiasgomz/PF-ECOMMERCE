@@ -1,0 +1,123 @@
+.productContainer{
+    background-color: #BBEAE4;
+}
+
+.infoConteiner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.infoProduct{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 350px;
+    height: 150px;
+    border-radius: 5px;
+    background-color: #78BEEC;
+    border: solid 1px white;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.items{
+    /* padding-left: 40px;
+    padding-right: 40px; */
+    display: flex;
+    justify-self: flex-start;
+    width: 320px;
+    border-bottom: solid 1px black;
+}
+
+.itemCreated{
+    display: flex;
+    justify-self: flex-start;
+    width:250px;
+    border-bottom: solid 1px black;   
+    
+}
+
+.itemName{
+    display: flex;
+    justify-self: flex-start;
+    width:230px;
+    border-bottom: solid 1px black;  
+}
+
+.itemPrice{
+    display: flex;
+    justify-self: flex-start;
+    width: 100px;
+    border-bottom: solid 1px black;
+}
+
+.itemBrand{
+    display: flex;
+    justify-self: flex-start;
+    width: 120px;
+    border-bottom: solid 1px black;
+}
+
+.itemStock{
+    display: flex;
+    justify-self: flex-start;
+    width: 100px;
+    border-bottom: solid 1px black;
+}
+
+
+
+.headerContainer{
+
+    background-color: #78BEEC;
+}
+
+
+.headerName{
+    margin-left: 0px;
+}
+
+.headerDescription{
+    margin-left: 150px;
+}
+.headerBrand{
+    margin-left: 200px;
+}
+.headerPrice{
+    margin-left: 50px;
+}
+
+.headerCount{
+    margin-left: 20px;
+}
+
+.headerDisabled{
+    margin-left: 10px;
+}
+
+.headerID{
+    margin-left: 0px;
+}
+
+.headerCreated{
+    margin-left: 45px;
+}
+
+.headerActions{
+    margin-left: 160px;
+}
