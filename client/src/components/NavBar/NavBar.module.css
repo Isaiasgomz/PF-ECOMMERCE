@@ -41,3 +41,10 @@
   align-items: center;
   justify-content: center;
 }
+
+.imagen{
+  margin-top: 2px;
+  width: 170px;
+  height: 100px;
+
+}
