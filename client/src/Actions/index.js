@@ -20,7 +20,7 @@ export function clearSearch(){
 
 export function postProduct(product) {
     return async function (dispatch) {
-        const newProduct = await axios.post('http://localhost:3001/products', product)
+        const newProduct = await axios.post('http://localhost:3001/products/create',product)
         return newProduct
     }
 }
@@ -122,6 +122,23 @@ export function postUserData(email,data) {
         return dispatch({ type: 'USER_DATA', payload:data })
     }
 }
+
+
+export function getAdminProducts() {
+    return async function (dispatch) {
+        const allProductsAdmin = await axios.get('http://localhost:3001/admin/products')
+        return dispatch({ type: 'GET_ADMIN_PRODUCTS', payload: allProductsAdmin.data })
+    }
+}
+
+export function getAdminProductByName(name) {
+    return async function (dispatch) {
+        const productAdmin = await axios.get(`http://localhost:3001/admin/products?name=${name}`)
+        return dispatch({ type: 'GET_ADMIN_PRODUCTS_BY_NAME', payload: productAdmin.data })
+    }
+}
+
+
 
 
 

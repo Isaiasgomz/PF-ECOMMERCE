@@ -3,6 +3,25 @@ const api = require("../jsonProducts.js");
 
 module.exports = {
     /* producto por query */
+    bulkCreate: async function (){
+        const allProducts = await Product.count()
+        if (allProducts < 1) {
+            let obj = {}
+            let filtrado = api.map(e => {
+                obj = {                    
+                    productName: e.name,
+                    price: e.price,
+                    image: e.image,
+                    brand: e.brand,
+                    description: e.description,
+                    qualification: e.calification,
+                    stock: e.quantity,
+                    category: e.categories[0],
+                }
+                return obj;
+            })
+         await Product.bulkCreate(filtrado);}
+    },
     productByName: async function (name) {
         try {
             let product = await Product.findAll({
