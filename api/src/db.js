@@ -61,8 +61,8 @@ ShoppingCart.belongsTo(Product);
 User.hasMany(ShoppingCart);
 ShoppingCart.belongsTo(User);
 /* RELACIÓN ENTRE ORDEN Y CARRITO */
-PurchaseOrder.hasOne(ShoppingCart)
-ShoppingCart.belongsTo(PurchaseOrder);
+ShoppingCart.hasOne(PurchaseOrder)
+PurchaseOrder.belongsTo(ShoppingCart);
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
