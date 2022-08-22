@@ -5,30 +5,38 @@ import { Link } from "react-router-dom";
 import CardCart from "../CardCart/CardCart";
 import style from "./ShoppingCar.module.css";
 import swal from "sweetalert";
+import { createCont } from "../contexto/contextProvider";
+
 
 function ShoppingCar() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
 
-  let y = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
-  let productsFromLocalStorage = Array.from(y);
-  y = y.reduce((acc, o) => {
-    let cant = o.quantity ? o.quantity : 1;
-    acc += o.price * cant;
-    return acc;
-  }, 0);
-  const [price, setPrice] = useState(y);
-  const returnPrice = () => {
-    let x = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
-    console.log("x", x);
-    if (!x.length) return;
-    let a = x.reduce((acc, o) => {
-      let cant = o.quantity ? o.quantity : 1;
-      acc += o.price * cant;
-      return acc;
-    }, 0);
-    setPrice(a);
-  };
+  const {stringLocalStorage} = useContext(createCont)
+  
+
+
+  
+
+  let y = JSON.parse(localStorage.getItem(stringLocalStorage));
+  let productsFromLocalStorage = y? Array.from(y) : "No hay productos"
+  y = y? y.reduce((acc, o)=>{
+    let cant = o.quantity ? o.quantity : 1
+  acc += o.price * cant
+  return acc
+},0) : 0
+  const [price,setPrice] = useState(y);
+  const returnPrice = ()=>{
+    let x = JSON.parse(localStorage.getItem(stringLocalStorage));
+    console.log("x",x)
+    if(!x.length) return
+        let a = x.reduce((acc, o)=>{
+          let cant = o.quantity ? o.quantity : 1
+        acc += o.price * cant
+        return acc
+      },0)
+      setPrice(a)
+  }
 
   const deleteProduct = (o) => {
     swal({
@@ -41,8 +49,8 @@ function ShoppingCar() {
       if (willDelete) {
         let x = cart.filter((e) => e.idProduct !== o.idProduct);
         dispatch(setCart(x));
-        localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
-        returnPrice();
+        localStorage.setItem(stringLocalStorage, JSON.stringify(x));
+        returnPrice()
         swal("Poof! El producto ha sido eliminado correctamente!", {
           icon: "success",
         });
@@ -53,40 +61,36 @@ function ShoppingCar() {
   };
 
   useEffect(() => {
-    let x = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
+    let x = JSON.parse(localStorage.getItem(stringLocalStorage));
     dispatch(setCart(x));
-    return () => {
-      dispatch(setCart(productsFromLocalStorage));
-    };
+    return()=>{
+      dispatch(setCart(productsFromLocalStorage))
+    }
   }, [dispatch]);
 
   return (
     <div className={style.containerCart}>
+    {console.log(stringLocalStorage)}
       <div className={style.containerInfo}>
-        <Link to={"/home"}>
-          <button className={style.button}>Seguir comprando</button>
-        </Link>
+      <Link to={"/home"}>
+      <button>Seguir comprando</button>
+      </Link>
         <h2>Mi orden</h2>
         <div className={style.containerPrice}>
           <h2>Precio total: ${price}</h2>
         </div>
         <div>
           <Link to="/resumeOrder">
-            <button className={style.button}>Resumen de la orden</button>
+            <button>Resumen de la orden</button>
           </Link>
         </div>
       </div>
 
       <div className={style.cards}>
-        {productsFromLocalStorage &&
-          productsFromLocalStorage.map((e, index) => (
-            <CardCart
-              key={e.idProduct}
-              returnPrice={returnPrice}
-              deleteP={deleteProduct}
-              obj={e}
-            />
-          ))}
+        {productsFromLocalStorage && Array.isArray(productsFromLocalStorage)?
+          productsFromLocalStorage.map((e) => (
+            <CardCart key={e.idProduct}  returnPrice={returnPrice}  deleteP={deleteProduct} obj={e} />
+          )): (<h2>No hay productos!</h2>)}
       </div>
     </div>
   );

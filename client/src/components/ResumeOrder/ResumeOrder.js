@@ -1,19 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCart } from "../../Actions";
 import { Link } from "react-router-dom";
 import style from "./ResumeOrder.module.css";
 import ResumeOrderCard from "./ResumeOrderCard";
+import { createCont } from "../contexto/contextProvider";
 
 function ResumeOrder() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
 
-  let y = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
+  const {stringLocalStorage} = useContext(createCont)
+  
+  let y = JSON.parse(localStorage.getItem(stringLocalStorage));
   let productsFromLocalStorage = Array.from(y);
 
   useEffect(() => {
-    let x = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
+    let x = JSON.parse(localStorage.getItem(stringLocalStorage));
     dispatch(setCart(x));
     return () => {
       dispatch(setCart(productsFromLocalStorage));

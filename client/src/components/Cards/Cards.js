@@ -8,18 +8,21 @@ import { createCont } from "../contexto/contextProvider";
 
 const Cards = (props) => {
 
+  const actualUser = useSelector(state=>state.user)
   const { Products } = useSelector((state) => state);
   const { productsByName } = useSelector((state) => state);
   const dispatch = useDispatch();
 
-
-const {currentPage, setCurrentPage} = useContext(createCont)
-
+    
+  
+  const {currentPage, setCurrentPage, stringLocalStorage} = useContext(createCont)
+  
+  
 
 
   let x = [];
   const addProductCartStorage = (o) => {
-    let a = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
+    let a = JSON.parse(localStorage.getItem(stringLocalStorage));
     
 
     if (a) {
@@ -27,13 +30,13 @@ const {currentPage, setCurrentPage} = useContext(createCont)
       if (filtered.length) return;
       x = [...a, o];
       console.log(x);
-      localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
+      localStorage.setItem(stringLocalStorage, JSON.stringify(x));
       console.log(x);
       return;
     }
 
     x = [...x, o];
-    localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
+    localStorage.setItem(stringLocalStorage, JSON.stringify(x));
     console.log(x);
   };
   useEffect(() => {
@@ -120,6 +123,7 @@ const {currentPage, setCurrentPage} = useContext(createCont)
 
   return (
     <div>
+    {console.log(stringLocalStorage)}
       {currentItems?.map((e, index) => (
         <Card
           localStor={addProductCartStorage}
