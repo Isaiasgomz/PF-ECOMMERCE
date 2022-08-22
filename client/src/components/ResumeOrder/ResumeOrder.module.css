@@ -30,3 +30,19 @@
   justify-content: center;
   margin-left: 25%; 
 }
+
+.button{
+  background-color:#91C612;
+  border: none;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  width: 130px;
+  border-radius: 7px;
+  color: white;
+  font-weight: 600;
+}
+
+.button:hover{
+  background-color: #aadd32;
+  transition: 0.3s ease;
+}

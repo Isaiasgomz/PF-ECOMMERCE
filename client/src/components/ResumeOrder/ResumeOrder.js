@@ -30,12 +30,12 @@ function ResumeOrder() {
     <div className={style.containerCart}>
       <div className={style.containerInfo}>
         <Link to="/shoppingCar">
-          <button>Volver al carrito</button>
+          <button className={style.button}>Volver al carrito</button>
         </Link>
         <h2>Mi orden</h2>
 
         <Link to="/order">
-          <button>Continuar</button>
+          <button className={style.button}>Continuar</button>
         </Link>
       </div>
       
