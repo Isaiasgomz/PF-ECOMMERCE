@@ -16,11 +16,11 @@ const admin = require ('./Admin.js');
 router.use('/review', review)
 /* traer productos disponibles, buscar productos por query, trae detalle de producto, crea y actualiza producto*/
 router.use('/products', products)
-/* crear , traer detalle , crear personal data y actualizar personal data de usuario  */
+/* crear , traer detalle que incluye reviews, data personal y sus órdenes de compra, crear personal data y actualizar personal data de usuario  */
 router.use('/user', user)
 
 router.use('/cart', cart)
-/* Orden de compra */
+/* crear orden de compra y mostrar todas las órdenes*/
 router.use('/purchases', purchases)
 /* Tareas admin: crear nuevo admin y eliminarlo, ver todos los usuarios y buscarlos x query, ver productos deshabilitados */
 router.use('/admin', admin)
