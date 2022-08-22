@@ -1,0 +1,61 @@
+.containerCard {
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 800px;
+  height: 80px;
+  display: flex;
+  background-color: white;
+}
+.containerImg {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.SupportContainerImg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@supports (object-fit: cover) {
+  .SupportContainerImg img {
+    width: 80%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+  }
+}
+
+.containerInfo2 {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.containerName {
+  height: 40%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+}
+
+.containerCant {
+  height: 40%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+
+}
