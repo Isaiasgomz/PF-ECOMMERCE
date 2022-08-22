@@ -11,7 +11,8 @@ module.exports = {
                     model:PersonalData
                 },{
                     model:PurchaseOrder,
-                    include: ShoppingCart
+                },{
+                    model:ShoppingCart
                 }
             ],            
             } )

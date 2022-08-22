@@ -15,6 +15,7 @@ import NotFound from "./components/NotFound/NotFound";
 import Success from "./components/Success/Success";
 import ResumeOrder from "./components/ResumeOrder/ResumeOrder";
 import ContextProvider from "./components/contexto/contextProvider";
+import AdminProducts from "./components/AdminProducts/AdminProducts";
 
 
 
@@ -38,6 +39,10 @@ function App() {
         <Route exact path={"/sign"} component={SignUp} />
         <Route exact path={"/payment/success"} component={Success} />
         <Route path={"/notfound"} component={NotFound} />
+
+
+
+        <Route path={"/adminProducts"} component={AdminProducts} />
       </ContextProvider>
 
     </div>

@@ -10,7 +10,7 @@
 }
 
 .carousel-inner {
-  height: 450px;
+  height: 500px;
   width: 100%;
   display: flex;
   align-items: flex-start;
@@ -19,7 +19,7 @@
 
 .d-block {
   width: 100%;
-  height: 450px !important;
+  height: 500px !important;
 }
 
 .carousel-control-prev {
@@ -44,4 +44,15 @@
   margin-top: 30px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 30px;
+}
+
+/* Carousel Notebooks */
+.titleNotebooks {
+  display: flex;
+  justify-content: left;
+  margin-left: 250px;
+  margin-top: 30px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 30px;
+  margin-top: 50px;
 }

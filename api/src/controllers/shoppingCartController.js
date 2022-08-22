@@ -3,6 +3,7 @@ const PurchaseOrder = require('../models/PurchaseOrder');
 
 module.exports = {
     postCart: async function (cart) {
+
         try {
             if (cart.length === 0) throw 'No hay productos en el carrito';
             else {               

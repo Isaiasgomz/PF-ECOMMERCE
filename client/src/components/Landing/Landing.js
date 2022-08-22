@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { getProducts } from "../../Actions/index.js";
 import "./Landing.css";
 import CarouselMarcas from "./CarouselMarcas/CarouselMarcas.js";
+import CarouselNotebooks from "./CarouselNotebooks/CarouselNotebooks.js";
 
 function Landing() {
   /////////////////////// declaro el dispatch
@@ -85,7 +86,7 @@ function Landing() {
             </div>
             <div className="carousel-item">
               <img
-                src="https://dobleclicknet.com/wp-content/uploads/2019/07/banner_redragon.jpg"
+                src="https://gameone.ph/media/wysiwyg/GameOne-Inner-Banner-Redragon.jpg"
                 className="d-block"
                 alt="..."
               />
@@ -106,14 +107,14 @@ function Landing() {
             </div>
             <div className="carousel-item">
               <img
-                src="https://webonline.macstore.mx/img/categorias-productos/accesorios/perifericos/banner_perifericos.jpg"
+                src="https://www.grupoxfone.com.br/wp-content/uploads/2020/12/apple-products.jpg"
                 className="d-block"
                 alt="..."
               />
             </div>
             <div className="carousel-item">
               <img
-                src="https://newsletters.pcel.com/assets/templates/template-6109/banner-landing-logitech-28-09-21.jpg"
+                src="https://logitechsouthcone.com/logitechg/images/PRO_Banner1920x1094_1.jpg"
                 className="d-block"
                 alt="..."
               />
@@ -160,8 +161,14 @@ function Landing() {
         </div>
       </div>
 
-      <h2 className="titleMarcas">¡Las mejores marcas las encontras en TechStore!</h2>
+      <h2 className="titleMarcas">
+        ¡Las mejores marcas las encontrás en TechStore!
+      </h2>
       <CarouselMarcas></CarouselMarcas>
+      <h2 className="titleNotebooks">
+        Elegí tu notebook ideal para trabajar o jugar:
+      </h2>
+      <CarouselNotebooks></CarouselNotebooks>
     </div>
   );
 }

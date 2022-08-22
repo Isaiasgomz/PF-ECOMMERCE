@@ -1,0 +1,26 @@
+.nav{
+    width: 40%;
+    height: 70px;
+    margin-left: 500px;
+
+}
+
+.paginado{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.number{
+    width: 28px;
+    list-style: none;
+    border-radius: 8px;
+    color:white;
+    background-color:  #97adc689;
+    text-align: center;
+    margin-left: 5px;
+    cursor: pointer;
+}
+

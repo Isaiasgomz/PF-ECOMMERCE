@@ -1,4 +1,5 @@
-const {User} = require ('../db');
+const {User, Product} = require ('../db');
+const { listProducts } = require('./productsController');
 
 module.exports = {
     /* usuario admin nuevo */
@@ -26,11 +27,29 @@ module.exports = {
     },
 
     /* todos los usuarios */
-    listUsers: async function () {
+    listProductsAdmin: async function () {
         try {
-            let user = await User.findAll()
-            if (!user) throw 'No existen Usuarios registrados';
-            return user;
+             const count = await Product.count();
+             if (count < 1) {
+              await  listProducts()
+            }
+            let products = await Product.findAll()
+            if (!products.length > 0) throw 'No existen Productos registrados';
+            return products;
+        } catch (error) {
+            throw error;
+        }
+    },
+    productByName: async function (name) {
+        try {
+            const count = await Product.count();
+             if (count < 1) {
+              await  listProducts()
+            }
+            let product = await Product.findAll()
+            product = product.filter(e => e.productName.toLowerCase().includes(name.toLowerCase()))
+            if (product.length === 0) throw 'El producto no existe';
+            return product;
         } catch (error) {
             throw error;
         }
@@ -46,6 +65,17 @@ module.exports = {
             })
         } catch (error) {
             throw new Error(error); 
+        }
+    },
+
+    // traer todos los productos para el dashboard del admin
+    listUsers: async function () {
+        try {
+            let user = await User.findAll()
+            if (!user) throw 'No existen Usuarios registrados';
+            return user;
+        } catch (error) {
+            throw error;
         }
     },
 
