@@ -1,0 +1,32 @@
+.containerCart {
+  width: 100%;
+  height: auto;
+  padding: 25px;
+}
+
+.containerInfo {
+  height: 15%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+ 
+}
+
+.containerInfo2 {
+  height: 15%;
+  width:900px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+  margin-left: 25%;
+  margin-top: 15px;;
+}
+
+.cards {
+  height: 85%;
+  width:900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 25%; 
+}
