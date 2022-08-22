@@ -12,6 +12,7 @@ const initialState = {
     productsBackUp: [],
     cart: [],
     personalData: {},
+    adminProducts: [],
 
 }
 
@@ -99,6 +100,18 @@ export default function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 personalData: action.payload
+            }
+
+        case 'GET_ADMIN_PRODUCTS':
+            return{
+                ...state,
+                adminProducts: action.payload
+            }
+
+        case 'GET_ADMIN_PRODUCTS_BY_NAME':
+            return{
+                ...state,
+                adminProducts: action.payload
             }
 
         default:

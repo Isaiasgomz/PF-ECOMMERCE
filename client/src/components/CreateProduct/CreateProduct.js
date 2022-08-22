@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { postProduct } from "../../Actions";
 import styles from './CreateProduct.module.css'
 
@@ -18,16 +18,27 @@ function validate (input){
   if(!input.description){
     errors.description = 'La Description es requerida'
   }
-  if(!input.quantity){
-    errors.quantity = 'La Cantidad es requerida' 
+  if(!input.stock){
+    errors.stock = 'La Cantidad es requerida' 
   }
   if(!input.category){
     errors.category = 'La Categoria es requerida'
+  }
+  if(!input.brand){
+    errors.brand = 'La Marca es requerida'
   }
   return errors
 }
 
 function CreateProduct() {
+
+  const AllProducts = useSelector(state => state.Products )
+
+  
+
+  const productByCategory = AllProducts.map(item => item.category)
+  console.log(AllProducts)
+ 
 
   const dispatch = useDispatch()
 
@@ -36,8 +47,10 @@ function CreateProduct() {
     price:'', 
     image: '', 
     description: '',
-    quantity: '', 
+    stock: '', 
     category: '',
+    brand:'',
+    disabled:true,
   })
 
   const [errors, setErrors] = useState({})
@@ -58,14 +71,16 @@ function CreateProduct() {
     e.preventDefault()
 
     dispatch(postProduct(product))
+    console.log(product)
     
     setProduct({
     productName: '',
     price:'', 
     image: '', 
     description: '',
-    quantity: '', 
+    stock: '', 
     category: '',
+    brand: '',
     })
 
   }
@@ -110,21 +125,36 @@ function CreateProduct() {
             <p className={styles.textError} >{errors.description}</p>
           )}
 
-        <label htmlFor='quantity'>Cantidad</label>
+        <label htmlFor='stock'>Cantidad</label>
         <input className={styles.formInput}  type={'number'} placeholder={'Cantidad'} 
-        name={'quantity'} value={product.quantity}  
+        name={'stock'} value={product.stock}  
         onChange={(e)=> handleInput(e)} /><br/>
         {
-          errors.quantity && (
-            <p className={styles.textError} >{errors.quantity}</p>
+          errors.stock && (
+            <p className={styles.textError} >{errors.stock}</p>
         )}
-        <label htmlFor='category'>Categoria</label>
-        < input className={styles.formInput} type={'text'} placeholder={'Categoria'}
-         name={'category'} value={product.category}  
+        
+        <section>
+          <option>selec category..</option>
+          {
+            productByCategory && productByCategory.map(item =>(
+              <option>{item}</option>
+            ))
+          }
+        </section>
+        <br/>
+          {
+            errors.category && (
+              < p className={styles.textError}>{errors.category}</p>
+          )}
+
+        <label htmlFor='brand'>Marca</label>
+        < input className={styles.formInput} type={'text'} placeholder={'Marca'}
+         name={'brand'} value={product.brand}  
           onChange={(e)=> handleInput(e)}/><br/>
           {
-            errors && (
-              < p className={styles.textError}>{errors.category}</p>
+            errors.brand && (
+              < p className={styles.textError}>{errors.brand}</p>
           )}
 
         <button type='submit'>Crear</button>

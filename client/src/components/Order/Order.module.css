@@ -1,32 +1,79 @@
-.productContainer{
-
-    width: 900px;
-    height: 900px;
+.containerForm {
+    background-color: #78788c;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-top: 100px;
-    margin-left: 600px;
-    /* padding-left: 10px;
-    padding-top: 40px; */
-    flex-direction: column;
-    border-radius: 15px;
-    box-shadow: 0 4px 4px 4px #94bbe9 ;
-    background-color: whitesmoke;
-
-    
+    align-items: center;
+}
+.productContainer {
+  width: 700px;
+  height: 100%;
+  background: #e6e6e6;
+  border-radius: 8px;
+  box-shadow: 0 0 40px -10px #000;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 20px 30px;
+  max-width: calc(100vw - 40px);
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
 }
 
-.formInput{
-    background-color: #97adc689;
-    width: 500px;
-    height: 30px;
-    margin: 15px 10px 10px 10px;
-    border-radius: 8px;
-    padding-left: 30px;
-    cursor: pointer;
+.titleForm {
+  padding-bottom: 10px;
+  width: 470px;
+  color: black;
+  border-bottom: 3px solid #91C612 ;
 }
 
-.textError{
-    color: red;
+.formInput {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background: none;
+  outline: none;
+  resize: none;
+  border: 0;
+  font-family: "Montserrat", sans-serif;
+  transition: all 0.3s;
+  border-bottom: 2px solid #bebed2;
+}
+
+.formInput:focus {
+  border-bottom: 2px solid #91C612 ;
+}
+
+p::before {
+  content: attr(type);
+  display: block;
+  margin: 28px 0 0;
+  font-size: 14px;
+  color: black;
+}
+
+.containerBtn {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.btn {
+  float: right;
+  padding: 8px 12px;
+  margin: 8px 0 0;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #91C612 ;
+  background: 0;
+  color: black;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background: #91C612 ;
+  color: black;
+}
+
+.textError {
+  color: red;
 }
