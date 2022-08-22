@@ -91,7 +91,7 @@ function Detail(props) {
   let x = [];
   const addProductCartStorage = (o) => {
     let a = JSON.parse(localStorage.getItem(stringLocalStorage));
-
+    
 
     if (a) {
       let filtered = a.filter((e) => e.idProduct === o.idProduct);

@@ -1,17 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Card from "../Card/Card";
-import { useDispatch, useSelector } from "react-redux";
-import { setCart, sortProductByPrice } from "../../Actions";
+import {useSelector } from "react-redux";
 import "./Cards.css";
 import { createCont } from "../contexto/contextProvider";
 
 
 const Cards = (props) => {
 
-  const actualUser = useSelector(state=>state.user)
+
   const { Products } = useSelector((state) => state);
-  const { productsByName } = useSelector((state) => state);
-  const dispatch = useDispatch();
+
+
 
     
   
@@ -22,28 +21,23 @@ const Cards = (props) => {
 
   let x = [];
   const addProductCartStorage = (o) => {
-    let a = JSON.parse(localStorage.getItem(stringLocalStorage));
+    let fromLocalStorage = JSON.parse(localStorage.getItem(stringLocalStorage));
+
     
 
-    if (a) {
-      let filtered = a.filter((e) => e.idProduct === o.idProduct);
+    if (fromLocalStorage) {
+      let filtered = fromLocalStorage.filter((e) => e.idProduct === o.idProduct);
       if (filtered.length) return;
-      x = [...a, o];
+      x = [...fromLocalStorage, o];
       console.log(x);
       localStorage.setItem(stringLocalStorage, JSON.stringify(x));
       console.log(x);
       return;
     }
-
     x = [...x, o];
     localStorage.setItem(stringLocalStorage, JSON.stringify(x));
     console.log(x);
   };
-  useEffect(() => {
-    return () => {
-      dispatch(setCart(x));
-    };
-  }, []);
 
   //Paginado.
   const [itemsPerPage, setItemsPerPage] = useState(10); //cantidad de elementos por pagina 
@@ -123,7 +117,6 @@ const Cards = (props) => {
 
   return (
     <div>
-    {console.log(stringLocalStorage)}
       {currentItems?.map((e, index) => (
         <Card
           localStor={addProductCartStorage}
