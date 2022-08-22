@@ -8,7 +8,7 @@ const router = Router()
 /* post de usuario */
 router.post('/', async (req,res)=>{
     try {
-        const  {user} = req.body          
+        const {user} = req.body          
         if(!user.email){
             return res.status(400).json({error: "Faltan datos obligatorios"});
         }         
