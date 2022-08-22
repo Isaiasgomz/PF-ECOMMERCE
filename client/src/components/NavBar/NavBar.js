@@ -7,6 +7,7 @@ import Menu from "../Menu/Menu";
 import LoginButton from "../auth0/LogginButton/ButtonLogin";
 import LogoutButton from "../auth0/logout/ButtonLogout";
 import Profile from "../auth0/User/User";
+import logo from "../../imagenes/logo.png"
 
 function NavBar() {
   const { isAuthenticated } = useAuth0();
@@ -16,9 +17,9 @@ function NavBar() {
       <div className={styles.container}>
         <div className={styles.divs}>
           <Link to="/">
-            <button className={styles.cart}>
-              <i className="fa-solid fa-house"> </i> Place Holder Icono Landing
-            </button>
+            <div className={styles.imagen} >
+               <img className={styles.imagen} src={logo} />           
+            </div>
           </Link>
         </div>
         <div className={styles.divs}>

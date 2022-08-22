@@ -88,11 +88,14 @@
 }
 
 .price{
-    margin: 0;
+    font-size: 19px;
+    color: #2f6f7e;
+    margin-bottom: 30px;
     font-weight: bold;
 }
 
 .quantity{
+    font-size: large;
     width: 60%;
     height: 100%;
     display: flex;

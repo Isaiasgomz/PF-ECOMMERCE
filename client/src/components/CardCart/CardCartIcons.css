@@ -1,14 +1,31 @@
 .fa-circle-plus{
+    font-size: 28px;
     color: #3483FA;
 }
+.fa-circle-plus:hover{
+    color: #5497fc;
+    
+}
+
 .fa-trash-can{
+    font-size: 25px;
     color: red;
+}
+.fa-trash-can:hover{
+    
+    color: rgb(255, 58, 58);
 }
 
 .fa-circle-minus{
+    font-size: 25px;
     color: #91C612;
+}
+.fa-circle-minus:hover{
+    color: #abe02f;
+    
 }
 
 i:hover{
+    
     cursor: pointer;
 }

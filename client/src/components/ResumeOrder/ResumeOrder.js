@@ -44,6 +44,8 @@ function ResumeOrder() {
       
 
       <div className={style.cards}>
+        <div className={style.productos}><h3>Productos: {} </h3></div>
+      
         {productsFromLocalStorage &&
           productsFromLocalStorage.map((e) => (
             <ResumeOrderCard key={e.idProduct} obj={e} />
@@ -54,7 +56,7 @@ function ResumeOrder() {
         {/* <div>
               <h3>Productos: {e.quantity}</h3>
             </div> */}
-        <h3>Productos: {} </h3>
+       
         <h3>Precio total: ${total} </h3>
       </div>
       
