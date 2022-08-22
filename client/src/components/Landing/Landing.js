@@ -165,10 +165,10 @@ function Landing() {
         ¡Las mejores marcas las encontrás en TechStore!
       </h2>
       <CarouselMarcas></CarouselMarcas>
-      <h2 className="titleNotebooks">
+      {/* <h2 className="titleNotebooks">
         Elegí tu notebook ideal para trabajar o jugar:
       </h2>
-      <CarouselNotebooks></CarouselNotebooks>
+      <CarouselNotebooks></CarouselNotebooks> */}
     </div>
   );
 }
