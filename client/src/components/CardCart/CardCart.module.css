@@ -8,12 +8,13 @@
 
 
 .containerCard{
-    border: 2px solid black;
+    border: 2px solid rgba(255, 255, 255, 0);
     border-radius: 10px;
     width: 625px;
     height: 175px;
     display: flex;
     background-color: white;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.637);
 }
 
 .containerImg{

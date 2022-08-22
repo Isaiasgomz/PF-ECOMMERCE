@@ -64,7 +64,7 @@ function ShoppingCar() {
     <div className={style.containerCart}>
       <div className={style.containerInfo}>
         <Link to={"/home"}>
-          <button>Seguir comprando</button>
+          <button className={style.button}>Seguir comprando</button>
         </Link>
         <h2>Mi orden</h2>
         <div className={style.containerPrice}>
@@ -72,7 +72,7 @@ function ShoppingCar() {
         </div>
         <div>
           <Link to="/resumeOrder">
-            <button>Resumen de la orden</button>
+            <button className={style.button}>Resumen de la orden</button>
           </Link>
         </div>
       </div>
