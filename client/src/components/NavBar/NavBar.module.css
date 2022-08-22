@@ -23,7 +23,8 @@
 
 .cart:hover{
     cursor: pointer;
-    color: #3483FA
+    transition: 0.3s ease;
+    color: #91C612;
 }
 
 .buttons{
