@@ -26,17 +26,20 @@
     margin:6px;
     letter-spacing: 2.5px;
     border: none;
-    border-radius: 45px;
+    border-radius: 7px;
     box-shadow: 0px 8px 15px rgba(14, 13, 13, 0.1);
     transition: all 0.3s ease 0s;
 }
 
-
-
 .pageNumbers li.active {
-    background-color: rgb(146, 144, 144);
+    background-color: #91C612;
+    color: white;
 }
 
+.pageNumbers li:hover{
+    background-color: #a9db35;
+    color: white;
+}
 .pageNumbers li button {
     background-color: transparent;
     border: none;
