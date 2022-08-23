@@ -2,7 +2,7 @@
 .containerCardsComponent{
     width: 45vw;
     margin-top: 26px;
-
+   
 }
 
 .containerCardProducts{
@@ -12,12 +12,12 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
+
 }
 
 .pageNumbers {
-    display: flex;
     list-style:none;
-    margin-left: 80px;
+    margin:0px auto;
 
 }
 
@@ -59,6 +59,7 @@
 
 .divPaginado{
     display: flex;
-    margin-left: 10%;
     align-items: center;
+    margin-bottom: 15px;
+
 }
