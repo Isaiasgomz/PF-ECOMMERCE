@@ -18,7 +18,12 @@ import Success from "./components/Success/Success";
 import ResumeOrder from "./components/ResumeOrder/ResumeOrder";
 import ContextProvider from "./components/contexto/contextProvider";
 import AdminProducts from "./components/AdminProducts/AdminProducts";
+<<<<<<< HEAD
 import UserPanel from "./components/UserPanel/UserPanel";
+=======
+import UserMyOrders from "./components/UserMyOrders/UserMyOrders";
+
+>>>>>>> julia
 
 function App() {
   return (
@@ -41,8 +46,9 @@ function App() {
         <Route exact path={"/sign"} component={SignUp} />
         <Route exact path={"/payment/success"} component={Success} />
         <Route path={"/notfound"} component={NotFound} />
-        <Route path={"/adminProducts"} component={AdminProducts} />
         <Route exact path={"/userPanel"} component={UserPanel} />
+        <Route path={"/myOrders"} component={UserMyOrders} />
+        <Route path={"/adminProducts"} component={AdminProducts} />
       </ContextProvider>
     </div>
   );
