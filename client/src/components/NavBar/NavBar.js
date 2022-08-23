@@ -34,7 +34,11 @@ function NavBar() {
           ) : (
             <LoginButton />
           )}
-
+          <Link to="/userPanel">
+            <button className={styles.profile}>
+              <i className="fa-solid fa-circle-user"></i> Mi Perfil
+            </button>
+          </Link>
           <Link to="/cart">
             <button className={styles.cart}>
               <i className="fa-solid fa-cart-shopping"></i> Carrito

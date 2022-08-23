@@ -18,7 +18,7 @@ import Success from "./components/Success/Success";
 import ResumeOrder from "./components/ResumeOrder/ResumeOrder";
 import ContextProvider from "./components/contexto/contextProvider";
 import AdminProducts from "./components/AdminProducts/AdminProducts";
-
+import UserPanel from "./components/UserPanel/UserPanel";
 
 function App() {
   return (
@@ -43,6 +43,7 @@ function App() {
         <Route path={"/notfound"} component={NotFound} />
 
         <Route path={"/adminProducts"} component={AdminProducts} />
+        <Route exact path={"/userPanel"} component={UserPanel} />
       </ContextProvider>
     </div>
   );
