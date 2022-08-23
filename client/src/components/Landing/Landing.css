@@ -56,3 +56,11 @@
   font-size: 30px;
   margin-top: 50px;
 }
+
+.spanTitle {
+  margin-left: 10px;
+}
+.spanTitle:hover {
+  transition: 0.3s ease;
+  color: #91C612;
+}
