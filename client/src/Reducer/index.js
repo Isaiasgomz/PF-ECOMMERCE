@@ -13,7 +13,7 @@ const initialState = {
     cart: [],
     personalData: {},
     adminProducts: [],
-
+    userDetail: [],
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -113,7 +113,12 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 adminProducts: action.payload
             }
-
+        
+        case 'USER_DETAIL':
+            return{
+                ...state,
+                userDetail: action.payload
+            }
         default:
             return state
     }

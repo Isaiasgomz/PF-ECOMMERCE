@@ -39,6 +39,14 @@ export function getProductDetail(id) {
         return dispatch({ type: 'PRODUCT_DETAIL', payload: productDetail.data })
     }
 }
+
+export function getUserDetail(email) {
+    return async function (dispatch) {
+        const userDetail = await axios.get(`http://localhost:3001/user/${email}`)
+        return dispatch({ type: 'USER_DETAIL', payload: userDetail.data })
+    }
+}
+
 export function createReview(obj) {
     return async function () {
         console.log(obj)
