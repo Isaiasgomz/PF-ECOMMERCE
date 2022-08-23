@@ -41,7 +41,6 @@ function App() {
         <Route exact path={"/sign"} component={SignUp} />
         <Route exact path={"/payment/success"} component={Success} />
         <Route path={"/notfound"} component={NotFound} />
-
         <Route path={"/adminProducts"} component={AdminProducts} />
         <Route exact path={"/userPanel"} component={UserPanel} />
       </ContextProvider>

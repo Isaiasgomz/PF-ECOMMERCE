@@ -3,7 +3,6 @@ import axios from 'axios';
 export function getProducts() {
     return async function (dispatch) {
         const allData = await axios.get('http://localhost:3001/products')
-        console.log('lo mio', allData)
         return dispatch({ type: 'GET_PRODUCTS', payload: allData.data })
     }
 }

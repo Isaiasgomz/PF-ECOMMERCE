@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from './UserPanel.module.css';
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserDetail } from "../../Actions";
 
 export default function UserPanel() {  
+    const dispatch = useDispatch();
+
+    const emailUser = useSelector(state => state.user.email)
+    
+    useEffect(() => {
+        dispatch(getUserDetail(emailUser));
+    }, [dispatch]);
 
     return (
         <React.Fragment>          

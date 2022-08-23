@@ -113,7 +113,7 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 adminProducts: action.payload
             }
-        
+            
         case 'USER_DETAIL':
             return{
                 ...state,
