@@ -56,9 +56,6 @@
     margin: 20px
 }
 
-.pageNumbers li button:hover {
-    /* background-color: rgb(146, 144, 144); */
-}
 
 .divPaginado{
     display: flex;
