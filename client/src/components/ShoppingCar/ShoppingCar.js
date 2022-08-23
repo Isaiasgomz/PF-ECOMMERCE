@@ -6,6 +6,8 @@ import CardCart from "../CardCart/CardCart";
 import style from "./ShoppingCar.module.css";
 import swal from "sweetalert";
 import { createCont } from "../contexto/contextProvider";
+import { useAuth0 } from "@auth0/auth0-react";
+import LoginButton from "../auth0/LogginButton/ButtonLogin";
 
 
 function ShoppingCar() {
@@ -13,8 +15,8 @@ function ShoppingCar() {
 
 
   const {stringLocalStorage} = useContext(createCont)
-  
-  const {flag,setFlag} = useState(true)
+
+  const { user } = useAuth0();
   
 
   let y = JSON.parse(localStorage.getItem(stringLocalStorage));
@@ -40,7 +42,7 @@ function ShoppingCar() {
   const deleteProduct = (o) => {
     swal({
       title: "Estás seguro?",
-      text: "Una vez eliminado, no puedes recuperar el producto seleccionado.",
+      text: "No podras recuperar el producto seleccionado.",
       icon: "warning",
       buttons: true,
       dangerMode: true,
@@ -61,11 +63,23 @@ function ShoppingCar() {
     });
   };
 
+  const handleClickNoVerified = (e)=>{
+    e.preventDefault()
+    if(!productsFromLocalStorage.length){
+      swal("Carrito vacío!", "No hay productos en el carrito", "error");
+      return
+    }
+    if(user){
+      swal("No estás verificado!", "Verificación enviada a su casilla de correo", "error");
+    }else{
+      swal("No estas logeado!", "Para realizar una compra debes de estar logeado", "error");
+    }
+  }
  
 
   return (
     <div className={style.containerCart}>
-    {console.log(stringLocalStorage)}
+    {console.log(user)}
       <div className={style.containerInfo}>
       <Link to={"/home"}>
       <button>Seguir comprando</button>
@@ -75,9 +89,13 @@ function ShoppingCar() {
           <h2>Precio total: ${price}</h2>
         </div>
         <div>
-          <Link to="/resumeOrder">
+          {user && user.email_verified && productsFromLocalStorage.length ? (
+            <Link to="/resumeOrder">
             <button>Resumen de la orden</button>
           </Link>
+          ) : (
+            <button onClick={e=>handleClickNoVerified(e)}>Resumen de la orden</button>
+          )}
         </div>
       </div>
 
