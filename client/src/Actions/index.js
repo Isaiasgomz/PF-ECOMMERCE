@@ -88,9 +88,9 @@ export function clearDetail(){
     }
 }
 
-export function postNorder(numberOrder){
+export function postNorder(email,orderN,totalP){
     return async function () {
-        return axios.post(`http://localhost:3001/purchases`, {numberOrder})
+        return axios.post(`http://localhost:3001/purchases`, {email,orderN,totalP})
             .then(data => console.log('numero de orden enviado'))
             .catch(error => alert(error.response.data))
     }
@@ -98,7 +98,7 @@ export function postNorder(numberOrder){
 
 export function postShoppingCart(cart){
     return async function () {
-        return axios.post(`http://localhost:3001/cart`, {cart})
+        return axios.post(`http://localhost:3001/cart`, cart)
             .then(data => console.log('carrito guardado'))
             .catch(error => alert(error.response.data))
     }

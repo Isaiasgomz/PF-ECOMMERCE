@@ -26,7 +26,7 @@ module.exports = {
     },
     /* Creacion de personal data */
     userPdata: async function (email, pData){
-        try{if(!pData.fullname || !pData.address || !pData.city || !pData.country || !pData.CP ) throw 'Faltan datos obligatorios';
+        try{if(!pData.fullname || !pData.address /* || !pData.city || !pData.country */ || !pData.CP ) throw 'Faltan datos obligatorios';
         else{
             let [newPData, created] = await PersonalData.findOrCreate({
                 where :{ UserEmail: email },
@@ -38,7 +38,8 @@ module.exports = {
                         country:pData.country,
                         CP:pData.CP,
                         shippingAddress: pData.shippingAddress,
-                        telephone:pData.telephone
+                        telephone:pData.telephone,
+                        department:pData.department
                 }
             });
             return newPData;

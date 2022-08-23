@@ -10,8 +10,8 @@ function validate(input) {
   if (!input.fullname) {
     errors.fullname = "El nombre es requerido";
   }
-  if (!input.email) {
-    errors.email = "El email es requerido";
+  if (!input.UserEmail) {
+    errors.UserEmail = "El email es requerido";
   }
   if (!input.address) {
     errors.address = "La direccion es requerida";
@@ -21,6 +21,12 @@ function validate(input) {
   }
   if (!input.telephone) {
     errors.telephone = "El numero de telefono es requerido";
+  }
+  if (!input.city) {
+    errors.city = "El nombre de la ciudad es requerido";
+  }
+  if (!input.country) {
+    errors.country = "El nombre del país es requerido";
   }
 
   return errors;
@@ -35,10 +41,13 @@ function Order() {
 
   const [input, setInput] = useState({
     fullname: "",
-    email: "",
+    UserEmail: "",
     address: "",
     CP: "",
     telephone: "",
+    city: "",
+    country: "",
+    department:""
   });
 
   const [errors, setErrors] = useState({});
@@ -59,14 +68,17 @@ function Order() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(input);
+    
     dispatch(postUserData(user.email, input));
     setInput({
       fullname: "",
-      email: "",
+      UserEmail: "",
       address: "",
       CP: "",
       telephone: "",
+      city: "",
+      country: "",
+      department:""
     });
 
     history.push("/payment");
@@ -99,14 +111,14 @@ function Order() {
             className={styles.formInput}
             required={true}
             type="email"
-            name="email"
-            value={input.email}
+            name="UserEmail"
+            value={input.UserEmail}
             placeholder="usuario@email.com"
             onChange={(e) => handleInput(e)}
           />
         </p>
         <br />
-        {errors.email && <p className={styles.textError}>{errors.email}</p>}
+        {errors.UserEmail && <p className={styles.textError}>{errors.UserEmail}</p>}
         <p type="Dirección:">
           <input
             className={styles.formInput}
@@ -120,20 +132,46 @@ function Order() {
         </p>
         <br />
         {errors.address && <p className={styles.textError}>{errors.address}</p>}
+        <p type="Ciudad:">
+          <input
+            className={styles.formInput}
+            required={true}
+            type="text"
+            name="city"
+            value={input.city}
+            placeholder="Ciudad"
+            onChange={(e) => handleInput(e)}
+          />
+        </p>
+        <br />
+        {errors.city && <p className={styles.textError}>{errors.city}</p>}
+        <p type="Pais:">
+          <input
+            className={styles.formInput}
+            required={true}
+            type="text"
+            name="country"
+            value={input.country}
+            placeholder="País"
+            onChange={(e) => handleInput(e)}
+          />
+        </p>
+        <br />
+        {errors.country && <p className={styles.textError}>{errors.country}</p>}
         <p type="Departamento:">
           <input
             className={styles.formInput}
             required={true}
             type="number"
-            name="departament"
-            value={input.departament}
+            name="department"
+            value={input.department}
             placeholder="Número de Departamento - Si vives en casa -> 0"
             onChange={(e) => handleInput(e)}
           />
         </p>
         <br />
         {errors.departament && (
-          <p className={styles.textError}>{errors.departament}</p>
+          <p className={styles.textError}>{errors.department}</p>
         )}
         <p type="C.P.:"></p>
         <input

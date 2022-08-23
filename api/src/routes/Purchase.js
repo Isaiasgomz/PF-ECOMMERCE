@@ -3,9 +3,10 @@ const router = Router();
 const {postOrder, getOrder} = require('../controllers/purchasesController.js');
 
 router.post('/', async (req, res) => {
-    const {email} =req.body;
+    const {email,orderN,totalP} =req.body;
+
     try {
-        let newOrder = await postOrder(email);
+        let newOrder = await postOrder(email,orderN,totalP);
         res.status(201).send(newOrder);
     } catch (error) {
         res.status(400).send(error)

@@ -178,7 +178,7 @@ function Detail(props) {
                     <div className={style.needLog}>
                       <span> Necesitas loguearte para dejar comentario</span>
                       <hr />
-                      <button className={style.loginButton}> Login</button>
+                      <button className={style.loginButton} onClick={() => loginWithRedirect()}> Login</button>
                     </div>
                   </div> : <div>
                     {reviews?.length !== 0 && Object.keys(user).length === 0 ?

@@ -5,9 +5,10 @@ import useGoogleAddress from '../../hooks/UseMapLocation';
 import { useSelector } from 'react-redux';
 
 const Success = () => {
-    const {address,fullname} = useSelector(state => state.personalData)
-    console.log(address)
-    const location = useGoogleAddress(address);
+    const {address,city,country,fullname} = useSelector(state => state.personalData)
+    
+
+    const location = useGoogleAddress(`${address}, ${city}, ${country}`);
 
   return (
     <div className={style.Success}>

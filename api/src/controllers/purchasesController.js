@@ -2,12 +2,14 @@ const {PurchaseOrder} = require ('../db');
 
 module.exports = {
 
-    postOrder: async function (email){
+    postOrder: async function (email,orderN,totalP){
         try{
             if(!email) throw 'Faltan datos obligatorios';
                 else{
                     let order= {
-                            UserEmail: email
+                            UserEmail: email,
+                            orderN:orderN,
+                            totalPrice:totalP
                     }
                     let newOrder = await PurchaseOrder.create(order);
                     return newOrder;

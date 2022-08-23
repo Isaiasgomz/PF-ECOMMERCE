@@ -7,7 +7,6 @@ const { postCart } = require("../controllers/shoppingCartController");
 const router = Router();
 //agregar un producto a la lista cart de un usuario
 router.post("/", async (req, res) => {
-  /* const { cart } = req.body; */
   try {
       let newCart = await postCart(req.body)
       res.status(200).send(newCart)
