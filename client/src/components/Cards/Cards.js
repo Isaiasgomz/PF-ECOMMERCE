@@ -40,10 +40,10 @@ const Cards = (props) => {
   };
 
   //Paginado.
-  const [itemsPerPage, setItemsPerPage] = useState(10); //cantidad de elementos por pagina 
+  const [itemsPerPage, setItemsPerPage] = useState(9); //cantidad de elementos por pagina 
 
   //Definimos 3 estados mas para limitar los numeros de las paginas
-  const [pageNumberLimit, setPageNumberLimit] = useState(3); //cuantos numeros queremos mostrar
+  const [pageNumberLimit, setPageNumberLimit] = useState(5); //cuantos numeros queremos mostrar
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5); //cantidad maxima de numeros
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0); //cantidad minima de numeros
 
@@ -117,6 +117,7 @@ const Cards = (props) => {
 
   return (
     <div>
+      <div className="mapeoCards">
       {currentItems?.map((e, index) => (
         <Card
           localStor={addProductCartStorage}
@@ -129,6 +130,8 @@ const Cards = (props) => {
           key={index}
         />
       ))}
+      </div>
+      <div className="divPaginado"> 
 <ul className="pageNumbers">
         <li>
           <button onClick={handlePrev} disabled={currentPage === pages[0] ? true : false}>Prev</button>
@@ -140,6 +143,7 @@ const Cards = (props) => {
           <button onClick={handleNext} disabled={currentPage === pages[pages.length -1] ? true : false}>Next</button>
         </li>
       </ul>
+      </div>
     </div>
   );
 };

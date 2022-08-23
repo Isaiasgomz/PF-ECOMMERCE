@@ -1,8 +1,9 @@
 .containerCard{
     /* border: 2px solid black; */
-    width: 600px;
-    height: 175px;
+    width: 340px;
+    height: 385px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
     border-radius: 7px;
@@ -10,7 +11,15 @@
     margin: 10px;
     transition: 0.5s;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.637);
-   
+    border: 1px solid rgb(231, 231, 231);
+}
+
+.containerImg{
+    height: 170px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .containerCard:hover{
@@ -18,16 +27,26 @@
   box-shadow: 0px 7px 7px 0px rgba(0, 0, 0, 0.767);
 }
 
-.buttonCarrito{cursor: pointer;}
-
-.containerImg{
-    height: 100%;
-    width: 30%;
+.buttonCarrito{
+    background-color: #91C612;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    
+    align-items: center;
+    cursor: pointer;
 }
+
+.buttonCarrito:hover{
+    background-color: #ace42a;
+}
+
+.buttonCarrito:active{
+    background-color: #7aaa0a;
+}
+
+
 
 @supports(object-fit: cover){
     .containerImg img{
@@ -53,25 +72,30 @@
 }
 
 .containerTitle{
-    width: 100%;
+    width: 130%;
     height: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid rgb(221, 221, 221);
+    font-size: 18px;
+    flex-wrap: wrap;
 }
 .containerTitle p{
     margin: 0;
 }
 
 .containerPriceCart{
-    width: 80%;
+    border-top: 1px solid rgb(221, 221, 221);
+    width: 100%;
     height: 50%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
 }
 
 .containerPriceCart p{
     margin: 0;
+    font-size: 20px;
+    font-weight: bolder;
 }
