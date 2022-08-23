@@ -41,7 +41,7 @@ function About() {
 
             <div className="card-client">
               <div className="user-picture">
-                <img src="https://media-exp1.licdn.com/dms/image/C4D03AQG8h5Kr2HX2gQ/profile-displayphoto-shrink_800_800/0/1655916782846?e=1666224000&v=beta&t=S8phtImMAqwIL291u-82RPTfPVkHxXDl4K80bqwYzQk" />
+                <img src="https://media-exp1.licdn.com/dms/image/C4D03AQFdQrlMwRu9Ng/profile-displayphoto-shrink_800_800/0/1661208671888?e=1666828800&v=beta&t=LEpM69Ovp7q-4hd1tyBSMbNyOiC5B-j3muXp2FE1_64" />
               </div>
               <p className="name-client">
                 {" "}

@@ -5,6 +5,8 @@ import Home from "./components/Home/Home";
 import Landing from "./components/Landing/Landing";
 import Footer from "./components/Footer/Footer";
 import About from "./components/About/About";
+import Help from "./components/Help/Help";
+import FAQs from "./components/FAQs/FAQs";
 import ShoppingCar from "./components/ShoppingCar/ShoppingCar";
 import Order from "./components/Order/Order";
 import Payment from "./components/Payment/Payment";
@@ -18,11 +20,9 @@ import ContextProvider from "./components/contexto/contextProvider";
 import AdminProducts from "./components/AdminProducts/AdminProducts";
 
 
-
 function App() {
   return (
     <div className="App">
-
       <ContextProvider>
         <Route path={"/"} component={NavBar} />
         <Route exact path={"/"} component={Landing} />
@@ -30,6 +30,8 @@ function App() {
         <Route exact path={"/home"} component={Home} />
         <Route exact path={"/detail/:id"} component={Detail} />
         <Route exact path={"/about"} component={About} />
+        <Route exact path={"/FAQs"} component={FAQs} />
+        <Route exact path={"/help"} component={Help} />
         <Route exact path={"/shoppingCar"} component={ShoppingCar} />
         <Route exact path={"/order"} component={Order} />
         <Route exact path={"/payment"} component={Payment} />
@@ -40,11 +42,8 @@ function App() {
         <Route exact path={"/payment/success"} component={Success} />
         <Route path={"/notfound"} component={NotFound} />
 
-
-
         <Route path={"/adminProducts"} component={AdminProducts} />
       </ContextProvider>
-
     </div>
   );
 }

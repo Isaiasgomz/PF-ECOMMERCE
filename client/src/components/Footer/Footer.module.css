@@ -45,6 +45,12 @@
     color: #91C612;
 }
 
+.title {
+  color: #91C612;
+  border: none;
+  background-color: transparent;
+}
+
 .containerIcons {
   width: 33%;
   height: 100%;
@@ -54,7 +60,10 @@
 }
 
 .containerIcons i {
-  color: white;
+  color: white
+}
+.containerIcons i:hover {
+  color: #91C612
 }
 
 html {
