@@ -79,11 +79,11 @@ function ShoppingCar() {
 
   return (
     <div className={style.containerCart}>
-    {console.log(user)}
+      {console.log(user)}
       <div className={style.containerInfo}>
-      <Link to={"/home"}>
-      <button>Seguir comprando</button>
-      </Link>
+        <Link to={"/home"}>
+          <button className={style.button}>Seguir comprando</button>
+        </Link>
         <h2>Mi orden</h2>
         <div className={style.containerPrice}>
           <h2>Precio total: ${price}</h2>
@@ -91,19 +91,33 @@ function ShoppingCar() {
         <div>
           {user && user.email_verified && productsFromLocalStorage.length ? (
             <Link to="/resumeOrder">
-            <button>Resumen de la orden</button>
-          </Link>
+              <button className={style.button}>Resumen de la orden</button>
+            </Link>
           ) : (
-            <button onClick={e=>handleClickNoVerified(e)}>Resumen de la orden</button>
+            <button
+              className={style.button}
+              onClick={(e) => handleClickNoVerified(e)}
+            >
+              Resumen de la orden
+            </button>
           )}
         </div>
       </div>
 
       <div className={style.cards}>
-        {productsFromLocalStorage.length && Array.isArray(productsFromLocalStorage) ?
-           productsFromLocalStorage.map((e) => (
-            <CardCart key={e.idProduct}  returnPrice={returnPrice}  deleteP={deleteProduct} obj={e} />
-          )): (<h2>No hay productos!</h2>)}
+        {productsFromLocalStorage.length &&
+        Array.isArray(productsFromLocalStorage) ? (
+          productsFromLocalStorage.map((e) => (
+            <CardCart
+              key={e.idProduct}
+              returnPrice={returnPrice}
+              deleteP={deleteProduct}
+              obj={e}
+            />
+          ))
+        ) : (
+          <h2>No hay productos!</h2>
+        )}
       </div>
     </div>
   );
