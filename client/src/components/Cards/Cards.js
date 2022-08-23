@@ -43,7 +43,7 @@ const Cards = (props) => {
   const [itemsPerPage, setItemsPerPage] = useState(9); //cantidad de elementos por pagina 
 
   //Definimos 3 estados mas para limitar los numeros de las paginas
-  const [pageNumberLimit, setPageNumberLimit] = useState(3); //cuantos numeros queremos mostrar
+  const [pageNumberLimit, setPageNumberLimit] = useState(5); //cuantos numeros queremos mostrar
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5); //cantidad maxima de numeros
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0); //cantidad minima de numeros
 
