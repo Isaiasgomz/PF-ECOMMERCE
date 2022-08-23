@@ -12,16 +12,24 @@
 }
 
 .searchButton{
-    color: white;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px ;
     border: 1px solid white;
-    background-color: transparent;
+    color: white;
+    background-color: #37373f;
     padding: 5px;
     width: 3vw;
 }
 .searchButton:hover{
     cursor: pointer;
+    color: #37373f;
+    background-color: white;
+}
+
+.searchButton:active{
+    cursor: pointer;
+    color: white;
+    background-color: #37373f;
 }
 
 .searchBar:focus{
