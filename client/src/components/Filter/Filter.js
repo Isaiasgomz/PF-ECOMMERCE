@@ -151,7 +151,7 @@ function Filter() {
            </div>
 
 
-            <div className={styles.toggle} onClick={openCloseDropDown3}><span>Precio</span><span className={styles.span}><i class="fa-solid fa-chevron-down"></i></span></div>
+            <div className={styles.toggle} onClick={openCloseDropDown3}><span>Precio</span><span className={styles.span}><i className="fa-solid fa-chevron-down"></i></span></div>
             {dropDown3? 
             <div>
             <div className={styles.toggleItem} value="Menor precio" onClick={sortByPrice}><span>- Menor precio</span></div>
@@ -159,7 +159,7 @@ function Filter() {
             </div>
             :null}
         
-            <div className={styles.toggle} onClick={openCloseDropDown}><span>Categorias</span><span className={styles.span}><i class="fa-solid fa-chevron-down"></i></span></div>
+            <div className={styles.toggle} onClick={openCloseDropDown}><span>Categorias</span><span className={styles.span}><i className="fa-solid fa-chevron-down"></i></span></div>
             {dropDown? 
             <div>
             {category?.map((e, index) => <div className={styles.toggleItem} key={index} value={e} onClick={sortByCategory}><span>- {e}</span></div>)}
@@ -167,7 +167,7 @@ function Filter() {
             </div>
             :null}
 
-            <div className={styles.toggle} onClick={openCloseDropDown2}><span >Marcas </span><span className={styles.span}><i class="fa-solid fa-chevron-down"></i></span></div>
+            <div className={styles.toggle} onClick={openCloseDropDown2}><span >Marcas </span><span className={styles.span}><i className="fa-solid fa-chevron-down"></i></span></div>
             {dropDown2? 
             <div>
             {brands?.map((e, index) => <div className={styles.toggleItem} key={index} value={e} onClick={sortByBrand}><span>- {e}</span></div>) }
