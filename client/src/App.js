@@ -18,12 +18,8 @@ import Success from "./components/Success/Success";
 import ResumeOrder from "./components/ResumeOrder/ResumeOrder";
 import ContextProvider from "./components/contexto/contextProvider";
 import AdminProducts from "./components/AdminProducts/AdminProducts";
-<<<<<<< HEAD
 import UserPanel from "./components/UserPanel/UserPanel";
-=======
 import UserMyOrders from "./components/UserMyOrders/UserMyOrders";
-
->>>>>>> julia
 
 function App() {
   return (
