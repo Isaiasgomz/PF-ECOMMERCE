@@ -31,6 +31,7 @@
     border-radius: 7px;
     box-shadow: 0px 8px 15px rgba(14, 13, 13, 0.1);
     transition: all 0.3s ease 0s;
+    
 }
 
 .pageNumbers li.active {
@@ -49,6 +50,18 @@
     cursor: pointer;
 }
 
+.mapeoCards{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    margin: 20px
+}
+
 .pageNumbers li button:hover {
     /* background-color: rgb(146, 144, 144); */
+}
+
+.divPaginado{
+    display: flex;
+    margin-left: 10%;
+    align-items: center;
 }
