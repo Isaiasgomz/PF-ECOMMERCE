@@ -43,6 +43,7 @@ export function getProductDetail(id) {
 export function getUserDetail(email) {
     return async function (dispatch) {
         const userDetail = await axios.get(`http://localhost:3001/user/${email}`)
+        console.log(userDetail)
         return dispatch({ type: 'USER_DETAIL', payload: userDetail.data })
     }
 }
