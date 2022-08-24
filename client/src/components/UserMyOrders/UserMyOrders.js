@@ -8,18 +8,16 @@ const UserMyOrders = () => {
 
  console.log('detalle', userDetail)
  
+
     return (
         <div>
             <h2>Mis Ordenes:</h2>
             <div>
-               
-            {userDetail?.map((e, index) => (
-                
+            {userDetail.PurchaseOrders?.map((e, index) => (
                 <MyOrdersCard
-                // orderN={e.orderN}
-                // date={e.date}
-                // totalPrice={e.totalPrice}
-                email={e.email}
+                orderN={e.orderN}
+                date={e.date}
+                totalPrice={e.totalPrice}
                 key={index}
                 />
             ))}
