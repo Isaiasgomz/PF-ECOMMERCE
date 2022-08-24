@@ -29,7 +29,7 @@ import Sidebar from "./components/AdminSideBar/AdminSideBar";
 import UserPanel from "./components/UserPanel/UserPanel";
 import UserMyOrders from "./components/UserMyOrders/UserMyOrders";
 import UserData from "./components/UserData/UserData";
-
+import UserOrderDetail from "./components/UserOrderDetail/UserOrderDetail";
 
 function App() {
   return (
@@ -62,7 +62,8 @@ function App() {
         
         <Route exact path={"/userPanel"} component={UserPanel} />
         <Route exact path={"/userData"} component={UserData} />
-        <Route path={"/myOrders"} component={UserMyOrders} />
+        <Route exact path={"/myOrders"} component={UserMyOrders} />
+        <Route exact path={"/orderDetail"} component={UserOrderDetail} />
 
 
         <Route path={"/adminProducts"} component={AdminProducts} />
