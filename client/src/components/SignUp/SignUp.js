@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-
 import {useDispatch} from 'react-redux'
+ import  {postNewAdmin}from '../../Actions'
+// import style from './SignUp.css'
 
 function validate (input){
   const errors ={}
@@ -10,8 +11,8 @@ function validate (input){
   if(!input.email){
     errors.email = 'El email es requerido'
   }
-  if(!input.password){
-    errors.password = 'El password es requerido'
+  if(!input.lastName){
+    errors.lastName = 'Los Apellidos es requerido'
   }
   return errors
 }
@@ -23,7 +24,7 @@ function SignUp() {
   const [customer,setCustomer] = useState({
     name: '',
     email: '',
-    password:'',
+    lastName:'',
   })
 
   const [errors,setErrors] = useState({})
@@ -40,38 +41,60 @@ function SignUp() {
       [e.target.name]: e.target.value
     }))
   }
-
+  // {"user":{
+  //   "email": "isaiasgomz@gmail.com",
+  //   "admin":true
+  //   }}
 
   const  handleSubmit = (e)=>{
     e.preventDefault()
+    const newAdmin = {user:{
+      email: customer.email,
+      admin:true
+    }}
+
+    dispatch(postNewAdmin(newAdmin))
+
 
     setCustomer({
     name: '',
     email: '',
-    password:'',
+    lastName:'',
     })
   }
   
   return (
     <div className="login">
     <div className="form-container">
-      <h1 className="title">My account</h1>
+      <h1 className="title">Crear Admin</h1>
 
       <form  className="form" onSubmit={(e) => handleSubmit(e)}>
         <div>
 
           <label for="name" className="label">Name</label>
           <input type="text" 
+          required= {true}
           name='name' 
           value={customer.name} 
           id="name"
-          placeholder="Name" 
+          placeholder="Isaias" 
           className="input input-name"
           onChange={(e) => handleInput(e)}/>
+          
 
+          <label for="lastName" className="label">Apellidos</label>
+          <input type="text" 
+          required= {true}
+          name='lastName' 
+          id="password" 
+          value={customer.lastName}
+          placeholder="Gomez Robles" 
+          className="input input-password"
+           onChange={(e) => handleInput(e)}/>
 
           <label for="email" className="label">Email</label>
           <input type="email"
+          required= {true}
           name='email'
           id="email" 
           value={customer.email}
@@ -80,18 +103,11 @@ function SignUp() {
           onChange={(e) => handleInput(e)}/>
 
 
-          <label for="password" className="label">Password</label>
-          <input type="password" 
-          name='password' 
-          id="password" 
-          value={customer.password}
-          placeholder="*********" 
-          className="input input-password"
-           onChange={(e) => handleInput(e)}/>
+          
         </div>
 
 
-        <input type="submit" value="Create" className="primary-button login-button"/>
+        <input type="submit" value="Crear" className="primary-button login-button"/>
       </form>
     </div>
   </div>

@@ -16,8 +16,12 @@ module.exports = (sequelize) => {
     admin:{
         type:DataTypes.BOOLEAN,
         defaultValue: false,
-    }   
+    },
+    status: {
+        type:DataTypes.STRING,
+        defaultValue:'Autorizado'
+    }  
     },{
-        timestamps:false
+        // timestamps:false
     });
 };

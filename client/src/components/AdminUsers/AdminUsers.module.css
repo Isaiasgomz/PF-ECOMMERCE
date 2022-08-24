@@ -1,0 +1,150 @@
+.productContainer{
+    background-color: #BBEAE4;
+    width: 80%;
+    margin-left: 20%;
+    border-radius: 5px;
+    height: 90%;
+}
+
+.infoConteiner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.infoProduct{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 350px;
+    height: 150px;
+    border-radius: 5px;
+    background-color: #78BEEC;
+    border: solid 1px white;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerNabvar{
+    margin-left: 40%;
+}
+
+
+
+.items{
+    /* padding-left: 40px;
+    padding-right: 40px; */
+    display: flex;
+    justify-self: flex-start;
+    width: 200px;
+    border-bottom: solid 1px black;
+    height: 60px;
+    
+    
+}
+
+.itemCreated{
+    display: flex;
+    justify-self: flex-start;
+    width:250px;
+    border-bottom: solid 1px black;   
+    height: 60px;
+}
+
+.itemName{
+    display: flex;
+    justify-self: flex-start;
+    width:150px;
+    border-bottom: solid 1px black;
+    height: 60px;  
+}
+
+.itemPrice{
+    display: flex;
+    justify-self: flex-start;
+    width: 100px;
+    border-bottom: solid 1px black;
+    height: 60px;
+}
+
+.itemBrand{
+    display: flex;
+    justify-self: flex-start;
+    width: 250px;
+    border-bottom: solid 1px black;
+    height: 60px;
+}
+
+.itemStock{
+    display: flex;
+    justify-self: flex-start;
+    width: 150px;
+    border-bottom: solid 1px black;
+    height: 60px;
+}
+
+.itemActions{
+    margin-left: 50px;
+    margin-top: 0%;
+}
+
+
+.headerContainer{
+
+    background-color: #78BEEC;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+
+.headerName{
+    margin-left: 0px;
+}
+
+.headerDescription{
+    margin-left: 70px;
+}
+.headerBrand{
+    margin-left: 100px;
+}
+.headerPrice{
+    margin-left: 170px;
+}
+
+.headerCount{
+    margin-left: 80px;
+}
+
+.headerDisabled{
+    margin-left: 70px;
+}
+
+.headerID{
+    margin-left: 0px;
+}
+
+.headerCreated{
+    margin-left: 45px;
+}
+
+.headerActions{
+    margin-left: 160px;
+}
+
+.buttonCrear{
+    margin-left: 70%;
+    padding-bottom: 20%;
+}
+

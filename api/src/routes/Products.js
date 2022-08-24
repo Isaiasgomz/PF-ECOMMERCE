@@ -39,7 +39,7 @@ router.post('/create', async (req,res)=>{
     }
 })
 
-router.patch('/update/:id', async (req,res) =>{
+router.put('/update/:id', async (req,res) =>{
     try {
         const {id} = req.params
         await updateProduct(id, req.body)

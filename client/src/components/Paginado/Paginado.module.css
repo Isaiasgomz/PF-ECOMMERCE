@@ -1,7 +1,8 @@
 .nav{
-    width: 40%;
+    width: 20%;
     height: 70px;
     margin-left: 500px;
+    margin-top: 40px;
 
 }
 
@@ -13,14 +14,19 @@
     
 }
 
-.number{
+ .number{
     width: 28px;
     list-style: none;
     border-radius: 8px;
     color:white;
-    background-color:  #97adc689;
+    background-color:  #78BEEC;
     text-align: center;
     margin-left: 5px;
     cursor: pointer;
-}
+    
+} 
+/* 
+.paginadoA{
+    background-color: aliceblue;
+} */
 

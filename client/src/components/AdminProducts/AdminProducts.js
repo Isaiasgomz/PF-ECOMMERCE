@@ -1,27 +1,29 @@
 import React, { useEffect, useState } from 'react'
+// import { BiPlusMedical } from 'react-icons';
 import { useDispatch, useSelector } from 'react-redux'
 import {NavLink} from 'react-router-dom'
-import {getAdminProducts, getAdminProductByName} from "../../Actions"
+import {getAdminProducts, getAdminProductByName, productDisabled} from "../../Actions"
 import Paginado from '../Paginado/Paginado'
 import style from './AdminProducts.module.css'
 
 function AdminProducts() {
  const  dispatch = useDispatch()
 
+ let allProducts = useSelector(state => state.adminProducts)
+ let allProductsBackup = useSelector(state => state.allAdminProducts)
  useEffect(() => {
   dispatch(getAdminProducts())
   },[])
 
  
-const allProducts = useSelector(state => state.adminProducts)
 
-const productsDisabled = allProducts.filter(product => product.disabled === true)
+const productsDisabled = allProductsBackup.filter(product => product.disabled === true)
 
-const productsDrained = allProducts.filter(product => product.stock === 0)
+const productsDrained = allProductsBackup.filter(product => product.stock === 0)
 
 
 let [currentPage, setCurrentPage] = useState(1)
-let [ProductsPerPage, setProductsPerPage] = useState(11)
+let [ProductsPerPage, setProductsPerPage] = useState(6)
 let indexOfLastProduct = currentPage * ProductsPerPage
 let indexOfFirstProduct= indexOfLastProduct - ProductsPerPage
 let currentProducts = allProducts.slice(indexOfFirstProduct,indexOfLastProduct) 
@@ -33,25 +35,41 @@ const handleInput = (e) => {
 }
 
 const handleSubmit = (e) => {
-
   dispatch(getAdminProductByName(product))
   setCurrentPage(1)
   setProduct('')
 }
 
-const handleDisabled = (id)=>{
-  dispatch()
+const handleDisabled = async (id, status)=>{
+  // setCurrentPage(1)
+  // const updatingProuduct = allProducts.find(p => p.id === id);
+  let disabledProduct;
+  if(status === true){
+    disabledProduct = {
+      disabled: false,
+   }
+  }else{
+    disabledProduct = {
+
+      disabled: true,
+   }
+  }
+  await dispatch(productDisabled(id,disabledProduct))
+  await dispatch(getAdminProducts())
 }
+
+
 
 
 
 return (
   <div className={style.productContainer}>
+    {/* <h2>Productos</h2> */}
     <div className={style.infoConteiner}>
 
     <div className={style.infoProduct}>
       <div className={style.info}>
-        <p>{allProducts.length - productsDisabled.length }</p>
+        <h3>{allProductsBackup.length - productsDisabled.length }</h3>
         <p>Productos Habilitados</p>
       </div>
       <div className={style.icon}>
@@ -61,7 +79,7 @@ return (
 
     <div className={style.infoProduct}>
       <div className={style.info}>
-        <p>{productsDisabled.length}</p>
+        <h3>{productsDisabled.length}</h3>
         <p>Porductos Desabilitados</p>
       </div>
       <div  className={style.icon}>
@@ -71,7 +89,7 @@ return (
 
     <div className={style.infoProduct}>
       <div className={style.info}>
-        <p>{productsDrained.length}</p>
+        <h3>{productsDrained.length}</h3>
         <p>Porductos Agotados</p> 
       </div>
       <div className={style.icon}>
@@ -81,7 +99,7 @@ return (
 
     </div>
     
-    <div>
+    <div className={style.containerNabvar}>
       <select>
         <option>Desabilitados</option>
         {
@@ -99,7 +117,7 @@ return (
         }
       </select>
       <input value={product} onChange={(e) => handleInput(e)} placeholder='Buscar Producto'></input>
-      <button onClick={(e) => handleSubmit(e)}>Buscar</button>
+      <button onClick={(e) => handleSubmit(e)}><i className="fa-solid fa-magnifying-glass"></i></button>
     </div>
 
     <div className={style.headerContainer}>
@@ -153,8 +171,8 @@ return (
             <li> {product.createdAt}</li>
           </div>
           <ul>
-            <button>Edi</button>
-            <button onClick={()=> handleDisabled(product.idProduct)}>Des</button>
+            <NavLink to={`/admin/update/${product.idProduct}`}><i  className="fa-solid fa-trash-can"></i></NavLink>
+            <i  onClick={()=> handleDisabled(product.idProduct,product.disabled)} className="fa-solid fa-trash-can"></i>
           </ul>
           
         </ul>
@@ -164,7 +182,7 @@ return (
         allProducts={allProducts.length} 
         paginado={setCurrentPage}/>
 
-        <NavLink to={'/createProduct'}><button>+</button></NavLink>
+        <NavLink className={style.buttonCrear} to={'/createProduct'}><i  className="fa-solid fa-trash-can"></i></NavLink>
     </div>
   )
 }

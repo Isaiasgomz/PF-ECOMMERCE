@@ -1,5 +1,5 @@
-const {User, Product} = require ('../db');
-const { listProducts } = require('./productsController');
+const {User, Product, PersonalData} = require ('../db');
+const { listProducts,productDetail } = require('./productsController');
 
 module.exports = {
     /* usuario admin nuevo */
@@ -51,32 +51,67 @@ module.exports = {
             if (product.length === 0) throw 'El producto no existe';
             return product;
         } catch (error) {
-            throw error;
+            throw new Error(error.message);
         }
     },
 
-    /* usuario admin eliminado */
-    deleteUser: async function(email){
+    /* usuario bloqueado */
+    updateUser: async function(email,dataModify){
         try {
-            await User.destroy({
+            await User.update(dataModify, {
                 where: {
                     email: email
                 }
             })
         } catch (error) {
-            throw new Error(error); 
+            throw error; 
         }
     },
 
     // traer todos los productos para el dashboard del admin
     listUsers: async function () {
         try {
-            let user = await User.findAll()
+            let user = await User.findAll({ 
+                include:[{
+                model: PersonalData
+            }
+        ],            
+        })
             if (!user) throw 'No existen Usuarios registrados';
             return user;
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    },
+
+    getProductById: async function (id) {
+        try {
+            let product = await Product.findByPk(id);
+            return product;
         } catch (error) {
             throw error;
         }
     },
+
+    // addPersonalData: async function (email,data) {
+    //     try {
+    //         if(!data.fullName){
+    //             throw 'Faltan datos obligatorios';
+    //         }else{
+    //             let [newPData, created] = await PersonalData.findOrCreate({
+    //                 where :{ UserEmail: email },
+    //                 defaults:{
+    //                     UserEmail: email,
+    //                     fullname:data.fullName,
+                            
+    //                 }
+    //             });
+    //             return newPData;
+    //         }
+    //     } catch (error) {
+    //         throw error; 
+    //     }
+    // }
+
 
 }

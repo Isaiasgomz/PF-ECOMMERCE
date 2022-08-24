@@ -13,6 +13,10 @@ const initialState = {
     cart: [],
     personalData: {},
     adminProducts: [],
+    allAdminProducts: [],
+    order:{},
+    adminProductDetail: {},
+    usersAdmin:[]
 
 }
 
@@ -105,7 +109,8 @@ export default function rootReducer(state = initialState, action) {
         case 'GET_ADMIN_PRODUCTS':
             return{
                 ...state,
-                adminProducts: action.payload
+                adminProducts: action.payload,
+                allAdminProducts:action.payload
             }
 
         case 'GET_ADMIN_PRODUCTS_BY_NAME':
@@ -113,7 +118,38 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 adminProducts: action.payload
             }
+        case 'GET_ORDER':
+            return{
+                ...state,
+                order: action.payload
+            }
 
+        case 'PRODUCT_DISABLED':
+            return{
+                ...state,
+            }
+
+         case 'PRODUCT_DETAIL_ADMIN':
+            return{
+                ...state,
+                adminProductDetail: action.payload
+            }
+
+        case 'GET_USERS_ADMIN':
+            return{
+                ...state,
+                usersAdmin: action.payload
+            }
+
+        case 'USER_DISABLED':
+            return {
+                ...state,
+            }
+
+        case 'NEW_ADMIN':
+            return {
+                ...state,
+            }
         default:
             return state
     }

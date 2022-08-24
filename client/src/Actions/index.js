@@ -88,12 +88,11 @@ export function clearDetail(){
     }
 }
 
-export function postNorder(numberOrder){
-    return async function () {
-        return axios.post(`http://localhost:3001/purchases`, {numberOrder})
-            .then(data => console.log('numero de orden enviado'))
-            .catch(error => alert(error.response.data))
-    }
+export function getNorder(email){
+    return async function (dispatch) {
+        const order = await axios.post(`http://localhost:3001/purchases`, {email})
+        return dispatch({type: 'GET_ORDER', payload: order.data})
+    }      
 }
 
 export function postShoppingCart(cart){
@@ -139,8 +138,55 @@ export function getAdminProductByName(name) {
 }
 
 
+export function productDisabled(id,data) {
+    return async function (dispatch) {
+         await axios.put(`http://localhost:3001/products/update/${id}`,data)
+        .catch(error => console.log(error.response.data))
+        return dispatch({ type: 'PRODUCT_DISABLED' })
+    }
+}
+
+export function getProductDetailAdmin(id) {
+    return async function (dispatch) {
+        const productDetailAdmin = await axios.get(`http://localhost:3001/admin/product/${id}`);
+        return dispatch({ type: 'PRODUCT_DETAIL_ADMIN', payload: productDetailAdmin.data })
+    }
+}
+
+
+export function getUsersAdmin() {
+    return async function (dispatch) {
+        const usersAdmin = await axios.get(`http://localhost:3001/admin/users`);
+        return dispatch({ type:'GET_USERS_ADMIN', payload: usersAdmin.data })
+    }
+}
+
+export function userDisabled(email,data) {
+    return async function (dispatch) {
+         await axios.put(`http://localhost:3001/admin/disabledUser/${email}`,data)
+        .catch(error => console.log(error.response.data))
+        return dispatch({ type: 'USER_DISABLED' })
+    }
+}
+
+// export function postUserData(email,data) {
+//     return async function (dispatch) {
+//         const newUser = await axios.post(`http://localhost:3001/user/${email}/personalData`,data)
+//         .catch(error => console.log(error.response.data))
+//         return dispatch({ type: 'USER_DATA', payload:data })
+//     }
+// }
+
+export function postNewAdmin(data) {
+    return async function (dispatch) {
+         await axios.post(`http://localhost:3001/user`,data)
+        .catch(error => console.log(error.response.data))
+        return dispatch({ type: 'NEW_ADMIN' })
+    }
+}
 
 
 
 
-// export function
+
+

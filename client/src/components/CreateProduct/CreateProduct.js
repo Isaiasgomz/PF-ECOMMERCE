@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import { postProduct } from "../../Actions";
+import { postProduct, getAdminProducts } from "../../Actions";
 import styles from './CreateProduct.module.css'
 
 
@@ -30,17 +30,22 @@ function validate (input){
   return errors
 }
 
+
+
+
+
 function CreateProduct() {
+  const dispatch = useDispatch()
 
-  const AllProducts = useSelector(state => state.Products )
+  useEffect(() => {
+    dispatch(getAdminProducts())
+  },[])
 
-  
 
-  const productByCategory = AllProducts.map(item => item.category)
-  console.log(AllProducts)
+  // const allProducts = useSelector(state => state.adminProducts)
+
  
 
-  const dispatch = useDispatch()
 
   const [product, setProduct] = useState({
     productName: '',
@@ -50,7 +55,7 @@ function CreateProduct() {
     stock: '', 
     category: '',
     brand:'',
-    disabled:true,
+
   })
 
   const [errors, setErrors] = useState({})
@@ -133,16 +138,11 @@ function CreateProduct() {
           errors.stock && (
             <p className={styles.textError} >{errors.stock}</p>
         )}
-        
-        <section>
-          <option>selec category..</option>
-          {
-            productByCategory && productByCategory.map(item =>(
-              <option>{item}</option>
-            ))
-          }
-        </section>
-        <br/>
+
+        <label htmlFor='category'>Categoria</label>
+        <input className={styles.formInput}  type={'text'} placeholder={'Categoria'} 
+        name={'category'} value={product.category}  
+        onChange={(e)=> handleInput(e)} /><br/>
           {
             errors.category && (
               < p className={styles.textError}>{errors.category}</p>

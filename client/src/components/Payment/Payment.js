@@ -2,15 +2,19 @@ import React from 'react';
 import { PayPalButton } from 'react-paypal-button-v2';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
-import { postNorder, postShoppingCart } from '../../Actions';
+import {getNorder, postShoppingCart } from '../../Actions';
 // npm i react-paypal-button-v2  react v-- 17
 
 const Payment = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.user)
   const cart = useSelector(state => state.cart) //TIENE QUE SER UN CARRITO FIJO
+  const order = useSelector(state => state.order) 
   const history = useHistory()
  
+
+  console.log(user)
+  console.log(cart)
   
 
   const paypalOtions = {
@@ -27,11 +31,14 @@ const Payment = () => {
   const handlePaymentSuccess = (data) => {
     console.log(data);
  
-    /* dispatch(postNorder(data.orderID))
-    let shoppingCart = cart.map(e=>{
-      e
-    })
-    dispatch(postShoppingCart(shoppingCart)) */
+     dispatch(getNorder(user.email))
+
+    // const orderCompleted = order.map((item) => {
+    //   return {
+
+    //   }
+    // })
+    // dispatch(postShoppingCart()) 
 
     
     alert('Payment completed successfully')

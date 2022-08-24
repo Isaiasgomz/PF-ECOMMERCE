@@ -1,5 +1,9 @@
 .productContainer{
     background-color: #BBEAE4;
+    width: 80%;
+    margin-left: 20%;
+    border-radius: 5px;
+    height: 90%;
 }
 
 .infoConteiner{
@@ -33,6 +37,10 @@
     align-items: center;
 }
 
+.containerNabvar{
+    margin-left: 40%;
+}
+
 
 
 .items{
@@ -42,6 +50,9 @@
     justify-self: flex-start;
     width: 320px;
     border-bottom: solid 1px black;
+    height: 60px;
+    
+    
 }
 
 .itemCreated{
@@ -49,14 +60,15 @@
     justify-self: flex-start;
     width:250px;
     border-bottom: solid 1px black;   
-    
+    height: 60px;
 }
 
 .itemName{
     display: flex;
     justify-self: flex-start;
     width:230px;
-    border-bottom: solid 1px black;  
+    border-bottom: solid 1px black;
+    height: 60px;  
 }
 
 .itemPrice{
@@ -64,6 +76,7 @@
     justify-self: flex-start;
     width: 100px;
     border-bottom: solid 1px black;
+    height: 60px;
 }
 
 .itemBrand{
@@ -71,6 +84,7 @@
     justify-self: flex-start;
     width: 120px;
     border-bottom: solid 1px black;
+    height: 60px;
 }
 
 .itemStock{
@@ -78,6 +92,7 @@
     justify-self: flex-start;
     width: 100px;
     border-bottom: solid 1px black;
+    height: 60px;
 }
 
 
@@ -85,6 +100,8 @@
 .headerContainer{
 
     background-color: #78BEEC;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 
@@ -121,3 +138,11 @@
 .headerActions{
     margin-left: 160px;
 }
+
+.buttonCrear{
+    margin-left: 70%;
+    padding-bottom: 20%;
+}
+
+
+
