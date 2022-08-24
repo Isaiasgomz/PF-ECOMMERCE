@@ -15,13 +15,13 @@ function Footer() {
       </div>
       <div className={style.containerButtons}>
         <Link to="/FAQs">
-          <button className={style.buttonFooter}>FAQ's</button>
+          <button className={style.buttonFooter}>Preguntas y Respuestas</button>
         </Link>
         <Link to="/help">
-          <button className={style.buttonFooter}>Help</button>
+          <button className={style.buttonFooter}>Ayuda</button>
         </Link>
         <Link to="/about">
-          <button className={style.buttonFooter}>About</button>
+          <button className={style.buttonFooter}>Equipo</button>
         </Link>
       </div>
       <div className={style.containerIcons}>
