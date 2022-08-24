@@ -59,7 +59,7 @@ function Help() {
           </Link>
         </div>
         <div className={style.FAQs}>
-          <Link>
+          <Link to="/FAQs">
             <img
               src="https://img.freepik.com/vector-premium/preguntas-respuestas-burbujas-discurso-lineal-globos-contorno-verde-azul-concepto-pregunta-respuesta-letras-mayuscula-preguntas-frecuentes_87771-14844.jpg?w=2000"
               height="50"
