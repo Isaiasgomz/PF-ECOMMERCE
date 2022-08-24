@@ -86,9 +86,28 @@ function ShoppingCar() {
 
   const clearCart = (e)=>{
     e.preventDefault()
-    localStorage.removeItem(stringLocalStorage)
-    localStorage.setItem(stringLocalStorage,JSON.stringify([]))
-    setPrice(0)
+    swal({
+      title: "Estás seguro?",
+      text: "Eliminaras todos los productos del carrito.",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        localStorage.removeItem(stringLocalStorage)
+        localStorage.setItem(stringLocalStorage,JSON.stringify([]))
+        setPrice(0)
+        
+  
+        swal("Poof! El carrito se ha sido vaciado correctamente!", {
+          icon: "success",
+        });
+      } else {
+        swal("PULL REQUEST" ,"El carrito se ha salvado!", "success");
+      }
+    });
+
+
   }
  
 
