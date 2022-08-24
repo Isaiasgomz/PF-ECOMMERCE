@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { getProducts } from "../../Actions/index.js";
 import "./Landing.css";
 import CarouselMarcas from "./CarouselMarcas/CarouselMarcas.js";
-import CarouselNotebooks from "./CarouselNotebooks/CarouselNotebooks.js";
 
 function Landing() {
   /////////////////////// declaro el dispatch
@@ -166,10 +165,6 @@ function Landing() {
         </h2>
       </div>
       <CarouselMarcas></CarouselMarcas>
-      {/* <h2 className="titleNotebooks">
-        Elegí tu notebook ideal para trabajar o jugar:
-      </h2>
-      <CarouselNotebooks></CarouselNotebooks> */}
     </div>
   );
 }
