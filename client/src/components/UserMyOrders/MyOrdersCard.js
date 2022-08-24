@@ -1,8 +1,8 @@
 import React from "react"; 
+import { Link } from "react-router-dom";
 import style from "./MyOrdersCard.module.css"
 
-const MyOrdersCard = ({orderN, date, totalPrice, email}) => { 
-
+const MyOrdersCard = ({orderN, date, totalPrice, id}) => { 
 
 
     return (
@@ -16,7 +16,9 @@ const MyOrdersCard = ({orderN, date, totalPrice, email}) => {
             <div className={style.text}>Precio total: ${totalPrice} </div>
             </div>
             <div className={style.fila}>
+            <Link to={`/orderDetail`}>
             <button className={style.button}>Detalles</button>
+            </Link>
             <div className={style.delivered}>Entregado</div>
             </div>
         </div>
