@@ -156,7 +156,6 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
             }
         case 'USER_DETAIL':
-            console.log(action.payload)
             return{
                 ...state,
                 userDetail: action.payload
