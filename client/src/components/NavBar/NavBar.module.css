@@ -49,6 +49,10 @@
 
 }
 
+.imagen img:hover {
+  filter: brightness(1.5);
+}
+
 .profile {
   background-color: transparent;
   color: white;
