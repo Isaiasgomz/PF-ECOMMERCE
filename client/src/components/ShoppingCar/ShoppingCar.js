@@ -66,7 +66,7 @@ function ShoppingCar() {
   const handleClickNoVerified = (e)=>{
     e.preventDefault()
     
-    if(user.email_verified === false){
+    if(user && user.email_verified === false){
       swal("No estás verificado!", "Verificación enviada a su casilla de correo", "error");
       return
     }
