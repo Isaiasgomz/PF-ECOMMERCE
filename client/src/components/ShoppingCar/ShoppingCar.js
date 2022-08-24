@@ -65,15 +65,30 @@ function ShoppingCar() {
 
   const handleClickNoVerified = (e)=>{
     e.preventDefault()
+    
+    if(user.email_verified === false){
+      swal("No estás verificado!", "Verificación enviada a su casilla de correo", "error");
+      return
+    }
+
+    
+    if(!user){
+      swal("No estas logeado!", "Para realizar una compra debes de estar logeado", "error");
+      return
+    }
+
     if(!productsFromLocalStorage.length){
       swal("Carrito vacío!", "No hay productos en el carrito", "error");
       return
     }
-    if(user){
-      swal("No estás verificado!", "Verificación enviada a su casilla de correo", "error");
-    }else{
-      swal("No estas logeado!", "Para realizar una compra debes de estar logeado", "error");
-    }
+    
+  }
+
+  const clearCart = (e)=>{
+    e.preventDefault()
+    localStorage.removeItem(stringLocalStorage)
+    localStorage.setItem(stringLocalStorage,JSON.stringify([]))
+    setPrice(0)
   }
  
 
@@ -119,6 +134,11 @@ function ShoppingCar() {
           <h2>No hay productos!</h2>
         )}
       </div>
+      {
+        productsFromLocalStorage.length &&
+        Array.isArray(productsFromLocalStorage)?
+        <div className={style.containerClearCart}><button className={style.button} onClick={e=>clearCart(e)}>Vaciar carrito</button></div> : ""
+      }
     </div>
   );
 }
