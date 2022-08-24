@@ -1,6 +1,8 @@
 import React from "react"; 
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import MyOrdersCard from "./MyOrdersCard";
+import style from "./MyOrdersCard.module.css"
 
 const UserMyOrders = () => { 
     const { userDetail } = useSelector((state) => state);
@@ -10,9 +12,11 @@ const UserMyOrders = () => {
  
 
     return (
-        <div>
-            <h2>Mis Ordenes:</h2>
-            <div>
+        <div className={style.container}>
+            <div className={style.containerTitle}>
+            <h2>Mis ordenes:</h2>
+            </div>
+            <div className={style.containerCards}>
             {userDetail.PurchaseOrders?.map((e, index) => (
                 <MyOrdersCard
                 orderN={e.orderN}
