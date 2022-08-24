@@ -15,10 +15,10 @@ function Card({name,price,img,calification,localStor,ob,id}) {
       <div className={style.containerInfo}>
         <div className={style.containerTitle}>
 
-        <Link to={`/detail/${id}`}> <p>{name}</p></Link>
+        <Link to={`/detail/${id}`}> <span>{name}</span></Link>
         </div>
         <div className={style.containerPriceCart}>
-          <p>${price}</p>
+          <span>${price}</span>
           {/* <Rating
             name="half-rating"
             size="small"

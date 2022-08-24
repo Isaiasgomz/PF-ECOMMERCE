@@ -1,52 +1,49 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Card from "../Card/Card";
-import { useDispatch, useSelector } from "react-redux";
-import { setCart, sortProductByPrice } from "../../Actions";
+import {useSelector } from "react-redux";
 import "./Cards.css";
 import { createCont } from "../contexto/contextProvider";
 
 
 const Cards = (props) => {
 
+
   const { Products } = useSelector((state) => state);
-  const { productsByName } = useSelector((state) => state);
-  const dispatch = useDispatch();
 
 
-const {currentPage, setCurrentPage} = useContext(createCont)
 
+    
+  
+  const {currentPage, setCurrentPage, stringLocalStorage} = useContext(createCont)
+  
+  
 
 
   let x = [];
   const addProductCartStorage = (o) => {
-    let a = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
+    let fromLocalStorage = JSON.parse(localStorage.getItem(stringLocalStorage));
+
     
 
-    if (a) {
-      let filtered = a.filter((e) => e.idProduct === o.idProduct);
+    if (fromLocalStorage) {
+      let filtered = fromLocalStorage.filter((e) => e.idProduct === o.idProduct);
       if (filtered.length) return;
-      x = [...a, o];
+      x = [...fromLocalStorage, o];
       console.log(x);
-      localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
+      localStorage.setItem(stringLocalStorage, JSON.stringify(x));
       console.log(x);
       return;
     }
-
     x = [...x, o];
-    localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
+    localStorage.setItem(stringLocalStorage, JSON.stringify(x));
     console.log(x);
   };
-  useEffect(() => {
-    return () => {
-      dispatch(setCart(x));
-    };
-  }, []);
 
   //Paginado.
-  const [itemsPerPage, setItemsPerPage] = useState(10); //cantidad de elementos por pagina 
+  const [itemsPerPage, setItemsPerPage] = useState(9); //cantidad de elementos por pagina 
 
   //Definimos 3 estados mas para limitar los numeros de las paginas
-  const [pageNumberLimit, setPageNumberLimit] = useState(3); //cuantos numeros queremos mostrar
+  const [pageNumberLimit, setPageNumberLimit] = useState(5); //cuantos numeros queremos mostrar
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5); //cantidad maxima de numeros
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0); //cantidad minima de numeros
 
@@ -120,17 +117,7 @@ const {currentPage, setCurrentPage} = useContext(createCont)
 
   return (
     <div>
-       <ul className="pageNumbers">
-        <li>
-          <button onClick={handlePrev} disabled={currentPage === pages[0] ? true : false}>Prev</button>
-        </li>
-       {pageIncrementBtn}
-        {renderPageNumbers}
-      {pageDecrementBtn}
-        <li>
-          <button onClick={handleNext} disabled={currentPage === pages[pages.length -1] ? true : false}>Next</button>
-        </li>
-      </ul>
+      <div className="mapeoCards">
       {currentItems?.map((e, index) => (
         <Card
           localStor={addProductCartStorage}
@@ -143,10 +130,25 @@ const {currentPage, setCurrentPage} = useContext(createCont)
           key={index}
         />
       ))}
+      </div>
+      <div className="divPaginado"> 
+<ul className="pageNumbers">
+        <li>
+          <button onClick={handlePrev} disabled={currentPage === pages[0] ? true : false}>Prev</button>
+        </li>
+    
+        {renderPageNumbers}
+
+        <li>
+          <button onClick={handleNext} disabled={currentPage === pages[pages.length -1] ? true : false}>Next</button>
+        </li>
+      </ul>
+      </div>
     </div>
   );
 };
-
+  //  {pageIncrementBtn}
+  //        {pageDecrementBtn}
 export default Cards;
 
 //// .map( (e,index) => <Card price={e.price} name={e.productName} calification={e.qualification} img={e.image} id={e.idProduct} key={index}/>)

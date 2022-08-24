@@ -18,15 +18,37 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 15px;
-  margin-left: 25%;
+  margin-left: 26%;
   margin-top: 15px;;
+}
+
+.productos{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .cards {
   height: 85%;
-  width:900px;
+  width:800px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-left: 25%; 
+  margin-left: 29%; 
+}
+
+.button{
+  background-color:#91C612;
+  border: none;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  width: 130px;
+  border-radius: 7px;
+  color: white;
+  font-weight: 600;
+}
+
+.button:hover{
+  background-color: #aadd32;
+  transition: 0.3s ease;
 }

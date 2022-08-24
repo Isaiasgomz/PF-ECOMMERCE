@@ -5,7 +5,7 @@
     font-size: 22px;
     color: black;
     background-color: transparent;   
-
+    
 }
 
 .buttons:hover{
@@ -19,7 +19,7 @@
     align-items: center;
     justify-content: center;
     height: 65%;
-
+   
 }
 
 .selector{

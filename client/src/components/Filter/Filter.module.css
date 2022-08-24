@@ -1,6 +1,6 @@
 .filterContainer{
     margin-bottom: 25px;
-    
+    margin-top: 30px;
     text-align: start;
     background-color: transparent;
     border-radius: 15px;
@@ -9,7 +9,7 @@
 }
 
 .titulo{
-    font-size: 30px;
+    font-size: 20px;
     color: rgb(180, 180, 180);
     font-family: sans-serif;
     
@@ -33,6 +33,10 @@
 .buttonClear:hover{
     transition: 0.3s ease;
     opacity: 0.7;
+}
+
+.buttonClear:active{
+    background-color:#91C612;
 }
 
 .selector{

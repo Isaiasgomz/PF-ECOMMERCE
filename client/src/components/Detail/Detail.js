@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { clearDetail, createReview, getProductDetail } from "../../Actions";
 import style from "./Detail.module.css";
@@ -9,6 +9,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Boxx from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { prom, validate } from "./detailFunctions";
+import { createCont } from "../contexto/contextProvider";
 
 
 const StyledRating = withStyles({
@@ -22,6 +23,7 @@ const StyledRating = withStyles({
 
 
 function Detail(props) {
+  const {stringLocalStorage} = useContext(createCont)
   const id = props.match.params?.id;
   const dispatch = useDispatch();
   const product = useSelector(state => state.productDetail)
@@ -88,21 +90,21 @@ function Detail(props) {
   // add to cart
   let x = [];
   const addProductCartStorage = (o) => {
-    let a = JSON.parse(localStorage.getItem("ProductCartLocalStoragev3"));
-
+    let a = JSON.parse(localStorage.getItem(stringLocalStorage));
+    
 
     if (a) {
       let filtered = a.filter((e) => e.idProduct === o.idProduct);
       if (filtered.length) return;
       x = [...a, o];
       console.log(x);
-      localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
+      localStorage.setItem(stringLocalStorage, JSON.stringify(x));
       console.log(x);
       return;
     }
 
     x = [...x, o];
-    localStorage.setItem("ProductCartLocalStoragev3", JSON.stringify(x));
+    localStorage.setItem(stringLocalStorage, JSON.stringify(x));
     console.log(x);
   };
 
@@ -176,7 +178,7 @@ function Detail(props) {
                     <div className={style.needLog}>
                       <span> Necesitas loguearte para dejar comentario</span>
                       <hr />
-                      <button className={style.loginButton}> Login</button>
+                      <button className={style.loginButton} onClick={() => loginWithRedirect()}> Login</button>
                     </div>
                   </div> : <div>
                     {reviews?.length !== 0 && Object.keys(user).length === 0 ?

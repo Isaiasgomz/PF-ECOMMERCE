@@ -16,12 +16,12 @@ module.exports = (sequelize) => {
       /* defaultValue: '' */
     },
     city: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING/* ,
+      allowNull: false */
     },
     country: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING/* ,
+      allowNull: false */
     },
     CP: {
       type: DataTypes.STRING,
@@ -30,7 +30,7 @@ module.exports = (sequelize) => {
     telephone: {
       type: DataTypes.STRING
     },
-    departament: {
+    department: {
       type: DataTypes.STRING,
       
     },

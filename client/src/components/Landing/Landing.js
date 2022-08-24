@@ -160,15 +160,16 @@ function Landing() {
           </button>
         </div>
       </div>
-
-      <h2 className="titleMarcas">
-        ¡Las mejores marcas las encontrás en TechStore!
-      </h2>
+      <div>
+        <h2 className="titleMarcas">
+          ¡Las mejores marcas las encontrás en<span className="spanTitle">PULL REQUEST!</span>
+        </h2>
+      </div>
       <CarouselMarcas></CarouselMarcas>
-      <h2 className="titleNotebooks">
+      {/* <h2 className="titleNotebooks">
         Elegí tu notebook ideal para trabajar o jugar:
       </h2>
-      <CarouselNotebooks></CarouselNotebooks>
+      <CarouselNotebooks></CarouselNotebooks> */}
     </div>
   );
 }

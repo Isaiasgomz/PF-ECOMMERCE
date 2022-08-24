@@ -6,11 +6,20 @@ function Footer() {
   return (
     <div className={style.containerFooter}>
       <div className={style.containerCopy}>
-        <p className={style.copyright}>Copyright © 2022 TechStore S.R.L</p>
+        <p className={style.copyright}>
+          Copyright © 2022 -{" "}
+          <Link to="/">
+            <button className={style.title}>Pull Request</button>
+          </Link>
+        </p>
       </div>
       <div className={style.containerButtons}>
-        <button className={style.buttonFooter}>FAQ's</button>
-        <button className={style.buttonFooter}>Help</button>
+        <Link to="/FAQs">
+          <button className={style.buttonFooter}>FAQ's</button>
+        </Link>
+        <Link to="/help">
+          <button className={style.buttonFooter}>Help</button>
+        </Link>
         <Link to="/about">
           <button className={style.buttonFooter}>About</button>
         </Link>

@@ -17,7 +17,7 @@ const ResumeOrderCard = ({ obj }) => {
           <p>{obj.productName}</p>
         </div>
         <div className={style.containerCant}>
-          <p> {obj.quantity ? obj.quantity : 1}x </p>
+          <p> x{obj.quantity ? obj.quantity : 1} </p>
         </div>
         <div className={style.containerCant}>
           <p>${obj.price}</p>

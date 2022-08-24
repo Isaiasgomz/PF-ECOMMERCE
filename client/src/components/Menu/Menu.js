@@ -40,10 +40,10 @@ const category = [...categorias]
     
       if(e === "Monitors"){
 
-        return (<Link to="/home"><button key={e} className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}>{e} <i className={`fa-solid fa-desktop`}></i></button></Link>)
+        return (<Link to="/home"><button key={index} className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}>{e} <i className={`fa-solid fa-desktop`}></i></button></Link>)
 
       }
-      return (<Link to="/home"><button key={e} className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}>{e} <i className={`fa-solid fa-${e.toLowerCase().slice(0,-1)}`}></i> </button></Link>)
+      return (<Link to="/home"><button className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}>{e} <i className={`fa-solid fa-${e.toLowerCase().slice(0,-1)}`}></i> </button></Link>)
 
     })}
 

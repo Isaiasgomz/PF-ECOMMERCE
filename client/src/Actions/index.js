@@ -39,6 +39,15 @@ export function getProductDetail(id) {
         return dispatch({ type: 'PRODUCT_DETAIL', payload: productDetail.data })
     }
 }
+
+export function getUserDetail(email) {
+    return async function (dispatch) {
+        const userDetail = await axios.get(`http://localhost:3001/user/${email}`)
+        console.log(userDetail)
+        return dispatch({ type: 'USER_DETAIL', payload: userDetail.data })
+    }
+}
+
 export function createReview(obj) {
     return async function () {
         console.log(obj)
@@ -88,20 +97,31 @@ export function clearDetail(){
     }
 }
 
+
 export function getNorder(email){
     return async function (dispatch) {
         const order = await axios.post(`http://localhost:3001/purchases`, {email})
         return dispatch({type: 'GET_ORDER', payload: order.data})
-    }      
+    } 
+}     
+
+export function postNorder(email,orderN,totalP){
+    return async function () {
+        return axios.post(`http://localhost:3001/purchases`, {email,orderN,totalP})
+            .then(data => console.log('numero de orden enviado'))
+            .catch(error => alert(error.response.data))
+    }
+
 }
 
 export function postShoppingCart(cart){
     return async function () {
-        return axios.post(`http://localhost:3001/cart`, {cart})
+        return axios.post(`http://localhost:3001/cart`, cart)
             .then(data => console.log('carrito guardado'))
             .catch(error => alert(error.response.data))
     }
 }
+
 
 
 
