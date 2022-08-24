@@ -69,6 +69,7 @@ function Help() {
           </Link>
         </div>
       </div>
+      
     </div>
   );
 }
