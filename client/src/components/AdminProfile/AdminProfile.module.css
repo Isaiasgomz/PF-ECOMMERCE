@@ -1,0 +1,28 @@
+.profileContainer{
+    background-color: aqua;
+    width: 13%;
+    height: 60%;
+    margin-left: 20%;
+    position: fixed;
+    margin-top: 100px;
+}
+
+.imagen {
+    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    left: 30px;
+    border: solid;
+    height: 200px;
+    width: 160px;
+    margin-bottom: 40px; 
+}
+
+.options{
+    border-radius: 5%;
+    margin-left: 0%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}

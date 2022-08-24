@@ -16,6 +16,10 @@ module.exports = (sequelize) => {
           type: DataTypes.FLOAT,
           allowNull: false,
         },
+        status :{
+            type: DataTypes.ENUM('Procesando Pago','Preparando Envio', 'Enviado','Completado'),
+            defaultValue: 'Procesando Pago'
+        },
     },{
         timestamps:false
     });

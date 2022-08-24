@@ -5,6 +5,7 @@ import {NavLink} from 'react-router-dom'
 import {getAdminProducts, getAdminProductByName, productDisabled} from "../../Actions"
 import Paginado from '../Paginado/Paginado'
 import style from './AdminProducts.module.css'
+import AdminSideBar from '../AdminSideBar/AdminSideBar'
 
 function AdminProducts() {
  const  dispatch = useDispatch()
@@ -63,6 +64,8 @@ const handleDisabled = async (id, status)=>{
 
 
 return (
+  <React.Fragment>
+   <AdminSideBar></AdminSideBar>
   <div className={style.productContainer}>
     {/* <h2>Productos</h2> */}
     <div className={style.infoConteiner}>
@@ -184,6 +187,7 @@ return (
 
         <NavLink className={style.buttonCrear} to={'/createProduct'}><i  className="fa-solid fa-trash-can"></i></NavLink>
     </div>
+    </React.Fragment> 
   )
 }
 

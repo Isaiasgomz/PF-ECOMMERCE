@@ -4,7 +4,10 @@ import style from "./ResumeOrder.module.css";
 import ResumeOrderCard from "./ResumeOrderCard";
 import { createCont } from "../contexto/contextProvider";
 
+
+
 function ResumeOrder() {
+
   const {stringLocalStorage} = useContext(createCont)
   
   let y = JSON.parse(localStorage.getItem(stringLocalStorage));

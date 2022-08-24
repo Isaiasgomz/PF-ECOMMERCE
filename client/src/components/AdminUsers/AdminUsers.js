@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { getUsersAdmin, userDisabled } from '../../Actions'
 import style from './AdminUsers.module.css'
+import AdminSideBar from '../AdminSideBar/AdminSideBar'
+import AdminProfile from '../AdminProfile/AdminProfile'
 
 
     // CP: "70760"
@@ -55,6 +57,11 @@ function AdminUsers() {
 
 
 return (
+  <React.Fragment>
+    <AdminSideBar></AdminSideBar>
+    
+  
+    <AdminProfile></AdminProfile>
   <div className={style.productContainer}>
     <div className={style.infoConteiner}>
 
@@ -127,7 +134,7 @@ return (
           <div className={style.itemActions}>
 
           <ul>
-            <NavLink to={`/admin/createUser`}><i  className="fa-solid fa-trash-can"></i></NavLink>
+            <NavLink to={`/admin/createAdmin`}><i  className="fa-solid fa-trash-can"></i></NavLink>
             <i onClick={()=> handleDisabled(item.email, item.status)} className="fa-solid fa-trash-can"></i>
           </ul>
           </div>
@@ -136,6 +143,7 @@ return (
       ))
     }
     </div>
+    </React.Fragment>
   )
 }
 

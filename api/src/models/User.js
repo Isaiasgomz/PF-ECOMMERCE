@@ -20,7 +20,10 @@ module.exports = (sequelize) => {
     status: {
         type:DataTypes.STRING,
         defaultValue:'Autorizado'
-    }  
+    } ,
+    profile: {
+        type:DataTypes.STRING,
+    } 
     },{
         // timestamps:false
     });
