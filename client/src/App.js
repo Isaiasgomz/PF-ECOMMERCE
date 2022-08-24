@@ -20,6 +20,7 @@ import ContextProvider from "./components/contexto/contextProvider";
 import AdminProducts from "./components/AdminProducts/AdminProducts";
 import UserPanel from "./components/UserPanel/UserPanel";
 import UserMyOrders from "./components/UserMyOrders/UserMyOrders";
+import UserData from "./components/UserData/UserData";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route exact path={"/payment/success"} component={Success} />
         <Route path={"/notfound"} component={NotFound} />
         <Route exact path={"/userPanel"} component={UserPanel} />
+        <Route exact path={"/userData"} component={UserData} />
         <Route path={"/myOrders"} component={UserMyOrders} />
         <Route path={"/adminProducts"} component={AdminProducts} />
       </ContextProvider>

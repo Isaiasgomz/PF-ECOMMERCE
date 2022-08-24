@@ -6,7 +6,8 @@ const UserMyOrders = () => {
     const { userDetail } = useSelector((state) => state);
 
 
- console.log(userDetail)
+ console.log('detalle', userDetail)
+ 
     return (
         <div>
             <h2>Mis Ordenes:</h2>
