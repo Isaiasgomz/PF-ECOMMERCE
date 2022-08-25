@@ -17,19 +17,22 @@ import NotFound from "./components/NotFound/NotFound";
 import Success from "./components/Success/Success";
 import ResumeOrder from "./components/ResumeOrder/ResumeOrder";
 import ContextProvider from "./components/contexto/contextProvider";
-import AdminProducts from "./components/AdminProducts/AdminProducts";
 
+import AdminProducts from "./components/AdminProducts/AdminProducts";
 import AdminUpdate from "./components/AdminUpdate/AdminUpdate";
 import AdminUsers from "./components/AdminUsers/AdminUsers";
 import AdminNewUser from "./components/AdminNewUser/AdminNewUser";
-import { Switch } from "@material-ui/core";
-import Sidebar from "./components/AdminSideBar/AdminSideBar";
+import AdminSideBar from "./components/AdminSideBar/AdminSideBar";
+import AdminCreateAdmin from "./components/AdminCreateAdmin/AdminCreateAdmin";
 
 
 import UserPanel from "./components/UserPanel/UserPanel";
 import UserMyOrders from "./components/UserMyOrders/UserMyOrders";
 import UserData from "./components/UserData/UserData";
 import UpdateUserData from "./components/UpdateUserData/UpdateUserData"
+import AdminProfile from "./components/AdminProfile/AdminProfile";
+
+import UserOrderDetail from "./components/UserOrderDetail/UserOrderDetail";
 
 
 function App() {
@@ -51,11 +54,7 @@ function App() {
         <Route exact path={"/createProduct"} component={CreateProduct} />
         <Route exact path={"/resumeOrder"} component={ResumeOrder} />
         <Route exact path={"/cart"} component={ShoppingCar} />
-        {/* <Route exact path={"/admin/createUser"} component={SignUp} /> */}
         <Route exact path={"/payment/success"} component={Success} />
-
-       
-        <Route path={"/admin/update/:id"} component={AdminUpdate} />
 
 
 
@@ -67,11 +66,17 @@ function App() {
         <Route path={"/myOrders"} component={UserMyOrders} />
 
 
+        <Route exact path={"/myOrders"} component={UserMyOrders} />
+        <Route exact path={"/orderDetail"} component={UserOrderDetail} />
+
+        <Route exact path={"/admin/createAdmin"} component={AdminCreateAdmin} />
+        <Route path={"/admin/update/:id"} component={AdminUpdate} />
         <Route path={"/adminProducts"} component={AdminProducts} />
         <Route exact path={"/adminUsers"} component={AdminUsers} />
-        <Route exact path={"/admin/createUser"} component={AdminNewUser} />
-        <Route exact path={"/sideBar"} component={Sidebar} />
+        <Route exact path={"/signUp"} component={SignUp}  />
+        <Route exact path={"/sideBar"} component={AdminSideBar} />
         <Route path={"/notfound"} component={NotFound} />
+        <Route exact path={"/profile"} component={AdminProfile} />
 
       </ContextProvider>
     </div>

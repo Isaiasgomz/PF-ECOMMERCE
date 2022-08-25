@@ -112,7 +112,7 @@ export default function rootReducer(state = initialState, action) {
             return{
                 ...state,
                 adminProducts: action.payload,
-                allAdminProducts:action.payload
+                allAdminProducts: action.payload
             }
 
         case 'GET_ADMIN_PRODUCTS_BY_NAME':
@@ -153,6 +153,7 @@ export default function rootReducer(state = initialState, action) {
             return {
                 ...state,
             }
+
         case 'USER_DETAIL':
             console.log(action.payload)
             return{
@@ -163,6 +164,7 @@ export default function rootReducer(state = initialState, action) {
             return {
                 ...state
             }
+            
         default:
             return state
     }

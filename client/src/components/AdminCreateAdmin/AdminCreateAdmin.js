@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {useDispatch} from 'react-redux'
  import  {postNewAdmin, postUserData}from '../../Actions'
-// import style from './SignUp.css'
+import style from './AdminCreateAdmin.module.css'
 
 function validate (input){
   const errors ={}
@@ -17,7 +17,7 @@ function validate (input){
   return errors
 }
 
-function SignUp() {
+function AdminCreateAdmin() {
 
   const dispatch = useDispatch()
   
@@ -25,6 +25,7 @@ function SignUp() {
     name: '',
     email: '',
     lastName:'',
+    profile:'',
   })
 
   const [errors,setErrors] = useState({})
@@ -59,7 +60,8 @@ function SignUp() {
     e.preventDefault()
     const newAdmin = {user:{
       email: customer.email,
-      admin:true
+      admin:true,
+      profile: customer.profile
     }}
 
      await dispatch(postNewAdmin(newAdmin))
@@ -71,6 +73,7 @@ function SignUp() {
     name: '',
     email: '',
     lastName:'',
+    profile:'',
     })
   }
   
@@ -113,6 +116,15 @@ function SignUp() {
           className="input input-email"
           onChange={(e) => handleInput(e)}/>
 
+          <label for="name" className="label">Perfil</label>
+          <input type="text" 
+          required= {true}
+          name='name' 
+          value={customer.profile} 
+          id="name"
+          placeholder="url" 
+          className="input input-name"
+          onChange={(e) => handleInput(e)}/>
 
           
         </div>
@@ -126,4 +138,4 @@ function SignUp() {
   )
 }
 
-export default SignUp
+export default AdminCreateAdmin

@@ -19,17 +19,14 @@ module.exports = {
     },
 
     getOrder: async function (email){
+        console.log(email)
         try{
             if(!email) throw 'Faltan datos obligatorios';
                 else{                   
                     let newOrder = await PurchaseOrder.findAll({
                         where:{
                             UserEmail:email
-                        }/* ,
-                        include: [{
-                            model:ShoppingCart
-                        }] */
-                    });
+                    }});
                     return newOrder;
         }}catch(e){
             return e;

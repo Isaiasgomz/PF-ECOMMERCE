@@ -5,17 +5,31 @@ import {NavLink} from 'react-router-dom'
 import {getAdminProducts, getAdminProductByName, productDisabled} from "../../Actions"
 import Paginado from '../Paginado/Paginado'
 import style from './AdminProducts.module.css'
+import AdminSideBar from '../AdminSideBar/AdminSideBar'
+import { getUserDetail } from "../../Actions";
 
 function AdminProducts() {
- const  dispatch = useDispatch()
+  const  dispatch = useDispatch()
 
- let allProducts = useSelector(state => state.adminProducts)
- let allProductsBackup = useSelector(state => state.allAdminProducts)
- useEffect(() => {
-  dispatch(getAdminProducts())
+
+  const { user } = useSelector((state) => state);
+
+   if(Object.keys(user).length > 0) {
+
+    dispatch(getUserDetail(user.email));
+   } 
+    
+
+
+
+
+  let allProducts = useSelector(state => state.adminProducts)
+  let allProductsBackup = useSelector(state => state.allAdminProducts)
+  useEffect(() => {
+    dispatch(getAdminProducts())
+    
   },[])
 
- 
 
 const productsDisabled = allProductsBackup.filter(product => product.disabled === true)
 
@@ -63,6 +77,8 @@ const handleDisabled = async (id, status)=>{
 
 
 return (
+  <React.Fragment>
+   <AdminSideBar></AdminSideBar>
   <div className={style.productContainer}>
     {/* <h2>Productos</h2> */}
     <div className={style.infoConteiner}>
@@ -184,6 +200,7 @@ return (
 
         <NavLink className={style.buttonCrear} to={'/createProduct'}><i  className="fa-solid fa-trash-can"></i></NavLink>
     </div>
+    </React.Fragment> 
   )
 }
 

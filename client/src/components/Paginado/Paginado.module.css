@@ -17,9 +17,9 @@
  .number{
     width: 28px;
     list-style: none;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     color:white;
-    background-color:  #78BEEC;
+    /* background-color:  #78BEEC; */
     text-align: center;
     margin-left: 5px;
     cursor: pointer;
