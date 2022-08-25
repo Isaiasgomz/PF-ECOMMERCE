@@ -11,7 +11,7 @@ function AdminSideBar() {
     <div className={style.containerSideBar}>
 
         <ul className={style.options}>
-        <img className={style.imagen} src={userDetail.PersonalDatum.profile} />
+        {/* <img className={style.imagen} src={userDetail.PersonalDatum?.profile} /> */}
         <h3>Isaias Gomez</h3>
         <h2>Administrador</h2>
         <NavLink className={style.items} to={'/'} > <li >DASHBOARD</li> </NavLink>
