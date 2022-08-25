@@ -17,8 +17,8 @@ router.post("/", async (req, res) => {
 });
 
 //traer productos de la orden
-router.get('/', async (req, res) => {
-  const {PurchaseOrderOrderN} = req.body;
+router.get('/:PurchaseOrderOrderN', async (req, res) => {
+  const {PurchaseOrderOrderN} = req.params
   try {
       let order = await getOrderCart(PurchaseOrderOrderN);
       res.status(201).send(order);
