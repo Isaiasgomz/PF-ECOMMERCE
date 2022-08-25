@@ -19,9 +19,7 @@ const initialState = {
     order:{},
     adminProductDetail: {},
     usersAdmin:[]
-
-
-
+  
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -51,7 +49,7 @@ export default function rootReducer(state = initialState, action) {
                 ...state
             }
 
-        case 'POST_ CUSTOMER':// VER
+        case 'POST_CUSTOMER':// VER
             return {
                 ...state
             }
@@ -156,10 +154,14 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
             }
         case 'USER_DETAIL':
+            console.log(action.payload)
             return{
                 ...state,
                 userDetail: action.payload
-
+            }
+        case 'UPDATE_PERSONAL_DATA':
+            return {
+                ...state
             }
         default:
             return state

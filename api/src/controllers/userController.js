@@ -49,6 +49,7 @@ module.exports = {
     },
     /* Actualizacion de personal data */
     updatePersonalData: async function(email, dataModify){
+        console.log('update', email, dataModify)
         try {
             await PersonalData.update(dataModify, {
                 where: {

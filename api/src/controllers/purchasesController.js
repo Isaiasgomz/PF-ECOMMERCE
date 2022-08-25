@@ -25,10 +25,10 @@ module.exports = {
                     let newOrder = await PurchaseOrder.findAll({
                         where:{
                             UserEmail:email
-                        },
+                        }/* ,
                         include: [{
                             model:ShoppingCart
-                        }]
+                        }] */
                     });
                     return newOrder;
         }}catch(e){

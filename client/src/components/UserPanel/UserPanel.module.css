@@ -9,12 +9,13 @@
    }
 
    .imagen {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
+    justify-items: center;
     align-items: center;
-    position: absolute;
-    left: 30px;
+    position: fixed;
+    left: 1.8%;
     border: solid;
     border-style: ridge;
     border-radius: 100%;
@@ -25,10 +26,10 @@
   .sidebar {
     display: flex;  
     flex-direction: column;
-    height: 567px;
-    width: 230px;
+    height:70.3%;
+    width: 15%;
     position:fixed;
-    top: 97px;
+    top: 21.5%;
     left: 0;
     background-color: #1c396d;
     padding-top: 20px;

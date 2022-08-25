@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { postUserData } from "../../Actions/index.js";
+import { updateUserData } from "../../Actions/index.js";
 import UserPanel from "../UserPanel/UserPanel";
-import styles from './UserData.module.css';
+import styles from './UpdateUserData.module.css';
 
 function validate(input) {
   const errors = {};
@@ -33,25 +33,32 @@ function validate(input) {
   return errors;
 }
 
-function UserData() {
+function UpdateUserData() {
     const dispatch = useDispatch();
 
-    const user = useSelector((state) => state.user);
+    const user = useSelector((state) => state.user.email);
+    const info = useSelector((state) => state.userDetail.PersonalDatum)
 
     const history = useHistory();
 
     const [input, setInput] = useState({
-        fullname: "",
-        UserEmail: "",
-        address: "",
-        CP: "",
-        telephone: "",
-        city: "",
-        country: "",
-        department:""
+        fullname: info.fullname,
+        UserEmail: user,
+        address: info.address,
+        CP: info.CP,
+        telephone: info.telephone,
+        city: info.city,
+        country: info.country,
+        department: info.department
     });
 
+    const [isDisabled, setIsDisabled] = useState(true);
+    
     const [errors, setErrors] = useState({});
+
+    const handleClick = () => {
+        setIsDisabled(!isDisabled)
+      };
 
     const handleInput = (e) => {
         setInput({
@@ -69,18 +76,20 @@ function UserData() {
     const handleSubmit = (e) => {
         e.preventDefault();
     
-    dispatch(postUserData(user.email, input));
-    alert('Sus datos de perfil se guardaron correctamente')
-    setInput({
-        fullname: "",
-        UserEmail: "",
-        address: "",
-        CP: "",
-        telephone: "",
-        city: "",
-        country: "",
-        department:""
-    });
+    dispatch(updateUserData(user, input));
+    alert('Sus datos de perfil se actualizaron correctamente')
+  /*   setInput({
+        fullname: data.fullname,
+        UserEmail: user,
+        address: data.address,
+        CP: data.CP,
+        telephone: data.telephone,
+        city: data.city,
+        country: data.country,
+        department: data.department
+    });  */
+
+    setIsDisabled(true)
 /*     history.push("/payment"); */
   };
 
@@ -96,6 +105,7 @@ function UserData() {
             <label className={styles.lab}>Nombre Completo:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="text"
                 name="fullname"
@@ -111,6 +121,7 @@ function UserData() {
             <label className={styles.lab}>Correo:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="email"
                 name="UserEmail"
@@ -126,6 +137,7 @@ function UserData() {
             <label className={styles.lab}>Dirección:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="text"
                 name="address"
@@ -140,6 +152,7 @@ function UserData() {
             <label>Departamento:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="number"
                 name="department"
@@ -147,15 +160,16 @@ function UserData() {
                 placeholder="N° de Dpto - Si vives en casa -> 0"
                 onChange={(e) => handleInput(e)}
             />
-            {errors.department && (
+            {errors.department && 
             <label className={styles.textError}>{errors.department}</label>
-            )}
+            }
             </label>
         </div>
         <div className={styles.city}>
             <label>Ciudad:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="text"
                 name="city"
@@ -170,6 +184,7 @@ function UserData() {
             <label>C.P.:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="number"
                 name="CP"
@@ -184,6 +199,7 @@ function UserData() {
             <label>País:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="text"
                 name="country"
@@ -198,6 +214,7 @@ function UserData() {
             <label>Teléfono:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="tel"
                 name="telephone"
@@ -211,9 +228,10 @@ function UserData() {
             </label>            
         </div>
         <br/>
-        <div className={styles.containerBtn}>
-          <button className={styles.btn}>Guardar</button>
-          <button className={styles.btn}>Cancelar</button>
+        <div className={styles.containerBtn}>           
+            <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Modificar</button>                
+            <button className={styles.btn} disabled={isDisabled}>Guardar</button>
+            <button className={styles.btn}>Cancelar</button>
         </div>
       </form>
     </div>
@@ -221,5 +239,11 @@ function UserData() {
   );
 }
 
-export default UserData;
+export default UpdateUserData;
+
+
+
+
+
+
 

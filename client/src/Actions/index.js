@@ -188,13 +188,13 @@ export function userDisabled(email,data) {
     }
 }
 
-// export function postUserData(email,data) {
-//     return async function (dispatch) {
-//         const newUser = await axios.post(`http://localhost:3001/user/${email}/personalData`,data)
-//         .catch(error => console.log(error.response.data))
-//         return dispatch({ type: 'USER_DATA', payload:data })
-//     }
-// }
+export function updateUserData(email, data) {
+    return async function (dispatch) {
+        await axios.put(`http://localhost:3001/user/${email}/updatePersonalData`,data)
+       /*  .catch(error => console.log(error.response.data)) */
+        return dispatch({ type: 'UPDATE_PERSONAL_DATA'})
+    }
+}
 
 export function postNewAdmin(data) {
     return async function (dispatch) {
