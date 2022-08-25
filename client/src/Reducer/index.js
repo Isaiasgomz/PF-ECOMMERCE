@@ -18,8 +18,9 @@ const initialState = {
     allAdminProducts: [],
     order:{},
     adminProductDetail: {},
-    usersAdmin:[]
-  
+    usersAdmin:[],
+    shoppingCart: [],
+
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -164,7 +165,13 @@ export default function rootReducer(state = initialState, action) {
             return {
                 ...state
             }
-            
+
+        case 'SHOPPING_CART':
+            return {
+                ...state,
+                shoppingCart: action.payload
+            }
+
         default:
             return state
     }

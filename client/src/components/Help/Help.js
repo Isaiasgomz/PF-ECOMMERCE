@@ -33,7 +33,9 @@ function Help() {
             height="40"
             width="60"
           ></img>
-          <span className={style.spanContacto}>pullorigin@pullorigin.com</span>
+          <span className={style.spanContacto}>
+            pullrequest.ecommerce@gmail.com
+          </span>
         </a>
         <a href="https://web.whatsapp.com/">
           <img
@@ -69,7 +71,6 @@ function Help() {
           </Link>
         </div>
       </div>
-      
     </div>
   );
 }

@@ -47,6 +47,13 @@ export function getUserDetail(email) {
     }
 }
 
+export function getShoppingCart(PurchaseOrderOrderN) {
+    return async function (dispatch) {
+        const shoppingCart = await axios.get(`http://localhost:3001/cart/${PurchaseOrderOrderN}`)
+        return dispatch({ type: 'SHOPPING_CART', payload: shoppingCart.data })
+    }
+}
+
 export function createReview(obj) {
     return async function () {
         console.log(obj)

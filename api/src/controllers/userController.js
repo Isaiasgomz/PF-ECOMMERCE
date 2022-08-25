@@ -15,7 +15,7 @@ module.exports = {
             }
         })
         let s = welcome()
-        if(!created)await sendEmail(user?.email,"Bienvenido al mejor ecommerce",s)
+        if(created)await sendEmail(user?.email,"Bienvenido al mejor ecommerce",s)
         
         return newUser
     },

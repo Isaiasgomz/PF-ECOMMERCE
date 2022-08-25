@@ -16,7 +16,7 @@ const MyOrdersCard = ({orderN, date, totalPrice, id}) => {
             <div className={style.text}>Precio total: ${totalPrice} </div>
             </div>
             <div className={style.fila}>
-            <Link to={`/orderDetail`}>
+            <Link to={`/orderDetail/${orderN}`}>
             <button className={style.button}>Detalles</button>
             </Link>
             <div className={style.delivered}>Entregado</div>
