@@ -29,7 +29,7 @@ function ShoppingCar() {
   const [price,setPrice] = useState(y);
   const returnPrice = ()=>{
     let x = JSON.parse(localStorage.getItem(stringLocalStorage));
-    console.log("x",x)
+    
     if(!x.length) setPrice(0)
         let a = x.reduce((acc, o)=>{
           let cant = o.quantity ? o.quantity : 1
@@ -48,7 +48,7 @@ function ShoppingCar() {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        console.log(productsFromLocalStorage)
+        
         productsFromLocalStorage = productsFromLocalStorage.filter((e) => e.idProduct !== o.idProduct)
     
         localStorage.setItem(stringLocalStorage, JSON.stringify(productsFromLocalStorage));
@@ -79,7 +79,7 @@ function ShoppingCar() {
 
   return (
     <div className={style.containerCart}>
-      {console.log(user)}
+      
       <div className={style.containerInfo}>
         <Link to={"/home"}>
           <button className={style.button}>Seguir comprando</button>

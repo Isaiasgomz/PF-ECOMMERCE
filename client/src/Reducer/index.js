@@ -13,6 +13,7 @@ const initialState = {
     cart: [],
     personalData: {},
     adminProducts: [],
+    buildPCState: []
 
 }
 
@@ -113,6 +114,17 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 adminProducts: action.payload
             }
+
+        case 'BUILD_PC':
+                return{
+                    ...state,
+                    buildPCState: state.buildPCState.concat(action.payload)
+                }
+        case "CLEAR_PC":
+                    return {
+                        ...state,
+                        buildPCState: action.payload
+                    }
 
         default:
             return state

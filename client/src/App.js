@@ -18,6 +18,9 @@ import Success from "./components/Success/Success";
 import ResumeOrder from "./components/ResumeOrder/ResumeOrder";
 import ContextProvider from "./components/contexto/contextProvider";
 import AdminProducts from "./components/AdminProducts/AdminProducts";
+import BrandSelector from "./components/BranchSelector/BrandSelector";
+import ProcessorSelector from "./components/BranchSelector/ProcessorSelector";
+
 
 
 function App() {
@@ -27,6 +30,8 @@ function App() {
         <Route path={"/"} component={NavBar} />
         <Route exact path={"/"} component={Landing} />
         <Route path={"/"} component={Footer} />
+        <Route exact path={"/build"} component={BrandSelector} />
+        <Route path={"/build/:brand"} component={ProcessorSelector} />
         <Route exact path={"/home"} component={Home} />
         <Route exact path={"/detail/:id"} component={Detail} />
         <Route exact path={"/about"} component={About} />
@@ -41,7 +46,6 @@ function App() {
         <Route exact path={"/sign"} component={SignUp} />
         <Route exact path={"/payment/success"} component={Success} />
         <Route path={"/notfound"} component={NotFound} />
-
         <Route path={"/adminProducts"} component={AdminProducts} />
       </ContextProvider>
     </div>

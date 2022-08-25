@@ -33,19 +33,21 @@ const category = [...categorias]
   return <div className={styles.categories}>
     
 
-    <Link to="/home"><button className={styles.buttons} onClick={clear}> All products <i className="fa-solid fa-home"></i></button></Link>
+    <Link to="/home"><button key="All products" className={styles.buttons} onClick={clear}> All products <i className="fa-solid fa-home"></i></button></Link>
 
     
     {category?.map( (e,index) => {
     
       if(e === "Monitors"){
 
-        return (<Link to="/home"><button key={index} className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}>{e} <i className={`fa-solid fa-desktop`}></i></button></Link>)
+        return (<Link to="/home"><button key={e} className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}>{e} <i className={`fa-solid fa-desktop`}></i></button></Link>)
 
       }
-      return (<Link to="/home"><button className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}>{e} <i className={`fa-solid fa-${e.toLowerCase().slice(0,-1)}`}></i> </button></Link>)
+      return (<Link to="/home"><button key={e} className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}>{e} <i className={`fa-solid fa-${e.toLowerCase().slice(0,-1)}`}></i> </button></Link>)
 
     })}
+
+    <Link to="/build"><button key="Arma tu pc" className={styles.buttons} onClick={clear}> Build PC <i className="fa-solid fa-computer"></i></button></Link>
 
   </div>;
 }
