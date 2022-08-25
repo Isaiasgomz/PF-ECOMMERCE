@@ -1,7 +1,24 @@
 const { Op, User, Review, PersonalData, PurchaseOrder , ShoppingCart } = require('../db');
+const { sendEmail } = require('./emailcontrollers');
+const {welcome} = require("../TemplatesHtml/welcome.js")
 
 module.exports = {
     /* Detalle de usuario por params + review + personal data */
+    postUser: async function(user){
+        const [newUser, created] = await User.findOrCreate({
+            where: {
+                email: user.email
+            },
+            defaults: {
+                email: user.email,
+                admin: user.admin
+            }
+        })
+        let s = welcome()
+        if(!created)await sendEmail(user?.email,"Bienvenido al mejor ecommerce",s)
+        
+        return newUser
+    },
     userDetail: async function (email) {
         try {
             let user = await User.findByPk(email, {
