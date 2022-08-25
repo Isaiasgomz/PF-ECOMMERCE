@@ -6,17 +6,30 @@ import {getAdminProducts, getAdminProductByName, productDisabled} from "../../Ac
 import Paginado from '../Paginado/Paginado'
 import style from './AdminProducts.module.css'
 import AdminSideBar from '../AdminSideBar/AdminSideBar'
+import { getUserDetail } from "../../Actions";
 
 function AdminProducts() {
- const  dispatch = useDispatch()
+  const  dispatch = useDispatch()
 
- let allProducts = useSelector(state => state.adminProducts)
- let allProductsBackup = useSelector(state => state.allAdminProducts)
- useEffect(() => {
-  dispatch(getAdminProducts())
+
+  const { user } = useSelector((state) => state);
+
+   if(Object.keys(user).length > 0) {
+
+    dispatch(getUserDetail(user.email));
+   } 
+    
+
+
+
+
+  let allProducts = useSelector(state => state.adminProducts)
+  let allProductsBackup = useSelector(state => state.allAdminProducts)
+  useEffect(() => {
+    dispatch(getAdminProducts())
+    
   },[])
 
- 
 
 const productsDisabled = allProductsBackup.filter(product => product.disabled === true)
 

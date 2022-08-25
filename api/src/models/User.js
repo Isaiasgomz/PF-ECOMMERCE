@@ -22,7 +22,7 @@ module.exports = (sequelize) => {
         defaultValue:'Autorizado'
     } ,
     profile: {
-        type:DataTypes.STRING,
+        type:DataTypes.TEXT,
     } 
     },{
         // timestamps:false

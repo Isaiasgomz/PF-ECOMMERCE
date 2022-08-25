@@ -32,7 +32,7 @@ function AdminUsers() {
   },[])
 
   const users = useSelector(state => state.usersAdmin)
-  console.log(users)
+
 
   const usersBanned = users.filter(user => user.status !== 'Autorizado').length
 
