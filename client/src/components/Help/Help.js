@@ -72,7 +72,6 @@ function Help() {
         </div>
       </div>
     </div>
-    
   );
 }
 
