@@ -24,7 +24,7 @@ let obj={}
   dispatch(postUser(obj))
   console.log(user)
 
-  const personalData = {
+/*   const personalData = {
     fullname: `${user.given_name} ${user.family_name}`,
     profile:user.picture,
     address: "No disponible",
@@ -33,7 +33,7 @@ let obj={}
   }
 
   dispatch(postUserData(user.email,personalData));
-  console.log(personalData.profile)
+  console.log(personalData.profile) */
   
   
   if (isLoading) {
