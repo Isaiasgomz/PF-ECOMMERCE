@@ -2,7 +2,8 @@ const { Router } = require("express");
 const { User, Product } = require("../db");
 const { Op } = require("sequelize");
 const { productByName } = require("../controllers/productsController");
-const { postCart } = require("../controllers/shoppingCartController");
+const { postCart, getOrderCart } = require("../controllers/shoppingCartController");
+
 
 const router = Router();
 //agregar un producto a la lista cart de un usuario
@@ -15,22 +16,15 @@ router.post("/", async (req, res) => {
     }
 });
 
-//mostrar los productos que estan agregados al carrito
-router.get("/:email", async (req, res) => {
-  const { email } = req.params;
-
-  if (email) {
-    let user = await User.findOne({
-      where: { email: email },
-      include: [{
-        model: Product,
-        through: { attributes: ["quantity"] },
-      }],
-    });
-    user
-      ? res.status(200).json(user)
-      : res.status(404).json("No se envio un usuario.");
+//traer productos de la orden
+router.get('/', async (req, res) => {
+  const {PurchaseOrderOrderN} = req.body;
+  try {
+      let order = await getOrderCart(PurchaseOrderOrderN);
+      res.status(201).send(order);
+  } catch (error) {
+      res.status(400).send(error)
   }
-});
+})
 
 module.exports = router;

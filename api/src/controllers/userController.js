@@ -56,7 +56,8 @@ module.exports = {
                         CP:pData.CP,
                         shippingAddress: pData.shippingAddress,
                         telephone:pData.telephone,
-                        department:pData.department
+                        department:pData.department,
+                        profile: pData.profile,
                 }
             });
             return newPData;

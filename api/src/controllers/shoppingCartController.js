@@ -14,5 +14,24 @@ module.exports = {
             return e;
         }
 
+    },
+
+    getOrderCart: async function (PurchaseOrderOrderN) {
+        try {
+            if(!PurchaseOrderOrderN) throw 'Faltan datos obligatorios';
+                else{                   
+                    let newOrder = await ShoppingCart.findAll({
+                        where:{
+                            PurchaseOrderOrderN: PurchaseOrderOrderN,
+                            // UserEmail: email
+                        },
+                        include: [{
+                            model: Product
+                        }]
+                    });
+                    return newOrder;
+        }} catch (e) {
+        return e;
     }
+}
 }

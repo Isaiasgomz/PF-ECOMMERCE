@@ -17,8 +17,8 @@ function NavBar() {
       <div className={styles.container}>
         <div className={styles.divs}>
           <Link to="/">
-            <div className={styles.imagen} >
-               <img className={styles.imagen} src={logo} />           
+            <div className={styles.imagen}>
+              <img className={styles.imagen} src={logo} />
             </div>
           </Link>
         </div>
@@ -28,7 +28,9 @@ function NavBar() {
         <div className={styles.buttons}>
           {isAuthenticated ? (
             <>
-              <Profile />
+              <div className={styles.email}>
+                <Profile />
+              </div>
               <LogoutButton />
             </>
           ) : (

@@ -34,6 +34,9 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       
     },
+    profile: {
+      type: DataTypes.STRING
+    }
   }, {
     timestamps: false
   });

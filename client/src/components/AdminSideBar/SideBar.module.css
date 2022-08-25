@@ -1,0 +1,36 @@
+.containerSideBar{
+    background-color: gold;
+    width: 15%;
+    height: 70%;
+    position: fixed;
+    
+}
+
+.imagen {
+    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    left: 30px;
+    border: solid;
+    height: 150px;
+    width: 160px; 
+}   
+
+
+
+.options{
+    border-radius: 5%;
+     height: 100px; 
+     margin-left: 0%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.items{
+    /* height: 120px;  */
+    border-radius: 3px;
+    margin-top: 20px;
+    background-color: aquamarine;
+    color: white 
+} 

@@ -15,19 +15,25 @@ function Footer() {
       </div>
       <div className={style.containerButtons}>
         <Link to="/FAQs">
-          <button className={style.buttonFooter}>FAQ's</button>
+          <button className={style.buttonFooter}>Preguntas y Respuestas</button>
         </Link>
         <Link to="/help">
-          <button className={style.buttonFooter}>Help</button>
+          <button className={style.buttonFooter}>Ayuda</button>
         </Link>
         <Link to="/about">
-          <button className={style.buttonFooter}>About</button>
+          <button className={style.buttonFooter}>Equipo</button>
         </Link>
       </div>
       <div className={style.containerIcons}>
-        <i className="fa-brands fa-instagram"></i>
-        <i className="fa-brands fa-facebook-f"></i>
-        <i className="fa-brands fa-linkedin-in"></i>
+        <a href="https://www.instagram.com/">
+          <i className="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/">
+          <i className="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.linkedin.com/">
+          <i className="fa-brands fa-linkedin-in"></i>
+        </a>
       </div>
     </div>
   );
