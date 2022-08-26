@@ -32,7 +32,7 @@ import AdminProfile from "./components/AdminProfile/AdminProfile";
 import UserOrderDetail from "./components/UserOrderDetail/UserOrderDetail";
 import BrandSelector from "./components/BranchSelector/BrandSelector";
 import ProcessorSelector from "./components/BranchSelector/ProcessorSelector";
-
+import AdminCategory from "./components/AdminCategory/AdminCategory";
 
 
 function App() {
@@ -73,6 +73,7 @@ function App() {
         <Route exact path={"/sideBar"} component={AdminSideBar} />
         <Route path={"/notfound"} component={NotFound} />
         <Route exact path={"/profile"} component={AdminProfile} />
+        <Route exact path={"/adminCategory"} component={AdminCategory} />
 
       </ContextProvider>
     </div>
