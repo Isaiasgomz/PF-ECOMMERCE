@@ -4,15 +4,11 @@ import style from "./ResumeOrder.module.css";
 import ResumeOrderCard from "./ResumeOrderCard";
 import { createCont } from "../contexto/contextProvider";
 
-
-
 function ResumeOrder() {
+  const { stringLocalStorage } = useContext(createCont);
 
-  const {stringLocalStorage} = useContext(createCont)
-  
   let y = JSON.parse(localStorage.getItem(stringLocalStorage));
   let productsFromLocalStorage = Array.from(y);
-
 
   const total = productsFromLocalStorage.reduce((acc, o) => {
     let cant = o.quantity ? o.quantity : 1;
@@ -32,11 +28,12 @@ function ResumeOrder() {
           <button className={style.button}>Continuar</button>
         </Link>
       </div>
-      
 
       <div className={style.cards}>
-        <div className={style.productos}><h3>Productos: {} </h3></div>
-      
+        <div className={style.productos}>
+          <h3>Productos: {} </h3>
+        </div>
+
         {productsFromLocalStorage &&
           productsFromLocalStorage.map((e) => (
             <ResumeOrderCard key={e.idProduct} obj={e} />
@@ -44,13 +41,8 @@ function ResumeOrder() {
       </div>
 
       <div className={style.containerInfo2}>
-        {/* <div>
-              <h3>Productos: {e.quantity}</h3>
-            </div> */}
-       
         <h3>Precio total: ${total} </h3>
       </div>
-      
     </div>
   );
 }

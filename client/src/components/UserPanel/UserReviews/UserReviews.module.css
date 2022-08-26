@@ -1,0 +1,32 @@
+.reviewConteiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.noReview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+.noTienes{
+    color:#37373f ;
+}
+.noCartImgConteiner {
+    height: 500px;
+
+}
+
+.noCartImg {
+    height: 100%;
+}
+
+.veAcomprar{
+    font-size: 30px;
+    color: #91C612;
+    
+}

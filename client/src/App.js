@@ -30,9 +30,10 @@ import UpdateUserData from "./components/UserPanel/UpdateUserData/UpdateUserData
 import UserShippingAddress from "./components/UserPanel/UserShippingAddress/UserShippingAddress"
 import AdminProfile from "./components/AdminProfile/AdminProfile";
 import UserOrderDetail from "./components/UserOrderDetail/UserOrderDetail";
+import UserReviews from "./components/UserPanel/UserReviews/UserReviews";
 import BrandSelector from "./components/BranchSelector/BrandSelector";
 import ProcessorSelector from "./components/BranchSelector/ProcessorSelector";
-
+import AdminCategory from "./components/AdminCategory/AdminCategory";
 
 
 function App() {
@@ -61,8 +62,10 @@ function App() {
         <Route exact path={"/userData"} component={UserData} />
         <Route exact path={"/updateUserData"} component={UpdateUserData} />
         <Route exact path={"/userShippingAddress"} component={UserShippingAddress} />
+        <Route path={"/myOrders"} component={UserMyOrders} />
+        <Route path={"/myReviews"} component={UserReviews} />
         <Route exact path={"/myOrders"} component={UserMyOrders} />
-        <Route exact path={"/orderDetail"} component={UserOrderDetail} />
+        <Route exact path={"/orderDetail/:PurchaseOrderOrderN"} component={UserOrderDetail} />
         <Route exact path={"/admin/createAdmin"} component={AdminCreateAdmin} />
         <Route path={"/admin/update/:id"} component={AdminUpdate} />
         <Route path={"/notfound"} component={NotFound} />
@@ -72,6 +75,7 @@ function App() {
         <Route exact path={"/sideBar"} component={AdminSideBar} />
         <Route path={"/notfound"} component={NotFound} />
         <Route exact path={"/profile"} component={AdminProfile} />
+        <Route exact path={"/adminCategory"} component={AdminCategory} />
 
       </ContextProvider>
     </div>
