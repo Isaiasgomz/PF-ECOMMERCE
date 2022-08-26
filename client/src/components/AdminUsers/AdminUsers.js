@@ -105,7 +105,7 @@ return (
     </div>
       {
       
-      users && users.map(item => (
+      users.length > 0 && users.map(item => (
         <ul >
 
           <div className={style.itemName}>

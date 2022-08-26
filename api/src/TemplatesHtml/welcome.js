@@ -39,7 +39,7 @@ exports.welcome = () =>{
                                                                                     style="width:100%;padding-right:0;padding-left:0;padding-top:25px;padding-bottom:25px">
                                                                                     <div align="center"
                                                                                         style="line-height:10px"><img
-                                                                                            src="https://i.imgflip.com/6r3w8s.jpg"
+                                                                                            src="https://i.ibb.co/yRzYd8b/Whats-App-Image-2022-08-25-at-1-53-41-PM.jpg"
                                                                                             style="background-color:#37373f;margin-top: 10px"
                                                                                             width="275" class="CToWUd">
                                                                                     </div>
@@ -182,7 +182,7 @@ exports.welcome = () =>{
                                                                             <tr>
                                                                                 <td>
                                                                                     <div align="center">
-                                                                                        <a href="url"
+                                                                                        <a href="https://pf-ecommerce-iota.vercel.app/"
                                                                                             style="text-decoration:none;display:inline-block;color:#000;background-color:#fff;border-radius:3px;width:auto;border-top:1px solid #fff;font-weight:400;border-right:1px solid #fff;border-bottom:1px solid #fff;border-left:1px solid #fff;padding-top:5px;padding-bottom:5px;font-family:Lato,Tahoma,Verdana,Segoe,sans-serif;text-align:center;word-break:keep-all"><span
                                                                                                 style="padding-left:15px;padding-right:15px;font-size:18px;display:inline-block;letter-spacing:normal"><span
                                                                                                     style="font-size:16px;line-height:2;word-break:break-word"><span
@@ -257,7 +257,7 @@ exports.welcome = () =>{
                                                                                                 <span
                                                                                                     style="font-size:18px"><strong><a
                                                                                                             style="text-decoration:none;color:#91c612"
-                                                                                                            href="https://mercado-los-7-enanitos.vercel.app/"
+                                                                                                            href="https://pf-ecommerce-iota.vercel.app/"
                                                                                                             rel="noopener">pullrequest.ecommerce@gmail.com</a></strong></span><br><span
                                                                                                     style="font-size:18px">(011)99885251</span>
                                                                                             </p>

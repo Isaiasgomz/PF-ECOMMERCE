@@ -96,6 +96,20 @@ export function clearAllFilters(){
     }
 }
 
+export function buildPC(arr){
+    return{
+        type: "BUILD_PC",
+        payload:arr
+    }
+}
+
+export function clearPC(){
+    return{
+        type: "CLEAR_PC",
+        payload:[]
+    }
+}
+
 export function clearDetail(){
     return{
         type: "CLEAR_DETAIL",
@@ -195,13 +209,13 @@ export function userDisabled(email,data) {
     }
 }
 
-// export function postUserData(email,data) {
-//     return async function (dispatch) {
-//         const newUser = await axios.post(`http://localhost:3001/user/${email}/personalData`,data)
-//         .catch(error => console.log(error.response.data))
-//         return dispatch({ type: 'USER_DATA', payload:data })
-//     }
-// }
+export function updateUserData(email, data) {
+    return async function (dispatch) {
+        await axios.put(`http://localhost:3001/user/${email}/updatePersonalData`,data)
+       /*  .catch(error => console.log(error.response.data)) */
+        return dispatch({ type: 'UPDATE_PERSONAL_DATA'})
+    }
+}
 
 export function postNewAdmin(data) {
     return async function (dispatch) {
@@ -211,6 +225,12 @@ export function postNewAdmin(data) {
     }
 }
 
+export function adminProfile(picture){
+    return{
+        type: "ADMIN_PROFILE",
+        payload:picture
+    }
+}
 
 
 

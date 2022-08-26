@@ -65,9 +65,13 @@ function AdminUpdate(props) {
 
 
   return (
-    <div className={styles.productContainer}> Editar Product
+    <div className={styles.containerForm}>
+
     
-      <form onSubmit={(e)=> handleSubmit(e)}>
+    <div className={styles.productContainer}>
+    
+      <form className={styles.form} onSubmit={(e)=> handleSubmit(e)}>
+        <h2 className={styles.titleForm}>Editar producto</h2>
         <label htmlFor='productName'>Nombre</label>
         <input className={styles.formInput} type={'text'} placeholder={'Nombre'}
         name={'productName'} value={product.productName}
@@ -108,11 +112,14 @@ function AdminUpdate(props) {
          name={'brand'} value={product.brand}  
           onChange={(e)=> handleInput(e)}/><br/>
 
+        <div className={styles.containerBtn}>
 
-        <button type='submit'>Editar Producto</button>
+          <button className={styles.btn} type='submit'>Editar Producto</button>
+        </div>
       </form>
       
 
+    </div>
     </div>
   )
 }
