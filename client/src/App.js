@@ -34,6 +34,7 @@ import UserShippingAddress from "./components/UserPanel/UserShippingAddress/User
 import AdminProfile from "./components/AdminProfile/AdminProfile";
 
 import UserOrderDetail from "./components/UserOrderDetail/UserOrderDetail";
+import UserReviews from "./components/UserPanel/UserReviews/UserReviews";
 
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
         <Route exact path={"/updateUserData"} component={UpdateUserData} />
         <Route exact path={"/userShippingAddress"} component={UserShippingAddress} />
         <Route path={"/myOrders"} component={UserMyOrders} />
+        <Route path={"/myReviews"} component={UserReviews} />
 
 
         <Route exact path={"/myOrders"} component={UserMyOrders} />
