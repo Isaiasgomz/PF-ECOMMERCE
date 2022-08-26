@@ -157,6 +157,7 @@ function Detail(props) {
           <div className={style.blocTabs}>
             <div className={toggleState === 1 ? style.activeTabs : style.tabs} onClick={() => toggleTab(1)}>Descripcion</div>
             <div className={toggleState === 2 ? style.activeTabs : style.tabs} onClick={() => toggleTab(2)}>Opiniones</div>
+            <div className={toggleState === 3 ? style.activeTabs : style.tabs} onClick={() => toggleTab(3)}>Preguntas</div>
           </div>
           <div className={style.contentTabs}>
             <div className={toggleState === 1 ? style.activeContent : style.content}>
@@ -316,6 +317,15 @@ function Detail(props) {
                   </div>}
               </div>
 
+            </div>
+            <div className={toggleState === 3 ? style.activeContent : style.content}>
+            <div className={style.descriptionConteiner}>
+                <div className={style.title}>MARCA</div>
+                <div className={style.txt}>{product.brand}</div>
+                <div className={style.title}>TEXTO</div>
+                <div className={style.txt}>{product.description}</div>
+                <span>{product.qualification}</span>
+              </div>
             </div>
           </div>
         </div>
