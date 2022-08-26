@@ -4,7 +4,7 @@ import Filter from "../Filter/Filter.js";
 import styles from "./Home.module.css";
 import { useDispatch } from "react-redux";
 import { getProducts } from "../../Actions/index.js";
-import ScrollToTop from "react-scroll-to-top";
+import ScrollToTop from "react-scroll-to-top"
 
 function Home(props) {
   const dispatch = useDispatch();
