@@ -41,6 +41,10 @@ module.exports = (sequelize) => {
         disabled: {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
-        } 
+        },
+        compatible: {
+            type: DataTypes.STRING,
+            defaultValue: false,
+        }  
     });
 };
