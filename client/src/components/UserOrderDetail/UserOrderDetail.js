@@ -29,7 +29,10 @@ const UserOrderDetail = (props) => {
     .reduce((a, b) => a + b, 0);
 
   //Productos
-  const products = shoppingCart.map((e) => e.Product);
+  const products = shoppingCart.map((e) => {
+    e.Product.quantity = e.quantity
+    return e.Product
+  });
 
   //Cantidad individual
   const individualQ = (quantity) => {
@@ -64,8 +67,10 @@ const UserOrderDetail = (props) => {
             <h5>Productos: {quantity} </h5>
           </div>
           <div className={style.cards}>
+            {console.log("pppppp", shoppingCart)}
             {products?.map((e, index) => (
               <CardDetail
+                obj={e}
                 image={e.image}
                 productName={e.productName}
                 quantity={e.quantity}

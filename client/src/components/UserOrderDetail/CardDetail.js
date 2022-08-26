@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./CardDetail.module.css";
 
-const CardDetail = ({ productName, image, price, quantity }) => {
+const CardDetail = ({ productName, image, price, quantity, obj }) => {
   return (
     <div className={style.containerCard}>
       <div className={style.containerImg}>
@@ -14,10 +14,11 @@ const CardDetail = ({ productName, image, price, quantity }) => {
         <div>{productName} </div>
         </div>
         <div className={style.containerCant}>
+          {console.log(obj)}
           <p> x{quantity ? quantity : 1} </p>
         </div>
         <div className={style.containerCant}>
-        <div> {price} </div>
+        <div> ${price} </div>
         </div>
       </div>
     </div>
