@@ -18,7 +18,7 @@ function NavBar() {
         <div className={styles.divs}>
           <Link to="/">
             <div className={styles.imagen}>
-              <img className={styles.imagen} src={logo} />
+              <img alt="imagen" className={styles.imagen} src={logo} />
             </div>
           </Link>
         </div>
