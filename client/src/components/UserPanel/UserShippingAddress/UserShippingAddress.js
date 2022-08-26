@@ -86,6 +86,8 @@ function UserShippingAddress() {
         className={styles.productContainer}
         onSubmit={(e) => handleSubmit(e)}>
         <h2 className={styles.titleForm}>Direcciones de Envío</h2>
+
+        <div className={styles.contenedor}>
         <div className={styles.name}>
             <label className={styles.lab}>Referencia:
             <input
@@ -101,7 +103,7 @@ function UserShippingAddress() {
                 <label className={styles.textError}>{errors.referencia}</label>)}
             </label>    
         </div>      
-        <div className={styles.email}> 
+        <div className={styles.name}> 
             <label className={styles.lab}>Correo:
             <input
                 className={styles.formInput}
@@ -112,7 +114,7 @@ function UserShippingAddress() {
             /> 
             </label> 
         </div>    
-        <div className={styles.address}>     
+        <div className={styles.name}>     
             <label className={styles.lab}>Dirección:
             <input
                 className={styles.formInput}
@@ -126,8 +128,8 @@ function UserShippingAddress() {
             {errors.address && <label className={styles.textError}>{errors.address}</label>}
             </label>
         </div>
-        <div className={styles.departament}>
-            <label>Departamento:
+        <div className={styles.name}>
+            <label className={styles.lab}>Departamento:
             <input
                 className={styles.formInput}
                 required={true}
@@ -142,8 +144,8 @@ function UserShippingAddress() {
             )} */}
             </label>
         </div>
-        <div className={styles.city}>
-            <label>Ciudad:
+        <div className={styles.name}>
+            <label className={styles.lab}>Ciudad:
             <input
                 className={styles.formInput}
                 required={true}
@@ -156,8 +158,8 @@ function UserShippingAddress() {
             {errors.city && <label className={styles.textError}>{errors.city}</label>}
             </label>
         </div>
-        <div className={styles.cp}>
-            <label>C.P.:
+        <div className={styles.name}>
+            <label className={styles.lab}>C.P.:
             <input
                 className={styles.formInput}
                 required={true}
@@ -170,8 +172,8 @@ function UserShippingAddress() {
             {errors.CP && <label className={styles.textError}>{errors.CP}</label>}
             </label>
         </div>
-        <div className={styles.country}>
-            <label>País:
+        <div className={styles.name}>
+            <label className={styles.lab}>País:
             <input
                 className={styles.formInput}
                 required={true}
@@ -184,8 +186,8 @@ function UserShippingAddress() {
             {errors.country && <label className={styles.textError}>{errors.country}</label>}
             </label>            
         </div>
-        <div className={styles.tel}>
-            <label>Teléfono:
+        <div className={styles.name}>
+            <label className={styles.lab}>Teléfono:
             <input
                 className={styles.formInput}
                 required={true}
@@ -199,6 +201,7 @@ function UserShippingAddress() {
             <label className={styles.textError}>{errors.telephone}</label>
             )}
             </label>            
+        </div>
         </div>
         <br/>
         <div className={styles.containerBtn}>

@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { clearAllFilters, clearSearch, getProducts, sortProductByCategory } from "../../Actions";
+import { clearSearch, getProducts, sortProductByCategory } from "../../Actions";
 import { createCont } from "../contexto/contextProvider";
 import styles from "./Menu.module.css"
 
@@ -9,7 +9,7 @@ import styles from "./Menu.module.css"
 function Menu() {
 
   const {AllProducts} = useSelector(state => state)
-  const {productsByName} = useSelector(state => state)
+  
    const dispatch = useDispatch()
 
    const {setCurrentPage} = useContext(createCont)
@@ -19,8 +19,12 @@ function Menu() {
     
   }
 
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
   const sortByCategory = (e) => {
-    console.log(e)
+    
     if(e === "componentes"){
       let productSorted = AllProducts?.filter(g => g.compatible !== "false")
       dispatch(sortProductByCategory(productSorted))
@@ -30,9 +34,9 @@ function Menu() {
     }
     if(e === "perifericos"){
       let productSorted = AllProducts?.filter(g => g.compatible === "false")
-      console.log(productSorted)
+      
       let moreSort = productSorted?.filter(f => f.category !== "Laptops")
-      console.log(moreSort)
+      
       dispatch(sortProductByCategory(moreSort))
       dispatch(clearSearch())
       setCurrentPage(1);
@@ -44,9 +48,8 @@ function Menu() {
     setCurrentPage(1);
 }
 
-let categorias = new Set(AllProducts?.map(e => e.category))
-const category = [...categorias]
-  console.log(category)
+
+  
   return <div className={styles.categories}>
     
 
