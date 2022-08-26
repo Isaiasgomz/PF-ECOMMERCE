@@ -7,7 +7,11 @@ import {  getUserDetail } from "../../Actions";
 
 
 function AdminProfile() {
+  //  const disptach = useDispatch()
   
+  // useEffect(() => {
+  //   disptach(getUserDetail)
+  // },[])
 
   const { adminProfile } = useSelector((state) => state);
 
