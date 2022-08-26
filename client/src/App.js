@@ -19,6 +19,7 @@ import ResumeOrder from "./components/ResumeOrder/ResumeOrder";
 import ContextProvider from "./components/contexto/contextProvider";
 
 import AdminProducts from "./components/AdminProducts/AdminProducts";
+
 import AdminUpdate from "./components/AdminUpdate/AdminUpdate";
 import AdminUsers from "./components/AdminUsers/AdminUsers";
 import AdminNewUser from "./components/AdminNewUser/AdminNewUser";
@@ -35,6 +36,11 @@ import AdminProfile from "./components/AdminProfile/AdminProfile";
 
 import UserOrderDetail from "./components/UserOrderDetail/UserOrderDetail";
 
+import BrandSelector from "./components/BranchSelector/BrandSelector";
+import ProcessorSelector from "./components/BranchSelector/ProcessorSelector";
+
+
+
 
 function App() {
   return (
@@ -44,6 +50,8 @@ function App() {
         <Route path={"/"} component={NavBar} />
         <Route exact path={"/"} component={Landing} />
         <Route path={"/"} component={Footer} />
+        <Route exact path={"/build"} component={BrandSelector} />
+        <Route path={"/build/:brand"} component={ProcessorSelector} />
         <Route exact path={"/home"} component={Home} />
         <Route exact path={"/detail/:id"} component={Detail} />
         <Route exact path={"/about"} component={About} />
@@ -56,11 +64,6 @@ function App() {
         <Route exact path={"/resumeOrder"} component={ResumeOrder} />
         <Route exact path={"/cart"} component={ShoppingCar} />
         <Route exact path={"/payment/success"} component={Success} />
-
-
-
-
-        
         <Route exact path={"/userPanel"} component={UserPanel} />
         <Route exact path={"/userData"} component={UserData} />
         <Route exact path={"/updateUserData"} component={UpdateUserData} />
@@ -73,6 +76,9 @@ function App() {
 
         <Route exact path={"/admin/createAdmin"} component={AdminCreateAdmin} />
         <Route path={"/admin/update/:id"} component={AdminUpdate} />
+
+        <Route path={"/notfound"} component={NotFound} />
+
         <Route path={"/adminProducts"} component={AdminProducts} />
         <Route exact path={"/adminUsers"} component={AdminUsers} />
         <Route exact path={"/signUp"} component={SignUp}  />
