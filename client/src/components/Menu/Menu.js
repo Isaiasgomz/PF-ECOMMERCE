@@ -21,6 +21,23 @@ function Menu() {
 
   const sortByCategory = (e) => {
     console.log(e)
+    if(e === "componentes"){
+      let productSorted = AllProducts?.filter(g => g.compatible !== "false")
+      dispatch(sortProductByCategory(productSorted))
+      dispatch(clearSearch())
+      setCurrentPage(1);
+      return
+    }
+    if(e === "perifericos"){
+      let productSorted = AllProducts?.filter(g => g.compatible === "false")
+      console.log(productSorted)
+      let moreSort = productSorted?.filter(f => f.category !== "Laptops")
+      console.log(moreSort)
+      dispatch(sortProductByCategory(moreSort))
+      dispatch(clearSearch())
+      setCurrentPage(1);
+      return
+    }
     let productSorted = AllProducts?.filter(g => g.category === e)
     dispatch(sortProductByCategory(productSorted))
     dispatch(clearSearch())
@@ -29,25 +46,19 @@ function Menu() {
 
 let categorias = new Set(AllProducts?.map(e => e.category))
 const category = [...categorias]
-
+  console.log(category)
   return <div className={styles.categories}>
     
 
-    <Link to="/home"><button key="All products" className={styles.buttons} onClick={clear}> All products <i className="fa-solid fa-home"></i></button></Link>
+    <Link to="/home"><button  className={styles.buttons} onClick={clear}> Productos <i className="fa-solid fa-database"></i></button></Link>
 
-    
-    {category?.map( (e,index) => {
-    
-      if(e === "Monitors"){
+    <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("perifericos")}> Perifericos <i className="fa-solid fa-keyboard"></i> </button></Link>
 
-        return (<Link to="/home"><button key={e} className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}>{e} <i className={`fa-solid fa-desktop`}></i></button></Link>)
+    <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("Laptops")}> Laptops <i className="fa-solid fa-laptop"></i> </button></Link>
 
-      }
-      return (<Link to="/home"><button key={e} className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}>{e} <i className={`fa-solid fa-${e.toLowerCase().slice(0,-1)}`}></i> </button></Link>)
+    <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("componentes")}> Componentes <i className="fa-solid fa-screwdriver-wrench"></i> </button></Link>
 
-    })}
-
-    <Link to="/build"><button key="Arma tu pc" className={styles.buttons} onClick={clear}> Build PC <i className="fa-solid fa-computer"></i></button></Link>
+    <Link to="/build"><button  className={styles.buttons} onClick={clear}> Arma tu PC <i className="fa-solid fa-computer"></i></button></Link>
 
   </div>;
 }

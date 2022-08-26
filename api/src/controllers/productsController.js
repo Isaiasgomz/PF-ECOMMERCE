@@ -17,6 +17,7 @@ module.exports = {
                     qualification: e.calification,
                     stock: e.quantity,
                     category: e.categories[0],
+                    compatible: e.compatible?  e.compatible : false
                 }
                 return obj;
             })
@@ -50,6 +51,7 @@ module.exports = {
                     qualification: e.calification,
                     stock: e.quantity,
                     category: e.categories[0],
+                    compatible: e.compatible?  e.compatible : false
                 }
                 return obj;
             })
