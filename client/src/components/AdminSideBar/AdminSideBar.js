@@ -4,17 +4,20 @@ import { useSelector, useDispatch} from "react-redux";
 import style from './SideBar.module.css'
 
 function AdminSideBar() {
-  const dispatch = useDispatch()
 
-  const { userDetail } = useSelector((state) => state);
+
+
+
+  const { adminProfile } = useSelector((state) => state);
+
   return (
     <div className={style.containerSideBar}>
 
-        {/* <img className={style.imagen} src={userDetail.PersonalDatum.profile} /> */}
+        <img className={style.imagen} src={adminProfile.profile} alt={'profile'} />
 
         <div className={style.containerTitleInfo}>
-        <p>img</p>
-        <h3>Isaias Gomez</h3>
+        {/* <p>img</p> */}
+        <h3>{adminProfile.fullname}</h3>
         <h2>Administrador</h2>
         </div>
         <div className={style.containerOptions}>

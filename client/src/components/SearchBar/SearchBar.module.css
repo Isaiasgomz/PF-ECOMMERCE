@@ -1,37 +1,34 @@
-
-.searchBar{
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px ;
-    background-color: transparent;
-    border: 1px solid white;
-    color: white;
-    padding: 5px;
-    width: 15vw;
-    
-   
+.searchBar {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px;
+  width: 15vw;
 }
 
-.searchButton{
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px ;
-    border: 1px solid white;
-    color: white;
-    background-color: #37373f;
-    padding: 5px;
-    width: 3vw;
+.searchButton {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 1px solid white;
+  color: white;
+  background-color: #37373f;
+  padding: 5px;
+  width: 3vw;
 }
-.searchButton:hover{
-    cursor: pointer;
-    color: #37373f;
-    background-color: white;
-}
-
-.searchButton:active{
-    cursor: pointer;
-    color: white;
-    background-color: #37373f;
+.searchButton:hover {
+  cursor: pointer;
+  color: #37373f;
+  background-color: white;
 }
 
-.searchBar:focus{
-    outline: none;
+.searchButton:active {
+  cursor: pointer;
+  color: white;
+  background-color: #37373f;
+}
+
+.searchBar:focus {
+  outline: none;
 }
