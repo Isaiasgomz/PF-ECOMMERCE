@@ -126,7 +126,7 @@ function Order() {
             type="text"
             name="address"
             value={input.address}
-            placeholder="Calle y número"
+            placeholder="Calle y Número"
             onChange={(e) => handleInput(e)}
           />
         </p>
