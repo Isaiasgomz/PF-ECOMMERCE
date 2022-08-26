@@ -1,10 +1,12 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import {getProductDetailAdmin}  from "../../Actions"
 import { productDisabled } from '../../Actions'
-import { useHistory } from 'react-router-dom';
+
 import styles from './AdminUpdate.module.css'
+
 
 
 function AdminUpdate(props) {
