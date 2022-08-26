@@ -12,7 +12,7 @@ const initialState = {
     productsBackUp: [],
     cart: [],
     personalData: {},
-    userDetail: [],
+    userDetail: {},
     
     adminProducts: [],
     allAdminProducts: [],
