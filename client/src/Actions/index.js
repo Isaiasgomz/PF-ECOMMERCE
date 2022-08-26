@@ -96,6 +96,20 @@ export function clearAllFilters(){
     }
 }
 
+export function buildPC(arr){
+    return{
+        type: "BUILD_PC",
+        payload:arr
+    }
+}
+
+export function clearPC(){
+    return{
+        type: "CLEAR_PC",
+        payload:[]
+    }
+}
+
 export function clearDetail(){
     return{
         type: "CLEAR_DETAIL",
