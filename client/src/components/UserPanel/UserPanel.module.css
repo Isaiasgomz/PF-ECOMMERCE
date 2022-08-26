@@ -1,9 +1,12 @@
- 
+  .back {
+    background-color: #78788c;
+  }
+
   .profile {
     text-align: center;
     font-size: 17px;
     padding-top: 20px;
-    padding-bottom: 40px;
+    padding-bottom: 35px;
     color: aliceblue;;
     padding-top: 160px;
    }

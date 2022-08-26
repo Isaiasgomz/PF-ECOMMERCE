@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { postUserData } from "../../Actions/index.js";
-import UserPanel from "../UserPanel/UserPanel";
+import { postUserData } from "../../../Actions/index.js";
+import UserPanel from "../UserPanel";
 import styles from './UserData.module.css';
 
 function validate(input) {
@@ -10,9 +10,6 @@ function validate(input) {
 
   if (!input.fullname) {
     errors.fullname = "El nombre es requerido";
-  }
-  if (!input.UserEmail) {
-    errors.UserEmail = "El email es requerido";
   }
   if (!input.address) {
     errors.address = "La dirección es requerida";
@@ -42,7 +39,7 @@ function UserData() {
 
     const [input, setInput] = useState({
         fullname: "",
-        UserEmail: "",
+        UserEmail: user.email,
         address: "",
         CP: "",
         telephone: "",
@@ -73,7 +70,7 @@ function UserData() {
     alert('Sus datos de perfil se guardaron correctamente')
     setInput({
         fullname: "",
-        UserEmail: "",
+        UserEmail: user.email,
         address: "",
         CP: "",
         telephone: "",
@@ -81,8 +78,8 @@ function UserData() {
         country: "",
         department:""
     });
-/*     history.push("/payment"); */
-  };
+    history.push("/userPanel");
+    };
 
   return (
     <React.Fragment>
@@ -111,15 +108,12 @@ function UserData() {
             <label className={styles.lab}>Correo:
             <input
                 className={styles.formInput}
-                required={true}
+                disabled={true}
+                readOnly={true}
                 type="email"
                 name="UserEmail"
                 value={input.UserEmail}
-                placeholder="usuario@email.com"
-                onChange={(e) => handleInput(e)}
             /> 
-            {errors.UserEmail && (
-                <label className={styles.textError}>{errors.UserEmail}</label>)}
             </label> 
         </div>    
         <div className={styles.address}>     
@@ -212,8 +206,10 @@ function UserData() {
         </div>
         <br/>
         <div className={styles.containerBtn}>
-          <button className={styles.btn}>Guardar</button>
-          <button className={styles.btn}>Cancelar</button>
+          <button className={styles.btn} type='submit'>Guardar</button>
+          <NavLink to={"/userPanel"}>
+            <button className={styles.btn}>Cancelar</button>
+          </NavLink>
         </div>
       </form>
     </div>
