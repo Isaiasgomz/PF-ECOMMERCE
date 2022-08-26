@@ -55,6 +55,7 @@ function SearchBar() {
         </button>
       </form>
     </div>
+    
   );
 }
 
