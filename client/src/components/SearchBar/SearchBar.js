@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getProductsByName } from "../../Actions";
 import styles from "../SearchBar/SearchBar.module.css";
 
@@ -25,8 +25,10 @@ function SearchBar() {
     setSearch({ name: "" });
   };
 
+  let products = useSelector((state) => state.AllProducts)
+  products = products.filter((e) => e.productName);
   return (
-    <div>
+    <div className={styles.search}>
       <form onSubmit={onSubmit}>
         <input
           className={styles.searchBar}
@@ -35,7 +37,15 @@ function SearchBar() {
           value={search.name}
           onChange={onChange}
           placeholder="Buscar producto..."
+          list="products"
         ></input>
+        <datalist className={styles.dataResults} id="products">
+            {products.map((value, key) => {
+              return (
+                <option value={value.productName}></option>
+              );
+            })}
+        </datalist>
         <button
           className={styles.searchButton}
           type="submit"
