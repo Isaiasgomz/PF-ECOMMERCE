@@ -3,16 +3,19 @@ import styles from './UserPanel.module.css';
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserDetail } from "../../Actions";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function UserPanel() {  
     const dispatch = useDispatch();
 
     const emailUser = useSelector(state => state.user.email)
     const personalData = useSelector(state => state.userDetail.PersonalDatum)
+    const { user, isAuthenticated, isLoading } = useAuth0();
 
     useEffect(() => {
-        dispatch(getUserDetail(emailUser));
-    }, [dispatch]);
+        if(user?.email?.length>0)dispatch(getUserDetail(user.email));
+        
+    }, [user]);
 
     return (
         <React.Fragment>    

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import style from "./BrandSelector.module.css"
 import { Link } from "react-router-dom";
 import intel from "../../imagenes/intel.png"
@@ -11,7 +11,7 @@ function BrandSelector() {
 
   const dispatch = useDispatch()
 
-  useEffect(()=>{ dispatch(clearPC())},[])
+  useEffect(()=>{ dispatch(clearPC())},[dispatch])
 
   return (
     <div className={style.containerBrand}>
