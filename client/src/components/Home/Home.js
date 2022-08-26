@@ -11,9 +11,9 @@ function Home(props) {
 
   const [currentPage, setCurrentPage] = useState(1); //pagina actual
 
-  useEffect(() => {
+/*   useEffect(() => {
     dispatch(getProducts());
-  }, [dispatch]);
+  }, [dispatch]); */
 
   const category = props.match.params;
 

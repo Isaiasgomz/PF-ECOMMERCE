@@ -18,6 +18,15 @@ import img7 from "../../imagenes/paso7.png"
 
 function ProcessorSelector(props) {
 
+/*   useEffect(() => {
+    dispatch(getProducts());  
+  
+    return () => {
+      
+    }
+  }, []);
+ */
+
   const { AllProducts } = useSelector(state => state)
   const { buildPCState } = useSelector(state => state)
   const dispatch = useDispatch()
