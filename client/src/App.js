@@ -28,7 +28,9 @@ import AdminCreateAdmin from "./components/AdminCreateAdmin/AdminCreateAdmin";
 
 import UserPanel from "./components/UserPanel/UserPanel";
 import UserMyOrders from "./components/UserMyOrders/UserMyOrders";
-import UserData from "./components/UserData/UserData";
+import UserData from "./components/UserPanel/UserData/UserData";
+import UpdateUserData from "./components/UserPanel/UpdateUserData/UpdateUserData"
+import UserShippingAddress from "./components/UserPanel/UserShippingAddress/UserShippingAddress"
 import AdminProfile from "./components/AdminProfile/AdminProfile";
 
 import UserOrderDetail from "./components/UserOrderDetail/UserOrderDetail";
@@ -61,6 +63,11 @@ function App() {
         
         <Route exact path={"/userPanel"} component={UserPanel} />
         <Route exact path={"/userData"} component={UserData} />
+        <Route exact path={"/updateUserData"} component={UpdateUserData} />
+        <Route exact path={"/userShippingAddress"} component={UserShippingAddress} />
+        <Route path={"/myOrders"} component={UserMyOrders} />
+
+
         <Route exact path={"/myOrders"} component={UserMyOrders} />
         <Route exact path={"/orderDetail"} component={UserOrderDetail} />
 

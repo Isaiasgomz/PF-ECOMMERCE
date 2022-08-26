@@ -35,7 +35,7 @@ exports.pConfirmation = () =>{
                                                                                     style="width:100%;padding-right:0;padding-left:0;padding-top:25px;padding-bottom:25px">
                                                                                     <div align="center"
                                                                                         style="line-height:10px"><img
-                                                                                            src="https://i.imgflip.com/6r3w8s.jpg"
+                                                                                            src="https://i.ibb.co/yRzYd8b/Whats-App-Image-2022-08-25-at-1-53-41-PM.jpg"
                                                                                             style="background-color:#37373f;"
                                                                                             width="275" class="CToWUd">
                                                                                     </div>

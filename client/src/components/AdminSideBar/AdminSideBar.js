@@ -10,15 +10,21 @@ function AdminSideBar() {
   return (
     <div className={style.containerSideBar}>
 
-        <ul className={style.options}>
-        <img className={style.imagen} src={userDetail.PersonalDatum.profile} />
+        {/* <img className={style.imagen} src={userDetail.PersonalDatum.profile} /> */}
+
+        <div className={style.containerTitleInfo}>
+        <p>img</p>
         <h3>Isaias Gomez</h3>
         <h2>Administrador</h2>
-        <NavLink className={style.items} to={'/'} > <li >DASHBOARD</li> </NavLink>
-        <NavLink className={style.items} to={'/adminProducts'} > <li>PRODUCTOS</li> </NavLink>
-        <NavLink className={style.items} to={'/adminUsers'} > <li>USERS</li> </NavLink>
-        <NavLink className={style.items} to={'/'} > <li>CATEGORIAS</li> </NavLink>
-        </ul>
+        </div>
+        <div className={style.containerOptions}>
+
+        <NavLink className={style.li} to={'/'} ><div  className={style.items}><p >DASHBOARD</p></div>  </NavLink>
+        <NavLink className={style.li} to={'/adminProducts'} ><div className={style.items}><p>PRODUCTOS</p></div>  </NavLink>
+        <NavLink className={style.li} to={'/adminUsers'} ><div className={style.items}><p>USERS</p></div>  </NavLink>
+        <NavLink className={style.li} to={'/'} ><div className={style.items}><p>CATEGORIAS</p></div>  </NavLink>
+        </div>
+
     </div>
   )
 }

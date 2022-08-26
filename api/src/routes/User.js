@@ -43,8 +43,8 @@ router.post('/:idUser/personalData', async (req, res) => {
 })
 
 /* actualizar personal data de usuario */
-router.patch('/:idUser/updatePersonalData', async (req, res) => {
-    const { idUser } = req.params
+router.put('/:idUser/updatePersonalData', async(req,res)=>{
+    const {idUser} = req.params
     try {
         await updatePersonalData(idUser, req.body)
         res.status(200).send('Datos Personales actualizados!')

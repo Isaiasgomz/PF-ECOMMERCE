@@ -91,9 +91,13 @@ function CreateProduct() {
   }
   
   return (
-    <div className={styles.productContainer}>CreateProduct
+    <div className={styles.containerForm}>
+
     
-      <form onSubmit={(e)=> handleSubmit(e)}>
+    <div className={styles.productContainer}>
+    
+      <form className={styles.form} onSubmit={(e)=> handleSubmit(e)}>
+        <h2 className={styles.titleForm} >Crear producto</h2>
         <label htmlFor='productName'>Nombre</label>
         <input className={styles.formInput} type={'text'} placeholder={'Nombre de Producto'}
          name={'productName'} value={product.productName}
@@ -157,10 +161,14 @@ function CreateProduct() {
               < p className={styles.textError}>{errors.brand}</p>
           )}
 
-        <button type='submit'>Crear</button>
+              <div className={styles.containerBtn}>
+
+        <button className={styles.btn} type='submit'>Crear</button>
+              </div>
       </form>
       
 
+    </div>
     </div>
   )
 }

@@ -76,7 +76,7 @@ p::before {
   color: rgb(255, 255, 255);
 }
 
-.bton:active{
+.btn:active{
   background: #91C612 ;
 }
 

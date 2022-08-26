@@ -26,9 +26,7 @@ module.exports = {
                     let newOrder = await PurchaseOrder.findAll({
                         where:{
                             UserEmail:email
-                        },
-                    });
-                    console.log(newOrder)
+                    }});
                     return newOrder;
         }}catch(e){
             return e;
