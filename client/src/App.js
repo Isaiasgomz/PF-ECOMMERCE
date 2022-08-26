@@ -62,7 +62,6 @@ function App() {
         <Route exact path={"/userData"} component={UserData} />
         <Route exact path={"/updateUserData"} component={UpdateUserData} />
         <Route exact path={"/userShippingAddress"} component={UserShippingAddress} />
-        <Route path={"/myOrders"} component={UserMyOrders} />
         <Route path={"/myReviews"} component={UserReviews} />
         <Route exact path={"/myOrders"} component={UserMyOrders} />
         <Route exact path={"/orderDetail/:PurchaseOrderOrderN"} component={UserOrderDetail} />
