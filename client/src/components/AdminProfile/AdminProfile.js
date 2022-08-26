@@ -16,7 +16,7 @@ function AdminProfile() {
     <div className={style.profileContainer}>
         <ul className={style.options}>
             <h4>Mi Perfil</h4>
-        <img  className={style.imagen} src={userDetail.PersonalDatum.profile} alt='profile'/>
+        {/* <img  className={style.imagen} src={userDetail.PersonalDatum.profile} alt='profile'/> */}
   
         <li> Nombre: </li>
         <li>{userDetail.PersonalDatum.fullname.split(' ').slice(0,1).join(' ')}</li>

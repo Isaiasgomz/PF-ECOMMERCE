@@ -1,15 +1,30 @@
+
+.containerAll{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.containerAdminSideBar{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .productContainer{
-    background-color: #BBEAE4;
+    background-color: rgb(231, 231, 231);
     width: 80%;
-    margin-left: 20%;
     border-radius: 5px;
     height: 90%;
 }
 
 .infoConteiner{
+    width: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
+    margin-bottom: 10px;
+    margin-top: 10px;
 
 }
 
@@ -17,14 +32,15 @@
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    width: 350px;
+    width: 300px;
     height: 150px;
     border-radius: 5px;
-    background-color: #78BEEC;
-    border: solid 1px white;
+    background-color: #fff;
+    border: 2px solid black;
 }
 
 .info{
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,32 +48,84 @@
 }
 
 .icon{
+    width: 20%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
+.containerCheckv{
+    border: 2px solid black;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #91C612;
+}
+
+.containerCheckv i {
+    color: white;
+}
+
+.containerCheckx{
+    border: 2px solid black;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+}
+.containerCheckx i{
+    color: #fff;
+}
+
+.containerCheckarrow{
+    border: 2px solid black;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3483FA;
+}
+
+.containerCheckarrow i{
+    color: #fff;
+}
+
 .containerNabvar{
-    margin-left: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.containerNabvar select:focus{
+    outline: none;
+}
+.containerNabvar input:focus{
+    outline: none;
 }
 
 
 
-.items{
-    /* padding-left: 40px;
-    padding-right: 40px; */
+/* .items{
     display: flex;
     justify-self: flex-start;
     width: 320px;
     border-bottom: solid 1px black;
     height: 60px;
     
-    
 }
 
 .itemCreated{
     display: flex;
     justify-self: flex-start;
+    align-items: center;
     width:250px;
     border-bottom: solid 1px black;   
     height: 60px;
@@ -93,55 +161,112 @@
     width: 100px;
     border-bottom: solid 1px black;
     height: 60px;
+} */
+
+.containerInfoTable{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
 }
 
-
-
 .headerContainer{
-
+    width: 100%;
     background-color: #78BEEC;
     margin-bottom: 20px;
     margin-top: 10px;
 }
 
-
-.headerName{
-    margin-left: 0px;
+.ul{
+    width: 99%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
 }
 
-.headerDescription{
-    margin-left: 150px;
-}
-.headerBrand{
-    margin-left: 200px;
-}
-.headerPrice{
-    margin-left: 50px;
+
+
+.containHeadr{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-.headerCount{
-    margin-left: 20px;
+.containHeadr p {
+    margin: 0;
 }
 
-.headerDisabled{
-    margin-left: 10px;
+
+.header{
+    padding: 0;
 }
 
-.headerID{
-    margin-left: 0px;
+
+
+.containerc{
+    width: 99%;
+    display: flex;
+    justify-content: space-between;
 }
 
-.headerCreated{
-    margin-left: 45px;
+.containCardInfo{
+    width: 20%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 2px solid black;
+
 }
 
-.headerActions{
-    margin-left: 160px;
+.containerActions{
+    width: 20%;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    border-bottom: 2px solid black;
 }
 
-.buttonCrear{
-    margin-left: 70%;
-    padding-bottom: 20%;
+
+
+
+.containerPaginate{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerButtonCreate{
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.containerIcon{
+    margin-right: 100px;
+    border: 2px solid #78BEEC;
+    background-color: #78BEEC;
+    border-radius: 2px;
+    width: 60px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerIcon i {
+    color: black;
+    text-decoration: none;
+}
+
+.link{
+    text-decoration: none;
 }
 
 
