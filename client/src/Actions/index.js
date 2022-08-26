@@ -211,6 +211,12 @@ export function postNewAdmin(data) {
     }
 }
 
+export function adminProfile(picture){
+    return{
+        type: "ADMIN_PROFILE",
+        payload:picture
+    }
+}
 
 
 

@@ -17,9 +17,12 @@ function AdminProducts() {
 
   const { user } = useSelector((state) => state);
 
-  if (Object.keys(user).length > 0) {
-    dispatch(getUserDetail(user.email));
-  }
+  useEffect( () => {
+
+    if (Object.keys(user).length > 0) {
+      dispatch(getUserDetail(user.email));
+    }
+  },[])
 
   let allProducts = useSelector((state) => state.adminProducts);
   let allProductsBackup = useSelector((state) => state.allAdminProducts);
