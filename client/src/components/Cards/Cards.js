@@ -172,8 +172,7 @@ const Cards = (props) => {
     </div>
   );
 };
-//  {pageIncrementBtn}
-//        {pageDecrementBtn}
+
 export default Cards;
 
 //// .map( (e,index) => <Card price={e.price} name={e.productName} calification={e.qualification} img={e.image} id={e.idProduct} key={index}/>)
