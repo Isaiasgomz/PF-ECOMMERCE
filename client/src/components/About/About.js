@@ -10,7 +10,7 @@ function About() {
           <div className="containerCardAbout3">
             <div className="card-client">
               <div className="user-picture">
-                <img src="https://avatars.githubusercontent.com/u/99367244?v=4" />
+                <img alt="nombre"  src="https://avatars.githubusercontent.com/u/99367244?v=4" />
               </div>
               <p className="name-client">
                 {" "}
@@ -41,7 +41,7 @@ function About() {
 
             <div className="card-client">
               <div className="user-picture">
-                <img src="https://media-exp1.licdn.com/dms/image/C4D03AQFdQrlMwRu9Ng/profile-displayphoto-shrink_800_800/0/1661208671888?e=1666828800&v=beta&t=LEpM69Ovp7q-4hd1tyBSMbNyOiC5B-j3muXp2FE1_64" />
+                <img alt="nombre"  src="https://media-exp1.licdn.com/dms/image/C4D03AQFdQrlMwRu9Ng/profile-displayphoto-shrink_800_800/0/1661208671888?e=1666828800&v=beta&t=LEpM69Ovp7q-4hd1tyBSMbNyOiC5B-j3muXp2FE1_64" />
               </div>
               <p className="name-client">
                 {" "}
@@ -72,7 +72,7 @@ function About() {
 
             <div className="card-client">
               <div className="user-picture">
-                <img src="https://media-exp1.licdn.com/dms/image/C4E03AQEm3gZPtHMjEg/profile-displayphoto-shrink_800_800/0/1645544139923?e=1666224000&v=beta&t=VbLFQ6l00JBn1DdPGLCZOLIvd8U0-rnw4n5rh5w-plk" />
+                <img alt="nombre"  src="https://media-exp1.licdn.com/dms/image/C4E03AQEm3gZPtHMjEg/profile-displayphoto-shrink_800_800/0/1645544139923?e=1666224000&v=beta&t=VbLFQ6l00JBn1DdPGLCZOLIvd8U0-rnw4n5rh5w-plk" />
               </div>
               <p className="name-client">
                 {" "}
@@ -104,7 +104,7 @@ function About() {
           <div className="containerCardAbout4">
             <div className="card-client">
               <div className="user-picture">
-                <img src="https://avatars.githubusercontent.com/u/103950921?v=4" />
+                <img alt="nombre"  src="https://avatars.githubusercontent.com/u/103950921?v=4" />
               </div>
               <p className="name-client">
                 {" "}
@@ -135,7 +135,7 @@ function About() {
 
             <div className="card-client">
               <div className="user-picture">
-                <img src="https://ca.slack-edge.com/TPRS7H4PN-U03EZRDJZLN-a079b9158fbf-512" />
+                <img alt="nombre"  src="https://ca.slack-edge.com/TPRS7H4PN-U03EZRDJZLN-a079b9158fbf-512" />
               </div>
               <p className="name-client">
                 {" "}
@@ -166,7 +166,7 @@ function About() {
 
             <div className="card-client">
               <div className="user-picture">
-                <img src="https://media-exp1.licdn.com/dms/image/C4E03AQGFcZQ_U2Sirg/profile-displayphoto-shrink_800_800/0/1620957720468?e=1666224000&v=beta&t=nTYaPIwbuiJmpjmcCPBEAe2iDmzyLIeORLuRKpgKtYs" />
+                <img alt="nombre"  src="https://media-exp1.licdn.com/dms/image/C4E03AQGFcZQ_U2Sirg/profile-displayphoto-shrink_800_800/0/1620957720468?e=1666224000&v=beta&t=nTYaPIwbuiJmpjmcCPBEAe2iDmzyLIeORLuRKpgKtYs" />
               </div>
               <p className="name-client">
                 {" "}
@@ -197,7 +197,7 @@ function About() {
 
             <div className="card-client">
               <div className="user-picture">
-                <img src="https://ca.slack-edge.com/TPRS7H4PN-U037NEY57GE-811b3e0122bc-512" />
+                <img alt="nombre"  src="https://ca.slack-edge.com/TPRS7H4PN-U037NEY57GE-811b3e0122bc-512" />
               </div>
               <p className="name-client">
                 {" "}

@@ -29,7 +29,7 @@ const CardCart = ({ obj, deleteP, returnPrice }) => {
 
   return (
     <div className={style.containerCard}>
-      {console.log(obj)}
+      
       <div className={style.containerImg}>
         <div className={style.SupportContainerImg}>
           <img className={style.img} src={obj.image} alt={obj.productName} />

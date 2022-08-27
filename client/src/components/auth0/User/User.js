@@ -1,7 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { postUser, postUserData } from "../../../Actions";
+import { adminProfile, postUser, postUserData } from "../../../Actions";
 
 
 import style from "./User.module.css"
@@ -22,7 +22,7 @@ let obj={}
   }
 
   dispatch(postUser(obj))
-  console.log(user)
+ 
 
 /*   const personalData = {
     fullname: `${user.given_name} ${user.family_name}`,
@@ -34,6 +34,14 @@ let obj={}
 
   dispatch(postUserData(user.email,personalData));
   console.log(personalData.profile) */
+  
+  const userProfile = {
+    fullname: `${user.given_name} ${user.family_name}`,
+    profile: user.picture,
+    email: user.email
+  }
+   
+   dispatch(adminProfile(userProfile))
   
   
   if (isLoading) {

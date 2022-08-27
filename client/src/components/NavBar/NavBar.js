@@ -7,7 +7,7 @@ import Menu from "../Menu/Menu";
 import LoginButton from "../auth0/LogginButton/ButtonLogin";
 import LogoutButton from "../auth0/logout/ButtonLogout";
 import Profile from "../auth0/User/User";
-import logo from "../../imagenes/logo.png"
+import logo from "../../imagenes/logo.png";
 
 function NavBar() {
   const { isAuthenticated } = useAuth0();
@@ -18,7 +18,7 @@ function NavBar() {
         <div className={styles.divs}>
           <Link to="/">
             <div className={styles.imagen}>
-              <img className={styles.imagen} src={logo} />
+              <img alt="imagen" className={styles.imagen} src={logo} />
             </div>
           </Link>
         </div>
@@ -36,16 +36,26 @@ function NavBar() {
           ) : (
             <LoginButton />
           )}
-          <Link to="/userPanel">
-            <button className={styles.profile}>
-              <i className="fa-solid fa-circle-user"></i> Mi Perfil
-            </button>
-          </Link>
-          <Link to="/cart">
-            <button className={styles.cart}>
-              <i className="fa-solid fa-cart-shopping"></i> Carrito
-            </button>
-          </Link>
+          {isAuthenticated ? (
+            <>
+              <Link to="/userPanel">
+                <button className={styles.profile}>
+                  <i className="fa-solid fa-circle-user"></i> Mi Perfil
+                </button>
+              </Link>
+              <Link to="/cart">
+                <button className={styles.cart}>
+                  <i className="fa-solid fa-cart-shopping"></i> Carrito
+                </button>
+              </Link>
+            </>
+          ) : (
+            <Link to="/cart">
+              <button className={styles.cart}>
+                <i className="fa-solid fa-cart-shopping"></i> Carrito
+              </button>
+            </Link>
+          )}
         </div>
       </div>
       <div className={styles.a}>

@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { clearAllFilters, clearSearch, getProducts, sortProductByCategory } from "../../Actions";
+import { clearSearch, getProducts, sortProductByCategory } from "../../Actions";
 import { createCont } from "../contexto/contextProvider";
 import styles from "./Menu.module.css"
 
@@ -9,7 +9,7 @@ import styles from "./Menu.module.css"
 function Menu() {
 
   const {AllProducts} = useSelector(state => state)
-  const {productsByName} = useSelector(state => state)
+  
    const dispatch = useDispatch()
 
    const {setCurrentPage} = useContext(createCont)
@@ -19,33 +19,49 @@ function Menu() {
     
   }
 
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
   const sortByCategory = (e) => {
-    console.log(e)
+    
+    if(e === "componentes"){
+      let productSorted = AllProducts?.filter(g => g.compatible !== "false")
+      dispatch(sortProductByCategory(productSorted))
+      dispatch(clearSearch())
+      setCurrentPage(1);
+      return
+    }
+    if(e === "perifericos"){
+      let productSorted = AllProducts?.filter(g => g.compatible === "false")
+      
+      let moreSort = productSorted?.filter(f => f.category !== "Laptops")
+      
+      dispatch(sortProductByCategory(moreSort))
+      dispatch(clearSearch())
+      setCurrentPage(1);
+      return
+    }
     let productSorted = AllProducts?.filter(g => g.category === e)
     dispatch(sortProductByCategory(productSorted))
     dispatch(clearSearch())
     setCurrentPage(1);
 }
 
-let categorias = new Set(AllProducts?.map(e => e.category))
-const category = [...categorias]
 
+  
   return <div className={styles.categories}>
     
 
-    <Link to="/home"><button className={styles.buttons} onClick={clear}> All products <i className="fa-solid fa-home"></i></button></Link>
+    <Link to="/home"><button  className={styles.buttons} onClick={clear}> Productos <i className="fa-solid fa-database"></i></button></Link>
 
-    
-    {category?.map( (e,index) => {
-    
-      if(e === "Monitors"){
+    <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("perifericos")}> Perifericos <i className="fa-solid fa-keyboard"></i> </button></Link>
 
-        return (<Link to="/home"><button key={index} className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}>{e} <i className={`fa-solid fa-desktop`}></i></button></Link>)
+    <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("Laptops")}> Laptops <i className="fa-solid fa-laptop"></i> </button></Link>
 
-      }
-      return (<Link to="/home"><button className={styles.buttons} name={e} onClick={()=>sortByCategory(e)}>{e} <i className={`fa-solid fa-${e.toLowerCase().slice(0,-1)}`}></i> </button></Link>)
+    <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("componentes")}> Componentes <i className="fa-solid fa-screwdriver-wrench"></i> </button></Link>
 
-    })}
+    <Link to="/build"><button  className={styles.buttons} onClick={clear}> Arma tu PC <i className="fa-solid fa-computer"></i></button></Link>
 
   </div>;
 }
