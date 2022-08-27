@@ -34,6 +34,9 @@ import UserReviews from "./components/UserPanel/UserReviews/UserReviews";
 import BrandSelector from "./components/BranchSelector/BrandSelector";
 import ProcessorSelector from "./components/BranchSelector/ProcessorSelector";
 import AdminCategory from "./components/AdminCategory/AdminCategory";
+import AdminOrders from "./components/AdminOrders/AdminOrders";
+import AdminOrderEdit from "./components/AdminOrderEdit/AdminOrderEdit";
+import AdminDashboard from "./components/AdminDashboard/Dashboard";
 
 
 
@@ -77,6 +80,9 @@ function App() {
         <Route path={"/notfound"} component={NotFound} />
         <Route exact path={"/profile"} component={AdminProfile} />
         <Route exact path={"/adminCategory"} component={AdminCategory} />
+        <Route exact path={"/adminOrders"} component={AdminOrders} />
+        <Route exact path={"/order/update/:id"} component={AdminOrderEdit} />
+        <Route exact path={"/adminDashboard"} component={AdminDashboard} />
 
       </ContextProvider>
     </div>

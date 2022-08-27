@@ -30,7 +30,7 @@ function AdminCategory() {
       </div>
 
     <div className={style.productContainer}>
-    <div className={style.containerInfoTable}>
+      <div className={style.containerInfoTable}>
           <ul className={style.ul}>
             <div className={style.containHeadr}>
               <li className={style.header}>Categoria</li>
@@ -78,7 +78,7 @@ function AdminCategory() {
             </div>
           </NavLink>
         </div>
-    </div>
+      </div>
     </div>
   )
 }

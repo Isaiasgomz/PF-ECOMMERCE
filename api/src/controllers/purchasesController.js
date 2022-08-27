@@ -31,5 +31,26 @@ module.exports = {
         }}catch(e){
             return e;
         }
-    }
+    },
+
+    getAllOrders : async function(){
+        try {
+            let allOrders = await PurchaseOrder.findAll();
+            return allOrders;
+        } catch (error) {
+            return error.message;
+        }
+    },
+
+    updateOrder: async function(orderN, dataModify){
+        try {
+            await PurchaseOrder.update(dataModify, {
+                where: {
+                   orderN: orderN
+                }
+            })
+        } catch (error) {
+            throw error; 
+        }
+    }, 
 }

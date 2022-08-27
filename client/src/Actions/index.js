@@ -232,6 +232,20 @@ export function adminProfile(picture){
     }
 }
 
+export function getAllOrders(){
+    return async function (dispatch) {
+        const allOrders = await axios.get(`http://localhost:3001/purchases/orders`);
+        return dispatch({ type:'GET_ALL_ORDERS', payload: allOrders.data })
+    }
+}
+
+export function updateorder(orderN, data) {
+    return async function (dispatch) {
+        await axios.put(`http://localhost:3001/purchases/update/${orderN}`,data)
+       /*  .catch(error => console.log(error.response.data)) */
+        return dispatch({ type: 'UPDATE_ORDER'})
+    }
+}
 
 
 

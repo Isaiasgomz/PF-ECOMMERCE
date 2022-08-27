@@ -23,6 +23,8 @@ const initialState = {
     adminProfile:{},
     buildPCState: [],
 
+    AllOrders:[]
+
 
 }
 
@@ -191,6 +193,21 @@ export default function rootReducer(state = initialState, action) {
                         ...state,
                         buildPCState: action.payload
                     }
+
+
+
+
+        
+        case 'GET_ALL_ORDERS':
+            return{
+                ...state,
+                AllOrders: action.payload
+            }
+
+        case 'UPDATE_ORDER':
+            return{
+                ...state,
+            }
 
         default:
             return state
