@@ -204,6 +204,18 @@ export default function rootReducer(state = initialState, action) {
                         ...state,
                         buildPCState: action.payload
                     }
+
+        case 'UPDATE_SHIPPING_ADDRESS':
+            return {
+                ...state
+            }
+
+        case 'CLEAR_ADDRESS':
+            return {
+                ...state,
+                ShippingAddress: []
+        }
+
         default:
             return state
     }

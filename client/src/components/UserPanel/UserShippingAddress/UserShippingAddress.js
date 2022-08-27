@@ -85,7 +85,7 @@ function UserShippingAddress() {
       <form
         className={styles.productContainer}
         onSubmit={(e) => handleSubmit(e)}>
-        <h2 className={styles.titleForm}>Direcciones de Envío</h2>
+        <h2 className={styles.titleForm}>Nueva Dirección de Envío</h2>
         <div className={styles.contenedor}>
         <div className={styles.name}>
             <label className={styles.lab}>Referencia:

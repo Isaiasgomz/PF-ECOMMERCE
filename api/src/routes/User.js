@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { userDetail, userPdata, updatePersonalData, postUser, userAddress } = require("../controllers/userController");
+const { userDetail, userPdata, updatePersonalData, postUser, userAddress, updateAddress } = require("../controllers/userController");
 const { User } = require('../db');
 const { route } = require("./Review");
 
@@ -61,6 +61,17 @@ router.post('/:idUser/shippingAddress', async (req, res) => {
         res.status(200).send(address);
     } catch (error) {
         res.status(404).send(error);
+    }
+})
+
+/* actualizar dirección de envío del usuario */
+router.put('/:idUser/updateShippingAddress', async(req,res)=>{
+    const {idUser} = req.params
+    try {
+        await updateAddress(idUser, req.body)        
+        res.status(200).send('Datos de Envío actualizados!')
+    } catch (error) {
+        res.status(404).send(error)
     }
 })
 

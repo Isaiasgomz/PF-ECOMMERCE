@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUserData, getAddress } from "../../../Actions/index.js";
-import UserPanel from "../UserPanel";
+import {clearAddress, getUserDetail, updateShippingAddress} from '../../../Actions';
 import styles from './UpdateShippingAddress.module.css';
 
 function validate(input) {
@@ -28,7 +27,7 @@ function validate(input) {
   return errors;
 }
 
-function UpdateShippingAddress({reference, address, CP, telephone, city, country, department}) {
+function UpdateShippingAddress({/* id, */ reference, address, CP, telephone, city, country, department}) {
     const dispatch = useDispatch();
 
     const user = useSelector((state) => state.user.email);
@@ -47,6 +46,7 @@ function UpdateShippingAddress({reference, address, CP, telephone, city, country
     console.log(address) */
 
     const [input, setInput] = useState({
+        /* id: id, */
         reference: reference,
         UserEmail: user,
         address: address,
@@ -56,17 +56,6 @@ function UpdateShippingAddress({reference, address, CP, telephone, city, country
         country: country,
         department: department
     });
-/* 
-    setInput({
-        reference: reference,
-        UserEmail: user,
-        address: address,
-        CP: address.CP,
-        telephone:telephone,
-        city:city,
-        country: country,
-        department:department
-    }) */
 
     const [isDisabled, setIsDisabled] = useState(true);
     
@@ -89,12 +78,16 @@ function UpdateShippingAddress({reference, address, CP, telephone, city, country
         );
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
     
-    dispatch(updateUserData(user, input));
+    await dispatch(updateShippingAddress(user, input));
+    
+    await dispatch(getUserDetail(user));
+
     alert('Su dirección de envío se actualizó correctamente')
-    setIsDisabled(true)
+    dispatch(clearAddress());
+    setIsDisabled(true);
     history.push("/userPanel");
     };
 
@@ -105,7 +98,7 @@ function UpdateShippingAddress({reference, address, CP, telephone, city, country
       <form
         className={styles.productContainer}
         onSubmit={(e) => handleSubmit(e)}>
-        <h2 className={styles.titleForm}>Dirección de Envío</h2>
+        <h2 className={styles.titleForm}>Dirección de {reference}</h2>
         {/* <div className={styles.searchbar}>
         <label className={styles.lab}>Buscar:</label>
         <select name="searchaddress" onClick={(e) => filterAddress(e)}>
@@ -127,12 +120,12 @@ function UpdateShippingAddress({reference, address, CP, telephone, city, country
             <input
                 className={styles.formInput}
                 disabled={isDisabled}
-                required={true}
+                readOnly={true}
                 type="text"
                 name="reference"
                 value={input.reference}
-                placeholder="Por ej.: Mi casa, Lugar de Trabajo..."
-                onChange={(e) => handleInput(e)}
+                /* placeholder="Por ej.: Mi casa, Lugar de Trabajo..." */
+                /* onChange={(e) => handleInput(e)} */
             />                     
             {errors.reference && (
                 <label className={styles.textError}>{errors.reference}</label>)}
@@ -159,7 +152,7 @@ function UpdateShippingAddress({reference, address, CP, telephone, city, country
                 type="text"
                 name="address"
                 value={input.address}
-                placeholder="Calle y Número"
+                /* placeholder="Calle y Número" */
                 onChange={(e) => handleInput(e)}
             />            
             {errors.address && <label className={styles.textError}>{errors.address}</label>}
@@ -173,7 +166,7 @@ function UpdateShippingAddress({reference, address, CP, telephone, city, country
                 type="number"
                 name="department"
                 value={input.department}
-                placeholder="N° de Dpto - Si vives en casa -> 0"
+                /* placeholder="N° de Dpto - Si vives en casa -> 0" */
                 onChange={(e) => handleInput(e)}
             />
             </label>
@@ -187,7 +180,7 @@ function UpdateShippingAddress({reference, address, CP, telephone, city, country
                 type="text"
                 name="city"
                 value={input.city}
-                placeholder="Ciudad"
+                /* placeholder="Ciudad" */
                 onChange={(e) => handleInput(e)}
             />
             {errors.city && <label className={styles.textError}>{errors.city}</label>}
@@ -202,7 +195,7 @@ function UpdateShippingAddress({reference, address, CP, telephone, city, country
                 type="number"
                 name="CP"
                 value={input.CP}
-                placeholder="Código Postal"
+                /* placeholder="Código Postal" */
                 onChange={(e) => handleInput(e)}
                 />
             {errors.CP && <label className={styles.textError}>{errors.CP}</label>}
@@ -217,7 +210,7 @@ function UpdateShippingAddress({reference, address, CP, telephone, city, country
                 type="text"
                 name="country"
                 value={input.country}
-                placeholder="País"
+                /* placeholder="País" */
                 onChange={(e) => handleInput(e)}
             />
             {errors.country && <label className={styles.textError}>{errors.country}</label>}
@@ -231,7 +224,7 @@ function UpdateShippingAddress({reference, address, CP, telephone, city, country
                 type="tel"
                 name="telephone"
                 value={input.telephone}
-                placeholder="Teléfono"
+                /* placeholder="Teléfono" */
                 onChange={(e) => handleInput(e)}
             />
             </label>            

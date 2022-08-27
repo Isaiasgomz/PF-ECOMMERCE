@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styles from './UserPanel.module.css';
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserDetail } from "../../Actions";
+import { clearAddress, getUserDetail } from "../../Actions";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function UserPanel() {  
@@ -13,10 +13,13 @@ export default function UserPanel() {
     const { user, isAuthenticated, isLoading } = useAuth0();
 
     useEffect(() => {
-        if(user?.email?.length>0)dispatch(getUserDetail(user.email));
-        
+        if(user?.email?.length>0)dispatch(getUserDetail(user.email));    
     }, [user]);
 
+    const clear = (e) => {
+        dispatch(clearAddress());
+    }
+    
     return (
         <React.Fragment>    
             <div className={styles.back}>      
@@ -32,7 +35,7 @@ export default function UserPanel() {
                     <Link to= {"/myOrders"} className={styles.link}> <i className="fa-solid fa-bag-shopping"></i> Mis Órdenes </Link>    
                     <ul className={styles.link}> <i className="fa-solid fa-truck-arrow-right"></i> Direcciones de Envío <i className="fa-solid fa-caret-right"></i>
                             <li className={styles.li}><Link to= {"/userShippingAddress"} className={styles.link}>Añadir Dirección</Link></li> 
-                            <li className={styles.li}><Link to= {"/userAllAddresses"} className={styles.link}> Ver mis Direcciones</Link></li>
+                            <li className={styles.li}><Link to= {"/userAllAddresses"} className={styles.link} onClick={clear}> Ver mis Direcciones</Link></li>
                     </ul>       
                     <Link to= {"/myOrders"} className={styles.link}> <i className="fa-solid fa-bag-shopping"></i> Mis Órdenes</Link>           
                     <Link to= {"/myReviews"} className={styles.link}> <i className="fa-solid fa-gavel"></i> Mis Opiniones</Link>    

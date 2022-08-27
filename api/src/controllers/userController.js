@@ -1,4 +1,5 @@
 const { Op, User, Review, PersonalData, PurchaseOrder , ShoppingCart, ShippingAddress } = require('../db');
+/* const {Op} = require() */
 const { sendEmail } = require('./emailcontrollers');
 const {welcome} = require("../TemplatesHtml/welcome.js");
 
@@ -98,5 +99,22 @@ module.exports = {
         }}catch(e){
             return e;
         }
-    }
+    },
+    /* Actualizacion de direcciones de envío */
+    updateAddress: async function(email, dataModify){
+        const filter = {
+            UserEmail: email,
+            reference: dataModify.reference
+        }
+        try {
+            await ShippingAddress.update(dataModify, {
+                where: {
+                         UserEmail: email ,
+                         reference: dataModify.reference                 
+                    }
+            })
+        } catch (error) {
+            throw error; 
+        }
+    }, 
 }

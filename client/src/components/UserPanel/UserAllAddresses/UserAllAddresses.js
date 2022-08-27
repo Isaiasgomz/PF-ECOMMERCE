@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getAddress } from "../../../Actions/index.js";
+import { getAddress, getUserDetail } from "../../../Actions/index.js";
 import UserPanel from "../UserPanel";
 import UpdateShippingAddress from "../UpdateShippingAddress/UpdateShippingAddress";
 import styles from './UserAllAddresses.module.css';
@@ -13,57 +13,64 @@ function UserAllAddresses() {
     const addresses = useSelector((state) => state.userDetail.ShippingAddresses);
     const address = useSelector((state) => state.ShippingAddress)
     console.log(address)
-
-    const[ref, setRef] = useState("")
+    const [loading, setLoading] = useState(true)
 
     const history = useHistory();
-    
+  /*   
+     useEffect(() => {
+        if(user?.length>0)dispatch(getUserDetail(user));    
+    }, [addresses]); */
 
     function filterAddress(e) {
         e.preventDefault();  
         dispatch(getAddress(e.target.value)); 
-        setRef(e.target.value);
     }
-
-    useEffect(()=> {
-        dispatch(getAddress(ref)); 
-    }, [ref])
-
-    return (
-    <React.Fragment>
-    <UserPanel/>
-    <div className={styles.containerForm}>
-        <h2 className={styles.titleForm}> Mis Direcciones</h2>
-        <div className={styles.searchbar}>
-        <ul name="searchaddress" >
-            {   
-                addresses && addresses.map(a => {
-                    return(
-                        <Link to= {"/updateShippingAddress"} className={styles.link} value={a.reference} >
-                            <button className={styles.link} key={a.id} value={a.reference} onClick={(e) => filterAddress(e)}>        
-                                {a.reference}  
-                            </button>
-                        </Link>                         
-                    )
-                })                
-            }
-        </ul>   
+ 
+    setTimeout((loading) => {
+        setLoading(false)
+    }, 2000);
+    if(loading){
+        return (
+        <div className={styles.loadingCont} >
+            <h2 className={styles.loading}>Loading...</h2>
         </div>
-             {<UpdateShippingAddress
-                        reference= {address.reference}
+        )}
+        else {
+            return (
+            <React.Fragment>
+            <UserPanel/>
+            <div className={styles.containerForm}>
+                <h2 className={styles.titleForm}> Mis Direcciones</h2>
+                <div className={styles.searchbar}>
+                    <p>Seleccione la dirección que quiere ver y/o editar</p>
+                    {   
+                        addresses && addresses.map(a => {
+                            return(
+                                <div>
+                                    <button className={styles.link} key={a.id} value={a.reference} onClick={(e) => filterAddress(e)}>        
+                                        {a.id} {a.reference}  
+                                    </button>  
+                                </div>                     
+                            )
+                        })                
+                    }  
+                </div>
+                    {<UpdateShippingAddress
+                        key= {address?.id}
+/*                         id= {address?.id} */
+                        reference= {address?.reference}
                         UserEmail= {user}
-                        address= {address.address}
-                        CP= {address.CP}
-                        telephone= {address.telephone}
-                        city= {address.city}
-                        country= {address.country}
-                        department= {address.department}
-                    />
-                    
-            }
-    </div>
-    </React.Fragment>
-  );
+                        address= {address?.address}
+                        CP= {address?.CP}
+                        telephone= {address?.telephone}
+                        city= {address?.city}
+                        country= {address?.country}
+                        department= {address?.department}
+                    />                           
+                    }
+            </div>
+            </React.Fragment>
+        )}
 }
 
 export default UserAllAddresses;
