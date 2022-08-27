@@ -4,7 +4,7 @@ import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
 
 
-function Card({name,price,img,calification,localStor,ob,id}) {
+function Card({name,price,img,calification,localStor,ob,id,stock}) {
 
 
   return (
@@ -26,7 +26,10 @@ function Card({name,price,img,calification,localStor,ob,id}) {
             precision={0.5}
             readOnly
           /> */}
-          <div className={style.buttonCarrito}><i onClick={()=>localStor(ob)} className="fa-solid fa-cart-plus"></i></div>
+          {stock<=0?
+          <div className={style.buttonCarrito}><i className="fa-solid fa-cart-plus"></i></div>:
+          <div className={style.buttonCarrito}><i onClick={()=>localStor(ob)} className="fa-solid fa-cart-plus"></i></div>}
+          
           
         </div>
       </div>

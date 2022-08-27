@@ -147,7 +147,7 @@ function Detail(props) {
             </div>
           </div>
           <div className={style.buttonConteiner}>
-            <button onClick={() => addProductCartStorage(product)} className={style.button}>Agregar al carrito</button>
+            <button disabled={product.stock<=0} onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
           </div>
         </div>
       </div>
