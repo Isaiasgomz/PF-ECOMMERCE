@@ -1,6 +1,6 @@
-const { Op, User, Review, PersonalData, PurchaseOrder , ShoppingCart } = require('../db');
+const { Op, User, Review, PersonalData, PurchaseOrder , ShoppingCart, ShippingAddress } = require('../db');
 const { sendEmail } = require('./emailcontrollers');
-const {welcome} = require("../TemplatesHtml/welcome.js")
+const {welcome} = require("../TemplatesHtml/welcome.js");
 
 module.exports = {
     /* Detalle de usuario por params + review + personal data */
@@ -23,13 +23,15 @@ module.exports = {
         try {
             let user = await User.findByPk(email, {
                 include:[{
-                    model:Review
+                    model:Review,
                 },{
-                    model:PersonalData
+                    model:PersonalData,
                 },{
-                    model:PurchaseOrder,
+                    model:ShippingAddress,
                 },{
-                    model:ShoppingCart
+                    model:ShoppingCart,
+                },{
+                   model:PurchaseOrder, 
                 }
             ],            
             } )
@@ -43,7 +45,8 @@ module.exports = {
     },
     /* Creacion de personal data */
     userPdata: async function (email, pData){
-        try{if(!pData.fullname || !pData.address /* || !pData.city || !pData.country */ || !pData.CP ) throw 'Faltan datos obligatorios';
+        console.log(pData)
+        try{if(!pData.fullname || !pData.address || !pData.city || !pData.country || !pData.CP ) throw 'Faltan datos obligatorios';
         else{
             let [newPData, created] = await PersonalData.findOrCreate({
                 where :{ UserEmail: email },
@@ -54,7 +57,6 @@ module.exports = {
                         city:pData.city,
                         country:pData.country,
                         CP:pData.CP,
-                        shippingAddress: pData.shippingAddress,
                         telephone:pData.telephone,
                         department:pData.department,
                         profile: pData.profile,
@@ -77,4 +79,24 @@ module.exports = {
             throw error; 
         }
     }, 
+    /* Creación de direcciones */
+    userAddress: async function(email, addresses) {
+        try        
+            {if(!addresses.reference || !addresses.address || !addresses.city || !addresses.country || !addresses.CP ) throw 'Faltan datos obligatorios';
+            else{
+                let newAddress = await ShippingAddress.create({
+                    UserEmail:email,
+                    reference:addresses.reference,
+                    address:addresses.address,
+                    department:addresses.department,
+                    city:addresses.city,
+                    CP:addresses.CP,
+                    country:addresses.country,
+                    telephone:addresses.telephone,        
+                });
+            return newAddress;
+        }}catch(e){
+            return e;
+        }
+    }
 }

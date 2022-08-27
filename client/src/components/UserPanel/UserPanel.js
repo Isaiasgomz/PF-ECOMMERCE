@@ -26,8 +26,11 @@ export default function UserPanel() {
                         :
                         <Link to= {"/userData"} className={styles.link}> <i className="fa-solid fa-address-card"></i> Datos Personales</Link>
                     }    
-                    <Link to= {"/myOrders"} className={styles.link}> <i className="fa-solid fa-bag-shopping"></i> Mis Órdenes</Link>    
-                    <Link to= {"userShippingAddress"} className={styles.link}> <i className="fa-solid fa-truck-arrow-right"></i> Direcciones de Envío</Link>       
+                    <Link to= {"/myOrders"} className={styles.link}> <i className="fa-solid fa-bag-shopping"></i> Mis Órdenes </Link>    
+                    <ul className={styles.link}> <i className="fa-solid fa-truck-arrow-right"></i> Direcciones de Envío <i className="fa-solid fa-caret-right"></i>
+                            <li className={styles.li}><Link to= {"/userShippingAddress"} className={styles.link}>Añadir Dirección</Link></li> 
+                            <li className={styles.li}><Link to= {"/userAllAddresses"} className={styles.link}> Ver mis Direcciones</Link></li>
+                    </ul>       
                     <Link to= {"/notfound"} className={styles.link}> <i className="fa-solid fa-gavel"></i> Mis Opiniones</Link>    
                     <Link to= {"/notfound"} className={styles.link}> <i className="fa-solid fa-heart"></i> Favoritos</Link>    
                 </div>

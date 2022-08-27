@@ -212,7 +212,7 @@ function UpdateUserData() {
         </div>
         <br/>
         <div className={styles.containerBtn}>           
-            <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Modificar</button>                
+            <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Editar</button>                
             <button className={styles.btn} type='submit' disabled={isDisabled}>Guardar</button>
             <NavLink to={"/userPanel"}>
               <button className={styles.btn}>Cancelar</button>

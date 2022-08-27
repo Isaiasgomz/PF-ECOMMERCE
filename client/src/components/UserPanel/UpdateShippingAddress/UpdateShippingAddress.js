@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { postUserAddress } from "../../../Actions/index.js";
+import { updateUserData, getAddress } from "../../../Actions/index.js";
 import UserPanel from "../UserPanel";
-import styles from './UserShippingAddress.module.css';
+import styles from './UpdateShippingAddress.module.css';
 
 function validate(input) {
   const errors = {};
@@ -11,6 +11,7 @@ function validate(input) {
   if (!input.reference) {
     errors.reference = "La referencia es requerida";
   }
+  
   if (!input.address) {
     errors.address = "La dirección es requerida";
   }
@@ -27,25 +28,53 @@ function validate(input) {
   return errors;
 }
 
-function UserShippingAddress() {
+function UpdateShippingAddress({reference, address, CP, telephone, city, country, department}) {
     const dispatch = useDispatch();
 
-    const user = useSelector((state) => state.user);
+    const user = useSelector((state) => state.user.email);
+    /* const addresses = useSelector((state) => state.userDetail.ShippingAddresses) */
+    
+    /* const [search, setSearch] = useState(""); */
 
     const history = useHistory();
 
-    const [input, setInput] = useState({
-        reference: "",
-        UserEmail: user.email,
-        address: "",
-        CP: "",
-        telephone: "",
-        city: "",
-        country: "",
-        department:""
-    });
+  /*   function  filterAddress(e) {
+        e.preventDefault();  
+        dispatch(getAddress(e.target.value));  
+    } */
 
+/*     const address = useSelector((state) => state.ShippingAddress)
+    console.log(address) */
+
+    const [input, setInput] = useState({
+        reference: reference,
+        UserEmail: user,
+        address: address,
+        CP: CP,
+        telephone: telephone,
+        city: city,
+        country: country,
+        department: department
+    });
+/* 
+    setInput({
+        reference: reference,
+        UserEmail: user,
+        address: address,
+        CP: address.CP,
+        telephone:telephone,
+        city:city,
+        country: country,
+        department:department
+    }) */
+
+    const [isDisabled, setIsDisabled] = useState(true);
+    
     const [errors, setErrors] = useState({});
+
+    const handleClick = () => {
+        setIsDisabled(!isDisabled)
+      };
 
     const handleInput = (e) => {
         setInput({
@@ -63,33 +92,41 @@ function UserShippingAddress() {
     const handleSubmit = (e) => {
         e.preventDefault();
     
-    dispatch(postUserAddress(user.email, input));
-    alert('Su dirección de envío se guardó correctamente')
-    setInput({
-        reference: "",
-        UserEmail: user.email,
-        address: "",
-        CP: "",
-        telephone: "",
-        city: "",
-        country: "",
-        department:""
-    });
+    dispatch(updateUserData(user, input));
+    alert('Su dirección de envío se actualizó correctamente')
+    setIsDisabled(true)
     history.push("/userPanel");
     };
 
   return (
     <React.Fragment>
-    <UserPanel/>
+{/*     <UserPanel/> */}
     <div className={styles.containerForm}>
       <form
         className={styles.productContainer}
         onSubmit={(e) => handleSubmit(e)}>
         <h2 className={styles.titleForm}>Dirección de Envío</h2>
+        {/* <div className={styles.searchbar}>
+        <label className={styles.lab}>Buscar:</label>
+        <select name="searchaddress" onClick={(e) => filterAddress(e)}>
+            {   
+                addresses && addresses.map(a => {
+                    return(
+                        <option key={a.id} value={a.reference}>        
+                        {a.reference}  
+                        </option>
+                    )
+                })                
+            }
+        </select> 
+        </div>
+         */}    
+        
         <div className={styles.name}>
             <label className={styles.lab}>Referencia:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="text"
                 name="reference"
@@ -105,17 +142,19 @@ function UserShippingAddress() {
             <label className={styles.lab}>Correo:
             <input
                 className={styles.formInput}
-                disabled={true}
+                disabled={isDisabled}
+                readOnly={true}
                 type="email"
                 name="UserEmail"
                 value={input.UserEmail}
             /> 
-            </label> 
+            </label>
         </div>    
         <div className={styles.address}>     
             <label className={styles.lab}>Dirección:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="text"
                 name="address"
@@ -130,22 +169,20 @@ function UserShippingAddress() {
             <label>Departamento:
             <input
                 className={styles.formInput}
-                required={true}
+                disabled={isDisabled}
                 type="number"
                 name="department"
                 value={input.department}
                 placeholder="N° de Dpto - Si vives en casa -> 0"
                 onChange={(e) => handleInput(e)}
             />
-            {errors.department && (
-            <label className={styles.textError}>{errors.department}</label>
-            )}
             </label>
         </div>
         <div className={styles.city}>
             <label>Ciudad:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="text"
                 name="city"
@@ -160,6 +197,7 @@ function UserShippingAddress() {
             <label>C.P.:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="number"
                 name="CP"
@@ -174,6 +212,7 @@ function UserShippingAddress() {
             <label>País:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="text"
                 name="country"
@@ -188,24 +227,22 @@ function UserShippingAddress() {
             <label>Teléfono:
             <input
                 className={styles.formInput}
-                required={true}
+                disabled={isDisabled}
                 type="tel"
                 name="telephone"
                 value={input.telephone}
                 placeholder="Teléfono"
                 onChange={(e) => handleInput(e)}
             />
-            {errors.telephone && (
-            <label className={styles.textError}>{errors.telephone}</label>
-            )}
             </label>            
         </div>
         <br/>
-        <div className={styles.containerBtn}>
-          <button className={styles.btn} type='submit'>Guardar</button>
-          <NavLink to={"/userPanel"}>
-            <button className={styles.btn}>Cancelar</button>
-          </NavLink>
+        <div className={styles.containerBtn}>           
+            <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Editar</button>                
+            <button className={styles.btn} type='submit' disabled={isDisabled}>Guardar</button>
+            <NavLink to={"/userPanel"}>
+              <button className={styles.btn}>Cancelar</button>
+            </NavLink>  
         </div>
       </form>
     </div>
@@ -213,5 +250,4 @@ function UserShippingAddress() {
   );
 }
 
-export default UserShippingAddress;
-
+export default UpdateShippingAddress;
