@@ -232,7 +232,14 @@ export function adminProfile(picture){
     }
 }
 
-
+export function modifyStock(data) {
+    return async function (dispatch) {
+        console.log("data en actions: ",data);
+        await axios.put(`http://localhost:3001/products/updateStock`,data)
+        .catch(error => console.log(error.response.data))
+        return dispatch({ type: 'UPDATE_STOCK'})
+    }
+}
 
 
 

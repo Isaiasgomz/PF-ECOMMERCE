@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { PayPalButton } from 'react-paypal-button-v2';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
-import {getNorder, postShoppingCart ,postNorder} from '../../Actions';
+import { postShoppingCart ,postNorder, modifyStock} from '../../Actions';
 // npm i react-paypal-button-v2  react v-- 17
 import { createCont } from "../contexto/contextProvider";
 
@@ -56,9 +56,15 @@ const Payment = () => {
     // dispatch(postShoppingCart()) 
 
 
+  let toModifyStock= y.map(e => {
+    return {
+      
+      "idProduct": e.idProduct,
+      "stock":e.quantity ? (e.stock-e.quantity)  :(e.stock-1),
+    }
+  })
+  console.log("array para modif stock: ",toModifyStock)
   let cartDB = y.map(e => {
-
-    
     return {
       "UserEmail": user.email,
       "ProductIdProduct": e.idProduct,
@@ -82,8 +88,11 @@ console.log("cariito antes del paynment", cartDB);
     })
     console.log("cariito despues del paynment", cartDBfinal);
     dispatch(postShoppingCart(cartDBfinal))
+    /* [{idProduct:idProduct,stock:stock}] */
 
-   
+    dispatch(modifyStock(toModifyStock))
+    localStorage.removeItem(stringLocalStorage)
+    localStorage.setItem(stringLocalStorage,JSON.stringify([]))
 
 
     history.push('/payment/success')
