@@ -111,5 +111,21 @@ module.exports = {
            throw new Error(error); 
         }
     },
+    /* update stock */
+    updateStock:  async function(data){
+        try {
+            console.log("data en back: ",data)
+            for (let i = 0; i < data.length; i++) {
+                await Product.update({stock:data[i].stock}, {
+                    where: {
+                        idProduct: data[i].idProduct
+                    }
+                })
+            }
+             
+        } catch (error) {
+           throw new Error(error); 
+        }
+    }
 }
 

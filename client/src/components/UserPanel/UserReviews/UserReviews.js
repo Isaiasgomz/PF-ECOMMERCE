@@ -24,7 +24,6 @@ function UserReviews() {
                 }
         }
     })
-    console.log("coinciden;: ", productsReview);
 
 setTimeout((loading) => {
     setLoading(false)
