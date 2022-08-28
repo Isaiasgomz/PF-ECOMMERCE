@@ -3,10 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import style from "./ResumeOrderCard.module.css";
 
 const ResumeOrderCard = ({ obj }) => {
-
   return (
     <div className={style.containerCard}>
-      {console.log(obj)}
+      
       <div className={style.containerImg}>
         <div className={style.SupportContainerImg}>
           <img src={obj.image} alt={obj.productName} />

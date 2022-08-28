@@ -1,5 +1,5 @@
 
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { clearAllFilters, getProducts, sortProductByBrand, sortProductByCategory, sortProductByPrice } from '../../Actions'

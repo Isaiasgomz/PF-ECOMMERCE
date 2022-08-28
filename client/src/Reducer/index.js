@@ -12,14 +12,24 @@ const initialState = {
     productsBackUp: [],
     cart: [],
     personalData: {},
-    userDetail: [],
-    
+    userDetail: {},
     adminProducts: [],
     allAdminProducts: [],
     order:{},
     adminProductDetail: {},
     usersAdmin:[],
     shoppingCart: [],
+    ShippingAddress: [],
+
+
+    adminProfile:{},
+    buildPCState: [],
+
+    AllOrders:[],
+    allProductSold:[]
+
+
+
 
 }
 
@@ -161,6 +171,7 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 userDetail: action.payload
             }
+
         case 'UPDATE_PERSONAL_DATA':
             return {
                 ...state
@@ -171,6 +182,69 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 shoppingCart: action.payload
             }
+
+        case 'SHIPPING_ADDRESS':
+            return {
+                ...state
+            }    
+
+        case 'GET_ADDRESS':
+            const address=  state.userDetail.ShippingAddresses.find((sa) => sa.reference === action.payload) 
+            return {
+                ...state,
+                ShippingAddress: address
+            }  
+
+        case 'ADMIN_PROFILE':
+            return{
+                ...state,
+                adminProfile: action.payload
+            }
+
+        case 'BUILD_PC':
+                return{
+                    ...state,
+                    buildPCState: state.buildPCState.concat(action.payload)
+                }
+        case "CLEAR_PC":
+                    return {
+                        ...state,
+                        buildPCState: action.payload
+                    }
+
+
+
+
+
+        
+        case 'GET_ALL_ORDERS':
+            return{
+                ...state,
+                AllOrders: action.payload
+            }
+
+        case 'UPDATE_ORDER':
+            return{
+                ...state,
+            }
+
+        case 'PRODUCT_SOLD' :
+            return{
+                ...state,
+                allProductSold: action.payload
+            }
+
+        case 'UPDATE_SHIPPING_ADDRESS':
+            return {
+                ...state
+            }
+
+        case 'CLEAR_ADDRESS':
+            return {
+                ...state,
+                ShippingAddress: []
+        }
+
 
         default:
             return state

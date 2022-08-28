@@ -2,20 +2,27 @@ import React, { useEffect } from "react";
 import styles from './UserPanel.module.css';
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserDetail } from "../../Actions";
+import { clearAddress, getUserDetail } from "../../Actions";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function UserPanel() {  
     const dispatch = useDispatch();
 
     const emailUser = useSelector(state => state.user.email)
     const personalData = useSelector(state => state.userDetail.PersonalDatum)
+    const { user, isAuthenticated, isLoading } = useAuth0();
 
     useEffect(() => {
-        dispatch(getUserDetail(emailUser));
-    }, [dispatch]);
+        if(user?.email?.length>0)dispatch(getUserDetail(user.email));    
+    }, [user]);
 
+    const clear = (e) => {
+        dispatch(clearAddress());
+    }
+    
     return (
-        <React.Fragment>          
+        <React.Fragment>    
+            <div className={styles.back}>      
                 <div className={styles.sidebar}>
                     <img className={styles.imagen} src= 'https://www.gaceta.unam.mx/wp-content/uploads/2020/10/cflodes.jpg' />
                     <h5 className={styles.profile}>{emailUser} </h5>
@@ -25,12 +32,17 @@ export default function UserPanel() {
                         :
                         <Link to= {"/userData"} className={styles.link}> <i className="fa-solid fa-address-card"></i> Datos Personales</Link>
                     }    
-                    <Link to= {"/myOrders"} className={styles.link}> <i className="fa-solid fa-bag-shopping"></i> Mis Órdenes</Link>    
-                    <Link to= {"/notfound"} className={styles.link}> <i className="fa-solid fa-truck-arrow-right"></i> Direcciones de Envío</Link>       
-                    <Link to= {"/notfound"} className={styles.link}> <i className="fa-solid fa-gavel"></i> Mis Opiniones</Link>    
+                    <Link to= {"/myOrders"} className={styles.link}> <i className="fa-solid fa-bag-shopping"></i> Mis Órdenes </Link>    
+                    <ul className={styles.link}> <i className="fa-solid fa-truck-arrow-right"></i> Direcciones de Envío <i className="fa-solid fa-caret-right"></i>
+                            <li className={styles.li}><Link to= {"/userShippingAddress"} className={styles.link}>Añadir Dirección</Link></li> 
+                            <li className={styles.li}><Link to= {"/userAllAddresses"} className={styles.link} onClick={clear}> Ver mis Direcciones</Link></li>
+                    </ul>       
+                    <Link to= {"/myOrders"} className={styles.link}> <i className="fa-solid fa-bag-shopping"></i> Mis Órdenes</Link>           
+                    <Link to= {"/myReviews"} className={styles.link}> <i className="fa-solid fa-gavel"></i> Mis Opiniones</Link>    
+
                     <Link to= {"/notfound"} className={styles.link}> <i className="fa-solid fa-heart"></i> Favoritos</Link>    
-                   {/*  <UserData/> */}
                 </div>
+            </div>    
         </React.Fragment>      
     )  
 }

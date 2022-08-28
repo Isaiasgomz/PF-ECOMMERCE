@@ -196,7 +196,7 @@ exports.pConfirmation = () =>{
                                                                             <tr>
                                                                                 <td>
                                                                                     <div align="center">
-                                                                                        <a href="https://mercado-los-7-enanitos.vercel.app/"
+                                                                                        <a href="https://pf-ecommerce-iota.vercel.app/"
                                                                                             style="text-decoration:none;display:inline-block;color:#000;background-color:#fff;border-radius:15px;width:auto;border-top:1px solid #fff;font-weight:400;border-right:1px solid #fff;border-bottom:1px solid #fff;border-left:1px solid #fff;padding-top:5px;padding-bottom:5px;font-family:Lato,Tahoma,Verdana,Segoe,sans-serif;text-align:center;word-break:keep-all"><span
                                                                                                 style="padding-left:20px;padding-right:20px;font-size:18px;display:inline-block;letter-spacing:normal"><span
                                                                                                     style="font-size:16px;line-height:2;word-break:break-word"><span
@@ -273,7 +273,7 @@ exports.pConfirmation = () =>{
                                                                                                 <span
                                                                                                     style="font-size:18px"><strong><a
                                                                                                             style="text-decoration:none;color:#91c612"
-                                                                                                            href="https://mercado-los-7-enanitos.vercel.app/"
+                                                                                                            href="https://pf-ecommerce-iota.vercel.app/"
                                                                                                             rel="noopener">pullrequest.ecommerce@gmail.com</a></strong></span><br><span
                                                                                                     style="font-size:18px">(011)99885251</span>
                                                                                             </p>

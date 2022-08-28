@@ -33,7 +33,7 @@ function AdminUsers() {
 
   const users = useSelector(state => state.usersAdmin)
 
-
+  console.log(users)
   const usersBanned = users.filter(user => user.status !== 'Autorizado').length
 
   const handleDisabled = async (id, status)=>{
@@ -105,7 +105,7 @@ return (
     </div>
       {
       
-      users && users.map(item => (
+      users.length >= 1 && users.map(item => (
         <ul >
 
           <div className={style.itemName}>

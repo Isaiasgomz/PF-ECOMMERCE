@@ -11,28 +11,25 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    shippingAddress: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      /* defaultValue: '' */
-    },
     city: {
-      type: DataTypes.STRING/* ,
-      allowNull: false */
+      type: DataTypes.STRING,
+      allowNull: false
     },
     country: {
-      type: DataTypes.STRING/* ,
-      allowNull: false */
+      type: DataTypes.STRING,
+      allowNull: false
     },
     CP: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     telephone: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      defaultValue: "0",
     },
     department: {
       type: DataTypes.STRING,
-      
+      defaultValue: "0",
     },
     profile: {
       type: DataTypes.STRING

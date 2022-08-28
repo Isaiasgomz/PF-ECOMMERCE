@@ -1,4 +1,4 @@
-
+/* 
 .containerForm {
     background-color: #78788c;
     display: grid;
@@ -13,10 +13,11 @@
 .productContainer {
     display: grid; 
     grid-template-columns: 1.5fr 1.5fr; 
-    grid-template-rows: 1fr 0.8fr 0.8fr 0.8fr 0.8fr 1fr; 
+    grid-template-rows: 1fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 1fr; 
     gap: 5px 0px; 
     grid-template-areas: 
         "titleForm titleForm"
+        "searchbar searchbar"
         "name email"
         "address departament"
         "city cp"
@@ -43,6 +44,10 @@
     width: 100%;
     color: black;
     border-bottom: 3px solid #91C612 ;
+}
+
+.searchbar {
+    grid-area: searchbar;
 }
 
 .name { 
@@ -142,3 +147,4 @@
 .textError {
   color: red;
 }
+  */

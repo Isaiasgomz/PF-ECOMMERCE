@@ -1,9 +1,12 @@
- 
+  .back {
+    background-color: #78788c;
+  }
+
   .profile {
     text-align: center;
     font-size: 17px;
     padding-top: 20px;
-    padding-bottom: 40px;
+    padding-bottom: 35px;
     color: aliceblue;;
     padding-top: 160px;
    }
@@ -26,13 +29,13 @@
   .sidebar {
     display: flex;  
     flex-direction: column;
-    height:70.3%;
+    height:77.8%;
     width: 15%;
     position:fixed;
-    top: 21.5%;
+    /* top: 21.5%; */
     left: 0;
-    background-color: #1c396d;
-    padding-top: 20px;
+    background-color: #80a037;
+    padding: 20px 60px 20px 20px;
   }
 
   .link {
@@ -47,6 +50,11 @@
     cursor: pointer;
     transition: 0.3s ease;
     color: #91c612;
+  }
+
+  .li {
+    display: inline;
+    float: left;
   }
 
   

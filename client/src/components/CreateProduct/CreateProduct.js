@@ -1,5 +1,8 @@
+import { FormGroup } from '@mui/material';
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
+import { useHistory } from 'react-router-dom';
 import { postProduct, getAdminProducts } from "../../Actions";
 import styles from './CreateProduct.module.css'
 
@@ -44,7 +47,7 @@ function CreateProduct() {
 
   // const allProducts = useSelector(state => state.adminProducts)
 
- 
+ const history = useHistory();
 
 
   const [product, setProduct] = useState({
@@ -72,6 +75,50 @@ function CreateProduct() {
     }))
   }
 
+  //Cloudinary 
+  const [image, setImage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleImage = async (e) => {
+    const files = e.target.files
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "images")
+    setLoading(true);
+    
+    const res = await axios.post (
+        "https://api.cloudinary.com/v1_1/juliap/image/upload",
+        data
+    )
+
+    console.log(res)
+    setImage(res.data.secure_url)
+    
+    setProduct({
+      ...product,
+      image: res.data.secure_url
+    });
+    setErrors(validate({
+      ...product,
+      image:res.data.secure_url
+    }))
+    setLoading(false)
+}
+//ProductsController
+// const imagesCloudinary = async (image) =>{
+//          const files = image;
+//         const data = new FormData(); //datos que vamos a recibir
+//         data.append("file", files[0]);//los files q recibimos
+//         data.append("upload_preset", "images") //la carpeta donde lo vamos a subir
+
+//     const res = await axios.post (
+//         "https://api.cloudinary.com/v1_1/juliap/image/upload",
+//         data
+//     )
+//     return res.data.secure_url;
+// }
+
+
   const handleSubmit = (e)=>{
     e.preventDefault()
 
@@ -88,12 +135,17 @@ function CreateProduct() {
     brand: '',
     })
 
+    history.push("/adminProducts");
   }
   
   return (
-    <div className={styles.productContainer}>CreateProduct
+    <div className={styles.containerForm}>
+
     
-      <form onSubmit={(e)=> handleSubmit(e)}>
+    <div className={styles.productContainer}>
+    
+      <form className={styles.form} onSubmit={(e)=> handleSubmit(e)}>
+        <h2 className={styles.titleForm} >Crear producto</h2>
         <label htmlFor='productName'>Nombre</label>
         <input className={styles.formInput} type={'text'} placeholder={'Nombre de Producto'}
          name={'productName'} value={product.productName}
@@ -113,9 +165,13 @@ function CreateProduct() {
           )}
 
         <label htmlFor='image'>Imagen</label>
-        <input className={styles.formInput} type={'text'} placeholder={'Imagen'}
-        name={'image'} value={product.image} 
-        onChange={(e)=> handleInput(e)} /><br/>
+        <FormGroup>
+        <input className={styles.formInput} type={'file'} placeholder={'Subir Imagen'}
+        name={'file'} 
+        onChange={(e)=> handleImage(e)} />
+        {loading? (<h8>Cargando imagenes...</h8>) : <img src={image} style={{width: "300px"}}/> }
+        <br/>
+        </FormGroup>
           {
             errors.image && (
               <p className={styles.textError} >{errors.image}</p>
@@ -157,10 +213,14 @@ function CreateProduct() {
               < p className={styles.textError}>{errors.brand}</p>
           )}
 
-        <button type='submit'>Crear</button>
+              <div className={styles.containerBtn}>
+
+        <button className={styles.btn} type='submit'>Crear</button>
+              </div>
       </form>
       
 
+    </div>
     </div>
   )
 }
