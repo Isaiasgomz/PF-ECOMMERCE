@@ -33,6 +33,7 @@ function AdminOrderEdit(props) {
     },[])
 
    const {AllOrders} =  useSelector(state => state)
+   const {user} =  useSelector(state => state)
 
    const oneOrder = AllOrders.filter(item => item.orderN === props.match.params.id)
 
@@ -53,6 +54,7 @@ const [errors, setErrors] = useState({})
     }
 
     const orderUpdate ={
+        email:user.email,
         status: input
     }
 

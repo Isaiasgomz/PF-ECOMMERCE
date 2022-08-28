@@ -1,6 +1,6 @@
-exports.pConfirmation = () =>{
+exports.pInProgress = () =>{
     
-    const pConfirmation =
+    const pInProgress =
     `<html>
     <div class="">
         <div class="aHl"></div>
@@ -92,7 +92,7 @@ exports.pConfirmation = () =>{
                                                                                     <div align="center"
                                                                                         style="line-height:10px"><img
                                                                                             class="m_-4812302678217875376big CToWUd a6T"
-                                                                                            src="https://img.freepik.com/vector-premium/personal-almacen-uniforme-carga-cajas-paquetes-verificacion-productos-almacen-entrega-almacenamiento-logistico-entrega-logistica-industria-transporte-camiones-entrega-comercial_1150-60899.jpg?w=1380"
+                                                                                            src="https://img.freepik.com/free-vector/credit-card-transactions-payment-conditions-purchase-terms-online-banking-buyer-using-e-payment-technology-businesswoman-returning-money-loan_335657-850.jpg?w=740&t=st=1661717605~exp=1661718205~hmac=6b8709f0c583dd58c1c4554050502ec2fd38c862f92d99860748a598eb45e4e8"
                                                                                             style="display:block;height:auto;border:0;width:488px;max-width:100%"
                                                                                             width="488" alt="Image"
                                                                                             title="Image" tabindex="0">
@@ -131,11 +131,8 @@ exports.pConfirmation = () =>{
                                                                                                 style="margin:0;font-size:14px;text-align:center">
                                                                                                 <span
                                                                                                     style="font-size:38px"><strong><span
-                                                                                                            style="font-size:38px">Tu
-                                                                                                            compra <span
-                                                                                                                style="color:#91c612;font-size:38px">ha
-                                                                                                                sido
-                                                                                                                confirmada!</span></span></strong></span>
+                                                                                                            style="font-size:38px">Tu pago esta  <span
+                                                                                                                style="color:#91c612;font-size:38px">en proceso!</span></span></strong></span>
                                                                                             </p>
                                                                                         </div>
                                                                                     </div>
@@ -326,5 +323,5 @@ exports.pConfirmation = () =>{
         </div>
     </div>
     </html>`
-    return pConfirmation;
+    return pInProgress;
 }
