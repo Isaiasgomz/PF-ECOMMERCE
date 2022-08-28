@@ -19,14 +19,14 @@ function AdminProfile() {
             <h4>Mi Perfil</h4>
         <img  className={style.imagen} src={adminProfile.profile} alt='profile'/>
   
-        <li> Nombre: </li>
+        {/* <li> Nombre: </li>
         <li>{adminProfile.fullname.split(' ').slice(0,1).join(' ')}</li>
 
         <li>Apellidos: </li>
         <li>{adminProfile.fullname.split(' ').slice(1).join(' ')} </li>
 
         <li>Email: </li>
-        <li>{adminProfile.email}</li>
+        <li>{adminProfile.email}</li> */}
 
         </ul>
     </div>

@@ -1,12 +1,38 @@
+.containerAll{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerAdminSideBar{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerAdminProfile{
+    width: 20%;
+    height: 100%;
+    border: 2px solid blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .productContainer{
     background-color: #BBEAE4;
     width: 60%;
-    margin-left: 35%;
     border-radius: 5px;
-    height: 90%;
+    height: 400px;
+    border: 2px solid orange;
 }
 
 .infoConteiner{
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -43,104 +69,37 @@
 
 
 
-.items{
-    /* padding-left: 40px;
-    padding-right: 40px; */
-    display: flex;
-    justify-self: flex-start;
-    width: 200px;
-    border-bottom: solid 1px black;
-    height: 60px;
-    
-    
-}
-
-.itemCreated{
-    display: flex;
-    justify-self: flex-start;
-    width:250px;
-    border-bottom: solid 1px black;   
-    height: 60px;
-}
-
-.itemName{
-    display: flex;
-    justify-self: flex-start;
-    width:150px;
-    border-bottom: solid 1px black;
-    height: 60px;  
-}
-
-.itemPrice{
-    display: flex;
-    justify-self: flex-start;
-    width: 100px;
-    border-bottom: solid 1px black;
-    height: 60px;
-}
-
-.itemBrand{
-    display: flex;
-    justify-self: flex-start;
-    width: 250px;
-    border-bottom: solid 1px black;
-    height: 60px;
-}
-
-.itemStock{
-    display: flex;
-    justify-self: flex-start;
-    width: 150px;
-    border-bottom: solid 1px black;
-    height: 60px;
-}
-
-.itemActions{
-    margin-left: 50px;
-    margin-top: 0%;
-}
-
-
 .headerContainer{
-
+    width: 100%;
+    height: 35px;
     background-color: #78BEEC;
-    margin-bottom: 20px;
-    margin-top: 10px;
+    border: 2px solid red;
+    display: flex;
+
 }
 
-
-.headerName{
-    margin-left: 0px;
+.divHeader{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.headerDescription{
-    margin-left: 70px;
-}
-.headerBrand{
-    margin-left: 100px;
-}
-.headerPrice{
-    margin-left: 170px;
+.divHeader p{
+    margin-bottom: 27px;
 }
 
-.headerCount{
-    margin-left: 80px;
+.containerItems{
+    border: 2px solid red;
+    width: 100%;
+    height: auto;
+    display: flex;
 }
 
-.headerDisabled{
-    margin-left: 70px;
-}
-
-.headerID{
-    margin-left: 0px;
-}
-
-.headerCreated{
-    margin-left: 45px;
-}
-
-.headerActions{
-    margin-left: 160px;
+.items{
+    width: 20%;
+    border: 2px solid red;
 }
 
 .buttonCrear{
