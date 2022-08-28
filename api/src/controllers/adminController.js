@@ -1,4 +1,4 @@
-const {User, Product, PersonalData} = require ('../db');
+const {User, Product, PersonalData, ShoppingCart} = require ('../db');
 const { listProducts,productDetail } = require('./productsController');
 
 module.exports = {
@@ -92,6 +92,19 @@ module.exports = {
             throw error;
         }
     },
+
+    getAllOrderCart: async function () {
+        try {
+            let newOrder = await ShoppingCart.findAll({
+                include: [{
+                    model: Product
+                }]
+            });
+            return newOrder;                       
+                    
+        } catch (e) {
+        return e;}
+    }
 
     // addPersonalData: async function (email,data) {
     //     try {

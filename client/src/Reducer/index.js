@@ -23,7 +23,8 @@ const initialState = {
     adminProfile:{},
     buildPCState: [],
 
-    AllOrders:[]
+    AllOrders:[],
+    allProductSold:[]
 
 
 }
@@ -207,6 +208,12 @@ export default function rootReducer(state = initialState, action) {
         case 'UPDATE_ORDER':
             return{
                 ...state,
+            }
+
+        case 'PRODUCT_SOLD' :
+            return{
+                ...state,
+                allProductSold: action.payload
             }
 
         default:

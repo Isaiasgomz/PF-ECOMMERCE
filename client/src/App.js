@@ -37,6 +37,8 @@ import AdminCategory from "./components/AdminCategory/AdminCategory";
 import AdminOrders from "./components/AdminOrders/AdminOrders";
 import AdminOrderEdit from "./components/AdminOrderEdit/AdminOrderEdit";
 import AdminDashboard from "./components/AdminDashboard/Dashboard";
+import DashboardSold from "./components/AdminDashboard/DashboardSold";
+
 
 
 
@@ -83,6 +85,7 @@ function App() {
         <Route exact path={"/adminOrders"} component={AdminOrders} />
         <Route exact path={"/order/update/:id"} component={AdminOrderEdit} />
         <Route exact path={"/adminDashboard"} component={AdminDashboard} />
+        <Route exact path={"/sold"} component={DashboardSold} />
 
       </ContextProvider>
     </div>

@@ -240,6 +240,13 @@ export function getAllOrders(){
     }
 }
 
+export function getAllProductSold(){
+    return async function (dispatch) {
+        const productSold = await axios.get(`http://localhost:3001/admin/allOrders`);
+        return dispatch({ type:'PRODUCT_SOLD', payload: productSold.data })
+    }
+}
+
 export function updateorder(orderN, data) {
     return async function (dispatch) {
         await axios.put(`http://localhost:3001/purchases/update/${orderN}`,data)

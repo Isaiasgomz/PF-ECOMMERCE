@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import {getAdminProducts} from "../../Actions";
 import style from './Dashboard.module.css'
-
+import DashboardSold from "./DashboardSold";
 function AdminDashboard() {
 
     const dispatch = useDispatch()
@@ -37,6 +37,7 @@ function AdminDashboard() {
   return (
     <div className={style.container}>
       <Chart className={style.chart} chartData={data} />
+      <DashboardSold></DashboardSold>
     </div>
   );
 }

@@ -22,7 +22,7 @@ function AdminSideBar() {
                       </div>
                       <div className={style.containerOptions}>
 
-                      <NavLink className={style.li} to={'/'} ><div  className={style.items}><p >DASHBOARD</p></div>  </NavLink>
+                      <NavLink className={style.li} to={'/adminDashboard'} ><div  className={style.items}><p >DASHBOARD</p></div>  </NavLink>
                       <NavLink className={style.li} to={'/adminProducts'} ><div className={style.items}><p>PRODUCTOS</p></div>  </NavLink>
                       <NavLink className={style.li} to={'/adminUsers'} ><div className={style.items}><p>USUARIOS</p></div>  </NavLink>
                       <NavLink className={style.li} to={'/adminOrders'} ><div className={style.items}><p>CATEGORIAS</p></div>  </NavLink>
