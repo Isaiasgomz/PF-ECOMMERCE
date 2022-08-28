@@ -1,6 +1,6 @@
 .containerSideBar{
     background-color: rgb(231, 231, 231);
-    width: 90%;
+    width: 250px;
     height: 70%;
     display: flex;
     flex-direction: column;
