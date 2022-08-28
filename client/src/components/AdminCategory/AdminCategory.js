@@ -1,11 +1,17 @@
-import React from 'react'
-import {useSelector} from 'react-redux'
+import React, { useEffect } from 'react'
+import {useDispatch, useSelector} from 'react-redux'
 import style from './AdminCategory.module.css'
 import {NavLink} from 'react-router-dom'
 import AdminSideBar from "../AdminSideBar/AdminSideBar";
+import {getAdminProducts} from "../../Actions";
 
 
 function AdminCategory() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getAdminProducts());
+  },[])
 
   let allProductsBackup = useSelector((state) => state.allAdminProducts);
   const allCategory = allProductsBackup.map(product => product.category)
@@ -24,7 +30,7 @@ function AdminCategory() {
       </div>
 
     <div className={style.productContainer}>
-    <div className={style.containerInfoTable}>
+      <div className={style.containerInfoTable}>
           <ul className={style.ul}>
             <div className={style.containHeadr}>
               <li className={style.header}>Categoria</li>
@@ -72,7 +78,7 @@ function AdminCategory() {
             </div>
           </NavLink>
         </div>
-    </div>
+      </div>
     </div>
   )
 }

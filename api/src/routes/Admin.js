@@ -1,6 +1,6 @@
 const { Router, request, response } = require("express");
 
-const { updateUser, userByMail, listUsers, listProductsAdmin, productByName, getProductById, usersAdmin ,addPersonalData } = require('../controllers/adminController');
+const { updateUser, userByMail, listUsers, listProductsAdmin, productByName, getProductById, usersAdmin ,addPersonalData, getAllOrderCart } = require('../controllers/adminController');
 
 const router = Router();
 
@@ -18,6 +18,15 @@ router.get('/users', async(req, res) => {
         res.status(404).send(error);
     }
 })
+
+router.get('/allOrders', async (req, res) => {
+    try {
+        let order = await getAllOrderCart();
+        res.status(201).send(order);
+    } catch (error) {
+        res.status(400).send(error)
+    }
+  })
 
 
 // listar todos los prodcutos en conjunato y por nombre

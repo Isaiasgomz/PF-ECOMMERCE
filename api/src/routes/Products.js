@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const router = Router();
-const { productByName, listProducts, productDetail, createProduct, updateProduct, deleteProduct } = require('../controllers/productsController');
+const { productByName, listProducts, productDetail,
+     createProduct, updateProduct, deleteProduct, updateStock } = require('../controllers/productsController');
 
 router.get('/', async (req, res) => {
     const { name } = req.query;
@@ -48,5 +49,13 @@ router.put('/update/:id', async (req,res) =>{
         res.status(404).send(error)
     }
 } )
-
+router.put('/updateStock', async (req,res) =>{
+    try {
+        console.log("req.body en back: ",req.body)
+        await updateStock(req.body)
+        res.status(200).send('Stock actualizado!')
+    } catch (error) {
+        res.status(404).send(error)
+    }
+} )
 module.exports = router;

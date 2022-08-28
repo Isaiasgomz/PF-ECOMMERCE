@@ -7,15 +7,21 @@ import {  getUserDetail } from "../../Actions";
 
 
 function AdminProfile() {
+  //  const disptach = useDispatch()
   
-  const dispatch = useDispatch()
+  // useEffect(() => {
+  //   disptach(getUserDetail)
+  // },[])
+
   const { adminProfile } = useSelector((state) => state);
-  console.log(adminProfile);
+
   
 
   return (
     <div className={style.profileContainer}>
-        <ul className={style.options}>
+      {
+        Object.keys(adminProfile).length  > 0 && (
+          <ul className={style.options}>
             <h4>Mi Perfil</h4>
         <img  className={style.imagen} src={adminProfile.profile} alt='profile'/>
   
@@ -29,6 +35,9 @@ function AdminProfile() {
         <li>{adminProfile.email}</li> */}
 
         </ul>
+        )
+      }
+        
     </div>
   )
 }
