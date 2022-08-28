@@ -35,7 +35,8 @@ router.get('/orders', async (req, res) => {
 router.put('/update/:orderN', async (req,res)=>{
     try {
         const {orderN} = req.params
-       const order = await updateOrder(orderN,req.body)
+        const {email, status} = req.body
+       const order = await updateOrder(email,orderN,status)
        return order 
     } catch (error) {
         res.status(400).send(error)

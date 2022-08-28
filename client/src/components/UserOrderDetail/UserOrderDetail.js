@@ -34,12 +34,6 @@ const UserOrderDetail = (props) => {
     return e.Product
   });
 
-  //Cantidad individual
-  const individualQ = (quantity) => {
-    // console.log("qqqqqq", quantity)
-    const ind = shoppingCart.quantity;
-    return ind;
-  };
 
   if (loading === true) {
     setTimeout(() => {
@@ -67,7 +61,6 @@ const UserOrderDetail = (props) => {
             <h5>Productos: {quantity} </h5>
           </div>
           <div className={style.cards}>
-            {console.log("pppppp", shoppingCart)}
             {products?.map((e, index) => (
               <CardDetail
                 obj={e}

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserDetail } from "../../Actions";
 import MyOrdersCard from "./MyOrdersCard";
 import style from "./MyOrdersCard.module.css";
+import UserPanel from "../UserPanel/UserPanel";
 
 const UserMyOrders = () => {
 
@@ -25,6 +26,7 @@ const UserMyOrders = () => {
  
   return (
     <div className={style.container}>
+      <UserPanel/>
       <div className={style.containerTitle}>
         <h2>Mis ordenes:</h2>
       </div>

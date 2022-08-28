@@ -1,6 +1,6 @@
-exports.pConfirmation = () =>{
+exports.pSended = () =>{
     
-    const pConfirmation =
+    const pSended =
     `<html>
     <div class="">
         <div class="aHl"></div>
@@ -92,7 +92,7 @@ exports.pConfirmation = () =>{
                                                                                     <div align="center"
                                                                                         style="line-height:10px"><img
                                                                                             class="m_-4812302678217875376big CToWUd a6T"
-                                                                                            src="https://img.freepik.com/vector-premium/personal-almacen-uniforme-carga-cajas-paquetes-verificacion-productos-almacen-entrega-almacenamiento-logistico-entrega-logistica-industria-transporte-camiones-entrega-comercial_1150-60899.jpg?w=1380"
+                                                                                            src="https://img.freepik.com/free-vector/delivery-point-abstract-concept-illustration_335657-3937.jpg?w=740&t=st=1661717278~exp=1661717878~hmac=c8ec4a44dbc003f7ebd3c5114e4132e93ddc8e30356ba743492487cb0c25d3a6"
                                                                                             style="display:block;height:auto;border:0;width:488px;max-width:100%"
                                                                                             width="488" alt="Image"
                                                                                             title="Image" tabindex="0">
@@ -132,10 +132,8 @@ exports.pConfirmation = () =>{
                                                                                                 <span
                                                                                                     style="font-size:38px"><strong><span
                                                                                                             style="font-size:38px">Tu
-                                                                                                            compra <span
-                                                                                                                style="color:#91c612;font-size:38px">ha
-                                                                                                                sido
-                                                                                                                confirmada!</span></span></strong></span>
+                                                                                                            pedido<span
+                                                                                                                style="color:#91c612;font-size:38px"> esta en camino!</span></span></strong></span>
                                                                                             </p>
                                                                                         </div>
                                                                                     </div>
@@ -326,5 +324,5 @@ exports.pConfirmation = () =>{
         </div>
     </div>
     </html>`
-    return pConfirmation;
+    return pSended;
 }

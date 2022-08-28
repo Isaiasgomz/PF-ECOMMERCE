@@ -120,7 +120,7 @@ exports.welcome = () =>{
                                                                                                 style="margin:0;font-size:14px;text-align:center">
                                                                                                 <span
                                                                                                     style="font-size:38px"><strong><span
-                                                                                                            style="font-size:38px">Ahora puedes comprar tus perisfericos  <span
+                                                                                                            style="font-size:38px">Ahora puedes comprar tus perifericos  <span
                                                                                                                 style="color:#91c612;font-size:38px"> favoritos o armar tu pc!</span></span></strong></span>
                                                                                             </p>
                                                                                         </div>

@@ -82,7 +82,7 @@ function UpdateUserData() {
 
     setTimeout((loading) => {
       setLoading(false)
-  }, 4000);
+  }, 750);
   if(loading){
     return(
       <div>

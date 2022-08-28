@@ -20,7 +20,7 @@ let transporter = nodemailer.createTransport({
 
 exports.sendEmail = async (email, subject, textHTML) => {
     try {
-        console.log("ebntrio a send email")
+        console.log("entro a send email")
         let info = await transporter.sendMail({
             from: "pullrequest.ecommerce@gmail.com", // sender address
             to: email, // list of receivers
