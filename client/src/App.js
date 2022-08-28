@@ -28,8 +28,11 @@ import UserMyOrders from "./components/UserMyOrders/UserMyOrders";
 import UserData from "./components/UserPanel/UserData/UserData";
 import UpdateUserData from "./components/UserPanel/UpdateUserData/UpdateUserData"
 import UserShippingAddress from "./components/UserPanel/UserShippingAddress/UserShippingAddress"
+import UserAllAddresses from "./components/UserPanel/UserAllAddresses/UserAllAddresses"
+
 import AdminProfile from "./components/AdminProfile/AdminProfile";
 import UserOrderDetail from "./components/UserOrderDetail/UserOrderDetail";
+import UpdateShippingAddress from "./components/UserPanel/UpdateShippingAddress/UpdateShippingAddress";
 import UserReviews from "./components/UserPanel/UserReviews/UserReviews";
 import BrandSelector from "./components/BranchSelector/BrandSelector";
 import ProcessorSelector from "./components/BranchSelector/ProcessorSelector";
@@ -38,7 +41,6 @@ import AdminOrders from "./components/AdminOrders/AdminOrders";
 import AdminOrderEdit from "./components/AdminOrderEdit/AdminOrderEdit";
 import AdminDashboard from "./components/AdminDashboard/Dashboard";
 import DashboardSold from "./components/AdminDashboard/DashboardSold";
-
 
 
 
@@ -69,6 +71,12 @@ function App() {
         <Route exact path={"/userData"} component={UserData} />
         <Route exact path={"/updateUserData"} component={UpdateUserData} />
         <Route exact path={"/userShippingAddress"} component={UserShippingAddress} />
+        <Route exact path={"/userAllAddresses"} component={UserAllAddresses} />
+        <Route exact path={"/updateShippingAddress"} component={UpdateShippingAddress} />
+
+        <Route path={"/myOrders"} component={UserMyOrders} />
+
+
         <Route path={"/myReviews"} component={UserReviews} />
         <Route exact path={"/myOrders"} component={UserMyOrders} />
         <Route exact path={"/orderDetail/:PurchaseOrderOrderN"} component={UserOrderDetail} />

@@ -19,12 +19,16 @@ const initialState = {
     adminProductDetail: {},
     usersAdmin:[],
     shoppingCart: [],
+    ShippingAddress: [],
+
 
     adminProfile:{},
     buildPCState: [],
 
     AllOrders:[],
     allProductSold:[]
+
+
 
 
 }
@@ -167,6 +171,7 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 userDetail: action.payload
             }
+
         case 'UPDATE_PERSONAL_DATA':
             return {
                 ...state
@@ -177,6 +182,18 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 shoppingCart: action.payload
             }
+
+        case 'SHIPPING_ADDRESS':
+            return {
+                ...state
+            }    
+
+        case 'GET_ADDRESS':
+            const address=  state.userDetail.ShippingAddresses.find((sa) => sa.reference === action.payload) 
+            return {
+                ...state,
+                ShippingAddress: address
+            }  
 
         case 'ADMIN_PROFILE':
             return{
@@ -198,6 +215,7 @@ export default function rootReducer(state = initialState, action) {
 
 
 
+
         
         case 'GET_ALL_ORDERS':
             return{
@@ -215,6 +233,18 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 allProductSold: action.payload
             }
+
+        case 'UPDATE_SHIPPING_ADDRESS':
+            return {
+                ...state
+            }
+
+        case 'CLEAR_ADDRESS':
+            return {
+                ...state,
+                ShippingAddress: []
+        }
+
 
         default:
             return state

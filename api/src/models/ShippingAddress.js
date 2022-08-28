@@ -2,8 +2,8 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('PersonalData', {
-    fullname: {
+  sequelize.define('ShippingAddress', {
+    reference: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -11,29 +11,26 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    department: {
+      type: DataTypes.STRING,   
+      defaultValue: "0",   
+    },
     city: {
       type: DataTypes.STRING,
-      allowNull: false
-    },
-    country: {
-      type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     CP: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    country: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     telephone: {
       type: DataTypes.STRING,
-      defaultValue: "0",
+      defaultValue: "0",  
     },
-    department: {
-      type: DataTypes.STRING,
-      defaultValue: "0",
-    },
-    profile: {
-      type: DataTypes.STRING
-    }
   }, {
     timestamps: false
   });

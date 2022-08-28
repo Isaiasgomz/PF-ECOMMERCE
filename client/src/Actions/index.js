@@ -142,7 +142,9 @@ export function postShoppingCart(cart){
     }
 }
 
-
+export function clearAddress(){
+    return { type: "CLEAR_ADDRESS" }
+ }
 
 
 
@@ -212,7 +214,7 @@ export function userDisabled(email,data) {
 export function updateUserData(email, data) {
     return async function (dispatch) {
         await axios.put(`http://localhost:3001/user/${email}/updatePersonalData`,data)
-       /*  .catch(error => console.log(error.response.data)) */
+        .catch(error => console.log(error.response.data))
         return dispatch({ type: 'UPDATE_PERSONAL_DATA'})
     }
 }
@@ -224,6 +226,22 @@ export function postNewAdmin(data) {
         return dispatch({ type: 'NEW_ADMIN' })
     }
 }
+
+export function postUserAddress(email, data) {
+    return async function (dispatch) {
+        await axios.post(`http://localhost:3001/user/${email}/shippingAddress`,data)
+        .catch(error => console.log(error.response.data))
+        return dispatch({ type: 'SHIPPING_ADDRESS'})
+    }
+}
+
+export function getAddress(payload) {
+    return{
+        type: 'GET_ADDRESS',
+        payload
+    }
+}
+
 
 export function adminProfile(picture){
     return{
@@ -265,6 +283,14 @@ export function modifyStock(data) {
     }
 }
 
+export function updateShippingAddress(email, data) {
+    console.log(email, data)
+    return async function (dispatch) {
+        await axios.put(`http://localhost:3001/user/${email}/updateShippingAddress`,data)
+        .catch(error => console.log(error.response.data))
+        return dispatch({ type: 'UPDATE_SHIPPING_ADDRESS'})
+    }
+}
 
 
 
