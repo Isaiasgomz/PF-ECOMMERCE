@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { postUserAddress } from "../../../Actions/index.js";
-import UserPanel from "../UserPanel";
-import styles from './UserShippingAddress.module.css';
+import {clearAddress, getUserDetail, updateShippingAddress} from '../../../Actions';
+import styles from './UpdateShippingAddress.module.css';
 
 function validate(input) {
   const errors = {};
@@ -11,6 +10,7 @@ function validate(input) {
   if (!input.reference) {
     errors.reference = "La referencia es requerida";
   }
+  
   if (!input.address) {
     errors.address = "La dirección es requerida";
   }
@@ -27,25 +27,43 @@ function validate(input) {
   return errors;
 }
 
-function UserShippingAddress() {
+function UpdateShippingAddress({/* id, */ reference, address, CP, telephone, city, country, department}) {
     const dispatch = useDispatch();
 
-    const user = useSelector((state) => state.user);
+    const user = useSelector((state) => state.user.email);
+    /* const addresses = useSelector((state) => state.userDetail.ShippingAddresses) */
+    
+    /* const [search, setSearch] = useState(""); */
 
     const history = useHistory();
 
+  /*   function  filterAddress(e) {
+        e.preventDefault();  
+        dispatch(getAddress(e.target.value));  
+    } */
+
+/*     const address = useSelector((state) => state.ShippingAddress)
+    console.log(address) */
+
     const [input, setInput] = useState({
-        reference: "",
-        UserEmail: user.email,
-        address: "",
-        CP: "",
-        telephone: "",
-        city: "",
-        country: "",
-        department:""
+        /* id: id, */
+        reference: reference,
+        UserEmail: user,
+        address: address,
+        CP: CP,
+        telephone: telephone,
+        city: city,
+        country: country,
+        department: department
     });
 
+    const [isDisabled, setIsDisabled] = useState(true);
+    
     const [errors, setErrors] = useState({});
+
+    const handleClick = () => {
+        setIsDisabled(!isDisabled)
+      };
 
     const handleInput = (e) => {
         setInput({
@@ -60,154 +78,164 @@ function UserShippingAddress() {
         );
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
     
-    dispatch(postUserAddress(user.email, input));
-    alert('Su dirección de envío se guardó correctamente')
-    setInput({
-        reference: "",
-        UserEmail: user.email,
-        address: "",
-        CP: "",
-        telephone: "",
-        city: "",
-        country: "",
-        department:""
-    });
+    await dispatch(updateShippingAddress(user, input));
+    
+    await dispatch(getUserDetail(user));
+
+    alert('Su dirección de envío se actualizó correctamente')
+    dispatch(clearAddress());
+    setIsDisabled(true);
     history.push("/userPanel");
     };
 
   return (
     <React.Fragment>
-    <UserPanel/>
+{/*     <UserPanel/> */}
     <div className={styles.containerForm}>
       <form
         className={styles.productContainer}
         onSubmit={(e) => handleSubmit(e)}>
-        <h2 className={styles.titleForm}>Nueva Dirección de Envío</h2>
-        <div className={styles.contenedor}>
+        <h2 className={styles.titleForm}>Dirección de {reference}</h2>
+        {/* <div className={styles.searchbar}>
+        <label className={styles.lab}>Buscar:</label>
+        <select name="searchaddress" onClick={(e) => filterAddress(e)}>
+            {   
+                addresses && addresses.map(a => {
+                    return(
+                        <option key={a.id} value={a.reference}>        
+                        {a.reference}  
+                        </option>
+                    )
+                })                
+            }
+        </select> 
+        </div>
+         */}    
+        
         <div className={styles.name}>
             <label className={styles.lab}>Referencia:
             <input
                 className={styles.formInput}
-                required={true}
+                disabled={isDisabled}
+                readOnly={true}
                 type="text"
                 name="reference"
                 value={input.reference}
-                placeholder="Por ej.: Mi casa, Lugar de Trabajo..."
-                onChange={(e) => handleInput(e)}
+                /* placeholder="Por ej.: Mi casa, Lugar de Trabajo..." */
+                /* onChange={(e) => handleInput(e)} */
             />                     
             {errors.reference && (
                 <label className={styles.textError}>{errors.reference}</label>)}
             </label>    
         </div>      
-        <div className={styles.name}> 
+        <div className={styles.email}> 
             <label className={styles.lab}>Correo:
             <input
                 className={styles.formInput}
-                disabled={true}
+                disabled={isDisabled}
+                readOnly={true}
                 type="email"
                 name="UserEmail"
                 value={input.UserEmail}
             /> 
-            </label> 
+            </label>
         </div>    
-        <div className={styles.name}>     
+        <div className={styles.address}>     
             <label className={styles.lab}>Dirección:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="text"
                 name="address"
                 value={input.address}
-                placeholder="Calle y Número"
+                /* placeholder="Calle y Número" */
                 onChange={(e) => handleInput(e)}
             />            
             {errors.address && <label className={styles.textError}>{errors.address}</label>}
             </label>
         </div>
-        <div className={styles.name}>
-            <label className={styles.lab}>Departamento:
+        <div className={styles.departament}>
+            <label>Departamento:
             <input
                 className={styles.formInput}
-                required={true}
+                disabled={isDisabled}
                 type="number"
                 name="department"
                 value={input.department}
-                placeholder="N° de Dpto - Si vives en casa -> 0"
+                /* placeholder="N° de Dpto - Si vives en casa -> 0" */
                 onChange={(e) => handleInput(e)}
             />
-            {errors.department && (
-            <label className={styles.textError}>{errors.department}</label>
-            )}
             </label>
         </div>
-        <div className={styles.name}>
-            <label className={styles.lab}>Ciudad:
+        <div className={styles.city}>
+            <label>Ciudad:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="text"
                 name="city"
                 value={input.city}
-                placeholder="Ciudad"
+                /* placeholder="Ciudad" */
                 onChange={(e) => handleInput(e)}
             />
             {errors.city && <label className={styles.textError}>{errors.city}</label>}
             </label>
         </div>
-        <div className={styles.name}>
-            <label className={styles.lab}>C.P.:
+        <div className={styles.cp}>
+            <label>C.P.:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="number"
                 name="CP"
                 value={input.CP}
-                placeholder="Código Postal"
+                /* placeholder="Código Postal" */
                 onChange={(e) => handleInput(e)}
                 />
             {errors.CP && <label className={styles.textError}>{errors.CP}</label>}
             </label>
         </div>
-        <div className={styles.name}>
-            <label className={styles.lab}>País:
+        <div className={styles.country}>
+            <label>País:
             <input
                 className={styles.formInput}
+                disabled={isDisabled}
                 required={true}
                 type="text"
                 name="country"
                 value={input.country}
-                placeholder="País"
+                /* placeholder="País" */
                 onChange={(e) => handleInput(e)}
             />
             {errors.country && <label className={styles.textError}>{errors.country}</label>}
             </label>            
         </div>
-        <div className={styles.name}>
-            <label className={styles.lab}>Teléfono:
+        <div className={styles.tel}>
+            <label>Teléfono:
             <input
                 className={styles.formInput}
-                required={true}
+                disabled={isDisabled}
                 type="tel"
                 name="telephone"
                 value={input.telephone}
-                placeholder="Teléfono"
+                /* placeholder="Teléfono" */
                 onChange={(e) => handleInput(e)}
             />
-            {errors.telephone && (
-            <label className={styles.textError}>{errors.telephone}</label>
-            )}
             </label>            
         </div>
-        </div>
         <br/>
-        <div className={styles.containerBtn}>
-          <button className={styles.btn} type='submit'>Guardar</button>
-          <NavLink to={"/userPanel"}>
-            <button className={styles.btn}>Cancelar</button>
-          </NavLink>
+        <div className={styles.containerBtn}>           
+            <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Editar</button>                
+            <button className={styles.btn} type='submit' disabled={isDisabled}>Guardar</button>
+            <NavLink to={"/userPanel"}>
+              <button className={styles.btn}>Cancelar</button>
+            </NavLink>  
         </div>
       </form>
     </div>
@@ -215,5 +243,4 @@ function UserShippingAddress() {
   );
 }
 
-export default UserShippingAddress;
-
+export default UpdateShippingAddress;

@@ -22,7 +22,7 @@ let obj={}
   }
 
   dispatch(postUser(obj))
-  console.log(user)
+ 
 
 /*   const personalData = {
     fullname: `${user.given_name} ${user.family_name}`,

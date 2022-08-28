@@ -142,7 +142,9 @@ export function postShoppingCart(cart){
     }
 }
 
-
+export function clearAddress(){
+    return { type: "CLEAR_ADDRESS" }
+ }
 
 
 
@@ -212,7 +214,7 @@ export function userDisabled(email,data) {
 export function updateUserData(email, data) {
     return async function (dispatch) {
         await axios.put(`http://localhost:3001/user/${email}/updatePersonalData`,data)
-       /*  .catch(error => console.log(error.response.data)) */
+        .catch(error => console.log(error.response.data))
         return dispatch({ type: 'UPDATE_PERSONAL_DATA'})
     }
 }
@@ -225,6 +227,22 @@ export function postNewAdmin(data) {
     }
 }
 
+export function postUserAddress(email, data) {
+    return async function (dispatch) {
+        await axios.post(`http://localhost:3001/user/${email}/shippingAddress`,data)
+        .catch(error => console.log(error.response.data))
+        return dispatch({ type: 'SHIPPING_ADDRESS'})
+    }
+}
+
+export function getAddress(payload) {
+    return{
+        type: 'GET_ADDRESS',
+        payload
+    }
+}
+
+
 export function adminProfile(picture){
     return{
         type: "ADMIN_PROFILE",
@@ -233,6 +251,46 @@ export function adminProfile(picture){
 }
 
 
+export function getAllOrders(){
+    return async function (dispatch) {
+        const allOrders = await axios.get(`http://localhost:3001/purchases/orders`);
+        return dispatch({ type:'GET_ALL_ORDERS', payload: allOrders.data })
+    }
+}
+
+export function getAllProductSold(){
+    return async function (dispatch) {
+        const productSold = await axios.get(`http://localhost:3001/admin/allOrders`);
+        return dispatch({ type:'PRODUCT_SOLD', payload: productSold.data })
+    }
+}
+
+export function updateorder(orderN, data) {
+    return async function (dispatch) {
+        await axios.put(`http://localhost:3001/purchases/update/${orderN}`,data)
+       /*  .catch(error => console.log(error.response.data)) */
+        return dispatch({ type: 'UPDATE_ORDER'})
+    }
+}
+
+
+export function modifyStock(data) {
+    return async function (dispatch) {
+        console.log("data en actions: ",data);
+        await axios.put(`http://localhost:3001/products/updateStock`,data)
+        .catch(error => console.log(error.response.data))
+        return dispatch({ type: 'UPDATE_STOCK'})
+    }
+}
+
+export function updateShippingAddress(email, data) {
+    console.log(email, data)
+    return async function (dispatch) {
+        await axios.put(`http://localhost:3001/user/${email}/updateShippingAddress`,data)
+        .catch(error => console.log(error.response.data))
+        return dispatch({ type: 'UPDATE_SHIPPING_ADDRESS'})
+    }
+}
 
 
 

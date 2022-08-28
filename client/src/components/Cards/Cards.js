@@ -137,6 +137,7 @@ const Cards = (props) => {
             img={e.image}
             id={e.idProduct}
             key={index}
+            stock={e.stock}
           />
         ))}
       </div>

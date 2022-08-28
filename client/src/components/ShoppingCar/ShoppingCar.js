@@ -1,13 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setCart } from "../../Actions";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import CardCart from "../CardCart/CardCart";
 import style from "./ShoppingCar.module.css";
 import swal from "sweetalert";
 import { createCont } from "../contexto/contextProvider";
 import { useAuth0 } from "@auth0/auth0-react";
-import LoginButton from "../auth0/LogginButton/ButtonLogin";
 
 
 function ShoppingCar() {
