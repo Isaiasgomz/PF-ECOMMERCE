@@ -109,11 +109,11 @@ return (
         <ul >
 
           <div className={style.itemName}>
-            <li > {item.PersonalDatum.fullname.split(' ').slice(0,1).join(' ')}</li>
+            <li > {item.PersonalDatum?.fullname?.split(' ').slice(0,1).join(' ')}</li>
           </div>
 
           <div className={style.items}>
-            <li >  {item.PersonalDatum.fullname.split(' ').slice(1).join(' ')}</li>
+            <li >  {item.PersonalDatum?.fullname?.split(' ').slice(1).join(' ')}</li>
           </div>
 
           <div className={style.itemBrand}>
