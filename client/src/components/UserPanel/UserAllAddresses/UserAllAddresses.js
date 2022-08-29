@@ -5,6 +5,7 @@ import { getAddress, getUserDetail } from "../../../Actions/index.js";
 import UserPanel from "../UserPanel";
 import UpdateShippingAddress from "../UpdateShippingAddress/UpdateShippingAddress";
 import styles from './UserAllAddresses.module.css';
+import loadingLogo from "../../../imagenes/loading.png"
 
 function UserAllAddresses() {
     const dispatch = useDispatch();
@@ -14,6 +15,11 @@ function UserAllAddresses() {
     const address = useSelector((state) => state.ShippingAddress)
     console.log(address)
     const [loading, setLoading] = useState(true)
+    const [dropDown, setDropDown] = useState(false)
+
+    const openCloseDropDown = () =>{
+        setDropDown(!dropDown);
+    }
 
     const history = useHistory();
   /*   
@@ -22,7 +28,8 @@ function UserAllAddresses() {
     }, [addresses]); */
 
     function filterAddress(e) {
-        e.preventDefault();  
+        e.preventDefault();
+        setDropDown(!dropDown);  
         dispatch(getAddress(e.target.value)); 
     }
  
@@ -31,31 +38,39 @@ function UserAllAddresses() {
     }, 2000);
     if(loading){
         return (
-        <div className={styles.loadingCont} >
-            <h2 className={styles.loading}>Loading...</h2>
-        </div>
+            <div className={styles.contenedorLoading}>
+            <div className={styles.loading}>
+              {<img className={styles.img} src={loadingLogo} />}
+            </div>
+          </div>
         )}
         else {
             return (
             <React.Fragment>
             <UserPanel/>
             <div className={styles.containerForm}>
-                <h2 className={styles.titleForm}> Mis Direcciones</h2>
+                <span className={styles.titleForm}> Mis Direcciones</span>
                 <div className={styles.searchbar}>
-                    <p>Seleccione la dirección que quiere ver y/o editar</p>
+                    <span>Seleccione la dirección que quiere ver y/o editar</span>
+                    <div className={styles.buttonCont}>
                     {   
                         addresses && addresses.map(a => {
                             return(
                                 <div>
-                                    <button className={styles.link} key={a.id} value={a.reference} onClick={(e) => filterAddress(e)}>        
+                                    <button className={styles.btn} key={a.id} value={a.reference} onClick={(e) => filterAddress(e)}>        
                                         {a.id} {a.reference}  
                                     </button>  
                                 </div>                     
                             )
                         })                
-                    }  
+                    } 
+                    </div> 
                 </div>
-                    {<UpdateShippingAddress
+                
+                    
+                    
+                    <div>
+                    <UpdateShippingAddress
                         key= {address?.id}
 /*                         id= {address?.id} */
                         reference= {address?.reference}
@@ -66,8 +81,9 @@ function UserAllAddresses() {
                         city= {address?.city}
                         country= {address?.country}
                         department= {address?.department}
-                    />                           
-                    }
+                    />  
+                    </div>                         
+                    
             </div>
             </React.Fragment>
         )}

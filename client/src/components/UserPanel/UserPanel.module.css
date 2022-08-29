@@ -1,5 +1,8 @@
   .back {
+    position: absolute;
+    
     background-color: #78788c;
+    width: 100vw;
   }
 
   .profile {

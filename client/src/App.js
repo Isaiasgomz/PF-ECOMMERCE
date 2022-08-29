@@ -41,7 +41,11 @@ import AdminOrders from "./components/AdminOrders/AdminOrders";
 import AdminOrderEdit from "./components/AdminOrderEdit/AdminOrderEdit";
 import AdminDashboard from "./components/AdminDashboard/Dashboard";
 import DashboardSold from "./components/AdminDashboard/DashboardSold";
+
 import CreateCategory from "./components/AdminCreateCategory/CreateCategory";
+
+import UsertProfile from "./components/UserPanel/UserProfile";
+
 
 
 
@@ -68,7 +72,7 @@ function App() {
         <Route exact path={"/resumeOrder"} component={ResumeOrder} />
         <Route exact path={"/cart"} component={ShoppingCar} />
         <Route exact path={"/payment/success"} component={Success} />
-        <Route exact path={"/userPanel"} component={UserPanel} />
+        <Route exact path={"/userPanel"} component={UsertProfile} />
         <Route exact path={"/userData"} component={UserData} />
         <Route exact path={"/updateUserData"} component={UpdateUserData} />
         <Route exact path={"/userShippingAddress"} component={UserShippingAddress} />
@@ -88,7 +92,7 @@ function App() {
         <Route exact path={"/adminUsers"} component={AdminUsers} />
         <Route exact path={"/signUp"} component={SignUp}  />
         <Route exact path={"/sideBar"} component={AdminSideBar} />
-        <Route path={"/notfound"} component={NotFound} />
+        
         <Route exact path={"/profile"} component={AdminProfile} />
         <Route exact path={"/adminCategory"} component={AdminCategory} />
         <Route exact path={"/adminOrders"} component={AdminOrders} />

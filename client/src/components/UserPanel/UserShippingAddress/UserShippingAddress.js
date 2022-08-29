@@ -101,8 +101,8 @@ function UserShippingAddress() {
             {errors.reference && (
                 <label className={styles.textError}>{errors.reference}</label>)}
             </label>    
-        </div>      
-        <div className={styles.name}> 
+          </div>      
+          <div className={styles.name}> 
             <label className={styles.lab}>Correo:
             <input
                 className={styles.formInput}
@@ -112,8 +112,8 @@ function UserShippingAddress() {
                 value={input.UserEmail}
             /> 
             </label> 
-        </div>    
-        <div className={styles.name}>     
+         </div>    
+         <div className={styles.name}>     
             <label className={styles.lab}>Dirección:
             <input
                 className={styles.formInput}
@@ -126,8 +126,8 @@ function UserShippingAddress() {
             />            
             {errors.address && <label className={styles.textError}>{errors.address}</label>}
             </label>
-        </div>
-        <div className={styles.name}>
+         </div>
+         <div className={styles.name}>
             <label className={styles.lab}>Departamento:
             <input
                 className={styles.formInput}
@@ -142,8 +142,8 @@ function UserShippingAddress() {
             <label className={styles.textError}>{errors.department}</label>
             )}
             </label>
-        </div>
-        <div className={styles.name}>
+         </div>
+         <div className={styles.name}>
             <label className={styles.lab}>Ciudad:
             <input
                 className={styles.formInput}
@@ -156,8 +156,8 @@ function UserShippingAddress() {
             />
             {errors.city && <label className={styles.textError}>{errors.city}</label>}
             </label>
-        </div>
-        <div className={styles.name}>
+         </div>
+         <div className={styles.name}>
             <label className={styles.lab}>C.P.:
             <input
                 className={styles.formInput}
@@ -170,8 +170,8 @@ function UserShippingAddress() {
                 />
             {errors.CP && <label className={styles.textError}>{errors.CP}</label>}
             </label>
-        </div>
-        <div className={styles.name}>
+         </div>
+         <div className={styles.name}>
             <label className={styles.lab}>País:
             <input
                 className={styles.formInput}
@@ -184,8 +184,8 @@ function UserShippingAddress() {
             />
             {errors.country && <label className={styles.textError}>{errors.country}</label>}
             </label>            
-        </div>
-        <div className={styles.name}>
+         </div>
+         <div className={styles.name}>
             <label className={styles.lab}>Teléfono:
             <input
                 className={styles.formInput}
@@ -200,13 +200,14 @@ function UserShippingAddress() {
             <label className={styles.textError}>{errors.telephone}</label>
             )}
             </label>            
-        </div>
+         </div>
         </div>
         <br/>
         <div className={styles.containerBtn}>
+          
           <button className={styles.btn} type='submit'>Guardar</button>
           <NavLink to={"/userPanel"}>
-            <button className={styles.btn}>Cancelar</button>
+            <button className={styles.btnS}>Salir</button>
           </NavLink>
         </div>
       </form>

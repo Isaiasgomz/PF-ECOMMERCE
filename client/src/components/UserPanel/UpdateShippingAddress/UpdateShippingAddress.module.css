@@ -1,30 +1,13 @@
-
 .containerForm {
-    background-color: #78788c;
-    display: grid;
-    grid-auto-columns: 1fr; 
-    grid-template-columns: 0.3fr 1.7fr; 
-    gap: 0px 0px; 
-    grid-template-areas: 
-      "SideBar productContainer"; 
-    justify-items: center;
+    background-color:  #78788c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3.65%;
 }
 
 .productContainer {
-    display: grid; 
-    grid-template-columns: 1.5fr 1.5fr; 
-    grid-template-rows: 1fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 1fr; 
-    gap: 5px 0px; 
-    grid-template-areas: 
-        "titleForm titleForm"
-        "searchbar searchbar"
-        "name email"
-        "address departament"
-        "city cp"
-        "country tel"
-        "containerBtn containerBtn";
-    grid-area: productContainer;
-    width: 900px;
+    
     height: 90%;
     background: #e6e6e6;
     border-radius: 8px;
@@ -35,6 +18,11 @@
     max-width: calc(90vw - 40px);
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
+    background-color: #e6e6e6;
+    width: 900px;
+    padding: 2%;
+    
+    
 }
 
 .titleForm {
@@ -46,44 +34,26 @@
     border-bottom: 3px solid #91C612 ;
 }
 
-.searchbar {
-    grid-area: searchbar;
-}
-
 .name { 
-    grid-area: name; 
+    background-color: transparent;
+    width: 43%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.email {
-    grid-area: email;
-}
-
-.address {
-    grid-area: address;
-}
-
-.departament {
-    grid-area: departament;
-}
-
-.city {
-    grid-area: city;
-}
-
-.cp {
-    grid-area: cp;
-}
-
-.country {
-    grid-area: country;
-}
-
-.tel {
-    grid-area: tel;
+.contenedor{
+  display: flex;
+  flex-wrap: wrap; 
+  height: 350px;
+  justify-content: space-evenly;
+  align-content: space-between;
+  
 }
 
 .formInput {
-  width: 100%;
+  width: 380px;
   padding: 10px;
   padding-top: 10px;
   box-sizing: border-box;
@@ -94,7 +64,8 @@
   font-family: "Montserrat", sans-serif;
   transition: all 0.3s;
   border-bottom: 2px solid #bebed2;
-  text-align: left;
+  text-align: left; 
+  
 }
 
 .formInput:focus {
@@ -110,17 +81,14 @@
 }
 
 .containerBtn {
-    grid-area: containerBtn;
-    display: flex; 
-    justify-content:space-around;
-    display:flow-root;
-    text-align: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 5px;
-}
+  padding: 10px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  }
 
-.btn {
+  .btn {
+    width: 100px;
     float: center;
     padding-top: 10%; 
     padding: 15px 12px;
@@ -135,15 +103,41 @@
     transition: all 0.3s; 
 }
 
+.btnS {
+    width: 100px;
+    float: center;
+    padding-top: 10%; 
+    padding: 15px 12px;
+    margin: 8px 0 0;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 7px;
+    border: none;
+    background: #c61212 ;
+    color: rgb(255, 255, 255);
+    font-weight: 550;
+    cursor: pointer;
+    transition: all 0.3s; 
+}
+.btnS:hover {
+    background: #e22222 ;
+    color: rgb(255, 255, 255);
+  }
+
 .btn:hover {
   background: #a9e222 ;
   color: rgb(255, 255, 255);
 }
 
-.bton:active{
+.btn:active{
   background: #91C612 ;
 }
+
+.btn:disabled{
+    background: gray ;
+    cursor: default;
+  }
 
 .textError {
   color: red;
 }
+
