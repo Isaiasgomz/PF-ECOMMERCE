@@ -41,6 +41,7 @@ import AdminOrders from "./components/AdminOrders/AdminOrders";
 import AdminOrderEdit from "./components/AdminOrderEdit/AdminOrderEdit";
 import AdminDashboard from "./components/AdminDashboard/Dashboard";
 import DashboardSold from "./components/AdminDashboard/DashboardSold";
+import CreateCategory from "./components/AdminCreateCategory/CreateCategory";
 
 
 
@@ -94,6 +95,7 @@ function App() {
         <Route exact path={"/order/update/:id"} component={AdminOrderEdit} />
         <Route exact path={"/adminDashboard"} component={AdminDashboard} />
         <Route exact path={"/sold"} component={DashboardSold} />
+        <Route exact path={"/createCategory"} component={CreateCategory}/>
 
       </ContextProvider>
     </div>
