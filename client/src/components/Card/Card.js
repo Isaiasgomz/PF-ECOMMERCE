@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import style from "./Card.module.css"
 import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
-import toast, { Toaster } from 'react-hot-toast';
 
-function Card({name,price,img,calification,localStor,ob,id,stock,notify}) {
+function Card({name,price,img,calification,localStor,ob,id,stock}) {
   
 
   return (
@@ -28,7 +27,7 @@ function Card({name,price,img,calification,localStor,ob,id,stock,notify}) {
           /> */}
           {stock<=0?
           <div className={style.buttonCarrito}><i  className="fa-solid fa-cart-plus"></i></div>:
-          <div className={style.buttonCarrito} onClick={notify}><i onClick={()=>localStor(ob)} className="fa-solid fa-cart-plus"></i></div>}
+          <div className={style.buttonCarrito}  onClick={()=>localStor(ob)}  ><i className="fa-solid fa-cart-plus"></i></div>}
           {/* <div>
       <button onClick={notify}>Make me a toast</button>
       <Toaster />
