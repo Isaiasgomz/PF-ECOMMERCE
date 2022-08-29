@@ -39,9 +39,8 @@
 /* Carousel Marcas */
 .titleMarcas {
   display: flex;
-  justify-content: left;
-  margin-left: 250px;
-  margin-top: 30px;
+  justify-content: center;
+  margin-top: 35px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 30px;
 }
