@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { clearDetail, createReview, getProductDetail } from "../../Actions";
+import { clearDetail, createReview, getAllOrders, getProductDetail, getUserDetail } from "../../Actions";
 import style from "./Detail.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import Rating from '@material-ui/lab/Rating';
@@ -29,12 +29,42 @@ function Detail(props) {
   const product = useSelector(state => state.productDetail)
   const reviews = useSelector(state => state.reviews)
   const user = useSelector(state => state.user)
+  const userDetail = useSelector(state => state.userDetail)
+  const {AllOrders} = useSelector(state => state)
+
   const [state, setState] = useState({
     qualification: '',
     review: '',
     ProductIdProduct: id,
     email: user.email
   })
+
+
+  let orderandProdId = userDetail?.ShoppingCarts?.map(e=>{
+    return{
+      idProduct:e.ProductIdProduct,
+      pOrder:e.PurchaseOrderOrderN
+    }
+  })
+  let validacion = false;
+
+
+    
+
+
+
+        for (let i = 0; i < orderandProdId?.length; i++) {
+          for (let j = 0; j < AllOrders?.length; j++) {
+            if(orderandProdId[i].pOrder===AllOrders[j].orderN && orderandProdId[i].idProduct===Number(id)){
+              if(AllOrders[j].status === "Completado")
+              validacion = true
+            }
+          }
+        }
+        
+
+  console.log("este es el detalle del arrat: ", validacion)
+ 
   const [errors, setErrors] = useState({})
   /* promedio */
   let promedio = reviews?.map(e => e.qualification)
@@ -52,10 +82,12 @@ function Detail(props) {
 
   useEffect(() => {
     dispatch(getProductDetail(id))
+    dispatch(getAllOrders());
+    dispatch(getUserDetail(user?.email))
     return () => {
       dispatch(clearDetail())
     }
-  }, [dispatch, id])
+  }, [dispatch, id,user])
   /* submit del form */
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -97,15 +129,12 @@ function Detail(props) {
       let filtered = a.filter((e) => e.idProduct === o.idProduct);
       if (filtered.length) return;
       x = [...a, o];
-      console.log(x);
       localStorage.setItem(stringLocalStorage, JSON.stringify(x));
-      console.log(x);
       return;
     }
 
     x = [...x, o];
     localStorage.setItem(stringLocalStorage, JSON.stringify(x));
-    console.log(x);
   };
 
 
@@ -147,7 +176,7 @@ function Detail(props) {
             </div>
           </div>
           <div className={style.buttonConteiner}>
-            <button disabled={product.stock<=0} onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
+            <button disabled={product.stock<=0 || product.disabled===true} onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -171,22 +200,22 @@ function Detail(props) {
             </div>
             <div className={toggleState === 2 ? style.activeContent : style.content}>
               <div className={style.reviewsConteiner}>
-                {reviews?.length === 0 && Object.keys(user).length === 0 ?
+                {reviews?.length === 0 && validacion===false ?
                   <div className={style.noNoConteiner}>
                     <div className={style.noExisteReviews}>
                       <span> No existen opiniones de este producto</span>
                     </div>
                     <div className={style.needLog}>
-                      <span> Necesitas loguearte para dejar comentario</span>
+                      <span> Necesitas comprar este producto para dejar un comentario</span>
                       <hr />
-                      <button className={style.loginButton} onClick={() => loginWithRedirect()}> Login</button>
+                      {/* <button className={style.loginButton} onClick={() => loginWithRedirect()}> Login</button> */}
                     </div>
                   </div> : <div>
-                    {reviews?.length !== 0 && Object.keys(user).length === 0 ?
+                    {reviews?.length !== 0 && validacion===false ?
                       <div>
                         <div className={style.needLog}>
-                          <span className={style.needLogText}> Necesitas loguearte para dejar comentario</span>
-                          <button className={style.loginButton} onClick={() => loginWithRedirect()}>Log In</button>
+                          <span className={style.needLogText}>Necesitas comprar este producto para dejar un comentario</span>
+                          {/* <button className={style.loginButton} onClick={() => loginWithRedirect()}>Log In</button> */}
                         </div>
                         <hr />{reviews?.map(e => {
                           return <div key={e.id} className={style.mapReviewConteiner}>
@@ -202,7 +231,7 @@ function Detail(props) {
                           </div>
                         })}
                       </div> : <div>{
-                        reviews?.length === 0 && Object.keys(user).length !== 0 ?
+                        reviews?.length === 0 && validacion===true ?
                           <div className={style.noRsiUserConteiner}>
                             <div className={style.formConteiner}>
                               <Boxx
