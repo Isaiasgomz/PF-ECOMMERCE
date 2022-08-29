@@ -54,29 +54,56 @@ function ProcessorSelector(props) {
 
   }
 
+  // const addProductCartStorage = (o) => {
+
+  //   let a = JSON.parse(localStorage.getItem(stringLocalStorage));
+      
+  //   let totalArr = a.concat(o)
+    
+  //   let ids = new Set(totalArr?.map(e => e.idProduct))
+  //   const carroComp = [...ids]
+  //   let carroPost = []
+
+  //   for (let i = 0; i < carroComp.length; i++) {
+      
+  //     carroPost.push(productos.find( e => e.idProduct === carroComp[i] ))
+      
+  //   }
+    
+  //   localStorage.setItem(stringLocalStorage, JSON.stringify(carroPost));
+    
+  //   return;
+
+
+  // };
+
   const addProductCartStorage = (o) => {
 
     let a = JSON.parse(localStorage.getItem(stringLocalStorage));
       
-    let totalArr = a.concat(o)
+    if(a && a.length){
+      let totalArr = a?.concat(o)
     
-    let ids = new Set(totalArr?.map(e => e.idProduct))
-    const carroComp = [...ids]
-    let carroPost = []
-
-    for (let i = 0; i < carroComp.length; i++) {
+      let ids = new Set(totalArr?.map(e => e.idProduct))
+      const carroComp = [...ids]
+      let carroPost = []
+  
+      for (let i = 0; i < carroComp.length; i++) {
+        
+        carroPost.push(productos.find( e => e.idProduct === carroComp[i] ))
+        
+      }
       
-      carroPost.push(productos.find( e => e.idProduct === carroComp[i] ))
+      localStorage.setItem(stringLocalStorage, JSON.stringify(carroPost));
       
+      return;
     }
-    
-    localStorage.setItem(stringLocalStorage, JSON.stringify(carroPost));
-    
-    return;
 
+    
+    localStorage.setItem(stringLocalStorage, JSON.stringify(o));
 
   };
-
+  
   return (
     <div className={style.containerTotal}>
 

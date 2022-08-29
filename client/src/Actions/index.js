@@ -58,8 +58,8 @@ export function createReview(obj) {
     return async function () {
         console.log(obj)
         return axios.post(`http://localhost:3001/review`,  obj )
-            .then(data => alert('Review added!'))
-            .catch(error => alert(error.response.data))
+            .then(data => console.log('Review added!'))
+            .catch(error => console.log(error.response.data))
     }
 }
 

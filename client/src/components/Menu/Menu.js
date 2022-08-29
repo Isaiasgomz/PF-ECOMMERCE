@@ -12,11 +12,12 @@ function Menu() {
   
    const dispatch = useDispatch()
 
-   const {setCurrentPage} = useContext(createCont)
+   const {setCurrentPage,trueorfalse,setTrueorFalse} = useContext(createCont)
   const clear = (e) =>{
     
     dispatch(getProducts())
-    
+    setCurrentPage(1);
+    trueorfalse===true?setTrueorFalse(false):setTrueorFalse(true)
   }
 
   useEffect(() => {
@@ -30,6 +31,7 @@ function Menu() {
       dispatch(sortProductByCategory(productSorted))
       dispatch(clearSearch())
       setCurrentPage(1);
+      trueorfalse===true?setTrueorFalse(false):setTrueorFalse(true)
       return
     }
     if(e === "perifericos"){
@@ -40,12 +42,14 @@ function Menu() {
       dispatch(sortProductByCategory(moreSort))
       dispatch(clearSearch())
       setCurrentPage(1);
+      trueorfalse===true?setTrueorFalse(false):setTrueorFalse(true)
       return
     }
     let productSorted = AllProducts?.filter(g => g.category === e)
     dispatch(sortProductByCategory(productSorted))
     dispatch(clearSearch())
     setCurrentPage(1);
+    trueorfalse===true?setTrueorFalse(false):setTrueorFalse(true)
 }
 
 
