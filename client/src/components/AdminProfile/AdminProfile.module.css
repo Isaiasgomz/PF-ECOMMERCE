@@ -1,10 +1,8 @@
 .profileContainer{
     background-color: aqua;
-    width: 13%;
+    width: 80%;
     height: 60%;
-    margin-left: 20%;
-    position: fixed;
-    margin-top: 100px;
+
 }
 
 .imagen {

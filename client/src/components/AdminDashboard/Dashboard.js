@@ -36,8 +36,20 @@ function AdminDashboard() {
 
   return (
     <div className={style.container}>
+    <div className={style.containerTitle}>
+
+    <h2>Estadisticas</h2>
+    </div>
+    <div className={style.containerAllEstadisticas}>
+    <div className={style.containerEstadisticas}>
+
       <Chart className={style.chart} chartData={data} />
+    </div>
+    <div className={style.containerEstadisticas}>
+
       <DashboardSold></DashboardSold>
+    </div>
+    </div>
     </div>
   );
 }

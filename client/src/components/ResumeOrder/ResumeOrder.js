@@ -24,6 +24,10 @@ function ResumeOrder() {
         </Link>
         <h2>Mi orden</h2>
 
+
+        <h3>Precio total: ${total} </h3>
+
+
         <Link to="/order">
           <button className={style.button}>Continuar</button>
         </Link>
@@ -40,9 +44,7 @@ function ResumeOrder() {
           ))}
       </div>
 
-      <div className={style.containerInfo2}>
-        <h3>Precio total: ${total} </h3>
-      </div>
+
     </div>
   );
 }

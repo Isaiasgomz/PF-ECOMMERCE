@@ -13,10 +13,10 @@ function AdminSideBar() {
         {
         Object.keys(adminProfile).length  > 0 && (
             <div className={style.containerSideBar}>
-                    <img className={style.imagen} src={adminProfile.profile} alt={'profile'} />
+                  
 
                       <div className={style.containerTitleInfo}>
-                      {/* <p>img</p> */}
+                      <img className={style.imagen} src={adminProfile.profile} alt={'profile'} />
                       <h3>{adminProfile.fullname}</h3>
                       <h2>Administrador</h2>
                       </div>
