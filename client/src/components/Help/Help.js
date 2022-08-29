@@ -9,7 +9,7 @@ function Help() {
         <div className={style.bienvenido}>
           <img alt="nombre"  src="https://www.venex.com.ar/images/auricularescentrodeayuda.png"></img>
           Bienvenido al <span className={style.ayuda}>CENTRO DE AYUDA</span> de
-          Pull Origin
+          PULL REQUEST
         </div>
         <br />
         <br />
