@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { getShoppingCart } from "../../Actions";
 import CardDetail from "./CardDetail";
 import style from "./CardDetail.module.css";
+import loadingLogo from "../../imagenes/loading.png"
 
 const UserOrderDetail = (props) => {
   const [loading, setLoading] = useState(true);
@@ -41,8 +42,13 @@ const UserOrderDetail = (props) => {
     }, 1500);
 
     return (
-      <div className={style.loadingCont} >
-        <h2 className={style.loading}>Loading...</h2>
+      // <div className={style.loadingCont} >
+      //   <h2 className={style.loading}>Loading...</h2>
+      // </div>
+      <div className={style.contenedorLoading}>
+        <div className={style.loading}>
+          <img className={style.img} src={loadingLogo} />
+        </div>
       </div>
     );
   } else if (loading === false) {
