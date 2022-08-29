@@ -3,6 +3,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {clearAddress, getUserDetail, updateShippingAddress} from '../../../Actions';
 import styles from './UpdateShippingAddress.module.css';
+import swal from "sweetalert";
 
 function validate(input) {
   const errors = {};
@@ -85,7 +86,7 @@ function UpdateShippingAddress({/* id, */ reference, address, CP, telephone, cit
     
     await dispatch(getUserDetail(user));
 
-    alert('Su dirección de envío se actualizó correctamente')
+    swal('Su dirección de envío se actualizó correctamente')
     dispatch(clearAddress());
     setIsDisabled(true);
     history.push("/userPanel");

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { postUserAddress } from "../../../Actions/index.js";
 import UserPanel from "../UserPanel";
 import styles from './UserShippingAddress.module.css';
+import swal from "sweetalert";
 
 function validate(input) {
   const errors = {};
@@ -64,7 +65,7 @@ function UserShippingAddress() {
         e.preventDefault();
     
     dispatch(postUserAddress(user.email, input));
-    alert('Su dirección de envío se guardó correctamente')
+    swal('Su dirección de envío se guardó correctamente')
     setInput({
         reference: "",
         UserEmail: user.email,

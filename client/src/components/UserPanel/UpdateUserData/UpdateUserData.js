@@ -5,6 +5,7 @@ import { updateUserData } from "../../../Actions/index.js";
 import UserPanel from "../UserPanel";
 import styles from './UpdateUserData.module.css';
 import loadingLogo from "../../../imagenes/loading.png"
+import swal from "sweetalert";
 
 function validate(input) {
   const errors = {};
@@ -76,7 +77,7 @@ function UpdateUserData() {
     e.preventDefault();
 
     dispatch(updateUserData(user, input));
-    alert('Sus datos de perfil se actualizaron correctamente')
+    swal('Sus datos de perfil se actualizaron correctamente')
     setIsDisabled(true)
     history.push("/userPanel");
   };

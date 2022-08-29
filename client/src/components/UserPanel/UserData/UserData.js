@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { postUserData } from "../../../Actions/index.js";
 import UserPanel from "../UserPanel";
 import styles from './UserData.module.css';
+import swal from "sweetalert";
 
 function validate(input) {
   const errors = {};
@@ -67,7 +68,7 @@ function UserData() {
         e.preventDefault();
     
     dispatch(postUserData(user.email, input));
-    alert('Sus datos de perfil se guardaron correctamente')
+    swal('Sus datos de perfil se guardaron correctamente')
     setInput({
         fullname: "",
         UserEmail: user.email,
