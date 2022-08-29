@@ -6,6 +6,7 @@ import { createCont } from "../contexto/contextProvider";
 import { FiArrowLeft } from "react-icons/fi";
 import { FiArrowRight } from "react-icons/fi";
 import toast, { Toaster } from 'react-hot-toast';
+import { red } from "@mui/material/colors";
 
 const Cards = (props) => {
   const { Products } = useSelector((state) => state);
@@ -14,6 +15,19 @@ const Cards = (props) => {
     useContext(createCont);
 
   let x = [];
+  const notify = () => toast.success('Agregado al carrito!',{style:{
+    background: "rgb(67, 160, 71)",
+    color:"white"
+  }});
+  const notifyInCart = () => toast('➡️ El producto ya está en el carrito!', {
+    style:{
+      background: "rgb(52,131,250)",
+      color: "white",
+      display: "flex",
+      alignItems:"center",
+      justifyContent: "center"
+    }
+  });
   const addProductCartStorage = (o) => {
     let fromLocalStorage = JSON.parse(localStorage.getItem(stringLocalStorage));
 
@@ -21,10 +35,15 @@ const Cards = (props) => {
       let filtered = fromLocalStorage.filter(
         (e) => e.idProduct === o.idProduct
       );
-      if (filtered.length) return;
+      if (filtered.length) {
+        notifyInCart()
+        return
+      };
+
       x = [...fromLocalStorage, o];
       console.log(x);
       localStorage.setItem(stringLocalStorage, JSON.stringify(x));
+      notify()
       console.log(x);
       return;
     }
@@ -135,7 +154,7 @@ const Cards = (props) => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
-  const notify = () => toast.success('Agregado al carrito!');
+  
   return (
     <div>
       <div className="mapeoCards">
@@ -150,7 +169,6 @@ const Cards = (props) => {
             id={e.idProduct}
             key={index}
             stock={e.stock}
-            notify={notify}
           />
         ))}
       </div>

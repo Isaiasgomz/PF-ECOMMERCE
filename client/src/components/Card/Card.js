@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import style from "./Card.module.css"
 import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
+
 import agotado from "../../imagenes/agotado.png"
 import toast, { Toaster } from 'react-hot-toast';
 
 function Card({ name, price, img, calification, localStor, ob, id, stock, notify }) {
+
 
 
   return (
@@ -41,9 +43,11 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
             precision={0.5}
             readOnly
           /> */}
+
           {stock <= 0 ?
             <div className={style.buttonCarritoAgotado}> <span> <i className="fa-solid fa-cart-plus"></i> </span> </div> :
             <div className={style.buttonCarrito} onClick={notify}><i onClick={() => localStor(ob)} className="fa-solid fa-cart-plus"></i></div>}
+
           {/* <div>
       <button onClick={notify}>Make me a toast</button>
       <Toaster />

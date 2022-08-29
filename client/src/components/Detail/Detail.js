@@ -64,7 +64,6 @@ function Detail(props) {
         
 
   console.log("este es el detalle del arrat: ", validacion)
-  const notify = () => toast.success('Agregado al carrito!');
   const opinar = () => toast.success('Gracias por dejar tu opinion!');
 
   const [errors, setErrors] = useState({})
@@ -123,15 +122,33 @@ function Detail(props) {
 
   // add to cart
   let x = [];
+  const notify = () => toast.success('Agregado al carrito!',{style:{
+    background: "rgb(67, 160, 71)",
+    color:"white"
+  }});
+  const notifyInCart = () => toast('➡️ El producto ya está en el carrito!', {
+    style:{
+      background: "rgb(52,131,250)",
+      color: "white",
+      display: "flex",
+      alignItems:"center",
+      justifyContent: "center"
+    }
+  });
   const addProductCartStorage = (o) => {
     let a = JSON.parse(localStorage.getItem(stringLocalStorage));
     
 
     if (a) {
       let filtered = a.filter((e) => e.idProduct === o.idProduct);
-      if (filtered.length) return;
+      if (filtered.length){
+        notifyInCart()
+        return;
+      } 
+        
       x = [...a, o];
       localStorage.setItem(stringLocalStorage, JSON.stringify(x));
+      notify()
       return;
     }
 
@@ -177,7 +194,7 @@ function Detail(props) {
               <span> <i className="fa-solid fa-truck"></i></span> <span className={style.miniGarantia} > Envio a todo el Pais</span>
             </div>
           </div>
-          <div className={style.buttonConteiner} onClick={notify}>
+          <div className={style.buttonConteiner}>
             <button disabled={product.stock<=0 || product.disabled===true}  onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
           </div>
         </div>
@@ -362,7 +379,7 @@ function Detail(props) {
         </div>
       </div>
       <Toaster
-      position="top-center"
+      position="bottom-left"
       reverseOrder={false}
        />
     </div>
