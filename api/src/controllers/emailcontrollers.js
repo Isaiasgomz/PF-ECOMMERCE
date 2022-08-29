@@ -10,8 +10,8 @@ let transporter = nodemailer.createTransport({
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-        user: "pullrequest.ecommerce@gmail.com", // generated ethereal user
-        pass: "sqkoamrfyescjxak", // generated ethereal password
+        user: "ecommerce.pullrequest@gmail.com", // generated ethereal user
+        pass: "lqwjfsgrdhlynaqw", // generated ethereal password
     },
     tls: {
         rejectUnauthorized: false
@@ -22,7 +22,7 @@ exports.sendEmail = async (email, subject, textHTML) => {
     try {
         console.log("entro a send email")
         let info = await transporter.sendMail({
-            from: "pullrequest.ecommerce@gmail.com", // sender address
+            from: "ecommerce.pullrequest@gmail.com", // sender address
             to: email, // list of receivers
             subject: subject, // Subject line
             html: textHTML,  // html body
