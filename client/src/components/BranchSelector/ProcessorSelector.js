@@ -1,6 +1,5 @@
 import React, { useState,useContext } from 'react'
 import style from "./BrandSelector.module.css"
-import Card from '../Card/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { buildPC } from '../../Actions';
 import ConfirmBuild from './ConfirmBuild';
@@ -13,6 +12,7 @@ import img4 from "../../imagenes/paso4.png"
 import img5 from "../../imagenes/paso5.png"
 import img6 from "../../imagenes/paso6.png"
 import img7 from "../../imagenes/paso7.png"
+import BuildCard from './BuildCard';
 
 
 
@@ -131,7 +131,7 @@ function ProcessorSelector(props) {
 
 
             <button key={index} className={style.buttonBuild} name={e.idProduct} onClick={() => nextCategory(e)}>
-              <Card
+              <BuildCard
                 ob={e}
                 price={e.price}
                 name={e.productName}
