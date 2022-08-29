@@ -9,9 +9,9 @@ function Card({name,price,img,calification,localStor,ob,id,stock,notify}) {
 
   return (
     <div className={style.containerCard}>
-      <div className={style.containerImg}>
-       <img className={style.img} src={img} alt={name} /> 
-      </div>
+      <Link to={`/detail/${id}`}><div className={style.containerImg}>
+        <img className={style.img} src={img} alt={name} /> 
+      </div></Link>
       <div className={style.containerInfo}>
         <div className={style.containerTitle}>
 

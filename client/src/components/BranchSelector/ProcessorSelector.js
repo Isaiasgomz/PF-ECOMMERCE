@@ -141,7 +141,7 @@ function ProcessorSelector(props) {
         </div>
         {buildPCState?.length > 6? 
         <div className={style.button}>
-        <Link to="/cart">
+        <Link className={style.Link} to="/cart">
         <button onClick={() => addProductCartStorage(buildPCState)} className={style.button}> Agregar al carrito</button>
         </Link>
       </div>
