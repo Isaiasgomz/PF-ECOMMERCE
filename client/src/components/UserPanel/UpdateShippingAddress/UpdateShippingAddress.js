@@ -114,6 +114,10 @@ function UpdateShippingAddress({/* id, */ reference, address, CP, telephone, cit
         </select> 
         </div>
          */}    
+
+
+        <div className={styles.contenedor}>
+
         
         <div className={styles.name}>
             <label className={styles.lab}>Referencia:
@@ -131,7 +135,7 @@ function UpdateShippingAddress({/* id, */ reference, address, CP, telephone, cit
                 <label className={styles.textError}>{errors.reference}</label>)}
             </label>    
         </div>      
-        <div className={styles.email}> 
+        <div className={styles.name}> 
             <label className={styles.lab}>Correo:
             <input
                 className={styles.formInput}
@@ -143,7 +147,7 @@ function UpdateShippingAddress({/* id, */ reference, address, CP, telephone, cit
             /> 
             </label>
         </div>    
-        <div className={styles.address}>     
+        <div className={styles.name}>     
             <label className={styles.lab}>Dirección:
             <input
                 className={styles.formInput}
@@ -158,8 +162,8 @@ function UpdateShippingAddress({/* id, */ reference, address, CP, telephone, cit
             {errors.address && <label className={styles.textError}>{errors.address}</label>}
             </label>
         </div>
-        <div className={styles.departament}>
-            <label>Departamento:
+        <div className={styles.name}>
+            <label className={styles.lab} >Departamento:
             <input
                 className={styles.formInput}
                 disabled={isDisabled}
@@ -171,8 +175,8 @@ function UpdateShippingAddress({/* id, */ reference, address, CP, telephone, cit
             />
             </label>
         </div>
-        <div className={styles.city}>
-            <label>Ciudad:
+        <div className={styles.name}>
+            <label className={styles.lab} >Ciudad:
             <input
                 className={styles.formInput}
                 disabled={isDisabled}
@@ -186,8 +190,8 @@ function UpdateShippingAddress({/* id, */ reference, address, CP, telephone, cit
             {errors.city && <label className={styles.textError}>{errors.city}</label>}
             </label>
         </div>
-        <div className={styles.cp}>
-            <label>C.P.:
+        <div className={styles.name}>
+            <label className={styles.lab} >C.P.:
             <input
                 className={styles.formInput}
                 disabled={isDisabled}
@@ -201,8 +205,8 @@ function UpdateShippingAddress({/* id, */ reference, address, CP, telephone, cit
             {errors.CP && <label className={styles.textError}>{errors.CP}</label>}
             </label>
         </div>
-        <div className={styles.country}>
-            <label>País:
+        <div className={styles.name}>
+            <label className={styles.lab} >País:
             <input
                 className={styles.formInput}
                 disabled={isDisabled}
@@ -216,8 +220,8 @@ function UpdateShippingAddress({/* id, */ reference, address, CP, telephone, cit
             {errors.country && <label className={styles.textError}>{errors.country}</label>}
             </label>            
         </div>
-        <div className={styles.tel}>
-            <label>Teléfono:
+        <div className={styles.name}>
+            <label className={styles.lab} >Teléfono:
             <input
                 className={styles.formInput}
                 disabled={isDisabled}
@@ -230,11 +234,15 @@ function UpdateShippingAddress({/* id, */ reference, address, CP, telephone, cit
             </label>            
         </div>
         <br/>
+
+                </div>
+
+
         <div className={styles.containerBtn}>           
             <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Editar</button>                
             <button className={styles.btn} type='submit' disabled={isDisabled}>Guardar</button>
             <NavLink to={"/userPanel"}>
-              <button className={styles.btn}>Cancelar</button>
+              <button className={styles.btnS}>Salir</button>
             </NavLink>  
         </div>
       </form>

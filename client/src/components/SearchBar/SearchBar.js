@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { getProductsByName } from "../../Actions";
+import { createCont } from "../contexto/contextProvider";
 import styles from "../SearchBar/SearchBar.module.css";
 
 function SearchBar() {
   const dispatch = useDispatch();
 
   const [search, setSearch] = useState({ name: "" });
+  const history = useHistory()
+  const {setCurrentPage} = useContext(createCont)
 
   const onChange = (e) => {
     setSearch({
@@ -21,6 +25,9 @@ function SearchBar() {
       return;
     } else {
       dispatch(getProductsByName(search.name));
+      setCurrentPage(1)
+      history.push("/home")
+
     }
     setSearch({ name: "" });
   };
