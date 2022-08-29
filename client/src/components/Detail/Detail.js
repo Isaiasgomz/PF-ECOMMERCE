@@ -10,7 +10,7 @@ import Boxx from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { prom, validate } from "./detailFunctions";
 import { createCont } from "../contexto/contextProvider";
-
+import toast, { Toaster } from 'react-hot-toast';
 
 const StyledRating = withStyles({
   iconFilled: {
@@ -64,7 +64,9 @@ function Detail(props) {
         
 
   console.log("este es el detalle del arrat: ", validacion)
- 
+  const notify = () => toast.success('Agregado al carrito!');
+  const opinar = () => toast.success('Gracias por dejar tu opinion!');
+
   const [errors, setErrors] = useState({})
   /* promedio */
   let promedio = reviews?.map(e => e.qualification)
@@ -175,8 +177,8 @@ function Detail(props) {
               <span> <i className="fa-solid fa-truck"></i></span> <span className={style.miniGarantia} > Envio a todo el Pais</span>
             </div>
           </div>
-          <div className={style.buttonConteiner}>
-            <button disabled={product.stock<=0 || product.disabled===true} onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
+          <div className={style.buttonConteiner} onClick={notify}>
+            <button disabled={product.stock<=0 || product.disabled===true}  onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -273,7 +275,7 @@ function Detail(props) {
                                   errors.review && (
                                     <p className={style.textError} >{errors.review}</p>)
                                 }
-                                <button disabled={Object.keys(errors).length>0 || state.review.length===0 } className={style.loginButton} type="submit">Opinar!</button>
+                                <button disabled={Object.keys(errors).length>0 || state.review.length===0 } className={style.loginButton} type="submit" onClick={opinar}>Opinar!</button>
                               </Boxx>
                               <hr />
                             </div>
@@ -324,7 +326,7 @@ function Detail(props) {
                                   errors.review && (
                                     <p className={style.textError} >{errors.review}</p>)
                                 }
-                                <button disabled={Object.keys(errors).length>0 || state.review.length===0 } className={style.loginButton} type="submit">Opinar!</button>
+                                <button disabled={Object.keys(errors).length>0 || state.review.length===0 } className={style.loginButton} type="submit" onClick={opinar}>Opinar!</button>
                               </Boxx>
                               <hr />
                             </div>
@@ -359,6 +361,10 @@ function Detail(props) {
           </div>
         </div>
       </div>
+      <Toaster
+      position="top-center"
+      reverseOrder={false}
+       />
     </div>
   )
 }

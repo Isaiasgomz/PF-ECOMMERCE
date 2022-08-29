@@ -5,11 +5,12 @@ import "./Cards.css";
 import { createCont } from "../contexto/contextProvider";
 import { FiArrowLeft } from "react-icons/fi";
 import { FiArrowRight } from "react-icons/fi";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Cards = (props) => {
   const { Products } = useSelector((state) => state);
 
-  const { currentPage, setCurrentPage, stringLocalStorage } =
+  const { currentPage, setCurrentPage, stringLocalStorage,trueorfalse,setTrueorFalse  } =
     useContext(createCont);
 
   let x = [];
@@ -48,7 +49,9 @@ const Cards = (props) => {
   useEffect(() => {
     // 👇️ scroll to top on page load
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, []);
+    setMaxPageNumberLimit(5)
+  setMinPageNumberLimit(0)
+  }, [trueorfalse]);
 
   const scroll = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -67,8 +70,10 @@ const Cards = (props) => {
 
   const renderPageNumbers = pages.map((number) => {
     //creamos una funcion para renderizar los numeros
+    console.log("number: ", number, "maxpage: ", maxPageNumberLimit, " min page lmt: ", minPageNumberLimit)
     if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
       //si el numero de paginas es menos al maximo de numero de paginas mas uno y el numero de paginas es mayor  al minimo,
+      
       return (
         <li
           key={number}
@@ -81,11 +86,17 @@ const Cards = (props) => {
           {number}
         </li>
       );
+      
     } else {
+      
       return null; //sino q no haga nada
     }
   });
-
+/*   setTimeout(() => {
+    setMaxPageNumberLimit(5)
+  setMinPageNumberLimit(0)
+  }, 1500); */
+  
   //handle next
 
   const handleNext = () => {
@@ -124,6 +135,7 @@ const Cards = (props) => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
+  const notify = () => toast.success('Agregado al carrito!');
   return (
     <div>
       <div className="mapeoCards">
@@ -138,6 +150,7 @@ const Cards = (props) => {
             id={e.idProduct}
             key={index}
             stock={e.stock}
+            notify={notify}
           />
         ))}
       </div>
@@ -170,6 +183,10 @@ const Cards = (props) => {
           </li>
         </ul>
       </div>
+      <Toaster
+      position="bottom-left"
+      reverseOrder={false}
+       />
     </div>
   );
 };

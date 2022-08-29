@@ -6,6 +6,8 @@ export const createCont = createContext();
 
 function ContextProvider({children}) {
   const [currentPage, setCurrentPage] = useState(1);
+  const [trueorfalse, setTrueorFalse] = useState(true);
+
   const actualUser = useSelector(state=>state.user)
   let stringLocalStorage = actualUser ? actualUser.email : "defaultLocalStorage"
   
@@ -42,7 +44,7 @@ function ContextProvider({children}) {
 
 
   return (
-    <createCont.Provider value={{stringLocalStorage,currentPage ,setCurrentPage,addToCart,productCart,removeToCart}}> {children} </createCont.Provider>
+    <createCont.Provider value={{stringLocalStorage,currentPage ,setCurrentPage,addToCart,productCart,removeToCart,trueorfalse,setTrueorFalse}}> {children} </createCont.Provider>
   )
 }
 

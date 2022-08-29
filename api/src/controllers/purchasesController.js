@@ -77,9 +77,9 @@ module.exports = {
                     await sendEmail(email, "Has recibido tu pedido", pComplete)
                     break;
                 default:
-                    console.log("entro a EN PROCESO");
+                    /* console.log("entro a EN PROCESO");
                     let inProgress = pInProgress()
-                    await sendEmail(email, "Su pedido esta en proceso", inProgress)
+                    await sendEmail(email, "Su pedido esta en proceso", inProgress) */
                     break;
             }
         } catch (error) {

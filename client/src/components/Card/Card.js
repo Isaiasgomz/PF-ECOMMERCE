@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import style from "./Card.module.css"
 import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 
-
-function Card({name,price,img,calification,localStor,ob,id,stock}) {
-
+function Card({name,price,img,calification,localStor,ob,id,stock,notify}) {
+  
 
   return (
     <div className={style.containerCard}>
@@ -27,13 +27,16 @@ function Card({name,price,img,calification,localStor,ob,id,stock}) {
             readOnly
           /> */}
           {stock<=0?
-          <div className={style.buttonCarrito}><i className="fa-solid fa-cart-plus"></i></div>:
-          <div className={style.buttonCarrito}><i onClick={()=>localStor(ob)} className="fa-solid fa-cart-plus"></i></div>}
-          
+          <div className={style.buttonCarrito}><i  className="fa-solid fa-cart-plus"></i></div>:
+          <div className={style.buttonCarrito} onClick={notify}><i onClick={()=>localStor(ob)} className="fa-solid fa-cart-plus"></i></div>}
+          {/* <div>
+      <button onClick={notify}>Make me a toast</button>
+      <Toaster />
+    </div> */}
           
         </div>
       </div>
-    
+      
     </div>
   )
 }

@@ -99,7 +99,7 @@ function AdminProducts() {
           <div className={style.infoProduct}>
             <div className={style.info}>
               <h3>{productsDisabled.length}</h3>
-              <p>Porductos Desabilitados</p>
+              <p>Productos Deshabilitados</p>
             </div>
             <div className={style.icon}>
               <div className={style.containerCheckx}>
@@ -111,7 +111,7 @@ function AdminProducts() {
           <div className={style.infoProduct}>
             <div className={style.info}>
               <h3>{productsDrained.length}</h3>
-              <p>Porductos Agotados</p>
+              <p>Productos Agotados</p>
             </div>
             <div className={style.icon}>
             <div className={style.containerCheckarrow}>
