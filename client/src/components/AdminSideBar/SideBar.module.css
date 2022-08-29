@@ -1,7 +1,7 @@
 .containerSideBar{
     background-color: rgb(231, 231, 231);
     width: 250px;
-    height: 70%;
+    height: 650px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -24,11 +24,7 @@
 }
 
 .imagen {
-    margin-top: 30px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100%;
-    left: 30px;
+    border-radius: 100px;
     border: solid;
     height: 150px;
     width: 160px; 
