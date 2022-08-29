@@ -72,7 +72,7 @@ function AdminCategory() {
         </div>
 
         <div className={style.containerButtonCreate}>
-          <NavLink  className={style.link} to={"/createProduct"}>
+          <NavLink  className={style.link} to={"/createCategory"}>
             <div className={style.containerIcon}>
               <i class="fa-solid fa-plus"></i>
             </div>

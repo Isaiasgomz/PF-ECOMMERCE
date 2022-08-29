@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { postProduct, getAdminProducts } from "../../Actions";
-import styles from './CreateProduct.module.css'
+import styles from './CreateCategory.module.css'
 
 
 function validate (input){
@@ -37,7 +37,7 @@ function validate (input){
 
 
 
-function CreateProduct() {
+function CreateCategory() {
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -63,25 +63,16 @@ function CreateProduct() {
 
   const [errors, setErrors] = useState({})
 
-
   const handleInput = (e) =>{
     setProduct({
       ...product,
       [e.target.name]: e.target.value
     })
-    
 
     setErrors(validate({
       ...product,
       [e.target.name]: e.target.value
     }))
-  }
-
-  const handleSelectCategory = (e) => {
-    setProduct({
-      ...product,
-      category: e.target.value
-    })
   }
 
   //Cloudinary 
@@ -145,19 +136,7 @@ function CreateProduct() {
     })
 
     history.push("/adminProducts");
-
   }
-
-
-  let allProductsBackup = useSelector((state) => state.allAdminProducts);
-  const allCategory = allProductsBackup.map(product => product.category)
-
-  const categoryFilter = []
-  allCategory.forEach(category => {
-    if(!categoryFilter.includes(category)){
-      categoryFilter.push(category)
-    }
-  })
   
   return (
     <div className={styles.containerForm}>
@@ -190,7 +169,7 @@ function CreateProduct() {
         <input className={styles.formInput} type={'file'} placeholder={'Subir Imagen'}
         name={'file'} 
         onChange={(e)=> handleImage(e)} />
-        {loading? (<h8>Cargando imagenes...</h8>) : <img src={image} style={{width: "300px"}} alt={'product'}/> }
+        {loading? (<h8>Cargando imagenes...</h8>) : <img src={image} style={{width: "300px"}}/> }
         <br/>
         </FormGroup>
           {
@@ -216,15 +195,10 @@ function CreateProduct() {
             <p className={styles.textError} >{errors.stock}</p>
         )}
 
-
-         <label>Categoria</label><br/>
-            <select className={styles.formInput} onChange={(e)=> handleSelectCategory(e)}>
-                <option>Seleccionar Categoria</option>
-                { categoryFilter && categoryFilter.map(item => (
-                    <option key={item} 
-                    value={item}>{item}</option>
-                ))}
-          </select>
+        <label htmlFor='category'>Categoria</label>
+        <input className={styles.formInput}  type={'text'} placeholder={'Categoria'} 
+        name={'category'} value={product.category}  
+        onChange={(e)=> handleInput(e)} /><br/>
           {
             errors.category && (
               < p className={styles.textError}>{errors.category}</p>
@@ -251,4 +225,4 @@ function CreateProduct() {
   )
 }
 
-export default CreateProduct
+export default CreateCategory
