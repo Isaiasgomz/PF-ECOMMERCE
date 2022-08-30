@@ -3,18 +3,36 @@ import style from "./Card.module.css"
 import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
 
-function Card({name,price,img,calification,localStor,ob,id,stock}) {
-  
+import agotado from "../../imagenes/agotado.png"
+import toast, { Toaster } from 'react-hot-toast';
+
+function Card({ name, price, img, calification, localStor, ob, id, stock, notify }) {
+
+
 
   return (
     <div className={style.containerCard}>
-      <Link to={`/detail/${id}`}><div className={style.containerImg}>
-        <img className={style.img} src={img} alt={name} /> 
-      </div></Link>
+      {stock <= 0 ? <div className={style.containerAgotado}>
+        <div className={style.contAgotado}>
+          <img className={style.contAgotado} src={agotado} alt="agotado" />
+        </div>
+        <Link to={`/detail/${id}`}>
+          <div className={style.containerImgAgot}>
+            <img className={style.imgAgot} src={img} alt={name} />
+          </div>
+        </Link>
+      </div>
+        :
+        <Link to={`/detail/${id}`}>
+          <div className={style.containerImg}>
+            <img className={style.img} src={img} alt={name} />
+          </div>
+        </Link>}
+
       <div className={style.containerInfo}>
         <div className={style.containerTitle}>
 
-        <Link to={`/detail/${id}`}> <span>{name}</span></Link>
+          <Link to={`/detail/${id}`}> <span>{name}</span></Link>
         </div>
         <div className={style.containerPriceCart}>
           <span>${price}</span>
@@ -25,17 +43,19 @@ function Card({name,price,img,calification,localStor,ob,id,stock}) {
             precision={0.5}
             readOnly
           /> */}
-          {stock<=0?
-          <div className={style.buttonCarrito}><i  className="fa-solid fa-cart-plus"></i></div>:
-          <div className={style.buttonCarrito}  onClick={()=>localStor(ob)}  ><i className="fa-solid fa-cart-plus"></i></div>}
+
+          {stock <= 0 ?
+            <div className={style.buttonCarritoAgotado}> <span> <i className="fa-solid fa-cart-plus"></i> </span> </div> :
+            <div className={style.buttonCarrito} onClick={notify}><i onClick={() => localStor(ob)} className="fa-solid fa-cart-plus"></i></div>}
+
           {/* <div>
       <button onClick={notify}>Make me a toast</button>
       <Toaster />
     </div> */}
-          
+
         </div>
       </div>
-      
+
     </div>
   )
 }
