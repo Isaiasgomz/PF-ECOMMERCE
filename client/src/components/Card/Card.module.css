@@ -46,8 +46,8 @@
 .buttonCarrito{
     background-color: #91C612;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 39px;
+    height: 39px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -146,3 +146,44 @@
     font-size: 20px;
     font-weight: bolder;
 }
+
+.favContainer{
+    border: 2px solid #ff0000;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff0000;
+
+}
+
+.favContainer:hover{
+    cursor: pointer;
+}
+
+.favContainer i {
+    color: white;
+}
+
+.noFavContainer{
+    border: 2px solid #ff0000;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.noFavContainer:hover{
+    cursor: pointer;
+}
+
+.noFavContainer i {
+    color: red;
+}
+
+

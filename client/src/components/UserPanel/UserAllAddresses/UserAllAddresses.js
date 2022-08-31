@@ -13,13 +13,13 @@ function UserAllAddresses() {
     const user = useSelector((state) => state.user.email);
     const addresses = useSelector((state) => state.userDetail.ShippingAddresses);
     const address = useSelector((state) => state.ShippingAddress)
-    console.log(address)
+
     const [loading, setLoading] = useState(true)
-    const [dropDown, setDropDown] = useState(false)
+ /*    const [dropDown, setDropDown] = useState(false)
 
     const openCloseDropDown = () =>{
         setDropDown(!dropDown);
-    }
+    } */
 
     const history = useHistory();
   /*   
@@ -29,7 +29,7 @@ function UserAllAddresses() {
 
     function filterAddress(e) {
         e.preventDefault();
-        setDropDown(!dropDown);  
+ /*        setDropDown(!dropDown);  */ 
         dispatch(getAddress(e.target.value)); 
     }
  
@@ -65,10 +65,7 @@ function UserAllAddresses() {
                         })                
                     } 
                     </div> 
-                </div>
-                
-                    
-                    
+                </div>                       
                     <div>
                     <UpdateShippingAddress
                         key= {address?.id}
@@ -82,8 +79,7 @@ function UserAllAddresses() {
                         country= {address?.country}
                         department= {address?.department}
                     />  
-                    </div>                         
-                    
+                    </div>                                 
             </div>
             </React.Fragment>
         )}

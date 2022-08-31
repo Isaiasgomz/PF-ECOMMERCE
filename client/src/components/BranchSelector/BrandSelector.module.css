@@ -100,6 +100,7 @@
     justify-content: center;
     width: 70%;
     padding-top: 20px;
+    align-items: center;
 }
 
 .button {
@@ -113,12 +114,26 @@
     padding: 6px;
     cursor: pointer;
     transition: 0.3s ease;
+    margin: 10px;
+    padding: 10px;
+    height: 50px;
+    width: 150px;
+    
 }
 
 .button:hover {
     background-color: #5294f7;
 }
 
+.button:disabled{
+    background-color: gray;
+    cursor: default;
+}
+
 .Link{
     text-decoration: none;
+}
+
+.contLink{
+    display: flex;
 }

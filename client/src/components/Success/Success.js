@@ -5,22 +5,22 @@ import useGoogleAddress from '../../hooks/UseMapLocation';
 import { useSelector } from 'react-redux';
 
 const Success = () => {
-    const {address,city,country,fullname} = useSelector(state => state.personalData)
-    
+    const {address, city, country, reference} = useSelector(state => state.dataMap);
+    const {fullname} = useSelector(state => state.userDetail.PersonalDatum);
 
     const location = useGoogleAddress(`${address}, ${city}, ${country}`);
 
-  return (
-    <div className={style.Success}>
-      <div >
-        <h2>{`${fullname}, Gracias por tu compra`}</h2>
-        <span>Tu pedido llegara en 3 dias a tu direccion:</span>
-        <div className={style.SuccessMap}>
-          <Map data={location} />
+    return (
+      <div className={style.Success}>
+        <div >
+          <h2>{`${fullname}, Gracias por tu compra`}</h2>
+          <span>{`Tu pedido llegará en un plazo no mayor a 3 días, a la dirección de ${reference} indicada:`}</span>
+          <div className={style.SuccessMap}>
+            <Map data={location} />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
 }
 
 export default Success;
