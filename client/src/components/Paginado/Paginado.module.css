@@ -17,7 +17,7 @@
 }
 
  .number{
-    width: 28px;
+    width: 48px;
     list-style: none;
     /* border-radius: 8px; */
     color:white;
@@ -29,12 +29,41 @@
 } 
 
 .paginadoA{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 100px;
+    background-color: rgb(44, 44, 44);
+    color: #a4e40f;
+    border: none;
+    transition: 0.5s;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.paginadoA:hover{
+    background-color: #a4e40f;
+    color: rgb(44, 44, 44);
+    cursor: pointer;
+}
+
+.current{
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    background-color: #9fdb13;
+    color: rgb(53, 53, 53);
+    border: none;
+    margin-bottom: 40px;
 }
 
 /* 
