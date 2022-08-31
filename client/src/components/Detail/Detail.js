@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { clearDetail, createReview, getAllOrders, getProductDetail, getUserDetail } from "../../Actions";
 import style from "./Detail.module.css";
-import { useAuth0 } from "@auth0/auth0-react";
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 import { withStyles } from '@material-ui/core/styles';
@@ -11,6 +10,7 @@ import TextField from '@mui/material/TextField';
 import { prom, validate } from "./detailFunctions";
 import { createCont } from "../contexto/contextProvider";
 import toast, { Toaster } from 'react-hot-toast';
+import QandA from "./QandA/QandA";
 
 const StyledRating = withStyles({
   iconFilled: {
@@ -30,6 +30,9 @@ function Detail(props) {
   const reviews = useSelector(state => state.reviews)
   const user = useSelector(state => state.user)
   const userDetail = useSelector(state => state.userDetail)
+  const questions = useSelector(state => state.questions)
+  
+
   const {AllOrders} = useSelector(state => state)
 
   const [state, setState] = useState({
@@ -47,12 +50,6 @@ function Detail(props) {
     }
   })
   let validacion = false;
-
-
-    
-
-
-
         for (let i = 0; i < orderandProdId?.length; i++) {
           for (let j = 0; j < AllOrders?.length; j++) {
             if(orderandProdId[i].pOrder===AllOrders[j].orderN && orderandProdId[i].idProduct===Number(id)){
@@ -62,8 +59,6 @@ function Detail(props) {
           }
         }
         
-
-  console.log("este es el detalle del arrat: ", validacion)
   const opinar = () => toast.success('Gracias por dejar tu opinion!');
 
   const [errors, setErrors] = useState({})
@@ -71,8 +66,6 @@ function Detail(props) {
   let promedio = reviews?.map(e => e.qualification)
   let promResult = prom(promedio);
 
-  /* button login */
-  const { loginWithRedirect } = useAuth0()
   /* tabs */
 
   const [toggleState, setToggleState] = useState(1);
@@ -227,14 +220,12 @@ function Detail(props) {
                     <div className={style.needLog}>
                       <span> Necesitas comprar este producto para dejar un comentario</span>
                       <hr />
-                      {/* <button className={style.loginButton} onClick={() => loginWithRedirect()}> Login</button> */}
                     </div>
                   </div> : <div>
                     {reviews?.length !== 0 && validacion===false ?
                       <div>
                         <div className={style.needLog}>
                           <span className={style.needLogText}>Necesitas comprar este producto para dejar un comentario</span>
-                          {/* <button className={style.loginButton} onClick={() => loginWithRedirect()}>Log In</button> */}
                         </div>
                         <hr />{reviews?.map(e => {
                           return <div key={e.id} className={style.mapReviewConteiner}>
@@ -367,13 +358,11 @@ function Detail(props) {
 
             </div>
             <div className={toggleState === 3 ? style.activeContent : style.content}>
-            <div className={style.descriptionConteiner}>
-                <div className={style.title}>MARCA</div>
-                <div className={style.txt}>{product.brand}</div>
-                <div className={style.title}>TEXTO</div>
-                <div className={style.txt}>{product.description}</div>
-                <span>{product.qualification}</span>
-              </div>
+            <QandA
+            idProduct={id}
+            email={user.email}
+            questions={questions}
+            />
             </div>
           </div>
         </div>

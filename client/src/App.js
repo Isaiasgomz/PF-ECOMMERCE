@@ -45,6 +45,8 @@ import DashboardSold from "./components/AdminDashboard/DashboardSold";
 import CreateCategory from "./components/AdminCreateCategory/CreateCategory";
 
 import UsertProfile from "./components/UserPanel/UserProfile";
+import AdminQuestions from "./components/AdminQuestions/AdminQuestions";
+import AdminAnswer from "./components/AdminAnswer/AdminAnswer";
 
 
 
@@ -100,6 +102,8 @@ function App() {
         <Route exact path={"/adminDashboard"} component={AdminDashboard} />
         <Route exact path={"/sold"} component={DashboardSold} />
         <Route exact path={"/createCategory"} component={CreateCategory}/>
+        <Route exact path={"/adminPreguntas"} component={AdminQuestions}/>
+        <Route exact path={"/adminPreguntas/update/:id"} component={AdminAnswer}/>
 
       </ContextProvider>
     </div>
