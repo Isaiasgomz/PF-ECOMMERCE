@@ -45,6 +45,7 @@ import DashboardSold from "./components/AdminDashboard/DashboardSold";
 import CreateCategory from "./components/AdminCreateCategory/CreateCategory";
 
 import UsertProfile from "./components/UserPanel/UserProfile";
+import Favourites from "./components/Favourites/Favourites";
 
 
 
@@ -78,6 +79,7 @@ function App() {
         <Route exact path={"/userShippingAddress"} component={UserShippingAddress} />
         <Route exact path={"/userAllAddresses"} component={UserAllAddresses} />
         <Route exact path={"/updateShippingAddress"} component={UpdateShippingAddress} />
+        <Route exact path={"/Favourites"} component={Favourites} />
 
         
 

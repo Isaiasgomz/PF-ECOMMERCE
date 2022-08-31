@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { setFavourites } = require("../controllers/FavouritesController");
+const { setFavourites, deleteFavourite } = require("../controllers/FavouritesController");
 const { userDetail, userPdata, updatePersonalData, postUser, userAddress, updateAddress } = require("../controllers/userController");
 const { User } = require('../db');
 const { route } = require("./Review");
@@ -82,6 +82,16 @@ router.post("/addFavourites/:EmailUser/:idProduct", async(req,res)=>{
         const result =  await setFavourites(EmailUser,idProduct)
         console.log(result)
         res.status(200).send(result)
+    } catch (error) {
+        res.status(404).send(error)
+    }
+})
+
+router.delete("/deleteFavourite/:EmailUser/:idProduct", async(req,res)=>{
+    const {EmailUser,idProduct} = req.params
+    try {
+        const result = await deleteFavourite(EmailUser,idProduct)
+        res.send(result)
     } catch (error) {
         res.status(404).send(error)
     }

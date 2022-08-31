@@ -26,7 +26,9 @@ const initialState = {
     buildPCState: [],
 
     AllOrders:[],
-    allProductSold:[]
+    allProductSold:[],
+
+    Favourites:[]
 
 
 
@@ -244,6 +246,21 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 ShippingAddress: []
         }
+        case "USER_FAVOURITE":
+            return{
+                ...state,
+                Favourites: action.payload
+            }
+        case "DELETE_FAVOURITE":
+            let filteredFavourites = state.Favourites
+            filteredFavourites = filteredFavourites.filter(e=>e.idProduct !== action.payload)
+            return{
+                ...state,
+                Favourites: filteredFavourites
+            }
+
+
+            
 
 
         default:

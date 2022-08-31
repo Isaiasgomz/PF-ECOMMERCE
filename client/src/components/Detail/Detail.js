@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { clearDetail, createReview, getAllOrders, getProductDetail, getUserDetail } from "../../Actions";
+import { addFavourite, clearDetail, createReview, deleteFavourite, getAllOrders, getFavourite, getProductDetail, getUserDetail } from "../../Actions";
 import style from "./Detail.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import Rating from '@material-ui/lab/Rating';
@@ -31,6 +31,7 @@ function Detail(props) {
   const user = useSelector(state => state.user)
   const userDetail = useSelector(state => state.userDetail)
   const {AllOrders} = useSelector(state => state)
+
 
   const [state, setState] = useState({
     qualification: '',
@@ -72,7 +73,8 @@ function Detail(props) {
   let promResult = prom(promedio);
 
   /* button login */
-  const { loginWithRedirect } = useAuth0()
+
+  const {user: usuario} = useAuth0()
   /* tabs */
 
   const [toggleState, setToggleState] = useState(1);
@@ -156,9 +158,56 @@ function Detail(props) {
     localStorage.setItem(stringLocalStorage, JSON.stringify(x));
   };
 
+  // favoritos
+
+  const Fav = useSelector(state=> state.Favourites)
+  
+  let filtered = Fav.find(e=> e.idProduct === product.idProduct)
+
+
+  product.fav = product.fav? product.fav : false
+
+  let estilos = product.fav || filtered? style.favContainer : style.noFavContainer
+
+
+  const notifyRemove=  ()=> toast.error("Removido de favoritos!",{style:{
+    background:"red",
+    color:"white"
+}})
+
+const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
+  background: "rgb(67, 160, 71)",
+  color:"white"
+}});
+
+  const HandleChangeFav = async (obj,e)=>
+  {
+    e.preventDefault()
+    console.log("asdnasodnasidoasndioasndioasndoasd40046051060---------")
+  
+    obj.fav = !obj.fav
+
+    if(obj.fav === true){
+      await dispatch(addFavourite(user?.email,obj.idProduct))
+      notifyAddFav()
+      dispatch(getFavourite(user?.email))
+      return
+    }
+    
+    if(obj.fav === false){
+      await dispatch(deleteFavourite(user?.email,obj.idProduct))
+      notifyRemove()
+      dispatch(getFavourite(user?.email))
+
+      return
+    }
+  }
+
+  
 
   return (
     <div className={style.conteiner}>
+    {console.log(product)}
       <div className={style.product}>
         <div className={style.img}>
           <img src={product.image} alt="" />
@@ -194,9 +243,18 @@ function Detail(props) {
               <span> <i className="fa-solid fa-truck"></i></span> <span className={style.miniGarantia} > Envio a todo el Pais</span>
             </div>
           </div>
-          <div className={style.buttonConteiner}>
+          {usuario?(
+            <div className={style.buttonConteiner}>
+            <button disabled={product.stock<=0 || product.disabled===true}  onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
+            <div onClick={(e)=>HandleChangeFav(product,e)} className={estilos}>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          </div>
+          ):(
+            <div >
             <button disabled={product.stock<=0 || product.disabled===true}  onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
           </div>
+          )}
         </div>
       </div>
       <br />

@@ -134,6 +134,11 @@ function ShoppingCar() {
           )}
         </div>
       </div>
+      {
+        productsFromLocalStorage.length &&
+        Array.isArray(productsFromLocalStorage)?
+        <div className={style.containerClearCart}><button className={style.button} onClick={e=>clearCart(e)}>Vaciar carrito</button></div> : ""
+      }
 
       <div className={style.cards}>
         {productsFromLocalStorage.length &&
@@ -150,11 +155,6 @@ function ShoppingCar() {
           <h2>No hay productos!</h2>
         )}
       </div>
-      {
-        productsFromLocalStorage.length &&
-        Array.isArray(productsFromLocalStorage)?
-        <div className={style.containerClearCart}><button className={style.button} onClick={e=>clearCart(e)}>Vaciar carrito</button></div> : ""
-      }
     </div>
   );
 }
