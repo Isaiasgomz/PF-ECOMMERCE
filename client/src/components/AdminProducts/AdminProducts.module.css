@@ -129,22 +129,29 @@
 }
 
 .actionDisable{
-    color: #95d400;
+    color: #000000;
     font-size: 25px;
     
 }
 .actionDisable:hover{
     color: #abf00a;
+    
 }
 
 .actionNotDisable{
-    color: rgb(175, 22, 22);
+    font-size: 20px;
+    color: rgb(0, 0, 0);
 }
 .actionNotDisable:hover{
-    color: rgb(199, 53, 53);
+    color: rgb(211, 27, 27);
 }
+.containerPencil{
+    font-size: 20px;
+}
+
 .containerPencil:hover{
-    color: #7db300;
+    
+    color: #6abb0e;
 }
 
 
@@ -257,7 +264,7 @@
 }
 
 .containercLow{
-    background-color: #cfd358;
+    background-color: #d3d679;
     width: 99%;
     display: flex;
     justify-content: space-between;
@@ -317,8 +324,8 @@
     border: none;
     background-color: #78BEEC;
     color: white;
-    width: 160px;
-    height: 60px;
+    width: 75px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -351,5 +358,11 @@
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
     border: none;
+}
+
+.infoButton{
+    border: none;
+    background-color: transparent;
+    color: transparent;
 }
 

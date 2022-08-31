@@ -80,6 +80,23 @@ function AdminProducts() {
     await dispatch(getAdminProducts());
   };
 
+  const filterProductByIconGreen = () =>{
+     currentProducts = allProducts.filter(e => e.disabled !== true &&  e.stock > 3 )
+     console.log(currentProducts)
+  }
+  const filterProductByIconBlue = () =>{
+     currentProducts = productsDisabled
+     console.log(currentProducts)
+  }
+  const filterProductByIconRed = () =>{
+     currentProducts = productsDrained
+     console.log(currentProducts)
+  }
+  const filterProductByIconYellow = () =>{
+     currentProducts = productsOutOfStock
+     console.log(currentProducts)
+  }
+
   return (
     <div className={style.containerAll}>
       <div className={style.containerAdminSideBar}>
@@ -89,7 +106,7 @@ function AdminProducts() {
         
         <div className={style.infoConteiner}>
 
-
+          <button onClick={filterProductByIconGreen} className={style.infoButton}>
           <div className={style.infoProduct}>
             <div className={style.info}>
               <h3>{allProductsBackup.length - productsDisabled.length}</h3>
@@ -101,7 +118,8 @@ function AdminProducts() {
               </div>
             </div>
           </div>
-
+          </button>
+          <button  onClick={filterProductByIconBlue} className={style.infoButton}>
           <div className={style.infoProduct}>
             <div className={style.info}>
               <h3>{productsDisabled.length}</h3>
@@ -113,7 +131,8 @@ function AdminProducts() {
               </div>
             </div>
           </div>
-
+          </button>
+                  <button onClick={filterProductByIconRed} className={style.infoButton}>
           <div className={style.infoProduct}>
             <div className={style.info}>
               <h3>{productsDrained.length}</h3>
@@ -125,7 +144,8 @@ function AdminProducts() {
             </div>
             </div>
           </div>
-
+          </button>
+                  <button onClick={filterProductByIconYellow} className={style.infoButton}>
           <div className={style.infoProduct}>
             <div className={style.info}>
               <h3>{productsOutOfStock.length}</h3>
@@ -137,7 +157,7 @@ function AdminProducts() {
               </div>
             </div>
           </div>
-
+          </button>
 
         </div>
 
@@ -308,7 +328,8 @@ function AdminProducts() {
                   </div>
                     :
                   <div className={style.actionNotDisable}>
-                  <i onClick={() => handleDisabled(product.idProduct, product.disabled)} className="fa-solid fa-trash-can"></i>
+                    
+                    <i onClick={() => handleDisabled(product.idProduct, product.disabled)} className="fa-solid fa-trash"></i>
                   </div>
                   }
 
@@ -321,7 +342,7 @@ function AdminProducts() {
         <div className={style.containerButtonCreate}>
           <NavLink  className={style.link} to={"/createProduct"}>
             <div className={style.containerIcon}>
-              <span>Agregar Producto</span>
+            <i class="fa-solid fa-plus"></i>
               
             </div>
           </NavLink>
