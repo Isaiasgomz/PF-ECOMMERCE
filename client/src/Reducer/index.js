@@ -30,7 +30,12 @@ const initialState = {
     allProductSold: [],
     allQuestions:[],
 
+
+    Favourites:[],
+
+
     buildPerifState: []
+
 
 
 
@@ -248,7 +253,21 @@ export default function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 ShippingAddress: []
+
+        }
+        case "USER_FAVOURITE":
+            return{
+                ...state,
+                Favourites: action.payload
             }
+        case "DELETE_FAVOURITE":
+            let filteredFavourites = state.Favourites
+            filteredFavourites = filteredFavourites.filter(e=>e.idProduct !== action.payload)
+            return{
+                ...state,
+                Favourites: filteredFavourites
+            }
+
 
         case 'GET_ALL_QUESTIONS':
             return {

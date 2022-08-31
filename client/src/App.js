@@ -42,12 +42,16 @@ import AdminDashboard from "./components/AdminDashboard/Dashboard";
 import DashboardSold from "./components/AdminDashboard/DashboardSold";
 import CreateCategory from "./components/AdminCreateCategory/CreateCategory";
 import UsertProfile from "./components/UserPanel/UserProfile";
+
+import Favourites from "./components/Favourites/Favourites";
+
 import OrderInfo from "./components/OrderInfo/OrderInfo";
 
 import AdminQuestions from "./components/AdminQuestions/AdminQuestions";
 import AdminAnswer from "./components/AdminAnswer/AdminAnswer";
 
 import BuildPerif from "./components/BranchSelectorPerif/BuildPerif";
+
 
 
 
@@ -82,7 +86,13 @@ function App() {
         <Route exact path={"/userShippingAddress"} component={UserShippingAddress} />
         <Route exact path={"/userAllAddresses"} component={UserAllAddresses} />
         <Route exact path={"/updateShippingAddress"} component={UpdateShippingAddress} />
+
+        <Route exact path={"/Favourites"} component={Favourites} />
+
+        
+
         <Route exact path={"/orderInfo"} component={OrderInfo} />
+
 
 
         <Route path={"/myReviews"} component={UserReviews} />

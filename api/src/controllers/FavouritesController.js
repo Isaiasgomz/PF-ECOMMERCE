@@ -14,5 +14,17 @@ module.exports = {
         await instance.addProducts(id)
 
         return (instance)
+    },
+    deleteFavourite: async(idUser,idProduct)=>{
+        if(!idUser || !idProduct) return "Faltan datos!"
+        
+        const id = Number(idProduct)
+
+        const user = await User.findByPk(idUser)
+
+        await user.removeProducts(id)
+
+        return user
+
     }
     }
