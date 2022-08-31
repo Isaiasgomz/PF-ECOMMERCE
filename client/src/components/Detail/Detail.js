@@ -177,11 +177,13 @@ function Detail(props) {
   // favoritos
 
   const Fav = useSelector(state=> state.Favourites)
+
+  let mapFav = Fav.map(e=>e.idProduct)
   
-  let filtered = Fav.find(e=> e.idProduct === product.idProduct)
+  let filtered = mapFav.includes(product.idProduct)
 
 
-  product.fav = product.fav? product.fav : false
+  product.fav = filtered ? true : false
 
   let estilos = product.fav || filtered? style.favContainer : style.noFavContainer
 
@@ -223,7 +225,7 @@ const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
 
   return (
     <div className={style.conteiner}>
-    {console.log(product)}
+    {console.log("asdasdasd-------------asdasdasdasd-adasdasdad",product)}
       <div className={style.product}>
         {product.stock <= 0 ?
           <div className={style.img}>

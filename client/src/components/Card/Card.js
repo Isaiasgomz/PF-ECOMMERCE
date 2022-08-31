@@ -18,18 +18,25 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
   const { user } = useAuth0();
 
   const Fav = useSelector(state=> state.Favourites)
+
+  let mapFav = Fav.map(e=>e.idProduct)
   
-  let filtered = Fav.filter(e=> e.idProduct === ob.idProduct)
+  let filtered = mapFav.includes(ob.idProduct)
+
+
+  ob.fav = filtered ? true : false
+
+  let estilos = ob.fav || filtered? style.favContainer : style.noFavContainer
+
 
 
 
   const HandleChangeFav = async (obj,e)=>
   {
     e.preventDefault()
-    console.log("asdnasodnasidoasndioasndioasndoasd40046051060---------")
-    setFlagFav(!flagFav)
+
   
-    obj.fav = flagFav
+    obj.fav = !obj.fav
 
     if(obj.fav === true){
       await dispatch(addFavourite(user?.email,ob.idProduct))
@@ -87,7 +94,7 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
             precision={0.5}
             readOnly
           /> */}
-          {user && <div onClick={(e)=>HandleChangeFav(ob,e)} className={ob.fav || filtered.length ? style.favContainer : style.noFavContainer}>
+          {user && <div onClick={(e)=>HandleChangeFav(ob,e)} className={estilos}>
             <i class="fa-solid fa-heart"></i>
           </div>}
 
