@@ -42,12 +42,12 @@ import AdminDashboard from "./components/AdminDashboard/Dashboard";
 import DashboardSold from "./components/AdminDashboard/DashboardSold";
 import CreateCategory from "./components/AdminCreateCategory/CreateCategory";
 import UsertProfile from "./components/UserPanel/UserProfile";
-<<<<<<< HEAD
+
 import AdminQuestions from "./components/AdminQuestions/AdminQuestions";
 import AdminAnswer from "./components/AdminAnswer/AdminAnswer";
-=======
+
 import BuildPerif from "./components/BranchSelectorPerif/BuildPerif";
->>>>>>> 0a1f16b43f1069a568101fb116e77b786950dda9
+
 
 
 
