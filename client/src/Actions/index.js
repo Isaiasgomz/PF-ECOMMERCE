@@ -103,6 +103,13 @@ export function buildPC(arr){
     }
 }
 
+export function buildPerif(arr){
+    return{
+        type: "BUILD_PERIF",
+        payload:arr
+    }
+}
+
 export function clearPC(){
     return{
         type: "CLEAR_PC",

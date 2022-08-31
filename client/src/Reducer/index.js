@@ -15,18 +15,19 @@ const initialState = {
     userDetail: {},
     adminProducts: [],
     allAdminProducts: [],
-    order:{},
+    order: {},
     adminProductDetail: {},
-    usersAdmin:[],
+    usersAdmin: [],
     shoppingCart: [],
     ShippingAddress: [],
 
 
-    adminProfile:{},
+    adminProfile: {},
     buildPCState: [],
 
-    AllOrders:[],
-    allProductSold:[]
+    AllOrders: [],
+    allProductSold: [],
+    buildPerifState: []
 
 
 
@@ -120,37 +121,37 @@ export default function rootReducer(state = initialState, action) {
             }
 
         case 'GET_ADMIN_PRODUCTS':
-            return{
+            return {
                 ...state,
                 adminProducts: action.payload,
                 allAdminProducts: action.payload
             }
 
         case 'GET_ADMIN_PRODUCTS_BY_NAME':
-            return{
+            return {
                 ...state,
                 adminProducts: action.payload
             }
 
         case 'GET_ORDER':
-            return{
+            return {
                 ...state,
                 order: action.payload
             }
 
         case 'PRODUCT_DISABLED':
-            return{
+            return {
                 ...state,
             }
 
-         case 'PRODUCT_DETAIL_ADMIN':
-            return{
+        case 'PRODUCT_DETAIL_ADMIN':
+            return {
                 ...state,
                 adminProductDetail: action.payload
             }
 
         case 'GET_USERS_ADMIN':
-            return{
+            return {
                 ...state,
                 usersAdmin: action.payload
             }
@@ -167,7 +168,7 @@ export default function rootReducer(state = initialState, action) {
 
         case 'USER_DETAIL':
             console.log(action.payload)
-            return{
+            return {
                 ...state,
                 userDetail: action.payload
             }
@@ -186,50 +187,55 @@ export default function rootReducer(state = initialState, action) {
         case 'SHIPPING_ADDRESS':
             return {
                 ...state
-            }    
+            }
 
         case 'GET_ADDRESS':
-            const address=  state.userDetail.ShippingAddresses.find((sa) => sa.reference === action.payload) 
+            const address = state.userDetail.ShippingAddresses.find((sa) => sa.reference === action.payload)
             return {
                 ...state,
                 ShippingAddress: address
-            }  
+            }
 
         case 'ADMIN_PROFILE':
-            return{
+            return {
                 ...state,
                 adminProfile: action.payload
             }
 
         case 'BUILD_PC':
-                return{
-                    ...state,
-                    buildPCState: state.buildPCState.concat(action.payload)
-                }
+            return {
+                ...state,
+                buildPCState: state.buildPCState.concat(action.payload)
+            }
+        case 'BUILD_PERIF':
+            return {
+                ...state,
+                buildPerifState: state.buildPerifState.concat(action.payload)
+            }
         case "CLEAR_PC":
-                    return {
-                        ...state,
-                        buildPCState: action.payload
-                    }
+            return {
+                ...state,
+                buildPCState: action.payload
+            }
 
 
 
 
 
-        
+
         case 'GET_ALL_ORDERS':
-            return{
+            return {
                 ...state,
                 AllOrders: action.payload
             }
 
         case 'UPDATE_ORDER':
-            return{
+            return {
                 ...state,
             }
 
-        case 'PRODUCT_SOLD' :
-            return{
+        case 'PRODUCT_SOLD':
+            return {
                 ...state,
                 allProductSold: action.payload
             }
@@ -243,7 +249,7 @@ export default function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 ShippingAddress: []
-        }
+            }
 
 
         default:
