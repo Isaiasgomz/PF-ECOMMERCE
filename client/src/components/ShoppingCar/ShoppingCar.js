@@ -63,7 +63,7 @@ function ShoppingCar() {
   const handleClickNoVerified = (e) => {
     e.preventDefault()
 
-    if (user && user.email_verified === false) {
+    if(user && user.email_verified === false){
       swal("No estás verificado!", "Verificación enviada a su casilla de correo", "error");
       return
     }
@@ -80,6 +80,7 @@ function ShoppingCar() {
     }
 
   }
+
 
   const clearCart = (e) => {
     e.preventDefault()
@@ -111,7 +112,7 @@ function ShoppingCar() {
   return (
     <div className={style.containerCart}>
 
-<div className={style.containerSup}>
+  <div className={style.containerSup}>
       <div className={style.containerButtons}>
         <Link to={"/home"}>
           <button className={style.button2}>Volver a la tienda</button>
@@ -139,13 +140,7 @@ function ShoppingCar() {
           }
         </div>
       </div>
-<<<<<<< HEAD
-      {
-        productsFromLocalStorage.length &&
-        Array.isArray(productsFromLocalStorage)?
-        <div className={style.containerClearCart}><button className={style.button} onClick={e=>clearCart(e)}>Vaciar carrito</button></div> : ""
-      }
-=======
+
       
       <div className={style.containerInfo}>
 
@@ -158,7 +153,7 @@ function ShoppingCar() {
           </div>
       </div>
   </div>      
->>>>>>> 1c14f91a4caa1acd694b9cba9eb8b958c2b2427d
+
 
       <div className={style.cards}>
         {productsFromLocalStorage.length &&
@@ -175,12 +170,10 @@ function ShoppingCar() {
           <h2>No hay productos!</h2>
         )}
       </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> 1c14f91a4caa1acd694b9cba9eb8b958c2b2427d
     </div>
   );
 }
+
 
 export default ShoppingCar;
