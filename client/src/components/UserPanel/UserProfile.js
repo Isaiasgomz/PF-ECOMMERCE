@@ -11,7 +11,7 @@ const UsertProfile = () => {
     <div className={styles.container}>
     <h1>Bienvenido a Tu Perfil</h1>
         <img className={styles.img} src={happyCart}  />
-         
+       
     </div>
     </React.Fragment>
   );

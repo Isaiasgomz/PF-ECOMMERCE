@@ -10,8 +10,27 @@
 
     height: 15%;
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 15px;
+    align-items: center;
+}
+
+.containerButtons{
+    display: flex;
+    align-items: center;
+    width: 40%;
+    margin-left: 15%;
+}
+
+.containerPrice{
+    font-size: 250%;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.inv{
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    cursor: default;
 }
 
  .cards{
@@ -23,11 +42,11 @@
 } 
 
 .button{
+    margin: 10px;
     background-color:#91C612;
     border: none;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    width: 180px;
+    padding: 10px;
+    width: 130px;
     border-radius: 7px;
     color: white;
     font-weight: 600;
@@ -40,6 +59,58 @@
 
 .button:active{
     background-color: #81af15;
+    
+}
+
+.button1{
+    margin: 10px;
+    background-color:#c61212;
+    border: none;
+    padding: 10px;
+    height: 68px;
+    width: 130px;
+    border-radius: 7px;
+    color: white;
+    font-weight: 600;
+}
+
+.button1:hover{
+    background-color: #dd3232;
+    transition: 0.3s ease;
+}
+
+.button1:active{
+    background-color: #af1515;
+    
+}
+
+.button1:disabled{
+background-color: gray;
+cursor: default;
+}
+
+.button2{
+    margin: 10px;
+    background-color:#126fc6;
+    border: none;
+    padding: 10px;
+    width: 130px;
+    border-radius: 7px;
+    color: white;
+    font-weight: 600;
+}
+.containerSup{
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+}
+.button2:hover{
+    background-color: #3276dd;
+    transition: 0.3s ease;
+}
+
+.button2:active{
+    background-color: #1558af;
     
 }
 

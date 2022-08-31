@@ -41,25 +41,26 @@
   display: flex;
   justify-content: center;
   margin-top: 35px;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   font-size: 30px;
-}
-
-/* Carousel Notebooks */
-.titleNotebooks {
-  display: flex;
-  justify-content: left;
-  margin-left: 250px;
-  margin-top: 30px;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 30px;
-  margin-top: 50px;
 }
 
 .spanTitle {
   margin-left: 10px;
+  color: #91c612;
+  font-weight: bold;
 }
 .spanTitle:hover {
-  transition: 0.3s ease;
-  color: #91C612;
+  filter: brightness(1.2);
+}
+
+.imgCompra {
+  width: 80%;
+  display: block;
+  margin: 60px auto;
+}
+.imgCompra img {
+  max-width: 100%;
+  max-height: 100%;
 }
