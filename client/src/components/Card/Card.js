@@ -100,7 +100,7 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
 
           {stock <= 0 ?
             <div className={style.buttonCarritoAgotado}> <span> <i className="fa-solid fa-cart-plus"></i> </span> </div> :
-            <div className={style.buttonCarrito} onClick={notify}><i onClick={() => localStor(ob)} className="fa-solid fa-cart-plus"></i></div>}
+            <div className={style.buttonCarrito} onClick={() => localStor(ob)}><i className="fa-solid fa-cart-plus"></i></div>}
 
           {/* <div>
       <button onClick={notify}>Make me a toast</button>
