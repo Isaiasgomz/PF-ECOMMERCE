@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { getProducts } from "../../Actions/index.js";
 import "./Landing.css";
 import CarouselMarcas from "./CarouselMarcas/CarouselMarcas.js";
+import DestacadosTech from "./DestacadosTech/DestacadosTech.js";
+import { Link } from "react-router-dom";
 
 function Landing() {
   /////////////////////// declaro el dispatch
@@ -161,10 +163,22 @@ function Landing() {
       </div>
       <div>
         <h2 className="titleMarcas">
-          ¡Las mejores marcas las encontrás en<span className="spanTitle">PULL REQUEST!</span>
+          ¡Las mejores marcas las encontrás en
+          <span className="spanTitle">PULL REQUEST!</span>
         </h2>
       </div>
       <CarouselMarcas></CarouselMarcas>
+      <DestacadosTech></DestacadosTech>
+      <div className="imgCompra">
+        <Link to="/home">
+          <center>
+            <img
+              src="https://cdn.jsdelivr.net/gh/persano/BannersWebMaximus/top-under-header/mejores-precios-main-top.webp"
+              alt=""
+            />
+          </center>
+        </Link>
+      </div>
     </div>
   );
 }

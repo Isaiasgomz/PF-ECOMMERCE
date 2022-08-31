@@ -20,6 +20,7 @@ const initialState = {
     usersAdmin: [],
     shoppingCart: [],
     ShippingAddress: [],
+<<<<<<< HEAD
     questions: [],
     adminProfile: {},
     buildPCState: [],
@@ -27,6 +28,17 @@ const initialState = {
     AllOrders: [],
     allProductSold: [],
     allQuestions:[]
+=======
+
+
+    adminProfile: {},
+    buildPCState: [],
+
+    AllOrders: [],
+    allProductSold: [],
+    buildPerifState: []
+
+>>>>>>> 0a1f16b43f1069a568101fb116e77b786950dda9
 
 
 
@@ -206,6 +218,14 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 buildPCState: state.buildPCState.concat(action.payload)
             }
+<<<<<<< HEAD
+=======
+        case 'BUILD_PERIF':
+            return {
+                ...state,
+                buildPerifState: state.buildPerifState.concat(action.payload)
+            }
+>>>>>>> 0a1f16b43f1069a568101fb116e77b786950dda9
         case "CLEAR_PC":
             return {
                 ...state,
@@ -244,11 +264,15 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 ShippingAddress: []
             }
+<<<<<<< HEAD
         case 'GET_ALL_QUESTIONS':
             return {
                 ...state,
                 allQuestions: action.payload
             }
+=======
+
+>>>>>>> 0a1f16b43f1069a568101fb116e77b786950dda9
 
         default:
             return state

@@ -79,6 +79,9 @@ ShoppingCart.belongsTo(PurchaseOrder);
 /* RELACIÓN ENTRE USUARIO Y SHIPPINGADDRESS */
 User.hasMany(ShippingAddress);
 ShippingAddress.belongsTo(User);
+/* RELACION ENTRE USUARIO Y PRODUCTO */ 
+User.belongsToMany(Product,{ through: 'Favourite' });
+Product.belongsToMany(User,{ through: 'Favourite' });
 
 
 module.exports = {
