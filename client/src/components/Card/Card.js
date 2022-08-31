@@ -82,7 +82,6 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
 
       <div className={style.containerInfo}>
         <div className={style.containerTitle}>
-
           <Link to={`/detail/${id}`}> <span>{name}</span></Link>
         </div>
         <div className={style.containerPriceCart}>
