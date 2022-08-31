@@ -13,20 +13,13 @@ import img5 from "../../imagenes/paso5.png"
 import img6 from "../../imagenes/paso6.png"
 import img7 from "../../imagenes/paso7.png"
 import BuildCard from './BuildCard';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
 function ProcessorSelector(props) {
 
-/*   useEffect(() => {
-    dispatch(getProducts());  
-  
-    return () => {
-      
-    }
-  }, []);
- */
-
+  const [disable, setDisable] = useState(false)
   const { AllProducts } = useSelector(state => state)
   const { buildPCState } = useSelector(state => state)
   const dispatch = useDispatch()
@@ -40,7 +33,7 @@ function ProcessorSelector(props) {
   let brand = props.match.params.brand
 
   let brandProduct = productos.filter(e => e.compatible === brand || e.compatible === "All")
-  console.log(category)
+  
 
   let cats = ["Processor","Mother","VGA","Memory","Disk","Fuente","Gabinete"]
 
@@ -54,31 +47,16 @@ function ProcessorSelector(props) {
 
   }
 
-  // const addProductCartStorage = (o) => {
-
-  //   let a = JSON.parse(localStorage.getItem(stringLocalStorage));
-      
-  //   let totalArr = a.concat(o)
-    
-  //   let ids = new Set(totalArr?.map(e => e.idProduct))
-  //   const carroComp = [...ids]
-  //   let carroPost = []
-
-  //   for (let i = 0; i < carroComp.length; i++) {
-      
-  //     carroPost.push(productos.find( e => e.idProduct === carroComp[i] ))
-      
-  //   }
-    
-  //   localStorage.setItem(stringLocalStorage, JSON.stringify(carroPost));
-    
-  //   return;
+  const notify = () => toast.success('Agregado al carrito!',{style:{
+    background: "rgb(67, 160, 71)",
+    color:"white"
+  }});
 
 
-  // };
 
   const addProductCartStorage = (o) => {
-
+    setDisable(!disable)
+    notify()
     let a = JSON.parse(localStorage.getItem(stringLocalStorage));
       
     if(a && a.length){
@@ -112,7 +90,7 @@ function ProcessorSelector(props) {
         <div className={style.build}>
           <div className={style.imgLabel}>
             {buildPCState?.length > 0 ? <img alt="1" className={style.buildImg} src={img1} /> : <img alt="1" className={style.buildImg} src='https://compragamer.net/img_armado/paso2.png' />}
-            {buildPCState?.length > 0 ? <label className={style.labelBuild}>- {buildPCState[0].productName}</label> : <label>- Procesador</label>}
+            {buildPCState?.length > 0 ? <label className={style.labelBuild}> {buildPCState[0].productName}</label> : <label>- Procesador</label>}
           </div>
           <div className={style.imgLabel}>
             {buildPCState?.length > 1 ? <img alt="2" className={style.buildImg} src={img2} /> : <img alt="2" className={style.buildImg} src='https://compragamer.net/img_armado/paso1.png' />}
@@ -140,15 +118,23 @@ function ProcessorSelector(props) {
           </div>
         </div>
         {buildPCState?.length > 6? 
-        <div className={style.button}>
-        <Link className={style.Link} to="/cart">
-        <button onClick={() => addProductCartStorage(buildPCState)} className={style.button}> Agregar al carrito</button>
-        </Link>
+
+        <div className={style.contLink}>
+        <div >
+        
+        <button onClick={() => addProductCartStorage(buildPCState)} disabled={disable} className={style.button}> Agregar al carrito</button>
+                
+      </div>
+      <div >
+        <Link className={style.Link} to={`/perif`}>
+        <button onClick={() => addProductCartStorage(buildPCState)} disabled={!disable} className={style.button}> Agregar Perifericos</button>
+        </Link>        
+      </div>
       </div>
       :<label></label>}
 
       </div>
-
+          
 
       <div className={style.containerProducts}>
 
@@ -156,8 +142,8 @@ function ProcessorSelector(props) {
 
           productCategory?.map((e, index) => (
 
-
-            <button key={index} className={style.buttonBuild} name={e.idProduct} onClick={() => nextCategory(e)}>
+            
+            <button key={index} className={style.buttonBuild} name={e.idProduct} disabled={ e.stock <= 0} onClick={() => nextCategory(e)}>
               <BuildCard
                 ob={e}
                 price={e.price}
@@ -172,13 +158,10 @@ function ProcessorSelector(props) {
           ))
         }
       </div>
-
-      {/*     <Stepper>
-          <Step>
-            <StepLabel>First</StepLabel>
-          </Step>
-      </Stepper> */}
-
+      <Toaster
+      position="bottom-left"
+      reverseOrder={false}
+       />
     </div>
   )
 }

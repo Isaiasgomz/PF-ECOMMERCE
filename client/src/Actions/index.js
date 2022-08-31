@@ -103,6 +103,13 @@ export function buildPC(arr){
     }
 }
 
+export function buildPerif(arr){
+    return{
+        type: "BUILD_PERIF",
+        payload:arr
+    }
+}
+
 export function clearPC(){
     return{
         type: "CLEAR_PC",
@@ -154,9 +161,8 @@ export function clearAddress(){
 
 
 
-
-
 export function postUserData(email, data) {
+
     return async function (dispatch) {
         const newUser = await axios.post(`http://localhost:3001/user/${email}/personalData`,data)
         .catch(error => console.log(error.response.data))
@@ -291,9 +297,43 @@ export function updateShippingAddress(email, data) {
     }
 }
 
+
 export function postDataMap(payload) {
     return{
         type: 'DATA_MAP',
         payload
+    }
+}
+
+export function createQuestion(obj) {
+    return async function () {
+        console.log(obj)
+        return axios.post(`http://localhost:3001/question`,  obj )
+            .then(data => console.log('question added!'))
+            .catch(error => console.log(error.response.data))
+    }
+}
+
+export function getAllQuestions(){
+    return async function (dispatch) {
+        const allQuestions = await axios.get(`http://localhost:3001/question`);
+        return dispatch({ type:'GET_ALL_QUESTIONS', payload: allQuestions.data })
+        
+    }
+}
+
+export function postAnswer(obj) {
+    return async function () {
+        console.log(obj)
+        return axios.post(`http://localhost:3001/answer`,  obj )
+            .then(data => console.log('question responded!'))
+            .catch(error => console.log(error.response.data))
+    }
+}
+export function updateQuestion(id,status) {
+    return async function () {
+        return axios.put(`http://localhost:3001/question/update/${id}`,  status )
+            .then(data => console.log('question updated!'))
+            .catch(error => console.log(error.response.data))
     }
 }

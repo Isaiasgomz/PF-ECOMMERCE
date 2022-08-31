@@ -1,4 +1,4 @@
-const { Op, User, Review, PersonalData, PurchaseOrder , ShoppingCart, ShippingAddress } = require('../db');
+const { Op, User, Review, PersonalData, PurchaseOrder , ShoppingCart, ShippingAddress, Product } = require('../db');
 /* const {Op} = require() */
 const { sendEmail } = require('./emailcontrollers');
 const {welcome} = require("../TemplatesHtml/welcome.js");
@@ -33,6 +33,10 @@ module.exports = {
                     model:ShoppingCart,
                 },{
                    model:PurchaseOrder, 
+                },{
+                    model: Product,
+                    attributes:["productName","idProduct"],
+                    through:{attributes:[]}
                 }
             ],            
             } )

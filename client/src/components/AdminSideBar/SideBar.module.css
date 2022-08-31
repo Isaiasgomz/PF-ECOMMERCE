@@ -1,12 +1,13 @@
 .containerSideBar{
-    background-color: rgb(231, 231, 231);
+    background-color:rgb(48, 48, 48);
+    color: white;
     width: 250px;
     height: 650px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    border: 2px solid black;
+    border: none;
     border-radius: 25px;
     
 }
@@ -20,16 +21,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-bottom:2px solid black ;
+    
 }
 
 .imagen {
-    border-radius: 100px;
-    border: solid;
+    border-radius: 50%;
+    border: 3px solid #91C612;
     height: 150px;
-    width: 160px; 
+    width: 160px;
+    box-shadow: 0px 0px 15px 0px rgb(199, 255, 185);
+    transition: 0.5s;
 }
 
+.imagen:hover{
+    border: 3px solid #bdfa30;
+    box-shadow: 0px 0px 15px 3px rgb(216, 255, 206);
+}
 
 
 .containerOptions{
