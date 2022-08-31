@@ -11,6 +11,7 @@ import TextField from '@mui/material/TextField';
 import { prom, validate } from "./detailFunctions";
 import { createCont } from "../contexto/contextProvider";
 import toast, { Toaster } from 'react-hot-toast';
+import agotado from "../../imagenes/agotado.png"
 
 const StyledRating = withStyles({
   iconFilled: {
@@ -23,14 +24,14 @@ const StyledRating = withStyles({
 
 
 function Detail(props) {
-  const {stringLocalStorage} = useContext(createCont)
+  const { stringLocalStorage } = useContext(createCont)
   const id = props.match.params?.id;
   const dispatch = useDispatch();
   const product = useSelector(state => state.productDetail)
   const reviews = useSelector(state => state.reviews)
   const user = useSelector(state => state.user)
   const userDetail = useSelector(state => state.userDetail)
-  const {AllOrders} = useSelector(state => state)
+  const { AllOrders } = useSelector(state => state)
 
   const [state, setState] = useState({
     qualification: '',
@@ -40,28 +41,28 @@ function Detail(props) {
   })
 
 
-  let orderandProdId = userDetail?.ShoppingCarts?.map(e=>{
-    return{
-      idProduct:e.ProductIdProduct,
-      pOrder:e.PurchaseOrderOrderN
+  let orderandProdId = userDetail?.ShoppingCarts?.map(e => {
+    return {
+      idProduct: e.ProductIdProduct,
+      pOrder: e.PurchaseOrderOrderN
     }
   })
   let validacion = false;
 
 
-    
 
 
 
-        for (let i = 0; i < orderandProdId?.length; i++) {
-          for (let j = 0; j < AllOrders?.length; j++) {
-            if(orderandProdId[i].pOrder===AllOrders[j].orderN && orderandProdId[i].idProduct===Number(id)){
-              if(AllOrders[j].status === "Completado")
-              validacion = true
-            }
-          }
-        }
-        
+
+  for (let i = 0; i < orderandProdId?.length; i++) {
+    for (let j = 0; j < AllOrders?.length; j++) {
+      if (orderandProdId[i].pOrder === AllOrders[j].orderN && orderandProdId[i].idProduct === Number(id)) {
+        if (AllOrders[j].status === "Completado")
+          validacion = true
+      }
+    }
+  }
+
 
   console.log("este es el detalle del arrat: ", validacion)
   const opinar = () => toast.success('Gracias por dejar tu opinion!');
@@ -88,7 +89,7 @@ function Detail(props) {
     return () => {
       dispatch(clearDetail())
     }
-  }, [dispatch, id,user])
+  }, [dispatch, id, user])
   /* submit del form */
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -122,30 +123,32 @@ function Detail(props) {
 
   // add to cart
   let x = [];
-  const notify = () => toast.success('Agregado al carrito!',{style:{
-    background: "rgb(67, 160, 71)",
-    color:"white"
-  }});
+  const notify = () => toast.success('Agregado al carrito!', {
+    style: {
+      background: "rgb(67, 160, 71)",
+      color: "white"
+    }
+  });
   const notifyInCart = () => toast('➡️ El producto ya está en el carrito!', {
-    style:{
+    style: {
       background: "rgb(52,131,250)",
       color: "white",
       display: "flex",
-      alignItems:"center",
+      alignItems: "center",
       justifyContent: "center"
     }
   });
   const addProductCartStorage = (o) => {
     let a = JSON.parse(localStorage.getItem(stringLocalStorage));
-    
+
 
     if (a) {
       let filtered = a.filter((e) => e.idProduct === o.idProduct);
-      if (filtered.length){
+      if (filtered.length) {
         notifyInCart()
         return;
-      } 
-        
+      }
+
       x = [...a, o];
       localStorage.setItem(stringLocalStorage, JSON.stringify(x));
       notify()
@@ -160,9 +163,18 @@ function Detail(props) {
   return (
     <div className={style.conteiner}>
       <div className={style.product}>
-        <div className={style.img}>
-          <img src={product.image} alt="" />
+        {product.stock <= 0 ?
+          <div className={style.img}>
+            <img className={style.imgAgot} src={agotado} alt="" />
+          <img className={style.imgProduc} src={product.image} alt="" />
         </div>
+
+          :
+
+
+          <div className={style.img}>
+            <img src={product.image} alt="" />
+          </div>}
         <div className={style.infoConteiner}>
           <div className={style.nameConteiner}>
             <span className={style.titulo}>{product.productName}</span>
@@ -189,13 +201,13 @@ function Detail(props) {
             <div>
               <span><i className="fa-solid fa-shield-halved"></i> </span> <span className={style.miniGarantia2}>Garantia - 12 meses</span>
             </div>
-            {product.stock > 0 ? <div> <span><i className="fa-solid fa-check"></i></span> <span className={style.miniGarantia1}>  Stock disponible</span></div> : <span>Stock agotado</span>}
+            {product.stock > 0 ? <div> <span><i className="fa-solid fa-check"></i></span> <span className={style.miniGarantia1}>  Stock disponible</span></div> : <div className={style.miniGarantia1Ago}>  <i className="fa-solid fa-xmark"></i> <span className={style.miniGarantia1}>     Stock Agotado</span></div>}
             <div >
               <span> <i className="fa-solid fa-truck"></i></span> <span className={style.miniGarantia} > Envio a todo el Pais</span>
             </div>
           </div>
           <div className={style.buttonConteiner}>
-            <button disabled={product.stock<=0 || product.disabled===true}  onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
+            <button disabled={product.stock <= 0 || product.disabled === true} onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -219,7 +231,7 @@ function Detail(props) {
             </div>
             <div className={toggleState === 2 ? style.activeContent : style.content}>
               <div className={style.reviewsConteiner}>
-                {reviews?.length === 0 && validacion===false ?
+                {reviews?.length === 0 && validacion === false ?
                   <div className={style.noNoConteiner}>
                     <div className={style.noExisteReviews}>
                       <span> No existen opiniones de este producto</span>
@@ -230,7 +242,7 @@ function Detail(props) {
                       {/* <button className={style.loginButton} onClick={() => loginWithRedirect()}> Login</button> */}
                     </div>
                   </div> : <div>
-                    {reviews?.length !== 0 && validacion===false ?
+                    {reviews?.length !== 0 && validacion === false ?
                       <div>
                         <div className={style.needLog}>
                           <span className={style.needLogText}>Necesitas comprar este producto para dejar un comentario</span>
@@ -250,7 +262,7 @@ function Detail(props) {
                           </div>
                         })}
                       </div> : <div>{
-                        reviews?.length === 0 && validacion===true ?
+                        reviews?.length === 0 && validacion === true ?
                           <div className={style.noRsiUserConteiner}>
                             <div className={style.formConteiner}>
                               <Boxx
@@ -271,7 +283,7 @@ function Detail(props) {
                                     onChange={handleChange}
                                   />
                                 </Box>
-                                
+
                                 {
                                   errors.qualification && (
                                     <p className={style.textError} >{errors.qualification}</p>)
@@ -286,13 +298,13 @@ function Detail(props) {
                                   placeholder="Minimo 5 palabras"
                                   multiline
                                   variant="filled"
-                                  error={errors.review?.split(" ").length>1}
+                                  error={errors.review?.split(" ").length > 1}
                                 />
                                 {
                                   errors.review && (
                                     <p className={style.textError} >{errors.review}</p>)
                                 }
-                                <button disabled={Object.keys(errors).length>0 || state.review.length===0 } className={style.loginButton} type="submit" onClick={opinar}>Opinar!</button>
+                                <button disabled={Object.keys(errors).length > 0 || state.review.length === 0} className={style.loginButton} type="submit" onClick={opinar}>Opinar!</button>
                               </Boxx>
                               <hr />
                             </div>
@@ -336,14 +348,14 @@ function Detail(props) {
                                   placeholder="Minimo 5 palabras"
                                   multiline
                                   variant="filled"
-                                  error={errors.review?.split(" ").length>1}
+                                  error={errors.review?.split(" ").length > 1}
                                 />
-                                
+
                                 {
                                   errors.review && (
                                     <p className={style.textError} >{errors.review}</p>)
                                 }
-                                <button disabled={Object.keys(errors).length>0 || state.review.length===0 } className={style.loginButton} type="submit" onClick={opinar}>Opinar!</button>
+                                <button disabled={Object.keys(errors).length > 0 || state.review.length === 0} className={style.loginButton} type="submit" onClick={opinar}>Opinar!</button>
                               </Boxx>
                               <hr />
                             </div>
@@ -367,7 +379,7 @@ function Detail(props) {
 
             </div>
             <div className={toggleState === 3 ? style.activeContent : style.content}>
-            <div className={style.descriptionConteiner}>
+              <div className={style.descriptionConteiner}>
                 <div className={style.title}>MARCA</div>
                 <div className={style.txt}>{product.brand}</div>
                 <div className={style.title}>TEXTO</div>
@@ -379,9 +391,9 @@ function Detail(props) {
         </div>
       </div>
       <Toaster
-      position="bottom-left"
-      reverseOrder={false}
-       />
+        position="bottom-left"
+        reverseOrder={false}
+      />
     </div>
   )
 }

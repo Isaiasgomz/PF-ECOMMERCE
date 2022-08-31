@@ -820,7 +820,7 @@ const jsonProducts = [
           "description":'Socket AM4 Ryzen 3th Gen,AM4 APU 3th Gen,AM4 Ryzen 4th Gen,AM4 APU 5000, Chipsets Principal AMD A520, Boton Bios Flashback No, Cantidad De Slot Pci-e 16X 1, Watts Máximos Para Cpu 105, Placa De Sonido 7.1 Realtek ALC 887',
           "categories":["Mother"],
           "quantity":5,
-          "brand":'ASUS',
+          "brand":'Asus',
           
           "compatible": 'AMD',
           
@@ -834,7 +834,7 @@ const jsonProducts = [
           "description":'Socket AM4 APU 3th Gen,AM4 APU 5000,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen, Chipsets Principal AMD B550, Boton Bios Flashback Si, Cantidad De Slot Pci-e 16X 2, Watts Máximos Para Cpu 105, Placa De Sonido 7.1 Realtek ALC 1200',
           "categories":["Mother"],
           "quantity":3,
-          "brand":'ASUS',
+          "brand":'Asus',
           
           "compatible": 'AMD',
           
@@ -947,7 +947,7 @@ const jsonProducts = [
           "description":'Socket 1200 Rocket Lake-S,1200 Comet Lake, Chipsets Principal Intel B560, Boton Bios Flashback No, Cantidad De Slot Pci-e 16X 2, Watts Máximos Para Cpu 235, Placa De Sonido 7.1 Realtek ALC 897',
           "categories":["Mother"],
           "quantity":7,
-          "brand":'ASUS',
+          "brand":'Asus',
           
           "compatible": 'Intel',
           
@@ -1087,7 +1087,7 @@ const jsonProducts = [
           "description":'Tipo De Conexión SATA, Consumo 30 w, Tipo De Disco Mecánico, Memoria Cache 64 mb, Velocidad De Rotación 7200 rpm, Velocidad De Interface 6.0, Capacidad 1000 gb',
           "categories":["Disk"],
           "quantity":10,
-          "brand":'WD',
+          "brand":'Seagate',
           
           "compatible": 'All',
           
@@ -1143,7 +1143,7 @@ const jsonProducts = [
           "description":'Watts Nominal 550 w, Watts Reales 540 w, Formato ATX, "compatible" Con Posición Inferior Si, Certificacion 80 Plus 80 PLUS Bronze, Modo Híbrido No, Tipo De Cableado Cables fijos, Ampers En Linea +12V 45 a, Fuente Digital No, Color Negro',
           "categories":["Fuente"],
           "quantity":3,
-          "brand":'ASUS',
+          "brand":'Asus',
           
           "compatible": 'All',
           
@@ -1171,7 +1171,7 @@ const jsonProducts = [
           "description":'Watts Nominal 1000 w, Watts Reales 996 w, Formato ATX, "compatible" Con Posición Inferior Si, Certificacion 80 Plus 80 PLUS Gold, Modo Híbrido Si, Tipo De Cableado Full Modular, Ampers En Linea +12V 83 a, Fuente Digital No, Color Negro',
           "categories":["Fuente"],
           "quantity":3,
-          "brand":'ASUS',
+          "brand":'Asus',
           
           "compatible": 'All',
           
@@ -1199,7 +1199,7 @@ const jsonProducts = [
           "description":'Factor Mother ITX,M-ATX,ATX,E-ATX, Fuente En Posición Superior No, Con Ventana Si, Tipo De Ventana Vidrio templado, Colores Blanco, Ancho 251 mm, Alto 552 mm, Profundidad 545 mm, Largo Máximo Vga 420 mm, Altura Máxima Del Cooler Cpu 180.00 mm',
           "categories":["Gabinete"],
           "quantity":6,
-          "brand":'ASUS',
+          "brand":'Asus',
           
           "compatible": 'All',
           
@@ -1218,6 +1218,397 @@ const jsonProducts = [
           "compatible": 'All',
           
           }
+          ,
+          {
+          "x":103,
+          "name":'Procesador AMD Ryzen 3 4100 Sin cooler OEM',
+          "price": 16000,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_32737_Procesador_AMD_Ryzen_3_4100_Sin_cooler_OEM_d6ef51fc-grn.jpg',
+          "description":'Modelo 4100, Socket AM4 Ryzen 4th Gen, Núcleos 4, Frecuencia 3800.00 mhz, Proceso De Fabricación 7 nm, Chipset Gpu NO Posee Gráficos Integrados, Hilos 8, Frecuencia Turbo 4000 mhz, Familia AMD RYZEN 3',
+          "categories":["Processor"],
+          "quantity":4,
+          "brand":'AMD',
+          "compatible": 'AMD',
+          
+          }
+  ,
+          {
+          "x":104,
+          "name":'Procesador AMD Ryzen 5 PRO 4650G 4.2GHz Turbo + Wraith Stealth Cooler OEM',
+          "price": 37950,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_21462_Procesador_AMD_Ryzen_5_PRO_4650G_4.2GHz_Turbo___Wraith_Stealth_Cooler_OEM_52f8e46a-grn.jpg',
+          "description":'Modelo Ryzen 5 PRO 4650G, Socket AM4 APU 3th Gen, Núcleos 6, Frecuencia 3700.00 mhz, Proceso De Fabricación 7 nm, Chipset Gpu Radeon Vega 7, Hilos 12, Frecuencia Turbo 4200 mhz Familia AMD RYZEN 5',
+          "categories":["Processor"],
+          "quantity":6,
+          "brand":'AMD',
+          "compatible": 'AMD',
+          
+          }
+  ,
+          {
+          "x":105,
+          "name":'Procesador AMD Ryzen 7 PRO 4750G + Wraith Stealth Cooler OEM',
+          "price": 56850,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_29519_Procesador_AMD_Ryzen_7_PRO_4750G___Wraith_Stealth_Cooler_OEM_52f8e46a-grn.jpg',
+          "description":'Modelo PRO 4750G, Socket AM4 APU 3th Gen, Núcleos 8, Frecuencia 3600.00 mhz, Proceso De Fabricación 7 nm, Chipset Gpu Radeon Vega 7, Hilos 16, Frecuencia Turbo 4400 mhz, Familia AMD RYZEN 7',
+          "categories":["Processor"],
+          "quantity":4,
+          "brand":'AMD',
+          "compatible": 'AMD',
+          
+          }
+,
+          {
+          "x":203,
+          "name":'Mother Asrock X570 Phantom Gaming 4 AM4 PCIe Gen4',
+          "price": 33350,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_14225_Mother_Asrock_X570_Phantom_Gaming_4_AM4_PCIe_Gen4_60447878-grn.jpg',
+          "description":'Socket AM4, APU 2th Gen,AM4 Ryzen 3th Gen,AM4 APU 3th Gen,AM4 Ryzen 4th Gen,AM4 Ryzen 2th Gen,AM4 APU 5000,Chipsets Principal AMD X570, Boton Bios Flashback No, Cantidad De Slot Pci-e 16X 2',
+          "categories":["Mother"],
+          "quantity":7,
+          "brand":'Asrock',
+          "compatible": 'AMD',
+          
+          }
+,
+          {
+          "x":204,
+          "name":'Mother ASUS ROG STRIX B450-F GAMING II AM4',
+          "price": 38100,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_22370_Mother_ASUS_ROG_STRIX_B450-F_GAMING_II_AM4_c17380b9-grn.jpg',
+          "description":'Socket AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 APU 3th Gen,AM4 Ryzen 4th Gen,AM4 APU 5000, Chipsets Principal AMD B450, Boton Bios Flashback Si, Cantidad De Slot Pci-e 16X 3, Watts Máximos Para Cpu 105',
+          "categories":["Mother"],
+          "quantity":3,
+          "brand":'Asus',
+          "compatible": 'AMD',
+          
+          }
+,
+          {
+          "x":205,
+          "name":'Mother ASUS ROG STRIX B550-A Gaming AM4',
+          "price": 48350,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_25162_Mother_ASUS_ROG_STRIX_B550-A_Gaming_AM4_92d1ac66-grn.jpg',
+          "description":'Socket AM4 APU 3th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen,AM4 APU 5000, Chipsets Principal AMD B550, Boton Bios Flashback No, Cantidad De Slot Pci-e 16X 2, Watts Máximos Para Cpu 105',
+          "categories":["Mother"],
+          "quantity":7,
+          "brand":'Asus',
+          "compatible": 'AMD',
+          
+          }
+,
+          {
+          "x":303,
+          "name":'Placa de Video XFX Radeon RX 6650 XT 8GB GDDR6 Speedster SWFT 210',
+          "price": 122200,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_33401_Placa_de_Video_XFX_Radeon_RX_6650_XT_8GB_GDDR6_Speedster_SWFT_210_589f396b-grn.jpg',
+          "description":'Chipset Gpu RX 6650 XT, Entrada Video No, Puente Para Sli/croosfirex - Doble Puente No, Características Especiales Ray Tracing, Velocidad Memoria 17500 mhz, Tipo De Memoria GDDR6, Capacidad De Memoria 8 gb, Interface De Memoria 128 bits, Velocidad Del Core Turbo 2635 mhz, Tipos De Procesos Stream, Cantidad De Procesos 2048',
+          "categories":["VGA"],
+          "quantity":8,
+          "brand":'AMD',
+          "compatible": 'AMD',
+          
+          }
+,
+          {
+          "x":304,
+          "name":'Placa de Video XFX Radeon RX 6700 XT BLACK 12GB GDDR6 SPEEDSTER QICK 319',
+          "price": 127950,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_26454_Placa_de_Video_XFX_Radeon_RX_6700_XT_BLACK_12GB_GDDR6_SPEEDSTER_QICK_319_20499629-grn.jpg',
+          "description":'Chipset Gpu RX 6700 XT, Entrada Video No, Puente Para Sli/croosfirex - Doble Puente No, Características Especiales Ray Tracing, Velocidad Memoria 16000 mhz, Tipo De Memoria GDDR6, Capacidad De Memoria 12 gb, Interface De Memoria 192 bits, Velocidad Del Core Turbo 2622 mhz, Tipos De Procesos Stream, Cantidad De Procesos 2560',
+          "categories":["VGA"],
+          "quantity":4,
+          "brand":'AMD',
+          "compatible": 'AMD',
+          
+          }
+,
+          {
+          "x":305,
+          "name":'Placa de Video MSI Radeon RX 6700 XT 12GB GDDR6 MECH 2X',
+          "price": 129200,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_25390_Placa_de_Video_MSI_Radeon_RX_6700_XT_12GB_GDDR6_MECH_2X_137b5ac7-grn.jpg',
+          "description":'Chipset Gpu RX 6700 XT, Entrada Video No, Puente Para Sli/croosfirex - Doble Puente No, Características Especiales Ray Tracing, Velocidad Memoria 16000 mhz, Tipo De Memoria GDDR6, Capacidad De Memoria 12 gb, Interface De Memoria 192 bits, Velocidad Del Core Turbo 2581 mhz, Tipos De Procesos Stream, Cantidad De Procesos 2560',
+          "categories":["VGA"],
+          "quantity":4,
+          "brand":'Msi',
+          "compatible": 'AMD',
+          
+          }
+  ,
+          {
+          "x":403,
+          "name":'Procesador Intel Celeron G5925 3.6GHz Socket 1200 ',
+          "price": 9350,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_27562_Procesador_Intel_Celeron_G5925_3.6GHz_Socket_1200_764c73ec-grn.jpg',
+          "description":'Modelo G5925, Socket 1200 Comet Lake, Núcleos 2, Frecuencia 3600.00 mhz, Proceso De Fabricación 14 nm, Chipset Gpu Intel UHD Graphics 610, Hilos 2, Familia Intel Celeron',
+          "categories":["Processor"],
+          "quantity":7,
+          "brand":'Intel',
+          "compatible": 'Intel',
+          
+          }
+  ,
+          {
+          "x":404,
+          "name":'Procesador Intel Pentium Gold G6405 4.1GHz Socket 1200',
+          "price": 12800,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_27888_Procesador_Intel_Pentium_Gold_G6405_4.1GHz_Socket_1200_db6250b7-grn.jpg',
+          "description":'Modelo G6405, Socket 1200 Comet Lake, Núcleos 2, Frecuencia 4100.00 mhz, Proceso De Fabricación 14 nm, Chipset Gpu Intel UHD Graphics 610, Hilos 4, Familia Intel Pentium',
+          "categories":["Processor"],
+          "quantity":3,
+          "brand":'Intel',
+          "compatible": 'Intel',
+          
+          }
+  ,
+          {
+          "x":405,
+          "name":'Procesador Intel Pentium Gold G7400 12th Gen S1700',
+          "price": 17000,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_31723_Procesador_Intel_Pentium_Gold_G7400_12th_Gen_S1700_f70c180b-grn.jpg',
+          "description":'Modelo G7400, Socket 1700 Alder Lake-S, Núcleos 2, Frecuencia 3700.00 mhz, Proceso De Fabricación 10 nm, Chipset Gpu UHD Graphics 710, Hilos 4, Familia Intel Pentium',
+          "categories":["Processor"],
+          "quantity":4,
+          "brand":'Intel',
+          "compatible": 'Intel',
+          
+          }
+,
+          {
+          "x":503,
+          "name":'Mother MSI H310M PRO-VDH',
+          "price": 9280,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_7342_Mother_MSI_H310M_PRO-VDH_f6a0fec1-grn.jpg',
+          "description":'Socket 1151 Coffe Lake,Chipsets Principal Intel H310, Boton Bios Flashback No, Cantidad De Slot Pci-e 16X 2, Cantidad De Slot Ddr4 2, Placa De Sonido 7.1 Realtek ALC 887',
+          "categories":["Mother"],
+          "quantity":7,
+          "brand":'Msi',
+          "compatible": 'Intel',
+          
+          }
+,
+          {
+          "x":504,
+          "name":'Mother Gigabyte Z590 Vision G Socket 1200 10th Gen',
+          "price": 63450,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_26145_Mother_Gigabyte_Z590_Vision_G_Socket_1200_10th_Gen_5c6956fe-grn.jpg',
+          "description":'Socket 1200 Rocket Lake-S,1200 Comet Lake, Chipsets Principal Intel Z590, Boton Bios Flashback No, Cantidad De Slot Pci-e 16X 2, Cantidad De Slot Ddr4 4, Sistema De Conexión Rgb ARGB Header,RGB Header, Placa De Sonido 7.1 Realtek ALC 887',
+          "categories":["Mother"],
+          "quantity":2,
+          "brand":'Gigabyte',
+          "compatible": 'Intel',
+          
+          }
+,
+          {
+          "x":505,
+          "name":'Mother Asrock H610M-HVS LGA 1700',
+          "price": 16200,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_34006_Mother_Asrock_H610M-HVS_LGA_1700_486791bd-grn.jpg',
+          "description":'Socket 1700 Alder Lake-S,Chipsets Principal Intel H610, Boton Bios Flashback No, Cantidad De Slot Pci-e 16X 2, Cantidad De Slot Ddr4 2, Placa De Sonido 7.1 Realtek ALC 887',
+          "categories":["Mother"],
+          "quantity":7,
+          "brand":'Asrock',
+          "compatible": 'Intel',
+          
+          }
+,
+          {
+          "x":603,
+          "name":'Placa de Video Zotac GeForce GTX 1660 6GB GDDR5 Dual Fan',
+          "price": 91250,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_27744_Placa_de_Video_Zotac_GeForce_GTX_1660_6GB_GDDR5_Dual_Fan_82cd70d8-grn.jpg',
+          "description":'Tipo pcie, Chipset Gpu GTX 1660, Entrada Video No, Puente Para Sli/croosfirex - Doble Puente No, Velocidad Memoria 8000 mhz, Tipo De Memoria GDDR5, Capacidad De Memoria 6 gb, Interface De Memoria 192 bits, Velocidad Del Core Turbo 1785 mhz, Tipos De Procesos CUDA, Cantidad De Procesos 1408',
+          "categories":["VGA"],
+          "quantity":8,
+          "brand":'GeForce',
+          "compatible": 'Intel',
+          
+          }
+,
+          {
+          "x":604,
+          "name":'Placa de Video Zotac GeForce RTX 3090 24GB GDDR6X Trinity',
+          "price": 342000,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_32388_Placa_de_Video_Zotac_GeForce_RTX_3090_24GB_GDDR6X_Trinity_14af4797-grn.jpg',
+          "description":'Tipo pcie, Chipset Gpu RTX 3090, Entrada Video No, Puente Para Sli/croosfirex SLI, Doble Puente No, Características Especiales Ray Tracing + DLSS, Velocidad Memoria 19500 mhz, Tipo De Memoria GDDR6X, Capacidad De Memoria 24 gb, Interface De Memoria 384 bits, Velocidad Del Core Turbo 1695 mhz Tipos De Procesos CUDA, Cantidad De Procesos 10496',
+          "categories":["VGA"],
+          "quantity":8,
+          "brand":'GeForce',
+          "compatible": 'Intel',
+          
+          }
+,
+          {
+          "x":605,
+          "name":'Placa de Video ASUS GeForce RTX 3090 24GB GDDR6X ROG STRIX GAMING White OC',
+          "price": 391150,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_33945_Placa_de_Video_ASUS_GeForce_RTX_3090_24GB_GDDR6X_ROG_STRIX_GAMING_White_OC_16beecb4-grn.jpg',
+          "description":'Tipo pcie, Chipset Gpu RTX 3090, Entrada Video No, Puente Para Sli/croosfirex SLI, Doble Puente No, Características Especiales Ray Tracing + DLSS, Velocidad Memoria 19500 mhz, Tipo De Memoria GDDR6X, Capacidad De Memoria 24 gb, Interface De Memoria 384 bits, Velocidad Del Core Turbo 1890 mhz Tipos De Procesos CUDA, Cantidad De Procesos 10496',
+          "categories":["VGA"],
+          "quantity":2,
+          "brand":'Asus',
+          "compatible": 'Intel',
+          
+          }
+,
+          {
+          "x":703,
+          "name":'Memoria Adata DDR4 16GB (2x8GB) 3600MHz XPG Spectrix D45G RGB',
+          "price": 16770,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_33970_Memoria_Adata_DDR4_16GB__2x8GB__3600MHz_XPG_Spectrix_D45G_RGB_813bb6ab-grn.jpg',
+          "description":'Capacidad 16 gb, Velocidad 3600 mhz, Tipo DDR4, Cantidad De Memorias 2, Latencia 18 cl, Voltaje 1.35 v',
+          "categories":["Memory"],
+          "quantity":6,
+          "brand":'Adata',
+          "compatible": 'All',
+          
+          }
+,
+          {
+          "x":704,
+          "name":'Memoria Adata DDR4 16GB (2x8Gb) 3200Mhz XPG Spectrix D60G RGB',
+          "price": 15130,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_33985_Memoria_Adata_DDR4_16GB__2x8Gb__3200Mhz_XPG_Spectrix_D60G_RGB__965beb3e-grn.jpg',
+          "description":'Capacidad 16 gb, Velocidad 3600 mhz, Tipo DDR4, Cantidad De Memorias 2, Latencia 16 cl, Voltaje 1.35 v',
+          "categories":["Memory"],
+          "quantity":4,
+          "brand":'Adata',
+          "compatible": 'All',
+          
+          }
+,
+          {
+          "x":705,
+          "name":'Memoria Team DDR4 16GB (2x8GB) 3600MHz T-Force Delta White RGB CL14',
+          "price": 15130,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_34065_Memoria_Team_DDR4_16GB__2x8GB__3600MHz_T-Force_Delta_White_RGB_CL14_2833e631-grn.jpg',
+          "description":'Capacidad 16 gb, Velocidad 3600 mhz, Tipo DDR4, Cantidad De Memorias 2, Latencia 14 cl, Voltaje 1.45 v',
+          "categories":["Memory"],
+          "quantity":4,
+          "brand":'Team',
+          "compatible": 'All',
+          
+          }
+,
+          {
+          "x":806,
+          "name":'Disco Rigido Seagate 3TB IronWolf 64MB 5.9K RPM',
+          "price": 14850,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_26170_Disco_Rigido_Seagate_3TB_IronWolf_64MB_5.9K_RPM_2b794cfe-grn.jpg',
+          "description":'Tipo De Conexión SATA, Consumo 7 w, Tipo De Disco Mecánico, Memoria Cache 64 mb, Velocidad De Rotación 5900 rpm, Velocidad De Interface 6.0, Capacidad 3000 gb',
+          "categories":["Disk"],
+          "quantity":9,
+          "brand":'Seagate',
+          "compatible": 'All',
+          
+          }
+,
+          {
+          "x":807,
+          "name":'Disco Rigido WD 4TB Red NAS 5.4K 256MB',
+          "price": 18170,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_26761_Disco_Rigido_WD_4TB_Red_NAS_5.4K_256MB_d82aa5a7-grn.jpg',
+          "description":'Tipo De Conexión SATA, Consumo 8 w, Tipo De Disco Mecánico, Memoria Cache 256 mb, Velocidad De Rotación 5400 rpm, Velocidad De Interface 6.0, Capacidad 4000 gb',
+          "categories":["Disk"],
+          "quantity":7,
+          "brand":'WD',
+          "compatible": 'All',
+          
+          }
+,
+          {
+          "x":808,
+          "name":'Disco Rigido WD 6TB Purple 5.6K RPM 256MB',
+          "price": 26660,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_26765_Disco_Rigido_WD_6TB_Purple_5.6K_RPM_256MB_18eb156b-grn.jpg',
+          "description":'Tipo De Conexión SATA, Consumo 12 w, Tipo De Disco Mecánico, Memoria Cache 256 mb, Velocidad De Rotación 5640 rpm, Velocidad De Interface 6.0, Capacidad 6000 gb',
+          "categories":["Disk"],
+          "quantity":4,
+          "brand":'WD',
+          "compatible": 'All',
+          
+          }
+,
+          {
+          "x":903,
+          "name":'Fuente ASUS ROG STRIX 850G 80 Plus Gold 850W Full Modular White',
+          "price": 32999,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_33004_Fuente_ASUS_ROG_STRIX_850G_80_Plus_Gold_850W_Full_Modular_White_fc5a33dd-grn.jpg',
+          "description":'Watts Nominal 850 w, Watts Reales 840 w, Formato ATX Compatible Con Posición Inferior Si, Certificacion 80 Plus 80 PLUS Gold, Modo Híbrido Si, Tipo De Cableado Full Modular Ampers En Linea +12V 70 a, Fuente Digital No, Color Blanco',
+          "categories":["Fuente"],
+          "quantity":4,
+          "brand":'Asus',
+          "compatible": 'All',
+          
+          }
+,
+          {
+          "x":904,
+          "name":'Fuente Aerocool Mirage 850W 80+ Gold ARGB',
+          "price": 22260,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_33717_Fuente_Aerocool_Mirage_850W_80__Gold_ARGB_b5877b48-grn.jpg',
+          "description":'Watts Nominal 850 w, Watts Reales 840 w, Formato ATX Compatible Con Posición Inferior Si, Certificacion 80 Plus 80 PLUS Gold, Modo Híbrido Si, Tipo De Cableado Full Modular Ampers En Linea +12V 70 a, Fuente Digital No, Color Negro',
+          "categories":["Fuente"],
+          "quantity":9,
+          "brand":'Aerocool',
+          "compatible": 'All',
+          
+          }
+,
+          {
+          "x":905,
+          "name":'Fuente Gamemax 800W 80 Plus Bronze VP-800',
+          "price": 14750,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_17855_Fuente_Gamemax_800W_80_Plus_Bronze_VP-800_effe4fa6-grn.jpg',
+          "description":'Watts Nominal 800 w, Watts Reales 720 w, Formato ATX Compatible Con Posición Inferior Si, Certificacion 80 Plus 80 PLUS Bronze, Modo Híbrido Si, Tipo De Cableado Full Modular Ampers En Linea +12V 60 a, Fuente Digital No, Color Negro',
+          "categories":["Fuente"],
+          "quantity":3,
+          "brand":'Gamemax',
+          "compatible": 'All',
+          
+          }
+,
+          {
+          "x":1003,
+          "name":'Gabinete Aerocool Bolt Black RGB Ventana Acrilica ATX',
+          "price": 9540,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_13554_Gabinete_Aerocool_Bolt_Black_RGB_Ventana_Acrilica_ATX_66b77f2a-grn.jpg',
+          "description":'Factor Mother ITX,M-ATX,ATX, Fuente En Posición Superior No, Con Ventana Si, Tipo De Ventana Acrílico, Colores Negro, Ancho 194 mm, Alto 440 mm, Profundidad 410 mm, Largo Máximo Vga 335 mm, Altura Máxima Del Cooler Cpu 155.00 mm',
+          "categories":["Gabinete"],
+          "quantity":2,
+          "brand":'Aerocool',
+          "compatible": 'All',
+          
+          }
+,
+          {
+          "x":1004,
+          "name":'Gabinete Game Pro GP6 ARGB',
+          "price": 12070,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_34069_Gabinete_Game_Pro_GP6_ARGB_ff52c55e-grn.jpg',
+          "description":'Factor Mother ITX,M-ATX,ATX, Fuente En Posición Superior No, Con Ventana Si, Tipo De Ventana Acrílico, Colores Negro, Ancho 196 mm, Alto 469 mm, Profundidad 427 mm, Largo Máximo Vga 345 mm, Altura Máxima Del Cooler Cpu 160.00 mm',
+          "categories":["Gabinete"],
+          "quantity":2,
+          "brand":'Aerocool',
+          "compatible": 'All',
+          
+          }
+,
+          {
+          "x":1005,
+          "name":'Gabinete Thermaltake V200 Tempered Glass Ryzen Edition Sin fuente',
+          "price": 7199,
+          "image":'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_32090_Gabinete_Thermaltake_V200_Tempered_Glass_Ryzen_Edition_Sin_fuente_133340c2-grn.jpg',
+          "description":'Factor Mother ITX,M-ATX,ATX, Fuente En Posición Superior No, Con Ventana Si, Tipo De Ventana Acrílico, Colores Negro, Ancho 190 mm, Alto 410 mm, Profundidad 470 mm, Largo Máximo Vga 380 mm, Altura Máxima Del Cooler Cpu 160.00 mm',
+          "categories":["Gabinete"],
+          "quantity":8,
+          "brand":'Thermaltake',
+          "compatible": 'All',
+          
+          }
+
     ]
 
 module.exports= jsonProducts

@@ -29,7 +29,6 @@ import UserData from "./components/UserPanel/UserData/UserData";
 import UpdateUserData from "./components/UserPanel/UpdateUserData/UpdateUserData"
 import UserShippingAddress from "./components/UserPanel/UserShippingAddress/UserShippingAddress"
 import UserAllAddresses from "./components/UserPanel/UserAllAddresses/UserAllAddresses"
-
 import AdminProfile from "./components/AdminProfile/AdminProfile";
 import UserOrderDetail from "./components/UserOrderDetail/UserOrderDetail";
 import UpdateShippingAddress from "./components/UserPanel/UpdateShippingAddress/UpdateShippingAddress";
@@ -41,10 +40,9 @@ import AdminOrders from "./components/AdminOrders/AdminOrders";
 import AdminOrderEdit from "./components/AdminOrderEdit/AdminOrderEdit";
 import AdminDashboard from "./components/AdminDashboard/Dashboard";
 import DashboardSold from "./components/AdminDashboard/DashboardSold";
-
 import CreateCategory from "./components/AdminCreateCategory/CreateCategory";
-
 import UsertProfile from "./components/UserPanel/UserProfile";
+import BuildPerif from "./components/BranchSelectorPerif/BuildPerif";
 
 
 
@@ -78,10 +76,6 @@ function App() {
         <Route exact path={"/userShippingAddress"} component={UserShippingAddress} />
         <Route exact path={"/userAllAddresses"} component={UserAllAddresses} />
         <Route exact path={"/updateShippingAddress"} component={UpdateShippingAddress} />
-
-        
-
-
         <Route path={"/myReviews"} component={UserReviews} />
         <Route exact path={"/myOrders"} component={UserMyOrders} />
         <Route exact path={"/orderDetail/:PurchaseOrderOrderN"} component={UserOrderDetail} />
@@ -92,7 +86,7 @@ function App() {
         <Route exact path={"/adminUsers"} component={AdminUsers} />
         <Route exact path={"/signUp"} component={SignUp}  />
         <Route exact path={"/sideBar"} component={AdminSideBar} />
-        
+        <Route exact path={"/perif"} component={BuildPerif} />
         <Route exact path={"/profile"} component={AdminProfile} />
         <Route exact path={"/adminCategory"} component={AdminCategory} />
         <Route exact path={"/adminOrders"} component={AdminOrders} />
