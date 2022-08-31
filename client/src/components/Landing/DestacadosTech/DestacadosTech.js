@@ -1,8 +1,53 @@
-import React from "react";
-import "./DestacadosTech.css";
+import React, { useContext, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import {
+  clearSearch,
+  getProducts,
+  sortProductByCategory,
+} from "../../../Actions";
+import { createCont } from "../../contexto/contextProvider";
+import "./DestacadosTech.css";
 
 export default function CarouselNotebooks() {
+  const { AllProducts } = useSelector((state) => state);
+
+  const dispatch = useDispatch();
+
+  const { setCurrentPage, trueorfalse, setTrueorFalse } =
+    useContext(createCont);
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
+  const sortByCategory = (e) => {
+    if (e === "componentes") {
+      let productSorted = AllProducts?.filter((g) => g.compatible !== "false");
+      dispatch(sortProductByCategory(productSorted));
+      dispatch(clearSearch());
+      setCurrentPage(1);
+      trueorfalse === true ? setTrueorFalse(false) : setTrueorFalse(true);
+      return;
+    }
+    if (e === "perifericos") {
+      let productSorted = AllProducts?.filter((g) => g.compatible === "false");
+
+      let moreSort = productSorted?.filter((f) => f.category !== "Laptops");
+
+      dispatch(sortProductByCategory(moreSort));
+      dispatch(clearSearch());
+      setCurrentPage(1);
+      trueorfalse === true ? setTrueorFalse(false) : setTrueorFalse(true);
+      return;
+    }
+    let productSorted = AllProducts?.filter((g) => g.category === e);
+    dispatch(sortProductByCategory(productSorted));
+    dispatch(clearSearch());
+    setCurrentPage(1);
+    trueorfalse === true ? setTrueorFalse(false) : setTrueorFalse(true);
+  };
+
   return (
     <div className="contAccesorios">
       <div class="containerAcc mt-100">
@@ -44,13 +89,15 @@ export default function CarouselNotebooks() {
               <div class="card-body text-center">
                 <h4 class="card-title">Notebooks</h4>
                 <p class="text-muted">A partir de $35000</p>
-                <a
-                  class="btn btn-outline-primary btn-sm"
-                  href="#"
-                  data-abc="true"
-                >
-                  Ver Productos
-                </a>
+                <Link to="/home">
+                  <button
+                    class="btn btn-outline-primary btn-sm"
+                    data-abc="true"
+                    onClick={() => sortByCategory("Laptops")}
+                  >
+                    Ver Productos
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -85,13 +132,15 @@ export default function CarouselNotebooks() {
               <div class="card-body text-center">
                 <h4 class="card-title">Periféricos</h4>
                 <p class="text-muted">A partir de $858</p>
-                <a
-                  class="btn btn-outline-primary btn-sm"
-                  href="#"
-                  data-abc="true"
-                >
-                  Ver Productos
-                </a>
+                <Link to="/home">
+                  <button
+                    class="btn btn-outline-primary btn-sm"
+                    data-abc="true"
+                    onClick={() => sortByCategory("perifericos")}
+                  >
+                    Ver Productos
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -126,13 +175,15 @@ export default function CarouselNotebooks() {
               <div class="card-body text-center">
                 <h4 class="card-title">Componentes PC</h4>
                 <p class="text-muted">A partir de $3550</p>
-                <a
-                  class="btn btn-outline-primary btn-sm"
-                  href="#"
-                  data-abc="true"
-                >
-                  Ver Productos
-                </a>
+                <Link to="/home">
+                  <button
+                    class="btn btn-outline-primary btn-sm"
+                    data-abc="true"
+                    onClick={() => sortByCategory("componentes")}
+                  >
+                    Ver Productos
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
