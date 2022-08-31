@@ -20,7 +20,7 @@ const initialState = {
     usersAdmin:[],
     shoppingCart: [],
     ShippingAddress: [],
-
+    dataMap: {},
 
     adminProfile:{},
     buildPCState: [],
@@ -166,7 +166,6 @@ export default function rootReducer(state = initialState, action) {
             }
 
         case 'USER_DETAIL':
-            console.log(action.payload)
             return{
                 ...state,
                 userDetail: action.payload
@@ -245,6 +244,11 @@ export default function rootReducer(state = initialState, action) {
                 ShippingAddress: []
         }
 
+        case 'DATA_MAP':
+            return {
+                ...state,
+                dataMap: action.payload
+            }
 
         default:
             return state

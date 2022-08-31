@@ -156,7 +156,7 @@ export function clearAddress(){
 
 
 
-export function postUserData(email,data) {
+export function postUserData(email, data) {
     return async function (dispatch) {
         const newUser = await axios.post(`http://localhost:3001/user/${email}/personalData`,data)
         .catch(error => console.log(error.response.data))
@@ -284,7 +284,6 @@ export function modifyStock(data) {
 }
 
 export function updateShippingAddress(email, data) {
-    console.log(email, data)
     return async function (dispatch) {
         await axios.put(`http://localhost:3001/user/${email}/updateShippingAddress`,data)
         .catch(error => console.log(error.response.data))
@@ -292,5 +291,9 @@ export function updateShippingAddress(email, data) {
     }
 }
 
-
-
+export function postDataMap(payload) {
+    return{
+        type: 'DATA_MAP',
+        payload
+    }
+}

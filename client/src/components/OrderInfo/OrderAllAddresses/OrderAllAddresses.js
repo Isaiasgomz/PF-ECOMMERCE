@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAddress, getUserDetail } from "../../../Actions/index.js";
-import UserPanel from "../UserPanel";
-import UpdateShippingAddress from "../UpdateShippingAddress/UpdateShippingAddress";
-import styles from './UserAllAddresses.module.css';
+import OrderAddress from "../../OrderInfo/OrderAddress/OrderAddress";
+import styles from './OrderAllAddresses.module.css';
 import loadingLogo from "../../../imagenes/loading.png"
 
-function UserAllAddresses() {
+function OrderAllAddresses() {
     const dispatch = useDispatch();
 
     const user = useSelector((state) => state.user.email);
@@ -15,9 +14,9 @@ function UserAllAddresses() {
     const address = useSelector((state) => state.ShippingAddress)
 
     const [loading, setLoading] = useState(true)
- /*    const [dropDown, setDropDown] = useState(false)
+    /* const [dropDown, setDropDown] = useState(false) */
 
-    const openCloseDropDown = () =>{
+  /*   const openCloseDropDown = () =>{
         setDropDown(!dropDown);
     } */
 
@@ -29,7 +28,7 @@ function UserAllAddresses() {
 
     function filterAddress(e) {
         e.preventDefault();
- /*        setDropDown(!dropDown);  */ 
+     /*    setDropDown(!dropDown);  */ 
         dispatch(getAddress(e.target.value)); 
     }
  
@@ -47,11 +46,10 @@ function UserAllAddresses() {
         else {
             return (
             <React.Fragment>
-            <UserPanel/>
             <div className={styles.containerForm}>
-                <span className={styles.titleForm}> Mis Direcciones</span>
+                <span className={styles.titleForm}> Mis Direcciones de envío</span>
                 <div className={styles.searchbar}>
-                    <span>Seleccione la dirección que quiere ver y/o editar</span>
+                    <span>Seleccione la dirección a la cual se le enviará su compra:</span>
                     <div className={styles.buttonCont}>
                     {   
                         addresses && addresses.map(a => {
@@ -67,7 +65,7 @@ function UserAllAddresses() {
                     </div> 
                 </div>                       
                     <div>
-                    <UpdateShippingAddress
+                    <OrderAddress
                         key= {address?.id}
 /*                         id= {address?.id} */
                         reference= {address?.reference}
@@ -85,4 +83,4 @@ function UserAllAddresses() {
         )}
 }
 
-export default UserAllAddresses;
+export default OrderAllAddresses;
