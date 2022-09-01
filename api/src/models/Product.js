@@ -16,10 +16,6 @@ module.exports = (sequelize) => {
         price: {
             type: DataTypes.FLOAT,
             allowNull: false,
-    /*         set(value) {
-                const newPrice = (value - (value * this.reduction));
-                this.setDataValue('price', newPrice)
-            } */
         }, 
         image: {
             type: DataTypes.STRING, 
@@ -53,10 +49,10 @@ module.exports = (sequelize) => {
         reduction: {
             type: DataTypes.FLOAT,
             defaultValue: 0,
-            /* set(value) {
-                if(value !== 0)
-                this.setDataValue('reduction', value/100)
-            } */
-        },   
+        },
+        reducedAmount: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0,
+        },  
     });
 };

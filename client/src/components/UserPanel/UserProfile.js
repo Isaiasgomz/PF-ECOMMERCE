@@ -17,7 +17,6 @@ const UserProfile = () => {
        
     </div>
     </React.Fragment>
-  );
 
 };
 

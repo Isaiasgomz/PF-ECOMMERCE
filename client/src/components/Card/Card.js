@@ -10,7 +10,7 @@ import { addFavourite, deleteFavourite, getFavourite } from '../../Actions';
 import { useAuth0 } from "@auth0/auth0-react";
 
 
-function Card({ name, price, img, calification, localStor, ob, id, stock, notify, notifyAddFav, notifyRemove }) {
+function Card({ name, price, img, calification, localStor, ob, id, stock, notify, notifyAddFav, notifyRemove, reduction }) {
 
 
   const [flagFav, setFlagFav] = useState(false)
@@ -82,22 +82,20 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
           </div>
         </Link>}
 
-      {reduction !==0? <div>
-
-
-      </div>
+      {reduction !== 0? 
+      <div className={style.containerDescuento}>
+        <div className={style.reduction}>
+            <span className={style.porcentaje}>{reduction} %</span>
+        </div>
+      </div>   
         :
-        <div>
-
-
-      </div>           
-      }
-        
-
+      null           
+      }    
       <div className={style.containerInfo}>
         <div className={style.containerTitle}>
           <Link to={`/detail/${id}`}> <span>{name}</span></Link>
         </div>
+        
         <div className={style.containerPriceCart}>
           <span>${price}</span>
           {/* <Rating
