@@ -83,7 +83,8 @@ function ProcessorSelector(props) {
   };
   
   return (
-    <div className={style.containerTotal}>
+
+    <div className={brand === "AMD"? style.containerTotalAMD : style.containerTotalIntel}>
 
 
       <div className={style.containerBuild}>
