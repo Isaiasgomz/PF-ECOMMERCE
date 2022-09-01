@@ -1,11 +1,11 @@
 .searchBar {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  background-color: transparent;
+  background-color: white;
   border: 1px solid white;
-  color: white;
-  padding: 5px;
-  width: 15vw;
+  color: black;
+  padding: 7px;
+  width: 20vw;
 }
 
 .searchButton {
@@ -13,8 +13,8 @@
   border-bottom-right-radius: 10px;
   border: 1px solid white;
   color: white;
-  background-color: #37373f;
-  padding: 5px;
+  background-color: #91c612;
+  padding: 7px;
   width: 3vw;
 }
 .searchButton:hover {
