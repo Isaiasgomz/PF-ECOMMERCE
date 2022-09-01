@@ -1,5 +1,5 @@
 .containerForm {
-    background-color:  #78788c;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -165,13 +165,13 @@
 }
 
 .contenedorLoading{
-  background: #c61212;
+  /* background: #c61212; */
   width: 100vw;
   height: 77.7vh;
 }
 
 .loading{
-  background-color: #78788c;
+  background-color: white;
   width: 100vw;
   height: 77.7vh;
   display: flex;
