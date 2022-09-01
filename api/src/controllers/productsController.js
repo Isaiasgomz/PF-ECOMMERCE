@@ -18,6 +18,8 @@ module.exports = {
                     stock: e.quantity,
                     category: e.categories[0],
                     compatible: e.compatible?  e.compatible : false,
+  /*                   reduction: e.reduction? e.reduction : 0,
+                    reducedAmount: e.reducedAmount? e.reducedAmount : 0, */
                 }
                 return obj;
             })
@@ -52,6 +54,8 @@ module.exports = {
                     stock: e.quantity,
                     category: e.categories[0],
                     compatible: e.compatible?  e.compatible : false,
+ /*                    reduction: e.reduction? e.reduction : 0,
+                    reducedAmount: e.reducedAmount? e.reducedAmount : 0, */
                 }
                 return obj;
             })
@@ -135,10 +139,12 @@ module.exports = {
     /* update price */
     updatePrice: async function(idProduct, price, reduction){
         try {
-            const newPrice = (price - (price * (reduction/100))); {
+            const reducedAmount = price * (reduction/100);
+            const newPrice = (price - (reducedAmount)); {
                 await Product.update({
                     price: newPrice, 
-                    reduction: reduction}, {
+                    reduction: reduction,
+                    reducedAmount: reducedAmount}, {
                     where: {
                         idProduct: idProduct
                     }

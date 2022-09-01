@@ -29,11 +29,11 @@ router.get('/:idProduct', async (req, res) => {
 
 router.post('/create', async (req,res)=>{  
     try {
-        const  {productName, price, image, description, category, stock, brand, reduction} = req.body
+        const  {productName, price, image, description, category, stock, brand} = req.body
         if(!productName|| !price || !image|| !description || !category || !brand){
             return res.status(400).json({error: "Faltan datos obligatorios"});
         }
-        const product = await createProduct(productName, price, image, description, category, stock, brand, reduction)
+        const product = await createProduct(productName, price, image, description, category, stock, brand)
         res.json(product)
     } catch (error) {
         res.status(404).json(error)

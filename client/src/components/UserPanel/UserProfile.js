@@ -14,7 +14,8 @@ const UserProfile = () => {
         <img className={styles.img} src={happyCart} />
       </div>
     </React.Fragment>
-  );
+
+  )
 };
 
 export default UserProfile;

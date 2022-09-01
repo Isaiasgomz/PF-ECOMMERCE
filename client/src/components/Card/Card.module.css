@@ -86,7 +86,24 @@
     justify-content: flex-start;
 }
 
+.containerDescuento{
+    display: flex;
+    justify-content: flex-start;
+}
 
+.reduction{
+    background-color: #91C612;
+    z-index: 2;
+    height: 60px;
+    width: 60px;
+    margin-left: -105px;
+}
+
+.porcentaje{
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(39, 38, 38);
+}
 
 @supports(object-fit: cover){
     .containerImg img{
