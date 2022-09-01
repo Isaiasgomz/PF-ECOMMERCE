@@ -169,6 +169,7 @@ const Cards = (props) => {
             id={e.idProduct}
             key={index}
             stock={e.stock}
+            reduction={e.reduction}
           />
         ))}
       </div>

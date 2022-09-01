@@ -41,10 +41,11 @@ function UpdateUserData() {
   const email = useSelector((state) => state.user.email);
   const info = useSelector((state) => state.userDetail.PersonalDatum);
   const { user } = useAuth0();
+  console.log(info)
 
   useEffect(() => {
-    if (user?.email.length > 0) dispatch(getUserDetail(user.email));
-  }, [dispatch, user]);
+    if(user?.email.length > 0) dispatch(getUserDetail(user.email));
+  }, [user]);
 
   const history = useHistory();
 
@@ -102,7 +103,7 @@ function UpdateUserData() {
 
   setTimeout((loading) => {
     setLoading(false)
-  }, 1500);
+  }, 10000);
   if (loading) {
     return (
       <div className={styles.contenedorLoading}>

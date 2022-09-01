@@ -13,8 +13,8 @@ export default function UserPanel() {
     const { user } = useAuth0();
 
     useEffect(() => {
-        if (user?.email?.length > 0) dispatch(getUserDetail(user.email));
-    }, []);
+        if (user?.email.length > 0) dispatch(getUserDetail(user.email));
+    }, [user]);
 
     const clear = (e) => {
         dispatch(clearAddress());
@@ -30,7 +30,7 @@ export default function UserPanel() {
         <React.Fragment>
             <div className={styles.back}>
                 <div className={styles.sidebar}>
-                    <img className={styles.imagen} src={user.picture}/>
+                    <img className={styles.imagen} src={user?.picture} alt={"Imagen"}/>
                     <h5 className={styles.profile}>{emailUser} </h5>
                     {
                         personalData ?

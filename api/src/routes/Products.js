@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 const { productByName, listProducts, productDetail,
-     createProduct, updateProduct, deleteProduct, updateStock } = require('../controllers/productsController');
+     createProduct, updateProduct, deleteProduct, updateStock, updatePrice } = require('../controllers/productsController');
 
 router.get('/', async (req, res) => {
     const { name } = req.query;
@@ -29,11 +29,11 @@ router.get('/:idProduct', async (req, res) => {
 
 router.post('/create', async (req,res)=>{  
     try {
-        const  {productName, price, image, description, category, stock, brand} = req.body
+        const  {productName, price, image, description, category, stock, brand, reduction} = req.body
         if(!productName|| !price || !image|| !description || !category || !brand){
             return res.status(400).json({error: "Faltan datos obligatorios"});
         }
-        const product = await createProduct(productName, price, image, description, category, stock, brand)
+        const product = await createProduct(productName, price, image, description, category, stock, brand, reduction)
         res.json(product)
     } catch (error) {
         res.status(404).json(error)
@@ -54,6 +54,16 @@ router.put('/updateStock', async (req,res) =>{
         console.log("req.body en back: ",req.body)
         await updateStock(req.body)
         res.status(200).send('Stock actualizado!')
+    } catch (error) {
+        res.status(404).send(error)
+    }
+} )
+/* actualizar precio con descuento */
+router.put('/updatePrice', async (req,res) =>{
+    const {idProduct, price, reduction} = req.body;
+    try {
+        await updatePrice(idProduct, price, reduction)
+        res.status(200).send('Descuento aplicado!')
     } catch (error) {
         res.status(404).send(error)
     }

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import agotado from "../../imagenes/agotado.png"
 import toast, { Toaster } from 'react-hot-toast';
 
-function Card({ name, price, img, calification, localStor, ob, id, stock, notify }) {
+function Card({ name, price, img, calification, localStor, ob, id, stock, notify, reduction }) {
 
 
 
@@ -23,11 +23,23 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
         </Link>
       </div>
         :
-        <Link to={`/detail/${id}`}>
+          <Link to={`/detail/${id}`}>
           <div className={style.containerImg}>
             <img className={style.img} src={img} alt={name} />
           </div>
         </Link>}
+
+      {reduction !==0? <div>
+
+
+      </div>
+        :
+        <div>
+
+
+      </div>           
+      }
+        
 
       <div className={style.containerInfo}>
         <div className={style.containerTitle}>
