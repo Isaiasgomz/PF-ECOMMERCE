@@ -47,7 +47,7 @@ function UserAllAddresses() {
         else {
             return (
             <React.Fragment>
-            <UserPanel/>
+            
             <div className={styles.containerForm}>
                 <span className={styles.titleForm}> Mis Direcciones</span>
                 <div className={styles.searchbar}>

@@ -1,6 +1,8 @@
 .containerAll{
+    width: 100%;
+    height: 100%;
     display: flex;
-    font-family: "Montserrat", sans-serif;
+    background-color: rgb(231, 231, 231);
 }
 
 .prodandQACont{
@@ -46,6 +48,7 @@
 
 /* QandA cont */
 .qAndAcont{
+    
     margin-left: 80px;
     margin-top: 80px;
     width: 700px;
@@ -78,9 +81,20 @@ text-align: justify;
     display: flex;
     flex-direction: column;
     align-items:flex-start;
-    justify-content:safe;
+    
     font-size: 25px;
 }
+
+
+
+.resp{
+    margin-top: 22px;
+}
+
+.resp label{
+   margin-right: 10px;
+}
+
 
 
 .ton{
@@ -97,7 +111,7 @@ text-align: justify;
 }
 
 .loginButton {
-    margin-top: 8px;
+    margin-top: 30px;
     border-radius: 3px;
     background-color: #b7e943;
     color: #ffffff;

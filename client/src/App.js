@@ -59,6 +59,7 @@ function App() {
       <ContextProvider>
 
         <Route path={"/"} component={NavBar} />
+        <Route path={"/"} component={UserPanel} />
         <Route exact path={"/"} component={Landing} />
         <Route path={"/"} component={Footer} />
         <Route exact path={"/build"} component={BrandSelector} />

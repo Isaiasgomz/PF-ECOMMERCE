@@ -26,7 +26,7 @@ const UserMyOrders = () => {
  
   return (
     <div className={style.container}>
-      <UserPanel/>
+      
       <div className={style.containerTitle}>
         <h2>Mis ordenes:</h2>
       </div>

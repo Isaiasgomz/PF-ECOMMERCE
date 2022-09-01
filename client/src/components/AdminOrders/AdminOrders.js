@@ -23,7 +23,7 @@ function AdminOrders() {
   return (
     <div className={style.containerAll}>
       <div className={style.containerAdminSideBar}>
-        <AdminSideBar></AdminSideBar>
+        {/* <AdminSideBar></AdminSideBar> */}
       </div>
 
     <div className={style.productContainer}>

@@ -32,7 +32,7 @@ if(loading){
     return(
         <React.Fragment>
         <div>
-                <UserPanel />
+                
             </div>
         <div className={style.noReview}>
         <span className={style.noTienes}> <h2> No tienes opiniones para mostrar </h2></span>

@@ -99,7 +99,7 @@ function UpdateUserData() {
   } else {
     return (
       <React.Fragment>
-        <UserPanel />
+       
         <div className={styles.containerForm}>
           <form
             className={styles.productContainer}
