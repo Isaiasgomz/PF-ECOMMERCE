@@ -20,6 +20,7 @@ const initialState = {
     usersAdmin: [],
     shoppingCart: [],
     ShippingAddress: [],
+    dataMap: {},
 
     questions: [],
     adminProfile: {},
@@ -29,8 +30,12 @@ const initialState = {
     allProductSold: [],
     allQuestions:[],
 
-    allProductSold: [],
+
+    Favourites:[],
+
+
     buildPerifState: []
+
 
 
 
@@ -170,8 +175,7 @@ export default function rootReducer(state = initialState, action) {
             }
 
         case 'USER_DETAIL':
-            console.log(action.payload)
-            return {
+            return{
                 ...state,
                 userDetail: action.payload
             }
@@ -249,7 +253,21 @@ export default function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 ShippingAddress: []
+
+        }
+        case "USER_FAVOURITE":
+            return{
+                ...state,
+                Favourites: action.payload
             }
+        case "DELETE_FAVOURITE":
+            let filteredFavourites = state.Favourites
+            filteredFavourites = filteredFavourites.filter(e=>e.idProduct !== action.payload)
+            return{
+                ...state,
+                Favourites: filteredFavourites
+            }
+
 
         case 'GET_ALL_QUESTIONS':
             return {
@@ -257,6 +275,11 @@ export default function rootReducer(state = initialState, action) {
                 allQuestions: action.payload
             }
 
+        case 'DATA_MAP':
+            return {
+                ...state,
+                dataMap: action.payload
+            }
 
         default:
             return state

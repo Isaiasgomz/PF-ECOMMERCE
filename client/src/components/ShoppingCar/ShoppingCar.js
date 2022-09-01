@@ -63,7 +63,7 @@ function ShoppingCar() {
   const handleClickNoVerified = (e) => {
     e.preventDefault()
 
-    if (user && user.email_verified === false) {
+    if(user && user.email_verified === false){
       swal("No estás verificado!", "Verificación enviada a su casilla de correo", "error");
       return
     }
@@ -80,6 +80,7 @@ function ShoppingCar() {
     }
 
   }
+
 
   const clearCart = (e) => {
     e.preventDefault()
@@ -111,7 +112,7 @@ function ShoppingCar() {
   return (
     <div className={style.containerCart}>
 
-<div className={style.containerSup}>
+  <div className={style.containerSup}>
       <div className={style.containerButtons}>
         <Link to={"/home"}>
           <button className={style.button2}>Volver a la tienda</button>
@@ -139,6 +140,7 @@ function ShoppingCar() {
           }
         </div>
       </div>
+
       
       <div className={style.containerInfo}>
 
@@ -151,6 +153,7 @@ function ShoppingCar() {
           </div>
       </div>
   </div>      
+
 
       <div className={style.cards}>
         {productsFromLocalStorage.length &&
@@ -171,5 +174,6 @@ function ShoppingCar() {
     </div>
   );
 }
+
 
 export default ShoppingCar;

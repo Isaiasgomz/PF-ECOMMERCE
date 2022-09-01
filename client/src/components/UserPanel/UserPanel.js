@@ -18,6 +18,7 @@ import SideNav, {
 export default function UserPanel() {
   const dispatch = useDispatch();
 
+
   const userAdm = useSelector(state => state.user.admin)
   const personalData = useSelector(state => state.userDetail.PersonalDatum)
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -189,17 +190,3 @@ console.log("useradmn: ", userAdm);
   )
 }
 
-{/* <div className={styles.back}>
-                <div className={styles.sidebar}>
-                    <img className={styles.imagen} src='https://www.gaceta.unam.mx/wp-content/uploads/2020/10/cflodes.jpg' />
-                    <h5 className={styles.profile}>{emailUser} </h5>
-                    
-                    <div className={styles.link} onClick={openCloseDropDown}><i className="fa-solid fa-truck-arrow-right"></i> Direcciones de Envío <i className="fa-solid fa-caret-down"></i></div>
-                    {dropDown ?
-                        <div>
-                            <div className={styles.link}>  <Link to={"/userShippingAddress"} className={styles.link}>- Añadir Dirección</Link></div>
-                            <div className={styles.link}>  <Link to={"/userAllAddresses"} className={styles.link} onClick={clear}>- Ver mis Direcciones</Link> </div>
-                        </div>
-                        : null}
-                </div>
-            </div> */}
