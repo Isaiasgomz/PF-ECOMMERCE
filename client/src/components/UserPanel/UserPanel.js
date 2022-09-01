@@ -24,15 +24,15 @@ export default function UserPanel() {
   const { user, isAuthenticated, isLoading } = useAuth0();
 console.log("useradmn: ", userAdm);
   const [state, setState] = useState({
-    isVisible: true
+    isVisible: false
   })
 
-
+console.log("user: ", user);
   useEffect(() => {
     if (user?.email?.length > 0) dispatch(getUserDetail(user.email));
   }, [user]);
 
-  const clear = (e) => {
+ /*  const clear = (e) => {
     dispatch(clearAddress());
   }
 
@@ -40,11 +40,11 @@ console.log("useradmn: ", userAdm);
 
   const openCloseDropDown = () => {
     setDropDown(!dropDown);
-  }
+  } */
 
   return (
     <>
-{!userAdm?
+{!userAdm && user?
 <SideNav className={styles.conteiner} expanded={state.isVisible}>
 <div className={styles.buttonCont}>
   {state.isVisible ? <button className={styles.butonX} onClick={() => {
@@ -72,16 +72,16 @@ console.log("useradmn: ", userAdm);
     <NavText >{
       personalData ?
         <Link to={"/updateUserData"} className={styles.link}>  Datos Personales</Link>
-        :
+        : 
         <Link to={"/userData"} className={styles.link}>  Datos Personales</Link>
     }</NavText>
   </NavItem>
   <NavItem eventKey="placed ordersx" className={styles.items}>
     <NavIcon>
-      <Link to={"/myDirections"} className={styles.link}><i className="fa-solid fa-truck-arrow-right" style={{ fontSize: "1.75em" }}></i> </Link>
+      <Link to={"/userShippingAddress"} className={styles.link}><i className="fa-solid fa-truck-arrow-right" style={{ fontSize: "1.75em" }}></i> </Link>
     </NavIcon>
     <NavText>
-      <Link to={"/myDirections"} className={styles.link}> Direcciones de Envío </Link>
+      <Link to={"/userShippingAddress"} className={styles.link}> Direcciones de Envío </Link>
     </NavText>
   </NavItem>
   <NavItem eventKey="placed ordersx3" className={styles.items}>
@@ -102,15 +102,15 @@ console.log("useradmn: ", userAdm);
   </NavItem>
   <NavItem eventKey="5" className={styles.items}>
     <NavIcon>
-      <Link to={"/notfound"} className={styles.link}><i className="fa-solid fa-heart" style={{ fontSize: "1.75em" }}></i> </Link>
+      <Link to={"/Favourites"} className={styles.link}><i className="fa-solid fa-heart" style={{ fontSize: "1.75em" }}></i> </Link>
     </NavIcon>
     <NavText>
-      <Link to={"/notfound"} className={styles.link}>Favoritos</Link>
+      <Link to={"/Favourites"} className={styles.link}>Favoritos</Link>
     </NavText>
   </NavItem>
 </SideNav.Nav>
 </SideNav>:
-
+userAdm?
 <SideNav className={styles.conteiner} expanded={state.isVisible}>
 <div className={styles.buttonCont}>
   {state.isVisible ? <button className={styles.butonX} onClick={() => {
@@ -131,6 +131,7 @@ console.log("useradmn: ", userAdm);
       Administrador
       </NavText>
   </NavItem>
+  
   <NavItem eventKey="placed orders" className={styles.items}>
     <NavIcon >
       <Link to={"/adminUsers"} className={styles.link}>
@@ -182,7 +183,7 @@ console.log("useradmn: ", userAdm);
     </NavText>
   </NavItem>
 </SideNav.Nav>
-</SideNav>}
+</SideNav>:null}
     
 </>
 
