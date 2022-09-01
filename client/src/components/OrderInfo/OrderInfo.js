@@ -5,7 +5,7 @@ import styles from './OrderInfo.module.css';
 import loadingLogo from '../../imagenes/loading.png';
 import  OrderAllAddresses  from "../OrderInfo/OrderAllAddresses/OrderAllAddresses";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function OrderInfo() {
     const dispatch = useDispatch();
@@ -13,6 +13,9 @@ export default function OrderInfo() {
     const { user } = useAuth0();
     const personalData = useSelector(state => state.userDetail.PersonalDatum);
     const addresses = useSelector((state) => state.userDetail.ShippingAddresses);
+
+    const history= useHistory();
+
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -36,11 +39,12 @@ export default function OrderInfo() {
             <React.Fragment>
                 <div>
                 {
-                  personalData && addresses?
+                  (personalData && addresses.length > 0)?
                     <OrderAllAddresses
                       key= {addresses.id}
                     />
                     : 
+                    /* history.push('/userPanel') */
                     <div className={styles.container}>
                       <h1>Información de contacto</h1>
                       <br></br>

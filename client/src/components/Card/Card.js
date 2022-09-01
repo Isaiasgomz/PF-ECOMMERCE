@@ -9,7 +9,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addFavourite, deleteFavourite, getFavourite } from '../../Actions';
 import { useAuth0 } from "@auth0/auth0-react";
 
+
 function Card({ name, price, img, calification, localStor, ob, id, stock, notify, notifyAddFav, notifyRemove }) {
+
 
   const [flagFav, setFlagFav] = useState(false)
 
@@ -74,11 +76,23 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
         </Link>
       </div>
         :
-        <Link to={`/detail/${id}`}>
+          <Link to={`/detail/${id}`}>
           <div className={style.containerImg}>
             <img className={style.img} src={img} alt={name} />
           </div>
         </Link>}
+
+      {reduction !==0? <div>
+
+
+      </div>
+        :
+        <div>
+
+
+      </div>           
+      }
+        
 
       <div className={style.containerInfo}>
         <div className={style.containerTitle}>

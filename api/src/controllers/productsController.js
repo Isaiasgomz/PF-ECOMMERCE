@@ -17,7 +17,7 @@ module.exports = {
                     qualification: e.calification,
                     stock: e.quantity,
                     category: e.categories[0],
-                    compatible: e.compatible?  e.compatible : false
+                    compatible: e.compatible?  e.compatible : false,
                 }
                 return obj;
             })
@@ -51,7 +51,7 @@ module.exports = {
                     qualification: e.calification,
                     stock: e.quantity,
                     category: e.categories[0],
-                    compatible: e.compatible?  e.compatible : false
+                    compatible: e.compatible?  e.compatible : false,
                 }
                 return obj;
             })
@@ -97,7 +97,7 @@ module.exports = {
                 description, 
                 category,
                 stock,
-                brand
+                brand,
             })
             return newProduct
         } catch (error) {
@@ -128,6 +128,22 @@ module.exports = {
                 })
             }
              
+        } catch (error) {
+           throw new Error(error); 
+        }
+    },
+    /* update price */
+    updatePrice: async function(idProduct, price, reduction){
+        try {
+            const newPrice = (price - (price * (reduction/100))); {
+                await Product.update({
+                    price: newPrice, 
+                    reduction: reduction}, {
+                    where: {
+                        idProduct: idProduct
+                    }
+                })
+            }     
         } catch (error) {
            throw new Error(error); 
         }
