@@ -27,6 +27,7 @@ function AdminSideBar() {
                       <NavLink className={style.li} to={'/adminUsers'} ><div className={style.items}><p>USUARIOS</p></div>  </NavLink>
                       <NavLink className={style.li} to={'/adminCategory'} ><div className={style.items}><p>CATEGORIAS</p></div>  </NavLink>
                       <NavLink className={style.li} to={'/adminOrders'} ><div className={style.items}><p>ORDENES</p></div>  </NavLink>
+                      <NavLink className={style.li} to={'/adminPreguntas'} ><div className={style.items}><p>PREGUNTAS</p></div>  </NavLink>
                       
                       </div>
             </div>

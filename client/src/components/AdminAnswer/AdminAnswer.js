@@ -8,6 +8,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { validateAnswer } from './validateFunc';
+import toast, { Toaster } from 'react-hot-toast';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
@@ -18,20 +19,22 @@ function AdminAnswer(props) {
   const allQuestions = useSelector(state => state.allQuestions)
   const AllProducts = useSelector(state => state.AllProducts)
   const id = props.match?.params?.id
+  const [trueor,setTrueor] = useState(true)
+
   const [answer, setAnswer] = useState({
 
     QuestionId: id,
     answer: ""
   })
   const [checkbox, setCheckbox] = useState({
-    status: "En espera"
+    status: "No vista"
   })
   const [errors, setErrors] = useState({})
 
   useEffect(() => {
     dispatch(getAllQuestions())
 
-  }, [])
+  }, [trueor])
 
   let oneQuestion = allQuestions.find(e => e.id === Number(id))
 
@@ -63,13 +66,21 @@ function AdminAnswer(props) {
   }
 
   const handleClik = e => {
-    e.preventDefault()
+    /* e.preventDefault() */
+    trueor===false?setTrueor(true):setTrueor(false)
+    notify()
     dispatch(updateQuestion(id,checkbox))
     setCheckbox({
-      status: "En espera"
+      status: ""
     })
+    
   }
-
+  const notify = () => toast.success('Estado actualizado', {
+    style: {
+      background: "rgb(67, 160, 71)",
+      color: "white"
+    }
+  });
   return (
     <div className={style.containerAll}>
       <div className={style.containerAdminSideBar}>
@@ -115,7 +126,8 @@ function AdminAnswer(props) {
 
         </div>
         <div className={style.estadoCont}>
-          <div>Estado:</div>
+          <div className={style.estado}>Estado actual: {oneQuestion?.status}</div>
+
           <RadioGroup
             row
             aria-labelledby="demo-row-radio-buttons-group-label"
@@ -131,13 +143,14 @@ function AdminAnswer(props) {
               name='status'
               value="Respondida" 
               onChange={handleCheck}
+
               control={<Radio />}  />
 
 
               </span>
 
             </div>
-            <div className={style.enEsp}>
+            <div className={style.resp}>
               <label >En espera</label>
               <span>
               <FormControlLabel 
@@ -148,9 +161,13 @@ function AdminAnswer(props) {
               </span>
             </div>
           </RadioGroup>
-          <button className={style.loginButton} onClick={handleClik}>Guardar estado</button>
+          <button className={style.loginButton} onClick={handleClik} >Guardar estado</button>
         </div>
       </div>
+      <Toaster
+        position="bottom-left"
+        reverseOrder={false}
+      />
     </div>
   )
 }

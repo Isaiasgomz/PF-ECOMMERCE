@@ -34,11 +34,10 @@ function AdminQuestions() {
       }      
     }
   } )
-console.log(products)
   return (
     <div className={style.containerAll}>
       <div className={style.containerAdminSideBar}>
-        <AdminSideBar></AdminSideBar>
+        {/* <AdminSideBar></AdminSideBar> */}
       </div>
 
       <div className={style.productContainer}>
@@ -60,11 +59,12 @@ console.log(products)
               <li className={style.header}>Producto</li>
             </div>
             <div className={style.containHeadr}>
-              <li className={style.header}>Acciones</li>
-            </div>
-            <div className={style.containHeadr}>
               <li className={style.header}>Estado</li>
             </div>
+            <div className={style.containHeadr}>
+              <li className={style.header}>Acciones</li>
+            </div>
+            
           </ul>
 
           {products.length > 0 &&
@@ -85,7 +85,9 @@ console.log(products)
                 <div className={style.containCardInfo}>
                   <p> {quest?.productName.slice(0,20)}...</p>
                 </div>
-
+                <div className={style.containCardInfo}>
+                  <p>{quest?.status} </p>
+                </div>
                 <div className={style.containerActions}>
                   <NavLink to={`/adminPreguntas/update/${quest?.id}`}>
                     <div className={style.containerPencil}>
@@ -93,9 +95,7 @@ console.log(products)
                     </div>
                   </NavLink>
                 </div>
-                <div className={style.containCardInfo}>
-                  <p>{quest?.status} </p>
-                </div>
+                
                 
               </div>
 
