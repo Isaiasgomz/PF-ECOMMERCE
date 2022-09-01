@@ -42,6 +42,9 @@ import AdminDashboard from "./components/AdminDashboard/Dashboard";
 import DashboardSold from "./components/AdminDashboard/DashboardSold";
 import CreateCategory from "./components/AdminCreateCategory/CreateCategory";
 import UsertProfile from "./components/UserPanel/UserProfile";
+
+import Favourites from "./components/Favourites/Favourites";
+
 import OrderInfo from "./components/OrderInfo/OrderInfo";
 
 import AdminQuestions from "./components/AdminQuestions/AdminQuestions";
@@ -54,12 +57,14 @@ import BuildPerif from "./components/BranchSelectorPerif/BuildPerif";
 
 
 
+
 function App() {
   return (
     <div className="App">
       <ContextProvider>
 
         <Route path={"/"} component={NavBar} />
+        <Route path={"/"} component={UserPanel} />
         <Route exact path={"/"} component={Landing} />
         <Route path={"/"} component={Footer} />
         <Route exact path={"/build"} component={BrandSelector} />
@@ -82,7 +87,13 @@ function App() {
         <Route exact path={"/userShippingAddress"} component={UserShippingAddress} />
         <Route exact path={"/userAllAddresses"} component={UserAllAddresses} />
         <Route exact path={"/updateShippingAddress"} component={UpdateShippingAddress} />
+
+        <Route exact path={"/Favourites"} component={Favourites} />
+
+        
+
         <Route exact path={"/orderInfo"} component={OrderInfo} />
+
 
 
         <Route path={"/myReviews"} component={UserReviews} />

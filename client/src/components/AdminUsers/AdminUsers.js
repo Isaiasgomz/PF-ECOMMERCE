@@ -5,6 +5,7 @@ import { getUsersAdmin, userDisabled } from "../../Actions";
 import style from "./AdminUsers.module.css";
 import AdminSideBar from "../AdminSideBar/AdminSideBar";
 import AdminProfile from "../AdminProfile/AdminProfile";
+import PaginadoUsers from "./Paginado";
 
 // CP: "70760"
 // UserEmail: "isaiasrobles2003@gmail.com"
@@ -53,10 +54,21 @@ function AdminUsers() {
     await dispatch(getUsersAdmin());
   };
 
+
+
+  let [currentPage, setCurrentPage] = useState(1);
+  let [usersPerPage, setUsersPerPage] = useState(1);
+  let indexOfLastUser = currentPage * usersPerPage;
+  let indexOfFirstUser = indexOfLastUser - usersPerPage;
+  let currentUsers = users.slice(
+    indexOfFirstUser,
+    indexOfLastUser
+  );
+
   return (
     <div className={style.containerAll}>
       <div className={style.containerAdminSideBar}>
-        <AdminSideBar></AdminSideBar>
+        {/* <AdminSideBar></AdminSideBar> */}
       </div>
 
       <div className={style.productContainer}>
@@ -112,8 +124,8 @@ function AdminUsers() {
             <p className={style.headerItem}>Acciones</p>
           </div>
         </div>
-        {users &&
-          users.map((item) => (
+        {currentUsers &&
+          currentUsers.map((item) => (
             <div className={style.containerItems}>
               <div className={style.items}>
                 <p>
@@ -169,6 +181,13 @@ function AdminUsers() {
         
       </div>
       </NavLink>
+      
+      <div className={style.containerPaginate}>
+      <PaginadoUsers
+      usersPerPage={usersPerPage}
+      allUsers={users.length}
+      paginado={setCurrentPage}/>
+      </div>
       </div>
 
     </div>

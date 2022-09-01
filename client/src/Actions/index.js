@@ -47,6 +47,13 @@ export function getUserDetail(email) {
     }
 }
 
+export function getFavourite(email) {
+    return async function (dispatch) {
+        const result = await axios.get(`http://localhost:3001/user/${email}`)
+        return dispatch({ type: 'USER_FAVOURITE', payload: result.data.Products })
+    }
+}
+
 export function getShoppingCart(PurchaseOrderOrderN) {
     return async function (dispatch) {
         const shoppingCart = await axios.get(`http://localhost:3001/cart/${PurchaseOrderOrderN}`)
@@ -153,7 +160,12 @@ export function clearAddress(){
     return { type: "CLEAR_ADDRESS" }
  }
 
-
+ export function deleteFavourite(email,idProduct){
+    return async function (dispatch) {
+        await axios.delete(`http://localhost:3001/user/deleteFavourite/${email}/${idProduct}`)
+        return dispatch({type: 'DELETE_FAVOURITE', payload: idProduct})
+    } 
+}
 
 
 
@@ -296,6 +308,15 @@ export function updateShippingAddress(email, data) {
         return dispatch({ type: 'UPDATE_SHIPPING_ADDRESS'})
     }
 }
+
+export function addFavourite(email,idProduct){
+    return async function (dispatch) {
+        await axios.post(`http://localhost:3001/user/addFavourites/${email}/${idProduct}`)
+        .catch(error => console.log(error.response.data))
+        return dispatch({ type: 'ADD_FAVOURITES'})
+    }
+}
+
 
 
 export function postDataMap(payload) {

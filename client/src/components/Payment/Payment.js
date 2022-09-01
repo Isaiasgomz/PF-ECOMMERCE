@@ -108,7 +108,7 @@ const Payment = () => {
             <PayPalButton
               paypalOptions={paypalOtions}
               buttonStyles={buttonStyles}
-              amount={handleSumTotal()}
+              amount={total}
               onApprove={(data) => handlePaymentSuccess(data)}
               onPaymentStart={() => console.log("Start Payment")}
               onPaymentError={(error) => console.log(error)}

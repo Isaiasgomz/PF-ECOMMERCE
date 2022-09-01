@@ -149,6 +149,24 @@ const Cards = (props) => {
     pageDecrementBtn = <li> &hellip; </li>;
   }
 
+
+
+
+  // Toasters para favoritos!
+
+  const notifyRemove=  ()=> toast.error("Removido de favoritos!",{style:{
+    background:"red",
+    color:"white"
+}})
+
+const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
+  background: "rgb(67, 160, 71)",
+  color:"white"
+}});
+
+
+
+
   useEffect(() => {
     // 👇️ scroll to top on page load
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -160,6 +178,8 @@ const Cards = (props) => {
       <div className="mapeoCards">
         {currentItems?.map((e, index) => (
           <Card
+            notifyRemove= {notifyRemove}
+            notifyAddFav={notifyAddFav}
             localStor={addProductCartStorage}
             ob={e}
             price={e.price}

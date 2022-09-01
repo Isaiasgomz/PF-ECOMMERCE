@@ -3,6 +3,7 @@
     width: 100%;
     height: 100%;
     display: flex;
+    background-color: rgb(231, 231, 231);
 }
 
 .containerAdminSideBar{
@@ -28,89 +29,6 @@
 
 }
 
-.infoProduct{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    width: 300px;
-    height: 150px;
-    border-radius: 5px;
-    background-color: #fff;
-    border: 2px solid black;
-}
-
-.info{
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.icon{
-    width: 20%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.containerCheckv{
-    border: 2px solid black;
-    width: 40px;
-    height: 40px;
-    border-radius: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #91C612;
-}
-
-.containerCheckv i {
-    color: white;
-}
-
-.containerCheckx{
-    border: 2px solid black;
-    width: 40px;
-    height: 40px;
-    border-radius: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: red;
-}
-.containerCheckx i{
-    color: #fff;
-}
-
-.containerCheckarrow{
-    border: 2px solid black;
-    width: 40px;
-    height: 40px;
-    border-radius: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #3483FA;
-}
-
-.containerCheckarrow i{
-    color: #fff;
-}
-
-.containerNabvar{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.containerNabvar select:focus{
-    outline: none;
-}
-.containerNabvar input:focus{
-    outline: none;
-}
-
 
 .containerInfoTable{
     display: flex;
@@ -131,7 +49,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid black;
+    border: none;
+    color: #a4e40f;
+    background-color: rgb(39, 39, 39);
 }
 
 
@@ -155,30 +75,31 @@
 
 
 .containerc{
-    width: 95%;
+    background-color: #c7c7c727;
+    width: 99%;
     display: flex;
     justify-content: space-between;
 }
 
 .containCardInfo{
-    width: 10%;
+    width: 20%;
     height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid rgb(58, 58, 58);
 
 }
 
 .containerActions{
-    width: 10%;
+    width: 20%;
     height: 100px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid rgb(102, 102, 102);
 }
 
 
@@ -192,18 +113,22 @@
 }
 
 .containerButtonCreate{
+    border-radius: 50%;
     margin-bottom: 15px;
     display: flex;
     justify-content: flex-end;
 }
 
 .containerIcon{
-    margin-right: 100px;
-    border: 2px solid #78BEEC;
+    border-radius: 5px;
+    margin-right: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: none;
     background-color: #78BEEC;
-    border-radius: 2px;
-    width: 30px;
-    height: 40px;
+    color: white;
+    width: 75px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
