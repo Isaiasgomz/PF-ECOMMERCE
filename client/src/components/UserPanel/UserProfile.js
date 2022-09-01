@@ -8,7 +8,7 @@ import { getUserDetail } from "../../Actions";
 
 const UserProfile = () => {
 
-
+return(
     <React.Fragment>
     
     <div className={styles.container}>

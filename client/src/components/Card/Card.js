@@ -82,7 +82,7 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
           </div>
         </Link>}
 
-      {reduction !==0? <div>
+      {/* {reduction !==0? <div>
 
 
       </div>
@@ -91,7 +91,7 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
 
 
       </div>           
-      }
+      } */}
         
 
       <div className={style.containerInfo}>
