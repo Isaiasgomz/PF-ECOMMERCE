@@ -40,9 +40,7 @@ function UserReviews() {
   } else {
     return (
       <React.Fragment>
-        <div>
-          <UserPanel />
-        </div>
+        
         <div className={style.reviewConteiner}>
           {productsReview?.length ? (
             <div>
