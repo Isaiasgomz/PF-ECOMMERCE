@@ -127,22 +127,24 @@
 }
   */
 .containerForm{
-    background-color: #78788c;
-    
+    background-color: white;
+
 }
 
 .titleForm{
     font-size: 35px;
     font-weight: bold;
+
 }
 
 .placeHolder{
     background-color: #78788c;
     height: 66.5vh;
+
 }
 
 .contenedorLoading{
-    background-color: #78788c;
+    background-color: white;
     width: 100vw;
      height: 77.7vh;
 }
@@ -197,4 +199,6 @@ align-items: center;
 .buttonCont{
     display: flex;
     justify-content: center;
+
+    padding-top: 20px;
 }

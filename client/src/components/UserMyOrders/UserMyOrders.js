@@ -25,8 +25,11 @@ const UserMyOrders = () => {
   }
  
   return (
+    <div>
+      
+    <div className={style.containerForm}>
+
     <div className={style.container}>
-      <UserPanel/>
       <div className={style.containerTitle}>
         <h2>Mis ordenes:</h2>
       </div>
@@ -42,6 +45,8 @@ const UserMyOrders = () => {
           />
         ))}
       </div>
+    </div>
+    </div>
     </div>
   );
 };

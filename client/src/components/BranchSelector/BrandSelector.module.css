@@ -1,18 +1,56 @@
 .containerTotal{
     position: relative;
-    margin-top: 1%;
+    padding-top: 0.3%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+.containerTotalAMD{
+    /* background-image:linear-gradient( rgba(219, 7, 0, 0.623), white 29%); */
+    position: relative;
+    padding-top: 0.5%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.containerTotalIntel{
+    /* background-image:linear-gradient( rgba(0, 88, 204, 0.623), white 29%); */
+    position: relative;
+    padding-top: 0.5%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
 
-.containerBrand{
+.containerBrand0{
     position: relative;
     padding: 6%;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 80vh;
+}
+.containerBrand1{
+    background-image:linear-gradient(to left top,  white 50%, rgb(0, 71, 163));
+    position: relative;
+    padding: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+.containerBrand2{
+    background-image:linear-gradient(to right top, white 50%, rgb(180, 6, 0));
+    position: relative;
+    padding: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
 }
 
 
