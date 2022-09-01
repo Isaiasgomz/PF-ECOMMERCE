@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import UserPanel from "../UserPanel";
 import UserReviewCard from "./UserReviewCard";
 import style from "./UserReviews.module.css"
+import loadingLogo from "../../../imagenes/loading.png";
 
 function UserReviews() {
     const { userDetail } = useSelector((state) => state);
@@ -27,21 +28,26 @@ function UserReviews() {
 
 setTimeout((loading) => {
     setLoading(false)
-}, 2000);
+}, 1500);
 if(loading){
     return(
-        <React.Fragment>
-        <div>
-                <UserPanel />
-            </div>
-        <div className={style.noReview}>
-        <span className={style.noTienes}> <h2> No tienes opiniones para mostrar </h2></span>
-        <div className={style.noCartImgConteiner}>
-            <img className={style.noCartImg} src="https://letrasrecortadas.com/carritoVacio.png" />
+    //     <React.Fragment>
+    //     <div>
+    //             <UserPanel />
+    //         </div>
+    //     <div className={style.noReview}>
+    //     <span className={style.noTienes}> <h2> No tienes opiniones para mostrar </h2></span>
+    //     <div className={style.noCartImgConteiner}>
+    //         <img className={style.noCartImg} src="https://letrasrecortadas.com/carritoVacio.png" />
+    //     </div>
+    //     <Link to="/home"><span className={style.veAcomprar}> Ve a comprar!</span></Link>
+    // </div>
+    // </React.Fragment>
+    <div className={style.contenedorLoading}>
+        <div className={style.loading}>
+          <img className={style.img} src={loadingLogo} />
         </div>
-        <Link to="/home"><span className={style.veAcomprar}> Ve a comprar!</span></Link>
-    </div>
-    </React.Fragment>
+      </div>
     )
 }else{
     return (

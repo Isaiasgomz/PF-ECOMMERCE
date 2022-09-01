@@ -11,7 +11,6 @@ function validate(input) {
   if (!input.reference) {
     errors.reference = "La referencia es requerida";
   }
-  
   if (!input.address) {
     errors.address = "La dirección es requerida";
   }
@@ -248,6 +247,7 @@ function UpdateShippingAddress({/* id, */ reference, address, CP, telephone, cit
         </div>
       </form>
     </div>
+    
     </React.Fragment>
   );
 }

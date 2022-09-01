@@ -6,12 +6,38 @@ import UserPanel from "../UserPanel";
 import UpdateShippingAddress from "../UpdateShippingAddress/UpdateShippingAddress";
 import styles from './UserAllAddresses.module.css';
 import loadingLogo from "../../../imagenes/loading.png"
+import AllAddresessCard from "./AllAddresessCard"
 
 function UserAllAddresses() {
     const dispatch = useDispatch();
 
     const user = useSelector((state) => state.user.email);
+    // "email": "anajuliaa.22.jp@gmail.com",
     const addresses = useSelector((state) => state.userDetail.ShippingAddresses);
+    // "ShippingAddresses": [
+    //     {
+    //       "id": 1,
+    //       "reference": "Amiga",
+    //       "address": "o'higgins 440",
+    //       "department": "0",
+    //       "city": "Mendoza",
+    //       "CP": "5547",
+    //       "country": "Argentina",
+    //       "telephone": "23545657",
+    //       "UserEmail": "anajuliaa.22.jp@gmail.com"
+    //     },
+    //     {
+    //       "id": 2,
+    //       "reference": "amiga",
+    //       "address": "Avenida San Martin",
+    //       "department": "0",
+    //       "city": "Mendoza",
+    //       "CP": "5547",
+    //       "country": "Argentina",
+    //       "telephone": "23545657",
+    //       "UserEmail": "anajuliaa.22.jp@gmail.com"
+    //     }
+    //   ],
     const address = useSelector((state) => state.ShippingAddress)
     console.log(address)
     const [loading, setLoading] = useState(true)
@@ -54,25 +80,36 @@ function UserAllAddresses() {
                     <span>Seleccione la dirección que quiere ver y/o editar</span>
                     <div className={styles.buttonCont}>
                     {   
-                        addresses && addresses.map(a => {
-                            return(
-                                <div>
-                                    <button className={styles.btn} key={a.id} value={a.reference} onClick={(e) => filterAddress(e)}>        
-                                        {a.id} {a.reference}  
-                                    </button>  
-                                </div>                     
-                            )
-                        })                
+                        addresses?.map((e,index) => (
+                            <AllAddresessCard
+                            reference= {e.reference}
+                            address = {e.address}
+                            city = {e.city} 
+                            country = {e.country} 
+                            key={index}
+                            />
+                        ))
+
+
+                        // addresses && addresses.map(a => {
+                        //     return(
+                        //         <div>
+                        //             <button className={styles.btn} key={a.id} value={a.reference} onClick={(e) => filterAddress(e)}>        
+                        //                 {a.id} {a.reference}  
+                        //             </button>  
+                        //         </div>                     
+                        //     )
+                        // })                
                     } 
                     </div> 
                 </div>
                 
                     
                     
-                    <div>
+                    {/* <div>
                     <UpdateShippingAddress
                         key= {address?.id}
-/*                         id= {address?.id} */
+                         id= {address?.id} //comentado
                         reference= {address?.reference}
                         UserEmail= {user}
                         address= {address?.address}
@@ -82,7 +119,7 @@ function UserAllAddresses() {
                         country= {address?.country}
                         department= {address?.department}
                     />  
-                    </div>                         
+                    </div>                          */}
                     
             </div>
             </React.Fragment>
