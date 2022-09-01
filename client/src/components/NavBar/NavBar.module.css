@@ -68,3 +68,13 @@
 .email {
   display: none;
 }
+
+.containerHeart{
+  color: red;
+  font-size: 18px;
+}
+
+.containerHeart:hover{
+  cursor: pointer;
+  color: #ff1d1d;;
+}

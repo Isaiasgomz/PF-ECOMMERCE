@@ -59,13 +59,13 @@ function Menu() {
 
     <Link to="/home"><button  className={styles.buttons} onClick={clear}> Productos <i className="fa-solid fa-database"></i></button></Link>
 
-    <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("perifericos")}> Perifericos <i className="fa-solid fa-keyboard"></i> </button></Link>
+    <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("perifericos")}> Periféricos <i className="fa-solid fa-keyboard"></i> </button></Link>
 
-    <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("Laptops")}> Laptops <i className="fa-solid fa-laptop"></i> </button></Link>
+    <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("Laptops")}> Notebooks <i className="fa-solid fa-laptop"></i> </button></Link>
 
     <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("componentes")}> Componentes <i className="fa-solid fa-screwdriver-wrench"></i> </button></Link>
 
-    <Link to="/build"><button  className={styles.buttons} onClick={clear}> Arma tu PC <i className="fa-solid fa-computer"></i></button></Link>
+    <Link to="/build"><button  className={styles.buttons} onClick={clear}> Armá tu PC <i className="fa-solid fa-computer"></i></button></Link>
 
   </div>;
 }

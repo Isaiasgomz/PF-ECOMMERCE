@@ -38,6 +38,10 @@ function AdminProducts() {
     (product) => product.stock === 0
   );
 
+  const productsOutOfStock = allProductsBackup.filter(
+    (product) => product.stock < 3
+  );
+
   let [currentPage, setCurrentPage] = useState(1);
   let [ProductsPerPage, setProductsPerPage] = useState(6);
   let indexOfLastProduct = currentPage * ProductsPerPage;
@@ -76,14 +80,33 @@ function AdminProducts() {
     await dispatch(getAdminProducts());
   };
 
+  const filterProductByIconGreen = () =>{
+     currentProducts = allProducts.filter(e => e.disabled !== true &&  e.stock > 3 )
+     console.log(currentProducts)
+  }
+  const filterProductByIconBlue = () =>{
+     currentProducts = productsDisabled
+     console.log(currentProducts)
+  }
+  const filterProductByIconRed = () =>{
+     currentProducts = productsDrained
+     console.log(currentProducts)
+  }
+  const filterProductByIconYellow = () =>{
+     currentProducts = productsOutOfStock
+     console.log(currentProducts)
+  }
+
   return (
     <div className={style.containerAll}>
       <div className={style.containerAdminSideBar}>
-        <AdminSideBar></AdminSideBar>
+        {/* <AdminSideBar></AdminSideBar> */}
       </div>
       <div className={style.productContainer}>
-        {/* <h2>Productos</h2> */}
+        
         <div className={style.infoConteiner}>
+
+          <button onClick={filterProductByIconGreen} className={style.infoButton}>
           <div className={style.infoProduct}>
             <div className={style.info}>
               <h3>{allProductsBackup.length - productsDisabled.length}</h3>
@@ -95,7 +118,8 @@ function AdminProducts() {
               </div>
             </div>
           </div>
-
+          </button>
+          <button  onClick={filterProductByIconBlue} className={style.infoButton}>
           <div className={style.infoProduct}>
             <div className={style.info}>
               <h3>{productsDisabled.length}</h3>
@@ -107,7 +131,8 @@ function AdminProducts() {
               </div>
             </div>
           </div>
-
+          </button>
+                  <button onClick={filterProductByIconRed} className={style.infoButton}>
           <div className={style.infoProduct}>
             <div className={style.info}>
               <h3>{productsDrained.length}</h3>
@@ -119,10 +144,25 @@ function AdminProducts() {
             </div>
             </div>
           </div>
+          </button>
+                  <button onClick={filterProductByIconYellow} className={style.infoButton}>
+          <div className={style.infoProduct}>
+            <div className={style.info}>
+              <h3>{productsOutOfStock.length}</h3>
+              <p>Productos Poco Stock</p>
+            </div>
+            <div className={style.icon}>
+              <div className={style.containerCheckEx}>
+              <i class="fa-solid fa-exclamation"></i>
+              </div>
+            </div>
+          </div>
+          </button>
+
         </div>
 
         <div className={style.containerNabvar}>
-          <select>
+          <select className={style.searchBar}>
             <option>Desabilitados</option>
             {productsDisabled &&
               productsDisabled.map((product) => (
@@ -131,7 +171,7 @@ function AdminProducts() {
                 </option>
               ))}
           </select>
-          <select>
+          <select className={style.searchBar}>
             <option>Agotados</option>
             {productsDrained &&
               productsDrained.map((product) => (
@@ -141,11 +181,14 @@ function AdminProducts() {
               ))}
           </select>
           <input
+            className={style.searchBar}
             value={product}
             onChange={(e) => handleInput(e)}
             placeholder="Buscar Producto"
           ></input>
-          <button onClick={(e) => handleSubmit(e)}>
+          <button 
+            className={style.searchBarButton}
+            onClick={(e) => handleSubmit(e)}>
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
@@ -244,7 +287,7 @@ function AdminProducts() {
 
           {currentProducts &&
             currentProducts.map((product) => (
-              <div className={style.containerc}>
+              <div className={product.disabled? style.containercDisable : product.stock <= 0? style.containercAgotado : product.stock <= 3? style.containercLow : style.containerc}>
                 <div className={style.containCardInfo}>
                   <p> {product.productName.split(" ").slice(0, 2).join(" ")}</p>
                 </div>
@@ -277,11 +320,32 @@ function AdminProducts() {
                     </div>
                   </NavLink>
                   <div>
-                  <i onClick={() => handleDisabled(product.idProduct, product.disabled)} class="fa-solid fa-trash-can"></i>
+                  {
+                    
+                  product.disabled?
+                  <div className={style.actionDisable}>
+                  <i onClick={() => handleDisabled(product.idProduct, product.disabled)} className="fa-solid fa-arrow-rotate-left"></i>
+                  </div>
+                    :
+                  <div className={style.actionNotDisable}>
+                    
+                    <i onClick={() => handleDisabled(product.idProduct, product.disabled)} className="fa-solid fa-trash"></i>
+                  </div>
+                  }
+
                   </div>
                 </div>
               </div>
             ))}
+        </div>
+
+        <div className={style.containerButtonCreate}>
+          <NavLink  className={style.link} to={"/createProduct"}>
+            <div className={style.containerIcon}>
+            <i class="fa-solid fa-plus"></i>
+              
+            </div>
+          </NavLink>
         </div>
 
         <div className={style.containerPaginate}>
@@ -289,16 +353,11 @@ function AdminProducts() {
             ProductsPerPage={ProductsPerPage}
             allProducts={allProducts.length}
             paginado={setCurrentPage}
+            currentPage={currentPage}
           />
         </div>
 
-        <div className={style.containerButtonCreate}>
-          <NavLink  className={style.link} to={"/createProduct"}>
-            <div className={style.containerIcon}>
-              <i class="fa-solid fa-plus"></i>
-            </div>
-          </NavLink>
-        </div>
+        
       </div>
     </div>
   );

@@ -16,10 +16,7 @@
     padding: 20px;
 }
 
-.img {
-    margin: 20px;
-    padding: 20px;
-}
+
 
 .infoConteiner {
     margin: 10px;
@@ -81,6 +78,12 @@
     margin-left: 14px;
 }
 
+.miniGarantia1Ago {
+    margin-left: 3px;
+    color: #af3030;
+    
+}
+
 .miniGarantia2 {
     margin-left: 12px;
 }
@@ -91,13 +94,21 @@
     border-radius: 4px;
     background-color: #3483FA;
     padding: 13px;
-    margin-top: 10px;
     cursor: pointer;
     transition: 0.3s ease;
 }
 
 .button:hover {
     background-color: #5294f7;
+}
+
+.button:disabled{
+    background-color: gray;
+    cursor: default;
+}
+
+.spanAgotado{
+    color: #af3030;
 }
 
 /* ---------------------------------------------------tabs........... */
@@ -234,4 +245,71 @@
 
 .generalReview{
     padding: 10px;
+}
+
+
+.buttonConteiner{
+    width: 225px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.favContainer{
+    border: 2px solid #ff0000;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff0000;
+
+}
+
+.favContainer:hover{
+    cursor: pointer;
+}
+
+.favContainer i {
+    color: white;
+}
+
+.noFavContainer{
+    border: 2px solid #ff0000;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.noFavContainer:hover{
+    cursor: pointer;
+}
+
+.noFavContainer i {
+    color: red;
+}
+
+.img {
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.imgAgot{
+    height: 200px;
+    z-index: 2;
+
+}
+
+.imgProduc{
+    z-index: 1;
+    
+
 }

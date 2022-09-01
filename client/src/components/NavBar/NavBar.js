@@ -10,7 +10,7 @@ import Profile from "../auth0/User/User";
 import logo from "../../imagenes/logo.png";
 
 function NavBar() {
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, user } = useAuth0();
 
   return (
     <div className={styles.menus}>
@@ -43,6 +43,10 @@ function NavBar() {
                   <i className="fa-solid fa-circle-user"></i> Mi Perfil
                 </button>
               </Link>
+              {user && <Link className={styles.containerHeart} to={"/Favourites"}>
+
+              <i class="fa-solid fa-heart"></i>
+              </Link>}
               <Link to="/cart">
                 <button className={styles.cart}>
                   <i className="fa-solid fa-cart-shopping"></i> Carrito

@@ -17,8 +17,8 @@ function AdminSideBar() {
 
                       <div className={style.containerTitleInfo}>
                       <img className={style.imagen} src={adminProfile.profile} alt={'profile'} />
-                      <h3>{adminProfile.fullname}</h3>
-                      <h2>Administrador</h2>
+                      <span className={style.fullName}>{adminProfile.fullname}</span>
+                      <span className={style.administrator}>Administrador</span>
                       </div>
                       <div className={style.containerOptions}>
 
@@ -27,6 +27,7 @@ function AdminSideBar() {
                       <NavLink className={style.li} to={'/adminUsers'} ><div className={style.items}><p>USUARIOS</p></div>  </NavLink>
                       <NavLink className={style.li} to={'/adminCategory'} ><div className={style.items}><p>CATEGORIAS</p></div>  </NavLink>
                       <NavLink className={style.li} to={'/adminOrders'} ><div className={style.items}><p>ORDENES</p></div>  </NavLink>
+                      <NavLink className={style.li} to={'/adminPreguntas'} ><div className={style.items}><p>PREGUNTAS</p></div>  </NavLink>
                       
                       </div>
             </div>

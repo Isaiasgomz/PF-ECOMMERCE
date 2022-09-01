@@ -21,3 +21,5 @@ const AllAddresessCard = ({ reference, address, city, country }) => {
     </div>
   );
 };
+
+export default AllAddresessCard;

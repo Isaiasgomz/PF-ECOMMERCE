@@ -1,4 +1,4 @@
-const { Op, Product, Review } = require('../db');
+const { Op, Product, Review, Question,Answer } = require('../db');
 const api = require("../jsonProducts.js");
 
 module.exports = {
@@ -75,7 +75,12 @@ module.exports = {
                 },
                 include: [{
                     model:Review
-                }]
+                },{
+                    model:Question,
+                    include:[{
+                        model:Answer
+                    }]
+                }],
             } )
                 return product;
         } catch (error) {

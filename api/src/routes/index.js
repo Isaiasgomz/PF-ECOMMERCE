@@ -8,7 +8,8 @@ const user = require ('./User');
 const cart = require ('./Cart.js');
 const purchases = require ('./Purchase.js');
 const admin = require ('./Admin.js');
-
+const question = require('./Question.js');
+const answer = require('./Answer.js');
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
@@ -24,5 +25,9 @@ router.use('/cart', cart)
 router.use('/purchases', purchases)
 /* Tareas admin: crear nuevo admin y eliminarlo, ver todos los usuarios y buscarlos x query, ver productos deshabilitados */
 router.use('/admin', admin)
+/* questions */
+router.use('/question',question)
+/* answers */
+router.use('/answer', answer)
 
 module.exports = router;

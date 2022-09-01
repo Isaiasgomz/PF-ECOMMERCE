@@ -30,7 +30,6 @@ const UserMyOrders = () => {
     <div className={style.containerForm}>
       
     <div className={style.container}>
-     
       <div className={style.containerTitle}>
         <h2>Mis ordenes:</h2>
       </div>

@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUserData } from "../../../Actions/index.js";
+import { getUserDetail, updateUserData } from "../../../Actions/index.js";
 import UserPanel from "../UserPanel";
 import styles from './UpdateUserData.module.css';
 import loadingLogo from "../../../imagenes/loading.png"
 import swal from "sweetalert";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function validate(input) {
   const errors = {};
@@ -35,15 +36,21 @@ function validate(input) {
 
 function UpdateUserData() {
   const dispatch = useDispatch();
+
   const [loading, setLoading] = useState(true)
-  const user = useSelector((state) => state.user.email);
-  const info = useSelector((state) => state.userDetail.PersonalDatum)
+  const email = useSelector((state) => state.user.email);
+  const info = useSelector((state) => state.userDetail.PersonalDatum);
+  const { user } = useAuth0();
+
+  useEffect(() => {
+    if (user?.email.length > 0) dispatch(getUserDetail(user.email));
+  }, [dispatch, user]);
 
   const history = useHistory();
 
   const [input, setInput] = useState({
     fullname: info?.fullname,
-    UserEmail: user,
+    UserEmail: email,
     address: info?.address,
     CP: info?.CP,
     telephone: info?.telephone,
@@ -76,13 +83,22 @@ function UpdateUserData() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(updateUserData(user, input));
-    swal('Sus datos de perfil se actualizaron correctamente')
-    setIsDisabled(true)
+    dispatch(updateUserData(email, input));
+    swal('Sus datos de perfil se actualizaron correctamente');
+    setIsDisabled(true);
+    setInput({
+      fullname: info?.fullname,
+      UserEmail: email,
+      address: info?.address,
+      CP: info?.CP,
+      telephone: info?.telephone,
+      city: info?.city,
+      country: info?.country,
+      department: info?.department
+    });
+
     history.push("/userPanel");
   };
-
-
 
   setTimeout((loading) => {
     setLoading(false)
@@ -93,13 +109,13 @@ function UpdateUserData() {
         <div className={styles.loading}>
           <img className={styles.img} src={loadingLogo} />
         </div>
-
       </div>
     )
-  } else {
+  } 
+  else {
     return (
       <React.Fragment>
-        <UserPanel />
+       
         <div className={styles.containerForm}>
           <form
             className={styles.productContainer}

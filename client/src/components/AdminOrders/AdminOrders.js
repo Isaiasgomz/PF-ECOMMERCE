@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {getAllOrders} from "../../Actions";
 import {NavLink} from 'react-router-dom'
 import AdminSideBar from '../AdminSideBar/AdminSideBar';
 import style from './AdminOrders.module.css'
+import PaginadoOrder from './PaginadoOrder';
 
 // UserEmail: "isaiasrobles2003@gmail.com"
 // date: "2022-08-26"
@@ -20,10 +21,19 @@ function AdminOrders() {
 
     const {AllOrders} = useSelector(state => state)
 
+    let [currentPage, setCurrentPage] = useState(1);
+    let [orderPerPage, setCategoryPerPage] = useState(5);
+    let indexOfLastOrder = currentPage * orderPerPage;
+    let indexOfFirstOrder= indexOfLastOrder - orderPerPage;
+    let currentOrder = AllOrders.slice(
+      indexOfFirstOrder,
+      indexOfLastOrder
+    );
+
   return (
     <div className={style.containerAll}>
       <div className={style.containerAdminSideBar}>
-        <AdminSideBar></AdminSideBar>
+        {/* <AdminSideBar></AdminSideBar> */}
       </div>
 
     <div className={style.productContainer}>
@@ -49,8 +59,8 @@ function AdminOrders() {
             </div>
           </ul>
 
-          {AllOrders.length > 0 &&
-            AllOrders.map(order => (
+          {currentOrder.length > 0 &&
+            currentOrder.map(order => (
             <div className={style.containerc}>
                 <div className={style.containCardInfo}>
                   <p> {order.UserEmail}</p>
@@ -75,10 +85,18 @@ function AdminOrders() {
                         </div>
                        </NavLink>
                 </div>
+
+                
             </div>
 
             ))}
         </div>
+        <div className={style.containerPaginate}>
+                  <PaginadoOrder
+                  ordersPerPage={orderPerPage}
+                  allOrders={AllOrders.length}
+                  paginado={setCurrentPage}/>
+                </div>
 
         
       </div>
