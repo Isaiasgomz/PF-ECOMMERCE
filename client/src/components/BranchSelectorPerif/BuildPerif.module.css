@@ -1,10 +1,11 @@
 .containerTotal{
     position: relative;
-    margin-top: 1%;
+    padding-top: 0.3%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    /* background-image:linear-gradient(  rgba(111, 180, 0, 0.678), white 15%); */
 }
 
 .containerBrand{
