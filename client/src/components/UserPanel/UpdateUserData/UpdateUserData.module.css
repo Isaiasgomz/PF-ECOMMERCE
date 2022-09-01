@@ -1,28 +1,28 @@
 .containerForm {
-    background-color:  #78788c;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3.65%;
+  background-color:  #e7e7e7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3.65%;
 }
 
 .productContainer {
-    
-    height: 90%;
-    background: #e6e6e6;
-    border-radius: 8px;
-    box-shadow: 0 0 40px -10px #000;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 20px 30px;
-    max-width: calc(90vw - 40px);
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
-    background-color: #e6e6e6;
-    width: 900px;
-    padding: 2%;
-    
-    
+  
+  height: 90%;
+  background: #ffffff;
+  border-radius: 8px;
+  
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 20px 30px;
+  max-width: calc(90vw - 40px);
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  background-color: #ffffff;
+  width: 900px;
+  padding: 2%;
+  
+  
 }
 
 .titleForm {
@@ -66,7 +66,7 @@
 }
 
 .formInput {
-  width: 380px;
+  width: 330px;
   padding: 10px;
   padding-top: 10px;
   box-sizing: border-box;
@@ -76,17 +76,20 @@
   border: 0;
   font-family: "Montserrat", sans-serif;
   transition: all 0.3s;
-  border-bottom: 2px solid #bebed2;
+  border: 2px solid #bebed2;
+  border-radius: 7px;
   text-align: left; 
-}
-
-.formInput:disabled{
-    font-weight: bold;
-    color: #a7a7bb54;
+  
 }
 
 .formInput:focus {
-  border-bottom: 2px solid #91C612 ;
+  border: 2px solid #91C612 ;
+}
+
+.formInput:disabled{
+  border: 2px dotted rgb(184, 184, 184);
+  background-color: rgb(224, 224, 224);
+  color: gray;
 }
 
 .lab::before {

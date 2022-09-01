@@ -85,7 +85,7 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
           <Link to={`/detail/${id}`}> <span>{name}</span></Link>
         </div>
         <div className={style.containerPriceCart}>
-          <span>${price}</span>
+          <span className={style.spanPrice}>${price}</span>
           {/* <Rating
             name="half-rating"
             size="small"
