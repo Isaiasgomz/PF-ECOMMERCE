@@ -1,14 +1,15 @@
 .containerSideBar{
-    background-color:rgb(48, 48, 48);
-    color: white;
+    background-color:white;
+    color: rgb(48, 48, 48);
     width: 250px;
     height: 650px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    border: none;
+    border: 1px solid rgb(230, 230, 230);
     border-radius: 25px;
+    box-shadow: 0px 5px 8px 0px rgba(48, 48, 48, 0.527);
     
 }
 
@@ -21,23 +22,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+    margin-top: 20px;
 }
 
 .imagen {
     border-radius: 50%;
-    border: 3px solid #91C612;
+    border: none;
     height: 150px;
     width: 160px;
-    box-shadow: 0px 0px 15px 0px rgb(199, 255, 185);
-    transition: 0.5s;
+    
 }
 
-.imagen:hover{
-    border: 3px solid #bdfa30;
-    box-shadow: 0px 0px 15px 3px rgb(216, 255, 206);
+.fullName{
+    font-size: 20px;
 }
 
+.administrator{
+    font-size: 30px;
+}
 
 .containerOptions{
 
@@ -48,7 +50,8 @@
     align-items: center;
     justify-content: center;
     gap: 15px;
-    padding: 20px;
+    
+    
 }
 
 
@@ -61,6 +64,7 @@
     justify-content: center;
     background-color: #91C612;
     color: white ;
+    border-radius: 7px;
     
 } 
 
@@ -69,7 +73,7 @@
 }
 
 .items:hover{
-    background-color: #3483FA;
+    background-color: #a2da21;
     color: white;
 }
 

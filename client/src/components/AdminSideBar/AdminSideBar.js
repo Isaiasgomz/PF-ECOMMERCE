@@ -17,8 +17,8 @@ function AdminSideBar() {
 
                       <div className={style.containerTitleInfo}>
                       <img className={style.imagen} src={adminProfile.profile} alt={'profile'} />
-                      <h3>{adminProfile.fullname}</h3>
-                      <h2>Administrador</h2>
+                      <span className={style.fullName}>{adminProfile.fullname}</span>
+                      <span className={style.administrator}>Administrador</span>
                       </div>
                       <div className={style.containerOptions}>
 
