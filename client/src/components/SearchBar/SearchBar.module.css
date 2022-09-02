@@ -14,7 +14,7 @@
 .dropdownProdConteiner {
   display: flex;
   flex-direction: column;
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   z-index: 1;
   margin-right: 58px;
   border-bottom-left-radius: 10px;
@@ -30,7 +30,7 @@
 }
 
 .products:hover {
-  background-color: #37373F;
+  background-color: #37373f;
   color: white;
 }
 
