@@ -22,7 +22,6 @@ export default function UserPanel() {
   const userAdm = useSelector(state => state.user.admin)
   const personalData = useSelector(state => state.userDetail.PersonalDatum)
   const { user, isAuthenticated, isLoading } = useAuth0();
-console.log("useradmn: ", userAdm);
   const [state, setState] = useState({
     isVisible: true
   })
@@ -78,10 +77,10 @@ console.log("useradmn: ", userAdm);
   </NavItem>
   <NavItem eventKey="placed ordersx" className={styles.items}>
     <NavIcon>
-      <Link to={"/myDirections"} className={styles.link}><i className="fa-solid fa-truck-arrow-right" style={{ fontSize: "1.75em" }}></i> </Link>
+      <Link to={"/userAllAddresses"} className={styles.link}><i className="fa-solid fa-truck-arrow-right" style={{ fontSize: "1.75em" }}></i> </Link>
     </NavIcon>
     <NavText>
-      <Link to={"/myDirections"} className={styles.link}> Direcciones de Envío </Link>
+      <Link to={"/userAllAddresses"} className={styles.link}> Direcciones de Envío </Link>
     </NavText>
   </NavItem>
   <NavItem eventKey="placed ordersx3" className={styles.items}>

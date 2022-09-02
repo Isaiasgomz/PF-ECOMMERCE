@@ -42,9 +42,6 @@ const UserOrderDetail = (props) => {
     }, 1500);
 
     return (
-      // <div className={style.loadingCont} >
-      //   <h2 className={style.loading}>Loading...</h2>
-      // </div>
       <div className={style.contenedorLoading}>
         <div className={style.loading}>
           <img className={style.img} src={loadingLogo} />

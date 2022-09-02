@@ -9,6 +9,12 @@
     width: 65%;
     height: auto;
     padding: 25px;
+    border: 2px solid rgba(255, 255, 255, 0);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.637);
+    border-radius: 10px;
+    background-color: #EEEEEE;
+    margin-bottom: 25px;
+    margin-top: 30px;
 }
 
 .containerTitle{
@@ -25,6 +31,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
+   
 }
 
 .card {

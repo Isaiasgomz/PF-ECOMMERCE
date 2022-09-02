@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {clearAddress, getUserDetail, updateShippingAddress} from '../../../Actions';
+import {clearAddress, getAddress, getUserDetail, updateShippingAddress} from '../../../Actions';
 import styles from './UpdateShippingAddress.module.css';
 import swal from "sweetalert";
 
@@ -27,12 +27,15 @@ function validate(input) {
   return errors;
 }
 
-function UpdateShippingAddress({/* id, */ reference, address, CP, telephone, city, country, department}) {
+function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, country, department}) {
     const dispatch = useDispatch();
-
+    console.log("prop", country)
     const user = useSelector((state) => state.user.email);
     /* const addresses = useSelector((state) => state.userDetail.ShippingAddresses) */
-
+    useEffect(async ()=> {
+        await dispatch(getAddress(id))
+    },[dispatch, user])
+    
     const history = useHistory();
 
     const [input, setInput] = useState({
@@ -46,7 +49,7 @@ function UpdateShippingAddress({/* id, */ reference, address, CP, telephone, cit
         country: country,
         department: department
     });
-
+    console.log("input",input)
     const [isDisabled, setIsDisabled] = useState(true);
     
     const [errors, setErrors] = useState({});
@@ -93,32 +96,18 @@ function UpdateShippingAddress({/* id, */ reference, address, CP, telephone, cit
                 swal('Su dirección de envío se actualizó correctamente');
                 clearAddress();
                 setIsDisabled(true);
-                history.push("/userPanel");
+                history.push("/userAllAddresses");
             }
     };
 
     return (
-        <><>
+       <>
+    
             <div className={styles.containerForm}>
                 <form
                     className={styles.productContainer}
                     onSubmit={(e) => handleSubmit(e)}>
                     <h2 className={styles.titleForm}>Dirección de {reference}</h2>
-                    {/* <div className={styles.searchbar}>
-<label className={styles.lab}>Buscar:</label>
-<select name="searchaddress" onClick={(e) => filterAddress(e)}>
-{
-addresses && addresses.map(a => {
-return(
-    <option key={a.id} value={a.reference}>
-    {a.reference}
-    </option>
-)
-})
-}
-</select>
-</div>
-*/}
                     <div className={styles.contenedor}>
                         <div className={styles.name}>
                             <label className={styles.lab}>Referencia:
@@ -236,45 +225,7 @@ return(
                     </div>
                 </form>
             </div>
-
-            <div className={styles.name}>
-                <label className={styles.lab}>País:
-                    <input
-                        className={styles.formInput}
-                        disabled={isDisabled}
-                        required={true}
-                        type="text"
-                        name="country"
-                        value={input.country}
-                        /* placeholder="País" */
-                        onChange={(e) => handleInput(e)} />
-                    {errors.country && <label className={styles.textError}>{errors.country}</label>}
-                </label>
-            </div>
-            <div className={styles.name}>
-                <label className={styles.lab}>Teléfono:
-                    <input
-                        className={styles.formInput}
-                        disabled={isDisabled}
-                        type="tel"
-                        name="telephone"
-                        value={input.telephone}
-                        /* placeholder="Teléfono" */
-                        onChange={(e) => handleInput(e)} />
-                </label>
-            </div>
-            <br />
-
-        </><div className={styles.containerBtn}>
-                <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Editar</button>
-                <button className={styles.btn} type='submit' disabled={isDisabled}>Guardar</button>
-                <NavLink to={"/userPanel"}>
-                    <button className={styles.btnS}>Salir</button>
-                </NavLink>
-            </div></>
-    //   </form>
-    // </div>
-    
+        </>
  
   );
 
