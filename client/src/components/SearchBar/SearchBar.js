@@ -57,7 +57,7 @@ function SearchBar() {
             placeholder="Buscar producto..."
             name="name"
             onChange={handlefilter}
-            autocomplete="off"
+            autoComplete="off"
           />
         </div>
         <div>
