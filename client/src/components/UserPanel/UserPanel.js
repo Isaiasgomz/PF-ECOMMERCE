@@ -16,6 +16,8 @@ import SideNav, {
 } from "@trendmicro/react-sidenav";
 
 export default function UserPanel() {
+
+
   const dispatch = useDispatch();
 
 
@@ -23,15 +25,15 @@ export default function UserPanel() {
   const personalData = useSelector(state => state.userDetail.PersonalDatum)
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [state, setState] = useState({
-    isVisible: true
+    isVisible: false
   })
 
-
+console.log("user: ", user);
   useEffect(() => {
     if (user?.email?.length > 0) dispatch(getUserDetail(user.email));
   }, [user]);
 
-  const clear = (e) => {
+ /*  const clear = (e) => {
     dispatch(clearAddress());
   }
 
@@ -39,11 +41,11 @@ export default function UserPanel() {
 
   const openCloseDropDown = () => {
     setDropDown(!dropDown);
-  }
+  } */
 
   return (
     <>
-{!userAdm?
+{!userAdm && user?
 <SideNav className={styles.conteiner} expanded={state.isVisible}>
 <div className={styles.buttonCont}>
   {state.isVisible ? <button className={styles.butonX} onClick={() => {
@@ -71,16 +73,18 @@ export default function UserPanel() {
     <NavText >{
       personalData ?
         <Link to={"/updateUserData"} className={styles.link}>  Datos Personales</Link>
-        :
+        : 
         <Link to={"/userData"} className={styles.link}>  Datos Personales</Link>
     }</NavText>
   </NavItem>
   <NavItem eventKey="placed ordersx" className={styles.items}>
     <NavIcon>
+
       <Link to={"/userAllAddresses"} className={styles.link}><i className="fa-solid fa-truck-arrow-right" style={{ fontSize: "1.75em" }}></i> </Link>
     </NavIcon>
     <NavText>
       <Link to={"/userAllAddresses"} className={styles.link}> Direcciones de Envío </Link>
+
     </NavText>
   </NavItem>
   <NavItem eventKey="placed ordersx3" className={styles.items}>
@@ -101,15 +105,15 @@ export default function UserPanel() {
   </NavItem>
   <NavItem eventKey="5" className={styles.items}>
     <NavIcon>
-      <Link to={"/notfound"} className={styles.link}><i className="fa-solid fa-heart" style={{ fontSize: "1.75em" }}></i> </Link>
+      <Link to={"/Favourites"} className={styles.link}><i className="fa-solid fa-heart" style={{ fontSize: "1.75em" }}></i> </Link>
     </NavIcon>
     <NavText>
-      <Link to={"/notfound"} className={styles.link}>Favoritos</Link>
+      <Link to={"/Favourites"} className={styles.link}>Favoritos</Link>
     </NavText>
   </NavItem>
 </SideNav.Nav>
 </SideNav>:
-
+userAdm?
 <SideNav className={styles.conteiner} expanded={state.isVisible}>
 <div className={styles.buttonCont}>
   {state.isVisible ? <button className={styles.butonX} onClick={() => {
@@ -130,6 +134,7 @@ export default function UserPanel() {
       Administrador
       </NavText>
   </NavItem>
+  
   <NavItem eventKey="placed orders" className={styles.items}>
     <NavIcon >
       <Link to={"/adminUsers"} className={styles.link}>
@@ -181,11 +186,12 @@ export default function UserPanel() {
     </NavText>
   </NavItem>
 </SideNav.Nav>
-</SideNav>}
+</SideNav>:null}
     
 </>
 
 
   )
 }
+
 

@@ -282,6 +282,11 @@ export default function rootReducer(state = initialState, action) {
                 dataMap: action.payload
             }
 
+        case 'UPDATE_PRICE':
+            return {
+                ...state,
+            }
+
         default:
             return state
     }

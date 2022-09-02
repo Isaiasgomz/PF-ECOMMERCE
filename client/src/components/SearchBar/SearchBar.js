@@ -7,62 +7,89 @@ import styles from "../SearchBar/SearchBar.module.css";
 
 function SearchBar() {
   const dispatch = useDispatch();
-
+  let products = useSelector((state) => state.AllProducts);
+  const [filterData, setFilterData] = useState([]);
   const [search, setSearch] = useState({ name: "" });
-  const history = useHistory()
-  const {setCurrentPage} = useContext(createCont)
+  const history = useHistory();
+  const { setCurrentPage } = useContext(createCont);
 
-  const onChange = (e) => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log("e", e);
     setSearch({
       ...search,
       [e.target.name]: e.target.value,
     });
+    console.log("search.mane", search.name);
+    dispatch(getProductsByName(search.name));
+    setFilterData([]);
+    setSearch({
+      name: "",
+    });
+    setCurrentPage(1);
+    history.push("/home");
   };
 
-  const onSubmit = (e) => {
+  const handlefilter = (e) => {
     e.preventDefault();
-    if (search.name === "") {
-      return;
-    } else {
-      dispatch(getProductsByName(search.name));
-      setCurrentPage(1)
-      history.push("/home")
-
+    setSearch({
+      ...search,
+      [e.target.name]: e.target.value,
+    });
+    console.log("search.mane", search.name);
+    const searchW = e.target.value;
+    const newFilter = products.filter((e) => {
+      return e.productName.toLowerCase().includes(searchW.toLowerCase());
+    });
+    if (searchW === "") setFilterData([]);
+    else {
+      setFilterData(newFilter);
     }
-    setSearch({ name: "" });
   };
 
-  let products = useSelector((state) => state.AllProducts)
-  products = products.filter((e) => e.productName);
   return (
-    <div className={styles.search}>
-      <form onSubmit={onSubmit}>
-        <input
-          className={styles.searchBar}
-          type="text"
-          name="name"
-          value={search.name}
-          onChange={onChange}
-          placeholder="Buscar producto..."
-          list="products"
-        ></input>
-        <datalist className={styles.dataResults} id="products">
-            {products.map((value, key) => {
+    <div className={styles.searchs}>
+      <form className={styles.search}>
+        <div className={styles.inputSearch}>
+          <input
+            className={styles.searchBar}
+            type="text"
+            placeholder="Buscar producto..."
+            name="name"
+            onChange={handlefilter}
+            autocomplete="off"
+          />
+        </div>
+        <div>
+          <button
+            className={styles.searchButton}
+            type="submit"
+            onClick={handleClick}
+          >
+            <i className="fa-solid fa-magnifying-glass"></i>{" "}
+          </button>
+        </div>
+        {filterData.length !== 0 && (
+          <div className={styles.dropdownProdConteiner}>
+            {filterData.slice(0, 5).map((e) => {
               return (
-                <option value={value.productName}></option>
+                <a
+                  href={`/detail/${e.idProduct}`}
+                  type="button"
+                  className={styles.products}
+                  name="name"
+                  key={e.idProduct}
+                  value={e.productName}
+                >
+                  {e.productName}
+                </a>
               );
             })}
-        </datalist>
-        <button
-          className={styles.searchButton}
-          type="submit"
-          onSubmit={onSubmit}
-        >
-          <i className="fa-solid fa-magnifying-glass"></i>
-        </button>
+          </div>
+        )}
+        <div></div>
       </form>
     </div>
-    
   );
 }
 

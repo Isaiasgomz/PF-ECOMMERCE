@@ -25,6 +25,7 @@ const UserMyOrders = () => {
 
   return (
     <div>
+
       <div className={style.containerForm}>
         <div className={style.container}>
           <div className={style.containerTitle}>
@@ -43,6 +44,7 @@ const UserMyOrders = () => {
             ))}
           </div>
         </div>
+
       </div>
     </div>
   );
