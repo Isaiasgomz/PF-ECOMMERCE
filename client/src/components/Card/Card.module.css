@@ -184,4 +184,7 @@
     cursor: pointer;
 }
 
+.discount{
+    text-decoration:line-through
+}
 
