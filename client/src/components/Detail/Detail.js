@@ -275,7 +275,11 @@ const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
             <div className={style.buttonConteiner}>
             <button disabled={product.stock<=0 || product.disabled===true}  onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
             <div onClick={(e)=>HandleChangeFav(product,e)} className={estilos}>
-            <i class="fa-solid fa-heart"></i>
+            {estilos === style.favContainer ? (
+                <i class="fa-solid fa-heart"></i>
+              ) : (
+                <i class="fa-regular fa-heart"></i>
+              )}
           </div>
           </div>
           ):(
