@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from './UserPanel.module.css';
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,34 +14,27 @@ import SideNav, {
   NavIcon,
   NavText
 } from "@trendmicro/react-sidenav";
+import { createCont } from "../contexto/contextProvider";
 
 export default function UserPanel() {
 
 
   const dispatch = useDispatch();
-
+  const { trueorfalse2} = useContext(createCont)
 
   const userAdm = useSelector(state => state.user.admin)
   const personalData = useSelector(state => state.userDetail.PersonalDatum)
+  const userDetail = useSelector(state => state.userDetail)
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [state, setState] = useState({
     isVisible: false
   })
 
-console.log("user: ", user);
   useEffect(() => {
     if (user?.email?.length > 0) dispatch(getUserDetail(user.email));
-  }, [user]);
+  }, [user,trueorfalse2]);
 
- /*  const clear = (e) => {
-    dispatch(clearAddress());
-  }
-
-  const [dropDown, setDropDown] = useState(false)
-
-  const openCloseDropDown = () => {
-    setDropDown(!dropDown);
-  } */
+console.log("personaldata: ",personalData);
 
   return (
     <>
@@ -68,7 +61,13 @@ console.log("user: ", user);
   </NavItem>
   <NavItem eventKey="placed orders" className={styles.items}>
     <NavIcon >
+    {
+      personalData ?
       <Link to={"/updateUserData"} className={styles.link}><i className="fa-solid fa-address-card" style={{ fontSize: "1.75em" }}></i></Link>
+        : 
+        <Link to={"/userData"} className={styles.link}><i className="fa-solid fa-address-card" style={{ fontSize: "1.75em" }}></i></Link>
+    }
+      
     </NavIcon>
     <NavText >{
       personalData ?

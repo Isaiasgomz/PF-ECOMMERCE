@@ -187,7 +187,7 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
                                 {errors.CP && <label className={styles.textError}>{errors.CP}</label>}
                             </label>
                         </div>
-                        <div className={styles.name}>
+                        <div className={styles.name2}>
                             <label className={styles.lab}>País:
                                 <input
                                     className={styles.formInput}
@@ -201,7 +201,7 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
                                 {errors.country && <label className={styles.textError}>{errors.country}</label>}
                             </label>
                         </div>
-                        <div className={styles.name}>
+                        <div className={styles.name2}>
                             <label className={styles.lab}>Teléfono:
                                 <input
                                     className={styles.formInput}
@@ -216,12 +216,14 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
                         <br />
                     </div>
                     <div className={styles.containerBtn}>
-                        <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Editar</button>
-                        {/* <button className={styles.btn} disabled={!isDisabled} onClick={handleDelete}>Eliminar</button>   */}
-                        <button className={styles.btn} type='submit' disabled={isDisabled}>Guardar</button>
+                        
+                        
+                        
                         <NavLink to={"/userPanel"}>
                             <button className={styles.btnS}>Salir</button>
                         </NavLink>
+                        <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Editar</button>
+                        <button className={styles.btn} type='submit' disabled={isDisabled}>Guardar</button>
                     </div>
                 </form>
             </div>

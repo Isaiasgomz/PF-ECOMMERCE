@@ -1,45 +1,53 @@
 .containerForm {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3.65%;
+  background-color:  #e7e7e7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 3.65%; */
+  height: 85vh;
 }
 
 .productContainer {
     
-    height: 90%;
-    background: #e6e6e6;
-    border-radius: 8px;
-    box-shadow: 0 0 40px -10px #000;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 20px 30px;
-    max-width: calc(90vw - 40px);
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
-    background-color: #e6e6e6;
-    width: 900px;
-    padding: 2%;
-    
-    
+  height: auto;
+  border-radius: 8px;
+  
+  margin-top: -100px;
+  margin-bottom: 5px;
+  padding: 20px 30px;
+  max-width: calc(90vw - 40px);
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  background-color: #ffffff;
+  width: 900px;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.titleCont{
+  width: 88%;
+  display: flex;
+  justify-content: center;
+  border-bottom: 3px solid #91C612 ;
+  margin-bottom: 20px;
 }
 
 .titleForm {
-    padding-top: 10px;
+    grid-area: titleForm;
+    
     padding-bottom: 10px;
-    width: 100%;
+    
     color: black;
-    border-bottom: 3px solid #91C612 ;
 }
 
 .name { 
-    background-color: transparent;
-    width: 43%; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  background-color: transparent;
+  width: 43%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .name1{ 
     margin-left: 10px;
@@ -62,11 +70,11 @@
   flex-wrap: wrap; 
   height: 350px;
   justify-content: space-evenly;
-  /* align-content: space-between; */
+  align-content: space-between;
 }
 
 .formInput {
-  width: 380px;
+  width: 330px;
   padding: 10px;
   padding-top: 10px;
   box-sizing: border-box;
@@ -76,13 +84,15 @@
   border: 0;
   font-family: "Montserrat", sans-serif;
   transition: all 0.3s;
-  border-bottom: 2px solid #bebed2;
+  border: 2px solid #bebed2;
+  border-radius: 7px;
   text-align: left; 
 }
 
 .formInput:disabled{
-    font-weight: bold;
-    color: #a7a7bb54;
+  border: 2px dotted rgb(184, 184, 184);
+  background-color: #EEEEEE;
+  color: gray;
 }
 
 .formInput:focus {
@@ -102,6 +112,7 @@
   margin-top: 10px;
   display: flex;
   justify-content: space-evenly;
+  gap: 100px;
   }
 
 .btn {
