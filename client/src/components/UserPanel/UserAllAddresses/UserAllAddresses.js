@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAddress, getUserDetail } from "../../../Actions/index.js";
 import UserPanel from "../UserPanel";
 import UpdateShippingAddress from "../UpdateShippingAddress/UpdateShippingAddress";
-import styles from "./UserAllAddresses.module.css";
+import style from "./UserAllAddresses.module.css";
 import loadingLogo from "../../../imagenes/loading.png";
-import AllAddresessCard from "./AllAddresessCard";
+import AllAddresessCard from "./AllAddresessCard.js";
 
 function UserAllAddresses() {
   const dispatch = useDispatch();
@@ -39,88 +39,66 @@ function UserAllAddresses() {
   //     }
   //   ],
   const address = useSelector((state) => state.ShippingAddress);
-
+  console.log(address);
   const [loading, setLoading] = useState(true);
-  /*    const [dropDown, setDropDown] = useState(false)
+  const [dropDown, setDropDown] = useState(false);
 
-    const openCloseDropDown = () =>{
-        setDropDown(!dropDown);
-    } */
+  const openCloseDropDown = () => {
+    setDropDown(!dropDown);
+  };
 
+  function filterAddress(e) {
+    console.log("filter addres");
+    e.preventDefault();
+    console.log(e.target.value);
+    dispatch(getAddress(e.target.value));
+  }
   const history = useHistory();
   /*   
      useEffect(() => {
         if(user?.length>0)dispatch(getUserDetail(user));    
     }, [addresses]); */
 
-  function filterAddress(e) {
-    e.preventDefault();
-    /*        setDropDown(!dropDown);  */
-    dispatch(getAddress(e.target.value));
-  }
-
   setTimeout((loading) => {
     setLoading(false);
-  }, 2000);
+  }, 1000);
   if (loading) {
     return (
-      <div className={styles.contenedorLoading}>
-        <div className={styles.loading}>
-          {<img className={styles.img} src={loadingLogo}/>}
+      <div className={style.contenedorLoading}>
+        <div className={style.loading}>
+          {<img className={style.img} src={loadingLogo} />}
         </div>
       </div>
     );
   } else {
     return (
       <React.Fragment>
-        <div className={styles.containerForm}>
-          <span className={styles.titleForm}> Mis Direcciones</span>
-          <div className={styles.searchbar}>
-            <span>Seleccione la dirección que quiere ver y/o editar</span>
-            <div className={styles.buttonCont}>
-              {
-                addresses?.map((e, index) => (
-                  <AllAddresessCard
-                    reference={e.reference}
-                    address={e.address}
-                    city={e.city}
-                    country={e.country}
-                    key={index}
-                  />
-                ))
+        <div className={style.containerForm}>
+          <div className={style.container}>
+            <div className={style.containerTitle}>
+              <h2> Mis direcciones</h2>
+            </div>
 
-                // addresses && addresses.map(a => {
-                //     return(
-                //         <div>
-                //             <button className={styles.btn} key={a.id} value={a.reference} onClick={(e) => filterAddress(e)}>
-                //                 {a.id} {a.reference}
-                //             </button>
-                //         </div>
-                //     )
-                // })
-              }
+            <div className={style.span}>Seleccione la dirección que quiere ver y/o editar</div>
+            <div className={style.containerCards}>
+              {addresses?.map((e, index) => (
+                <AllAddresessCard
+                  id={e.id}
+                  reference={e.reference}
+                  address={e.address}
+                  city={e.city}
+                  country={e.country}
+                  key={index}
+                  filterAddress={() => filterAddress(e.id)}
+                />
+              ))}
+            </div>
+            <div className={style.anadir} >
+              <Link to="/userShippingAddress">
+                <button className={style.button}>AÑADIR NUEVA DIRECCION</button>
+              </Link>
             </div>
           </div>
-
-          {/* <div>
-
-                </div>                       
-                    <div>
-
-                    <UpdateShippingAddress
-                        key= {address?.id}
-                         id= {address?.id} //comentado
-                        reference= {address?.reference}
-                        UserEmail= {user}
-                        address= {address?.address}
-                        CP= {address?.CP}
-                        telephone= {address?.telephone}
-                        city= {address?.city}
-                        country= {address?.country}
-                        department= {address?.department}
-                    />  
-
-                    </div>                          */}
         </div>
       </React.Fragment>
     );

@@ -51,7 +51,7 @@ import AdminQuestions from "./components/AdminQuestions/AdminQuestions";
 import AdminAnswer from "./components/AdminAnswer/AdminAnswer";
 
 import BuildPerif from "./components/BranchSelectorPerif/BuildPerif";
-
+import UpdateAddres from "./components/UserPanel/UserAllAddresses/UpdateAddres";
 
 
 
@@ -116,7 +116,7 @@ function App() {
         <Route exact path={"/createCategory"} component={CreateCategory}/>
         <Route exact path={"/adminPreguntas"} component={AdminQuestions}/>
         <Route exact path={"/adminPreguntas/update/:id"} component={AdminAnswer}/>
-
+        <Route exact path={"/updateAddres/:id"} component={UpdateAddres}/>
       </ContextProvider>
     </div>
   );
