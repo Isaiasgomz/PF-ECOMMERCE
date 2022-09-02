@@ -76,7 +76,7 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
             <img className={style.img} src={img} alt={name} />
           </div>
 
-        </Link>}
+        </Link>)}
 
       {reduction !== 0? 
       <div className={style.containerDescuento}>

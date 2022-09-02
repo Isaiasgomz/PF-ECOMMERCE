@@ -103,7 +103,7 @@ function UpdateUserData() {
 
   setTimeout((loading) => {
     setLoading(false)
-  }, 10000);
+  }, 1500);
   if (loading) {
     return (
       <div className={styles.contenedorLoading}>

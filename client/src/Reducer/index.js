@@ -193,7 +193,8 @@ export default function rootReducer(state = initialState, action) {
 
         case 'SHIPPING_ADDRESS':
             return {
-                ...state
+                ...state,
+                dataMap: action.payload
             }
 
         case 'GET_ADDRESS':
