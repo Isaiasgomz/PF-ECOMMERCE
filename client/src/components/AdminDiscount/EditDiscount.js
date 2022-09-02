@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import {getProductDetailAdmin}  from "../../Actions"
+import {getProductDetailAdmin, updatePrice}  from "../../Actions"
 import style from './EditDiscount.module.css'
 
 // brand: "Asus"
@@ -38,12 +38,13 @@ function EditDiscount(props) {
 
     const  detail =  useSelector(state => state.adminProductDetail)
 
-    console.log(detail)
+
 
 
     const [product, setProduct] = useState({
         price:'',
         reduction: '',
+        
         
     })
   
@@ -56,14 +57,19 @@ function EditDiscount(props) {
         price:detail.price - ((detail.price/100) * e.target.value)
       })
     }
-    
-    console.log(product)
+
   
       const handleSubmit = (e)=>{
         e.preventDefault()
+
+        const updatingPrice = {
+          idProduct: props.match.params.id,
+          price:detail.price,
+          reduction: parseInt(product.reduction),
+        }
     
-  
-        dispatch()
+        console.log(updatingPrice)
+        dispatch(updatePrice(updatingPrice));
         
         setProduct({
         productName: '',
@@ -74,7 +80,7 @@ function EditDiscount(props) {
         category: '',
         brand: '',
         })
-         history.push('/adminProducts')
+         history.push('/adminDiscount')
       }
   
 
@@ -101,7 +107,7 @@ function EditDiscount(props) {
             <p>{detail.productName}</p>
             <p>Marca: {detail.brand}</p>
             <p>Categoria: {detail.category}</p>
-            <div>
+            {/* <div>
 
             <label > Activar Descuento</label><br/>
             <label className='text-input'> SI
@@ -119,13 +125,14 @@ function EditDiscount(props) {
             onChange={(e)=> handleCheckBoxSeason(e)}/>
             </label>
 
-            </div>
+            </div> */}
             <p>Precio Actual: {detail.price}</p>
 
         
         <input type='number' name='reduction' value={product.reduction} onChange={(e) => handleInput(e)}/>
         <p> precio Final con {product.reduction} % de Descuento: {product.price} </p>
         
+        <button type='submit' onClick={(e) => handleSubmit(e)}>Aplicar Descuento</button>
         </div>
 
 

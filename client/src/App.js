@@ -52,9 +52,13 @@ import AdminAnswer from "./components/AdminAnswer/AdminAnswer";
 
 import BuildPerif from "./components/BranchSelectorPerif/BuildPerif";
 
+
 import AdminDiscount from "./components/AdminDiscount/AdminDiscount";
 
 import EditDiscount from "./components/AdminDiscount/EditDiscount";
+
+
+import UpdateAddres from "./components/UserPanel/UserAllAddresses/UpdateAddres";
 
 
 
@@ -122,8 +126,12 @@ function App() {
         <Route exact path={"/adminPreguntas/update/:id"} component={AdminAnswer}/>
 
 
+
         <Route exact path={"/adminDiscount"} component={AdminDiscount}/>
         <Route exact path={"/adminDiscount/editDiscount/:id"} component={EditDiscount}/>
+
+
+        <Route exact path={"/updateAddres/:id"} component={UpdateAddres}/>
 
       </ContextProvider>
     </div>

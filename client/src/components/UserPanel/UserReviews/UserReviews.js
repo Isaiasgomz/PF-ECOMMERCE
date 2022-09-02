@@ -26,10 +26,11 @@ function UserReviews() {
     }
   });
 
-  setTimeout((loading) => {
-    setLoading(false);
-  }, 1500);
-  if (loading) {
+  if (loading === true) {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
     return (
       <div className={style.contenedorLoading}>
         <div className={style.loading}>
@@ -37,43 +38,30 @@ function UserReviews() {
         </div>
       </div>
     );
-  } else {
+  } else if (loading === false) {
     return (
-      <React.Fragment>
+
+      <div className={style.reviewConteiner}>
         
-        <div className={style.reviewConteiner}>
-          {productsReview?.length ? (
-            <div>
-              {productsReview?.map((e, index) => (
-                <UserReviewCard
-                  key={index}
-                  id={e?.idProduct}
-                  img={e?.img}
-                  nameP={e?.productName}
-                  review={e?.review}
-                  qualification={e?.qualification}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className={style.noReview}>
-              <span className={style.noTienes}>
-                {" "}
-                <h2> No tienes opiniones para mostrar </h2>
-              </span>
-              <div className={style.noCartImgConteiner}>
-                <img
-                  className={style.noCartImg}
-                  src="https://letrasrecortadas.com/carritoVacio.png"
-                />
-              </div>
-              <Link to="/home">
-                <span className={style.veAcomprar}> Ve a comprar!</span>
-              </Link>
-            </div>
-          )}
-        </div>
-      </React.Fragment>
+        
+          <div className={style.container}>
+          <div className={style.containerTitle}>
+            <h2>Mis opiniones</h2>
+          </div>
+            {productsReview?.map((e, index) => (
+              <UserReviewCard
+                key={index}
+                id={e?.idProduct}
+                img={e?.img}
+                nameP={e?.productName}
+                review={e?.review}
+                qualification={e?.qualification}
+              />
+            ))}
+          </div>
+        
+      </div>
+
     );
   }
 }

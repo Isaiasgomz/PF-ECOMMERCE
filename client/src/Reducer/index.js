@@ -19,7 +19,7 @@ const initialState = {
     adminProductDetail: {},
     usersAdmin: [],
     shoppingCart: [],
-    ShippingAddress: [],
+    ShippingAddress: {},
     dataMap: {},
 
     questions: [],
@@ -197,7 +197,8 @@ export default function rootReducer(state = initialState, action) {
             }
 
         case 'GET_ADDRESS':
-            const address = state.userDetail.ShippingAddresses.find((sa) => sa.reference === action.payload)
+            const address = state.userDetail.ShippingAddresses.find((sa) =>  sa.id === Number(action.payload))
+            console.log("addres reducer", state.userDetail.ShippingAddresses)
             return {
                 ...state,
                 ShippingAddress: address
@@ -279,6 +280,11 @@ export default function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 dataMap: action.payload
+            }
+
+        case 'UPDATE_PRICE':
+            return {
+                ...state,
             }
 
         default:

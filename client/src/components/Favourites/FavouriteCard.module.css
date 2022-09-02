@@ -72,23 +72,13 @@
   }
 
   .containerHeart{
-    border: 2px solid #ff0000;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 100px;
-    background-color: #ff0000;
+    font-size: 22.5px;
+    color: red;
   }
 
   .containerHeart:hover{
     cursor: pointer;
-    background-color: #ff1111;
-  }
-
-  .containerHeart i{
-    color: white;
+    color: #ff1111;
   }
 
 
