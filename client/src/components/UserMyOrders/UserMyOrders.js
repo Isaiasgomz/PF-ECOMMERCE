@@ -6,47 +6,46 @@ import style from "./MyOrdersCard.module.css";
 import UserPanel from "../UserPanel/UserPanel";
 
 const UserMyOrders = () => {
-
   const dispatch = useDispatch();
 
-  const emailUser = useSelector(state => state.user.email)
-    
-    useEffect(() => {
-        dispatch(getUserDetail(emailUser));
-    }, [dispatch]);
+  const emailUser = useSelector((state) => state.user.email);
+
+  useEffect(() => {
+    dispatch(getUserDetail(emailUser));
+  }, [dispatch]);
 
   const { userDetail } = useSelector((state) => state);
 
   const total = (orderN) => {
-   const articles = userDetail.ShoppingCarts 
-    const x = articles.filter(e => e.PurchaseOrderOrderN === orderN)
-    const quantity = x.map(e => e.quantity).reduce((a,b) => a + b, 0);
-    return quantity
-  }
- 
+    const articles = userDetail.ShoppingCarts;
+    const x = articles.filter((e) => e.PurchaseOrderOrderN === orderN);
+    const quantity = x.map((e) => e.quantity).reduce((a, b) => a + b, 0);
+    return quantity;
+  };
+
   return (
     <div>
-      
-    <div className={style.containerForm}>
 
-    <div className={style.container}>
-      <div className={style.containerTitle}>
-        <h2>Mis ordenes:</h2>
+      <div className={style.containerForm}>
+        <div className={style.container}>
+          <div className={style.containerTitle}>
+            <h2>Mis ordenes</h2>
+          </div>
+          <div className={style.containerCards}>
+            {userDetail.PurchaseOrders?.map((e, index) => (
+              <MyOrdersCard
+                quantity={total(e.orderN)}
+                orderN={e.orderN}
+                date={e.date}
+                totalPrice={e.totalPrice}
+                status={e.status}
+                key={index}
+              />
+            ))}
+          </div>
+        </div>
+
       </div>
-      <div className={style.containerCards}>
-        {userDetail.PurchaseOrders?.map((e, index) => (
-          <MyOrdersCard
-            quantity={total(e.orderN)}
-            orderN={e.orderN}
-            date={e.date}
-            totalPrice={e.totalPrice}
-            status={e.status}
-            key={index}
-          />
-        ))}
-      </div>
-    </div>
-    </div>
     </div>
   );
 };
