@@ -52,6 +52,10 @@ import AdminAnswer from "./components/AdminAnswer/AdminAnswer";
 
 import BuildPerif from "./components/BranchSelectorPerif/BuildPerif";
 
+import AdminDiscount from "./components/AdminDiscount/AdminDiscount";
+
+import EditDiscount from "./components/AdminDiscount/EditDiscount";
+
 
 
 
@@ -116,6 +120,10 @@ function App() {
         <Route exact path={"/createCategory"} component={CreateCategory}/>
         <Route exact path={"/adminPreguntas"} component={AdminQuestions}/>
         <Route exact path={"/adminPreguntas/update/:id"} component={AdminAnswer}/>
+
+
+        <Route exact path={"/adminDiscount"} component={AdminDiscount}/>
+        <Route exact path={"/adminDiscount/editDiscount/:id"} component={EditDiscount}/>
 
       </ContextProvider>
     </div>
