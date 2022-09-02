@@ -190,6 +190,7 @@ const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
             key={index}
             stock={e.stock}
             reduction={e.reduction}
+            reducedAmount={e.reducedAmount}
           />
         ))}
       </div>

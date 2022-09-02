@@ -22,6 +22,7 @@ function Card({
   notifyAddFav,
   notifyRemove,
   reduction,
+  reducedAmount,
 }) {
   const [flagFav, setFlagFav] = useState(false);
 
@@ -62,6 +63,9 @@ function Card({
       return;
     }
   };
+
+
+  const beforeDiscountPrice = price + reducedAmount;
 
   return (
     <div className={style.containerCard}>
@@ -104,7 +108,11 @@ function Card({
         </div>
 
         <div className={style.containerPriceCart}>
-          <span>${price}</span>
+          <span>
+            {reduction !== 0 ? (<span className={style.discount} >Antes {beforeDiscountPrice}</span>
+            ): null}
+            ${price}
+          </span>
           {/* <Rating
             name="half-rating"
             size="small"
