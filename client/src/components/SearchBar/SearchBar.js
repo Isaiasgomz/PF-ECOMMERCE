@@ -7,12 +7,11 @@ import styles from "../SearchBar/SearchBar.module.css";
 
 function SearchBar() {
   const dispatch = useDispatch();
-  let products = useSelector((state) => state.AllProducts)
-  const [filterData, setFilterData] = useState([])
+  let products = useSelector((state) => state.AllProducts);
+  const [filterData, setFilterData] = useState([]);
   const [search, setSearch] = useState({ name: "" });
-  const history = useHistory()
-  const { setCurrentPage } = useContext(createCont)
-
+  const history = useHistory();
+  const { setCurrentPage } = useContext(createCont);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -23,13 +22,13 @@ function SearchBar() {
     });
     console.log("search.mane", search.name);
     dispatch(getProductsByName(search.name));
-    setFilterData([])
+    setFilterData([]);
     setSearch({
-      name: ""
+      name: "",
     });
-    setCurrentPage(1)
-    history.push("/home")
-  }
+    setCurrentPage(1);
+    history.push("/home");
+  };
 
   const handlefilter = (e) => {
     e.preventDefault();
@@ -39,42 +38,58 @@ function SearchBar() {
     });
     console.log("search.mane", search.name);
     const searchW = e.target.value;
-    const newFilter = products.filter(e => {
+    const newFilter = products.filter((e) => {
       return e.productName.toLowerCase().includes(searchW.toLowerCase());
     });
-    if (searchW === "") setFilterData([])
+    if (searchW === "") setFilterData([]);
     else {
       setFilterData(newFilter);
     }
-  }
+  };
 
   return (
     <div className={styles.searchs}>
-
-
       <form className={styles.search}>
-        <div className={styles.input}>
-          <input className={styles.searchBar} type="text" placeholder="Search a country" name="name" onChange={handlefilter} />
+        <div className={styles.inputSearch}>
+          <input
+            className={styles.searchBar}
+            type="text"
+            placeholder="Buscar producto..."
+            name="name"
+            onChange={handlefilter}
+            autoComplete="off"
+          />
         </div>
-
         <div>
-          <button className={styles.searchButton} type="submit" onClick={handleClick}><i className="fa-solid fa-magnifying-glass"></i> </button>
+          <button
+            className={styles.searchButton}
+            type="submit"
+            onClick={handleClick}
+          >
+            <i className="fa-solid fa-magnifying-glass"></i>{" "}
+          </button>
         </div>
         {filterData.length !== 0 && (
-          
           <div className={styles.dropdownProdConteiner}>
-
             {filterData.slice(0, 5).map((e) => {
-              return <a href={`/detail/${e.idProduct}`} type="button" className={styles.products} name="name" key={e.idProduct} value={e.productName} >
-                {e.productName}
-              </a>
+              return (
+                <a
+                  href={`/detail/${e.idProduct}`}
+                  type="button"
+                  className={styles.products}
+                  name="name"
+                  key={e.idProduct}
+                  value={e.productName}
+                >
+                  {e.productName}
+                </a>
+              );
             })}
-          </div>)}
+          </div>
+        )}
         <div></div>
       </form>
-
     </div>
-
   );
 }
 

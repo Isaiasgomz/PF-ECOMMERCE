@@ -9,14 +9,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFavourite, deleteFavourite, getFavourite } from "../../Actions";
 import { useAuth0 } from "@auth0/auth0-react";
 
+function Card({
+  name,
+  price,
+  img,
+  calification,
+  localStor,
+  ob,
+  id,
+  stock,
+  notify,
+  notifyAddFav,
+  notifyRemove,
+  reduction,
+}) {
+  const [flagFav, setFlagFav] = useState(false);
 
-function Card({ name, price, img, calification, localStor, ob, id, stock, notify, notifyAddFav, notifyRemove, reduction }) {
+  const dispatch = useDispatch();
 
-
-  const [flagFav, setFlagFav] = useState(false)
-
-  const dispatch = useDispatch()
-
+  const [hidden , setHidden] = useState(true)
 
   const { user } = useAuth0();
 
@@ -27,6 +38,8 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
   let filtered = mapFav.includes(ob.idProduct);
 
   ob.fav = filtered ? true : false;
+
+  console.log()
 
   let estilos = ob.fav || filtered ? style.favContainer : style.noFavContainer;
 
@@ -39,8 +52,7 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
       await dispatch(addFavourite(user?.email, ob.idProduct));
       notifyAddFav();
       dispatch(getFavourite(user?.email));
-      console.log("fav,desde la func", Fav);
-      console.log("------------------desdelafunc", filtered);
+      setHidden(false)
       return;
     }
 
@@ -48,17 +60,26 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
       await dispatch(deleteFavourite(user?.email, ob.idProduct));
       notifyRemove();
       dispatch(getFavourite(user?.email));
-      console.log("fav,desde la func", Fav);
-      console.log("------------------desdelafunc", filtered);
+    
       return;
     }
   };
 
+  
+
+
+  const hacerHiddenTrue = ()  =>{
+    setHidden(false)
+  }
+
+  const hacerHiddenFalse = ()  =>{
+    if (ob.fav === true) {return}
+    else{ setHidden(true)}
+  }
+
   return (
-    <div className={style.containerCard}>
-      {/* {console.log("ad12321312", ob)}
-      {console.log("acaaaaaaaaaaaaa favvvvv", Fav)}
-      {console.log("------------------", filtered)} */}
+    <div className={style.containerCard} onMouseEnter={hacerHiddenTrue} onMouseLeave={hacerHiddenFalse} >
+     
       <div className={style.superiorPart}>
 
         {reduction !== 0 ?
@@ -82,6 +103,7 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
               </div>
             </Link>
           </div>
+
         ) :
           <Link to={`/detail/${id}`}>
             <div className={style.containerImg}>
@@ -90,6 +112,17 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
 
           </Link>}
 
+          <div className={style.favConteiner}>
+          {user && (
+            <div hidden={ ob.fav === true? false : hidden} onClick={(e) => HandleChangeFav(ob, e)} className={estilos}>
+              {estilos === style.favContainer ? (
+                <i class="fa-solid fa-heart"></i>
+              ) : (
+                <i class="fa-regular fa-heart"></i>
+              )}
+            </div>
+          )}
+          </div>
 
 
       </div>
@@ -105,18 +138,7 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
 
         <div className={style.containerPriceCart}>
           <span className={style.spanPrice}>${price}</span>
-          {/* <Rating
-            name="half-rating"
-            size="small"
-            defaultValue={Number(calification)}
-            precision={0.5}
-            readOnly
-          /> */}
-          {user && (
-            <div onClick={(e) => HandleChangeFav(ob, e)} className={estilos}>
-              <i class="fa-solid fa-heart"></i>
-            </div>
-          )}
+          
 
           {stock <= 0 ? (
             <div className={style.buttonCarritoAgotado}>
@@ -131,11 +153,8 @@ function Card({ name, price, img, calification, localStor, ob, id, stock, notify
               <i className="fa-solid fa-cart-plus"></i>
             </div>
           )}
-
-          {/* <div>
-      <button onClick={notify}>Make me a toast</button>
-      <Toaster />
-    </div> */}
+          
+          
         </div>
       </div>
     </div>

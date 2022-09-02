@@ -6,6 +6,7 @@ import FavouriteCard from './FavouriteCard';
 import style from "./Favourite.module.css"
 import LoginButton from '../auth0/LogginButton/ButtonLogin';
 import { Link } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 const Favourites = () => {
 
@@ -33,6 +34,9 @@ const Favourites = () => {
             <button className={style.buttonNoLoged}>Volver</button>
             </Link>
             </div>
+            <div className={style.containerCardsFav}>
+
+            
 
             <div className={style.containerTitle}>
             <h2 className={style.title}>Favoritos</h2>
@@ -46,6 +50,7 @@ const Favourites = () => {
                     <h3>No hay ningún producto aquí!</h3>
                 </div>
             )}
+            </div>
             </div>
         </div>
     )}else{
@@ -63,6 +68,10 @@ const Favourites = () => {
                     </Link>
                     </div>
                 </div>
+                <Toaster
+      position="bottom-left"
+      reverseOrder={false}
+       />
             </div>
         )
     };

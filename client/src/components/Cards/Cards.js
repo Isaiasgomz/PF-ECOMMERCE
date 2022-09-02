@@ -41,15 +41,15 @@ const Cards = (props) => {
       };
 
       x = [...fromLocalStorage, o];
-      console.log(x);
+      
       localStorage.setItem(stringLocalStorage, JSON.stringify(x));
       notify()
-      console.log(x);
+      
       return;
     }
     x = [...x, o];
     localStorage.setItem(stringLocalStorage, JSON.stringify(x));
-    console.log(x);
+    
   };
 
   //Paginado.
@@ -89,7 +89,7 @@ const Cards = (props) => {
 
   const renderPageNumbers = pages.map((number) => {
     //creamos una funcion para renderizar los numeros
-    console.log("number: ", number, "maxpage: ", maxPageNumberLimit, " min page lmt: ", minPageNumberLimit)
+    
     if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
       //si el numero de paginas es menos al maximo de numero de paginas mas uno y el numero de paginas es mayor  al minimo,
       

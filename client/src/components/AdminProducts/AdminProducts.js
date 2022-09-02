@@ -6,6 +6,7 @@ import {
   getAdminProducts,
   getAdminProductByName,
   productDisabled,
+  adminProduct,
 } from "../../Actions";
 import Paginado from "../Paginado/Paginado";
 import style from "./AdminProducts.module.css";
@@ -42,6 +43,11 @@ function AdminProducts() {
     (product) => product.stock < 3
   );
 
+  const productsDiscount = allProductsBackup.filter(
+    (product) => product.reduction > 0
+    
+  );
+
   let [currentPage, setCurrentPage] = useState(1);
   let [ProductsPerPage, setProductsPerPage] = useState(6);
   let indexOfLastProduct = currentPage * ProductsPerPage;
@@ -51,6 +57,7 @@ function AdminProducts() {
     indexOfLastProduct
   );
 
+  
   const [product, setProduct] = useState("");
 
   const handleInput = (e) => {
@@ -81,21 +88,34 @@ function AdminProducts() {
   };
 
   const filterProductByIconGreen = () =>{
-     currentProducts = allProducts.filter(e => e.disabled !== true &&  e.stock > 3 )
-     console.log(currentProducts)
-  }
+   let currentProducts2 = allProducts.filter(e => e.disabled !== true &&  e.stock > 3 )
+    dispatch(adminProduct(currentProducts2))
+ }
+
+  /* const filterProductByIconGreen = () =>{
+    dispatch(adminProduct(allProductsBackup))  
+  } */
   const filterProductByIconBlue = () =>{
-     currentProducts = productsDisabled
-     console.log(currentProducts)
+      
+    dispatch(adminProduct(productsDisabled))
+     
   }
   const filterProductByIconRed = () =>{
-     currentProducts = productsDrained
-     console.log(currentProducts)
+    dispatch(adminProduct(productsDrained))
+    
   }
   const filterProductByIconYellow = () =>{
-     currentProducts = productsOutOfStock
-     console.log(currentProducts)
+    dispatch(adminProduct(productsOutOfStock)) 
+     
   }
+
+  const filterProductByIconDiscount = () =>{
+    dispatch(adminProduct(productsDiscount))  
+    
+ }
+
+
+  
 
   return (
     <div className={style.containerAll}>
@@ -119,6 +139,21 @@ function AdminProducts() {
             </div>
           </div>
           </button>
+
+          <button onClick={filterProductByIconDiscount} className={style.infoButton}>
+          <div className={style.infoProduct}>
+            <div className={style.info}>
+              <h3>{productsDiscount.length}</h3>
+              <p>Productos con Descuento</p>
+            </div>
+            <div className={style.icon}>
+              <div className={style.containerCheckD}>
+                <i class="fa-solid fa-percent"></i>
+              </div>
+            </div>
+          </div>
+          </button>
+
           <button  onClick={filterProductByIconBlue} className={style.infoButton}>
           <div className={style.infoProduct}>
             <div className={style.info}>
@@ -132,6 +167,8 @@ function AdminProducts() {
             </div>
           </div>
           </button>
+
+
                   <button onClick={filterProductByIconRed} className={style.infoButton}>
           <div className={style.infoProduct}>
             <div className={style.info}>
@@ -193,67 +230,6 @@ function AdminProducts() {
           </button>
         </div>
 
-        {/* <div className={style.headerContainer}>
-          <ul className={style.ul}>
-            <li className={style.headerName}>Nombre</li>
-            <li className={style.headerDescription}>Descripcion</li>
-            <li className={style.headerBrand}>Marca</li>
-            <li className={style.headerPrice}>Precio</li>
-            <li className={style.headerCount}>Cantidad</li>
-            <li className={style.headerDisabled}>Habilitado</li>
-            <li className={style.headerID}>ID</li>
-            <li className={style.headerCreated}>Creado</li>
-            <li className={style.headerActions}>Acciones</li>
-          </ul>
-        </div>
-        {currentProducts &&
-          currentProducts.map((product) => (
-            <ul>
-              <div className={style.itemName}>
-                <li> {product.productName.split(" ").slice(0, 2).join(" ")}</li>
-              </div>
-
-              <div className={style.items}>
-                <li> {product.productName.split(" ").slice(2, 6).join(" ")}</li>
-              </div>
-
-              <div className={style.itemBrand}>
-                <li> {product.brand}</li>
-              </div>
-
-              <div className={style.itemPrice}>
-                <li> {product.price}</li>
-              </div>
-
-              <div className={style.itemStock}>
-                <li> {product.stock}</li>
-              </div>
-
-              <div className={style.itemStock}>
-                <li> {product.disabled === false ? "Si" : "No"}</li>
-              </div>
-
-              <div className={style.itemStock}>
-                <li> {product.idProduct}</li>
-              </div>
-
-              <div className={style.itemCreated}>
-                <li> {product.createdAt}</li>
-              </div>
-              <ul>
-                <NavLink to={`/admin/update/${product.idProduct}`}>
-                  <i className="fa-solid fa-trash-can"></i>
-                </NavLink>
-                <i
-                  onClick={() =>
-                    handleDisabled(product.idProduct, product.disabled)
-                  }
-                  className="fa-solid fa-trash-can"
-                ></i>
-              </ul>
-            </ul>
-          ))} */}
-
         <div className={style.containerInfoTable}>
           <ul className={style.ul}>
             <div className={style.containHeadr}>
@@ -287,7 +263,7 @@ function AdminProducts() {
 
           {currentProducts &&
             currentProducts.map((product) => (
-              <div className={product.disabled? style.containercDisable : product.stock <= 0? style.containercAgotado : product.stock <= 3? style.containercLow : style.containerc}>
+              <div className={product.disabled? style.containercDisable : product.stock <= 0? style.containercAgotado : product.stock <= 3? style.containercLow : product.reduction > 0? style.containercDiscount : style.containerc}>
                 <div className={style.containCardInfo}>
                   <p> {product.productName.split(" ").slice(0, 2).join(" ")}</p>
                 </div>

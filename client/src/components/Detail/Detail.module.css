@@ -283,42 +283,29 @@
 
 
 .favContainer{
-    border: 2px solid #ff0000;
-    width: 30px;
-    height: 30px;
-    border-radius: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ff0000;
-
+    font-size: 42.5px;
+    margin-left: 20px;
+    color:  rgb(255, 101, 101);
 }
 
 .favContainer:hover{
     cursor: pointer;
+    color:  rgb(255, 111, 111);
 }
 
-.favContainer i {
-    color: white;
-}
+
+
 
 .noFavContainer{
-    border: 2px solid #ff0000;
-    width: 30px;
-    height: 30px;
-    border-radius: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
+    color: rgb(255, 144, 144);
+    margin-left: 20px;
+    font-size: 42.5px;
+
 }
 
 .noFavContainer:hover{
+    color:  rgb(255, 101, 101);
     cursor: pointer;
-}
-
-.noFavContainer i {
-    color: red;
 }
 
 .img {
@@ -333,6 +320,8 @@
 }
 
 .imgAgot{
+    margin-right: 20px;
+    margin-left: -20px;
     height: 200px;
     left: 0;
     z-index: 2;
@@ -346,8 +335,8 @@
 
 .containerDescuento{
     
-    height: 30px;
-    width: 70px;
+    height: 70px;
+    width: 120px;
     position: absolute;
     right: 0;
     bottom: 80;
@@ -369,6 +358,6 @@
 
 .porcentaje{
     font-weight: bold;
-    font-size: 18px;
+    font-size: 35px;
     color: rgb(39, 38, 38);
 }

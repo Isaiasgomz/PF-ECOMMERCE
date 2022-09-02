@@ -366,3 +366,10 @@ export function updatePrice(data) {
         return dispatch({ type: 'UPDATE_PRICE'})
     }
 }
+
+export function adminProduct(arr){
+    return{
+        type: "ADMIN_PRODUCTS",
+        payload:arr
+    }
+}

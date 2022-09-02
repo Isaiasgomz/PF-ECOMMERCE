@@ -9,7 +9,7 @@ import {
 import { createCont } from "../../contexto/contextProvider";
 import "./DestacadosTech.css";
 
-export default function CarouselNotebooks() {
+export default function DestacadosTech() {
   const { AllProducts } = useSelector((state) => state);
 
   const dispatch = useDispatch();
@@ -50,19 +50,19 @@ export default function CarouselNotebooks() {
 
   return (
     <div className="contAccesorios">
-      <div class="containerAcc mt-100">
-        <div class="titleAcce">
+      <div className="containerAcc mt-100">
+        <div className="titleAcce">
           <h2>
-            <span class="spanTitleAcc">💚</span> ¡DESTACADOS
-            <span class="spanTitleAcc"> TECH</span>!
+            <span className="spanTitleAcc">💚</span> ¡DESTACADOS
+            <span className="spanTitleAcc"> TECH</span>!
           </h2>
         </div>
-        <div class="rowAcc">
-          <div class="col-md-4 col-sm-6">
-            <div class="card mb-30">
-              <a class="card-img-tiles" href="#" data-abc="true">
-                <div class="inner">
-                  <div class="main-img">
+        <div className="rowAcc">
+          <div className="col-md-4 col-sm-6">
+            <div className="card mb-30">
+              <span className="card-img-tiles" data-abc="true">
+                <div className="inner">
+                  <div className="main-img">
                     <Link to="/detail/19">
                       <img
                         src="https://http2.mlstatic.com/D_NQ_NP_860605-MLA49211284992_022022-V.webp"
@@ -70,7 +70,7 @@ export default function CarouselNotebooks() {
                       />
                     </Link>
                   </div>
-                  <div class="thumblist">
+                  <div className="thumblist">
                     <Link to="/detail/17">
                       <img
                         src="https://http2.mlstatic.com/D_NQ_NP_622883-MLA48011304859_102021-V.webp"
@@ -85,13 +85,13 @@ export default function CarouselNotebooks() {
                     </Link>
                   </div>
                 </div>
-              </a>
-              <div class="card-body text-center">
-                <h4 class="card-title">Notebooks</h4>
-                <p class="text-muted">A partir de $35000</p>
+              </span>
+              <div className="card-body text-center">
+                <h4 className="card-title">Notebooks</h4>
+                <p className="text-muted">A partir de $35000</p>
                 <Link to="/home">
                   <button
-                    class="btn btn-outline-primary btn-sm"
+                    className="btn btn-outline-primary btn-sm"
                     data-abc="true"
                     onClick={() => sortByCategory("Laptops")}
                   >
@@ -101,11 +101,11 @@ export default function CarouselNotebooks() {
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card mb-30">
-              <a class="card-img-tiles" href="#" data-abc="true">
-                <div class="inner">
-                  <div class="main-img">
+          <div className="col-md-4 col-sm-6">
+            <div className="card mb-30">
+              <span className="card-img-tiles" data-abc="true">
+                <div className="inner">
+                  <div className="main-img">
                     <Link to="/detail/29">
                       <img
                         src="https://http2.mlstatic.com/D_NQ_NP_744609-MLA32854739285_112019-V.webp"
@@ -113,7 +113,7 @@ export default function CarouselNotebooks() {
                       />
                     </Link>
                   </div>
-                  <div class="thumblist">
+                  <div className="thumblist">
                     <Link to="/detail/5">
                       <img
                         src="https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_30014_Monitor_Gamer_ASUS_ROG_SWIFT_24__PG259QNR_360Hz_1Ms_G-Sync_c37ea8f1-grn.jpg"
@@ -128,13 +128,13 @@ export default function CarouselNotebooks() {
                     </Link>
                   </div>
                 </div>
-              </a>
-              <div class="card-body text-center">
-                <h4 class="card-title">Periféricos</h4>
-                <p class="text-muted">A partir de $858</p>
+              </span>
+              <div className="card-body text-center">
+                <h4 className="card-title">Periféricos</h4>
+                <p className="text-muted">A partir de $858</p>
                 <Link to="/home">
                   <button
-                    class="btn btn-outline-primary btn-sm"
+                    className="btn btn-outline-primary btn-sm"
                     data-abc="true"
                     onClick={() => sortByCategory("perifericos")}
                   >
@@ -144,11 +144,11 @@ export default function CarouselNotebooks() {
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card mb-30">
-              <a class="card-img-tiles" href="#" data-abc="true">
-                <div class="inner">
-                  <div class="main-img">
+          <div className="col-md-4 col-sm-6">
+            <div className="card mb-30">
+              <span className="card-img-tiles" data-abc="true">
+                <div className="inner">
+                  <div className="main-img">
                     <Link to="/detail/86">
                       <img
                         src="https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_33234_Disco_Solido_SSD_KingDian_120GB_S280_500Mb_s_c98f29db-grn.jpg"
@@ -156,7 +156,7 @@ export default function CarouselNotebooks() {
                       />
                     </Link>
                   </div>
-                  <div class="thumblist">
+                  <div className="thumblist">
                     <Link to="/detail/79">
                       <img
                         src="https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_27836_Placa_de_Video_ASUS_GeForce_RTX_3090_24GB_GDDR6X_TUF_GAMING_OC_c5a7da31-grn.jpg"
@@ -171,13 +171,13 @@ export default function CarouselNotebooks() {
                     </Link>
                   </div>
                 </div>
-              </a>
-              <div class="card-body text-center">
-                <h4 class="card-title">Componentes PC</h4>
-                <p class="text-muted">A partir de $3550</p>
+              </span>
+              <div className="card-body text-center">
+                <h4 className="card-title">Componentes PC</h4>
+                <p className="text-muted">A partir de $3550</p>
                 <Link to="/home">
                   <button
-                    class="btn btn-outline-primary btn-sm"
+                    className="btn btn-outline-primary btn-sm"
                     data-abc="true"
                     onClick={() => sortByCategory("componentes")}
                   >

@@ -311,12 +311,17 @@ function Detail(props) {
 
           {usuario ? (
             <div className={style.buttonConteiner}>
-              <button disabled={product.stock <= 0 || product.disabled === true} onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
-              <div onClick={(e) => HandleChangeFav(product, e)} className={estilos}>
+
+            <button disabled={product.stock<=0 || product.disabled===true}  onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
+            <div onClick={(e)=>HandleChangeFav(product,e)} className={estilos}>
+            {estilos === style.favContainer ? (
                 <i class="fa-solid fa-heart"></i>
-              </div>
-            </div>
-          ) : (
+              ) : (
+                <i class="fa-regular fa-heart"></i>
+              )}
+          </div>
+          </div>
+          ):(
             <div >
               <button disabled={product.stock <= 0 || product.disabled === true} onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
 
