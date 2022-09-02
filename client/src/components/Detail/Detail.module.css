@@ -1,6 +1,11 @@
 .conteiner {
     background-color: rgb(255, 255, 255);
     font-family: sans-serif;
+    position: relative;
+}
+
+.imagenProducto{
+    position: relative;
 }
 
 .textError{
@@ -321,7 +326,7 @@
     padding: 20px;
     display: flex;
     justify-content: center;
-  align-items: center;
+    align-items: center;
     width: 450px; 
     z-index: 0;
     position: relative;
@@ -337,4 +342,33 @@
 
 .imgProduc{
     width: 450px;
+}
+
+.containerDescuento{
+    
+    height: 30px;
+    width: 70px;
+    position: absolute;
+    right: 0;
+    bottom: 80;
+    margin-top: 20px;
+    margin-left: 10px;
+    z-index: 2;
+}
+
+
+.reduction{
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    background-color: #91C612;
+    padding: 6px;
+    padding-right: 10px;
+    padding-left: 15px;
+    z-index: 3;
+}
+
+.porcentaje{
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(39, 38, 38);
 }

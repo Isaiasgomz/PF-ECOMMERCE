@@ -90,6 +90,12 @@
     z-index: 3;
 }
 
+.porcentaje{
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(39, 38, 38);
+}
+
 
 .containerImgAgot{
     height: 170px; 
@@ -117,11 +123,7 @@
 
 
 
-.porcentaje{
-    font-weight: bold;
-    font-size: 18px;
-    color: rgb(39, 38, 38);
-}
+
 
 @supports(object-fit: cover){
     .containerImg img{
