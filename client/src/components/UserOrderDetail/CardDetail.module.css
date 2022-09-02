@@ -100,7 +100,16 @@
    margin-left: 1%;
    margin-top: 1%;
 }
+.productos4 {
+  width: 100%;
+   display: flex; 
+   /* justify-content: flex-end;  */
 
+   margin-left: 1%;
+   margin-top: 1%;
+   margin-right: 7%;
+   padding-left: 13%;
+}
 .productos2 {
   width: 100%;
    display: flex; 

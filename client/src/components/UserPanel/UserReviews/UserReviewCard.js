@@ -7,7 +7,8 @@ import x from "./UserReviewCard.module.css";
 
 const StyledRating = withStyles({
   iconFilled: {
-    color: '#bcf13f',
+    color: '#bcf13f', 
+    marginBottom: 0,
   },
   iconHover: {
     color: '#bcf13f',

@@ -61,7 +61,7 @@ function UserAllAddresses() {
 
   setTimeout((loading) => {
     setLoading(false);
-  }, 2000);
+  }, 1000);
   if (loading) {
     return (
       <div className={style.contenedorLoading}>

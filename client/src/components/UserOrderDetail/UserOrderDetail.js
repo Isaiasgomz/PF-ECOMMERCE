@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { getShoppingCart } from "../../Actions";
 import CardDetail from "./CardDetail";
 import style from "./CardDetail.module.css";
-import loadingLogo from "../../imagenes/loading.png"
+import loadingLogo from "../../imagenes/loading.png";
 
 const UserOrderDetail = (props) => {
   const [loading, setLoading] = useState(true);
@@ -31,15 +31,14 @@ const UserOrderDetail = (props) => {
 
   //Productos
   const products = shoppingCart.map((e) => {
-    e.Product.quantity = e.quantity
-    return e.Product
+    e.Product.quantity = e.quantity;
+    return e.Product;
   });
-
 
   if (loading === true) {
     setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 1000);
 
     return (
       <div className={style.contenedorLoading}>
@@ -51,10 +50,10 @@ const UserOrderDetail = (props) => {
   } else if (loading === false) {
     return (
       <div className={style.containerCart}>
-        <div className={style.productos}>
-        <Link to="/myOrders">
-          <button className={style.button}>Volver a mis ordenes</button>
-        </Link>
+        <div className={style.productos4}>
+          <Link to="/myOrders">
+            <button className={style.button}>Volver a mis ordenes</button>
+          </Link>
         </div>
         <div className={style.containerCart2}>
           <div className={style.productos}>
