@@ -1,9 +1,11 @@
 .containerForm {
+
   background-color:  #e7e7e7;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 3.65%;
+
 }
 
 .productContainer {
@@ -168,13 +170,13 @@
 }
 
 .contenedorLoading{
-  background: #c61212;
+  /* background: #c61212; */
   width: 100vw;
   height: 77.7vh;
 }
 
 .loading{
-  background-color: #78788c;
+  background-color: white;
   width: 100vw;
   height: 77.7vh;
   display: flex;

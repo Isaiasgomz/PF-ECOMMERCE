@@ -56,6 +56,27 @@
     text-align: start;
 }
 
+.priceTachado{
+    font-size: 25px;
+    font-weight: 80px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 140px;
+    text-align: start;
+    text-decoration: line-through;
+    color: gray;
+}
+
+.priceDescuento{
+    font-size: 35px;
+    font-weight: 150px;
+    color: #91C612;
+    display: flex;
+    flex-direction: column;
+    margin-right: 140px;
+    text-align: start;
+}
+
 .textPrice {
     font-size: 17px;
     color: #939393;
@@ -299,17 +320,21 @@
     margin: 20px;
     padding: 20px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+  align-items: center;
+    width: 450px; 
+    z-index: 0;
+    position: relative;
 }
 
 .imgAgot{
     height: 200px;
+    left: 0;
     z-index: 2;
-
+    position: absolute;
+    top: 0;
 }
 
 .imgProduc{
-    z-index: 1;
-    
-
+    width: 450px;
 }

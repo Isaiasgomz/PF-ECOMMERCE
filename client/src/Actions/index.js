@@ -358,3 +358,11 @@ export function updateQuestion(id,status) {
             .catch(error => console.log(error.response.data))
     }
 }
+
+export function updatePrice(data) {
+    return async function (dispatch) {
+        await axios.put(`http://localhost:3001/products/updatePrice`, data)
+        .catch(error => console.log(error.response.data))
+        return dispatch({ type: 'UPDATE_PRICE'})
+    }
+}

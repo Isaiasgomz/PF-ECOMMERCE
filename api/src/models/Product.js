@@ -45,6 +45,14 @@ module.exports = (sequelize) => {
         compatible: {
             type: DataTypes.STRING,
             defaultValue: false,
-        }  
+        }, 
+        reduction: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0,
+        },
+        reducedAmount: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0,
+        },  
     });
 };

@@ -221,7 +221,7 @@ const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
     }
   }
 
-  
+  let totalPrice = product.price + product.reducedAmount
 
   return (
     <div className={style.conteiner}>
@@ -237,7 +237,7 @@ const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
 
 
           <div className={style.img}>
-            <img src={product.image} alt="" />
+            <img className={style.imgProduc} src={product.image} alt="" />
           </div>}
         <div className={style.infoConteiner}>
           <div className={style.nameConteiner}>
@@ -252,10 +252,30 @@ const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
             </div>
           </div>
           <div className={style.priceConteiner}>
-            <div className={style.price}>
-              <span>$ {product.price} </span>
+
+          {product.reduction !== 0 ?  
+        <div className={style.priceConteine}>
+
+        <div className={style.price}>
+              <span className={style.priceTachado}>$ {totalPrice} </span>
               <span className={style.textPrice}>Precio de lista</span>
+        </div>
+
+        <div className={style.price}>
+              <span className={style.priceDescuento}>$ {product.price} </span>
+              <span className={style.textPrice}>Precio con Descuento</span>
+        </div>
+
             </div>
+        :
+
+        <div className={style.price}>
+        <span>$ {product.price} </span>
+        <span className={style.textPrice}>Precio de lista</span>
+        </div>
+
+        }
+
             <div className={style.price}>
               <span>$ {Math.round(product.price / 12)}.99</span>
               <span className={style.textPrice}>12 cuotas sin interes </span>
