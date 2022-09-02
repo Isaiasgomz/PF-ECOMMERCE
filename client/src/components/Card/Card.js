@@ -114,7 +114,11 @@ function Card({
           /> */}
           {user && (
             <div onClick={(e) => HandleChangeFav(ob, e)} className={estilos}>
-              <i class="fa-solid fa-heart"></i>
+              {estilos === style.favContainer ? (
+                <i class="fa-solid fa-heart"></i>
+              ) : (
+                <i class="fa-regular fa-heart"></i>
+              )}
             </div>
           )}
 
@@ -131,11 +135,11 @@ function Card({
               <i className="fa-solid fa-cart-plus"></i>
             </div>
           )}
-
+          <div className={style.aaa}></div>
           {/* <div>
       <button onClick={notify}>Make me a toast</button>
       <Toaster />
-    </div> */}
+      </div> */}
         </div>
       </div>
     </div>

@@ -165,42 +165,23 @@
 }
 
 .favContainer{
-    border: 2px solid #ff0000;
-    width: 30px;
-    height: 30px;
-    border-radius: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ff0000;
-
+    font-size: 22.5px;
+    color:  red;
 }
 
 .favContainer:hover{
     cursor: pointer;
 }
 
-.favContainer i {
-    color: white;
-}
 
 .noFavContainer{
-    border: 2px solid #ff0000;
-    width: 30px;
-    height: 30px;
-    border-radius: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
+    color: rgb(253, 109, 109);
+    font-size: 22.5px;
+
 }
 
 .noFavContainer:hover{
     cursor: pointer;
-}
-
-.noFavContainer i {
-    color: red;
 }
 
 
