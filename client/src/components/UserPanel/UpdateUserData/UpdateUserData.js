@@ -41,10 +41,11 @@ function UpdateUserData() {
   const email = useSelector((state) => state.user.email);
   const info = useSelector((state) => state.userDetail.PersonalDatum);
   const { user } = useAuth0();
+  console.log(info)
 
   useEffect(() => {
-    if (user?.email.length > 0) dispatch(getUserDetail(user.email));
-  }, [dispatch, user]);
+    if(user?.email.length > 0) dispatch(getUserDetail(user.email));
+  }, [user]);
 
   const history = useHistory();
 
@@ -102,7 +103,7 @@ function UpdateUserData() {
 
   setTimeout((loading) => {
     setLoading(false)
-  }, 1500);
+  }, 1000);
   if (loading) {
     return (
       <div className={styles.contenedorLoading}>
@@ -115,12 +116,14 @@ function UpdateUserData() {
   else {
     return (
       <React.Fragment>
-        <UserPanel />
+       
         <div className={styles.containerForm}>
           <form
             className={styles.productContainer}
             onSubmit={(e) => handleSubmit(e)}>
+              <div className={styles.titleCont}>
             <h2 className={styles.titleForm}>Datos Personales</h2>
+            </div>
             <div className={styles.contenedor}>
               <div className={styles.name}>
                 <label className={styles.lab}>Nombre Completo:
@@ -248,13 +251,15 @@ function UpdateUserData() {
             </div>
 
             <div className={styles.containerBtn}>
-              <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Editar</button>
+              
 
-              <button className={styles.btn} type='submit' disabled={isDisabled}>Guardar</button>
+              
 
               <NavLink to={"/userPanel"}>
                 <button className={styles.btnS}>Salir</button>
               </NavLink>
+              <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Editar</button>
+              <button className={styles.btn} type='submit' disabled={isDisabled}>Guardar</button>
             </div>
           </form>
         </div>

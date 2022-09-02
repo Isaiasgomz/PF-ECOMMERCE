@@ -4,85 +4,105 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAddress, getUserDetail } from "../../../Actions/index.js";
 import UserPanel from "../UserPanel";
 import UpdateShippingAddress from "../UpdateShippingAddress/UpdateShippingAddress";
-import styles from './UserAllAddresses.module.css';
-import loadingLogo from "../../../imagenes/loading.png"
+import style from "./UserAllAddresses.module.css";
+import loadingLogo from "../../../imagenes/loading.png";
+import AllAddresessCard from "./AllAddresessCard.js";
 
 function UserAllAddresses() {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const user = useSelector((state) => state.user.email);
-    const addresses = useSelector((state) => state.userDetail.ShippingAddresses);
-    const address = useSelector((state) => state.ShippingAddress)
+  const user = useSelector((state) => state.user.email);
+  // "email": "anajuliaa.22.jp@gmail.com",
+  const addresses = useSelector((state) => state.userDetail.ShippingAddresses);
+  // "ShippingAddresses": [
+  //     {
+  //       "id": 1,
+  //       "reference": "Amiga",
+  //       "address": "o'higgins 440",
+  //       "department": "0",
+  //       "city": "Mendoza",
+  //       "CP": "5547",
+  //       "country": "Argentina",
+  //       "telephone": "23545657",
+  //       "UserEmail": "anajuliaa.22.jp@gmail.com"
+  //     },
+  //     {
+  //       "id": 2,
+  //       "reference": "amiga",
+  //       "address": "Avenida San Martin",
+  //       "department": "0",
+  //       "city": "Mendoza",
+  //       "CP": "5547",
+  //       "country": "Argentina",
+  //       "telephone": "23545657",
+  //       "UserEmail": "anajuliaa.22.jp@gmail.com"
+  //     }
+  //   ],
+  const address = useSelector((state) => state.ShippingAddress);
+  console.log(address);
+  const [loading, setLoading] = useState(true);
+  const [dropDown, setDropDown] = useState(false);
 
-    const [loading, setLoading] = useState(true)
- /*    const [dropDown, setDropDown] = useState(false)
+  const openCloseDropDown = () => {
+    setDropDown(!dropDown);
+  };
 
-    const openCloseDropDown = () =>{
-        setDropDown(!dropDown);
-    } */
-
-    const history = useHistory();
+  function filterAddress(e) {
+    console.log("filter addres");
+    e.preventDefault();
+    console.log(e.target.value);
+    dispatch(getAddress(e.target.value));
+  }
+  const history = useHistory();
   /*   
      useEffect(() => {
         if(user?.length>0)dispatch(getUserDetail(user));    
     }, [addresses]); */
 
-    function filterAddress(e) {
-        e.preventDefault();
- /*        setDropDown(!dropDown);  */ 
-        dispatch(getAddress(e.target.value)); 
-    }
- 
-    setTimeout((loading) => {
-        setLoading(false)
-    }, 2000);
-    if(loading){
-        return (
-            <div className={styles.contenedorLoading}>
-            <div className={styles.loading}>
-              {<img className={styles.img} src={loadingLogo} />}
+  setTimeout((loading) => {
+    setLoading(false);
+  }, 1500);
+  if (loading) {
+    return (
+      <div className={style.contenedorLoading}>
+        <div className={style.loading}>
+          {<img className={style.img} src={loadingLogo} />}
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <React.Fragment>
+        <div className={style.containerForm}>
+          <div className={style.container}>
+            <div className={style.containerTitle}>
+              <h2> Mis direcciones</h2>
+            </div>
+
+            <div className={style.span}>Seleccione la dirección que quiere ver y/o editar</div>
+            <div className={style.containerCards}>
+              {addresses?.map((e, index) => (
+                <AllAddresessCard
+                  id={e.id}
+                  reference={e.reference}
+                  address={e.address}
+                  city={e.city}
+                  country={e.country}
+                  key={index}
+                  filterAddress={() => filterAddress(e.id)}
+                />
+              ))}
+            </div>
+            <div className={style.anadir} >
+              <Link to="/userShippingAddress">
+                <button className={style.button}>AÑADIR NUEVA DIRECCION</button>
+              </Link>
             </div>
           </div>
-        )}
-        else {
-            return (
-            <React.Fragment>
-            <UserPanel/>
-            <div className={styles.containerForm}>
-                <span className={styles.titleForm}> Mis Direcciones</span>
-                <div className={styles.searchbar}>
-                    <span>Seleccione la dirección que quiere ver y/o editar</span>
-                    <div className={styles.buttonCont}>
-                    {   
-                        addresses && addresses.map(a => {
-                            return(
-                                <div>
-                                    <button className={styles.btn} key={a.id} value={a.reference} onClick={(e) => filterAddress(e)}>        
-                                        {a.id} {a.reference}  
-                                    </button>  
-                                </div>                     
-                            )
-                        })                
-                    } 
-                    </div> 
-                </div>                       
-                    <div>
-                    <UpdateShippingAddress
-                        key= {address?.id}
-/*                         id= {address?.id} */
-                        reference= {address?.reference}
-                        UserEmail= {user}
-                        address= {address?.address}
-                        CP= {address?.CP}
-                        telephone= {address?.telephone}
-                        city= {address?.city}
-                        country= {address?.country}
-                        department= {address?.department}
-                    />  
-                    </div>                                 
-            </div>
-            </React.Fragment>
-        )}
+        </div>
+      </React.Fragment>
+    );
+  }
 }
 
 export default UserAllAddresses;

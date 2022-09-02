@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postUserAddress } from "../../../Actions/index.js";
 import UserPanel from "../UserPanel";
 import styles from './UserShippingAddress.module.css';
 import swal from "sweetalert";
+import { createCont } from "../../contexto/contextProvider.js";
 
 function validate(input) {
   const errors = {};
@@ -32,7 +33,7 @@ function UserShippingAddress() {
     const dispatch = useDispatch();
 
     const user = useSelector((state) => state.user);
-
+    const { trueorfalse2,setTrueorFalse2} = useContext(createCont)
     const history = useHistory();
 
     const [input, setInput] = useState({
@@ -63,7 +64,7 @@ function UserShippingAddress() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    
+        trueorfalse2? setTrueorFalse2(false):setTrueorFalse2(true)
     dispatch(postUserAddress(user.email, input));
     swal('Su dirección de envío se guardó correctamente')
     setInput({
@@ -76,12 +77,12 @@ function UserShippingAddress() {
         country: "",
         department:""
     });
-    history.push("/userPanel");
+    history.push("/home");
     };
 
   return (
     <React.Fragment>
-    <UserPanel/>
+
     <div className={styles.containerForm}>
       <form
         className={styles.productContainer}
@@ -206,10 +207,11 @@ function UserShippingAddress() {
         <br/>
         <div className={styles.containerBtn}>
           
-          <button className={styles.btn} type='submit'>Guardar</button>
+         
           <NavLink to={"/userPanel"}>
             <button className={styles.btnS}>Salir</button>
           </NavLink>
+          <button className={styles.btn} type='submit'>Guardar</button>
         </div>
       </form>
     </div>

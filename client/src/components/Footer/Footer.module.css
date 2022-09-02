@@ -7,7 +7,7 @@
   color: white;
   display: flex;
   align-items: center;
-  border-top: 2px solid gray;
+  border-top: 4px solid #91C612;
 }
 
 .containerCopy {

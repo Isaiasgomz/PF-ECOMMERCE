@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postUserData } from "../../../Actions/index.js";
 import UserPanel from "../UserPanel";
 import styles from './UserData.module.css';
 import swal from "sweetalert";
+import { createCont } from "../../contexto/contextProvider";
 
 function validate(input) {
   const errors = {};
@@ -35,7 +36,7 @@ function UserData() {
     const dispatch = useDispatch();
 
     const user = useSelector((state) => state.user);
-
+    const {trueorfalse2, setTrueorFalse2} = useContext(createCont)
     const history = useHistory();
 
     const [input, setInput] = useState({
@@ -64,9 +65,9 @@ function UserData() {
         );
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    
+    const handleSubmit =  (e) => {
+        /* e.preventDefault(); */
+        trueorfalse2?   setTrueorFalse2(false):setTrueorFalse2(true)
     dispatch(postUserData(user.email, input));
     swal('Sus datos de perfil se guardaron correctamente')
     setInput({
@@ -79,12 +80,12 @@ function UserData() {
         country: "",
         department:""
     });
-    history.push("/userPanel");
+    history.push("/home");
     };
 
   return (
     <React.Fragment>
-    <UserPanel/>
+    
     <div className={styles.containerForm}>
       <form
         className={styles.productContainer}
@@ -211,10 +212,11 @@ function UserData() {
         </div>
         <br/>
         <div className={styles.containerBtn}>
-          <button className={styles.btn} type='submit'>Guardar</button>
+          
           <NavLink to={"/userPanel"}>
             <button className={styles.btn}>Cancelar</button>
           </NavLink>
+          <button className={styles.btn} type='submit'>Guardar</button>
         </div>
       </form>
     </div>

@@ -36,30 +36,13 @@ function NavBar() {
           ) : (
             <LoginButton />
           )}
-          {isAuthenticated ? (
-            <>
-              <Link to="/userPanel">
-                <button className={styles.profile}>
-                  <i className="fa-solid fa-circle-user"></i> Mi Perfil
-                </button>
-              </Link>
-              {user && <Link className={styles.containerHeart} to={"/Favourites"}>
-
-              <i class="fa-solid fa-heart"></i>
-              </Link>}
-              <Link to="/cart">
-                <button className={styles.cart}>
-                  <i className="fa-solid fa-cart-shopping"></i> Carrito
-                </button>
-              </Link>
-            </>
-          ) : (
+          
             <Link to="/cart">
               <button className={styles.cart}>
                 <i className="fa-solid fa-cart-shopping"></i> Carrito
               </button>
             </Link>
-          )}
+          
         </div>
       </div>
       <div className={styles.a}>
