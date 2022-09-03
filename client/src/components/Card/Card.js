@@ -22,6 +22,7 @@ function Card({
   notifyAddFav,
   notifyRemove,
   reduction,
+  reducedAmount,
 }) {
   const [flagFav, setFlagFav] = useState(false);
 
@@ -76,6 +77,10 @@ function Card({
     if (ob.fav === true) {return}
     else{ setHidden(true)}
   }
+
+
+  const beforeDiscountPrice = price + reducedAmount;
+
 
   return (
     <div className={style.containerCard} onMouseEnter={hacerHiddenTrue} onMouseLeave={hacerHiddenFalse} >
@@ -137,8 +142,32 @@ function Card({
         </div>
 
         <div className={style.containerPriceCart}>
+
           <span className={style.spanPrice}>${price}</span>
           
+
+          <span>
+            {reduction !== 0 ? (<span className={style.discount} >Antes {beforeDiscountPrice}</span>
+            ): null}
+            ${price}
+          </span>
+          {/* <Rating
+            name="half-rating"
+            size="small"
+            defaultValue={Number(calification)}
+            precision={0.5}
+            readOnly
+          /> */}
+          {user && (
+            <div onClick={(e) => HandleChangeFav(ob, e)} className={estilos}>
+              {estilos === style.favContainer ? (
+                <i class="fa-solid fa-heart"></i>
+              ) : (
+                <i class="fa-regular fa-heart"></i>
+              )}
+            </div>
+          )}
+
 
           {stock <= 0 ? (
             <div className={style.buttonCarritoAgotado}>

@@ -225,6 +225,7 @@
     cursor: pointer;
 }
 
+
 .noFavContainer i {
     color: rgb(255, 175, 175);
 }
@@ -233,5 +234,9 @@
     width: 61px;
     text-align: left;
     font-size: 20px;
+
+.discount{
+    text-decoration:line-through
+
 }
 
