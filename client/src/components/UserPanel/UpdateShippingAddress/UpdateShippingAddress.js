@@ -219,7 +219,7 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
                         
                         
                         
-                        <NavLink to={"/userPanel"}>
+                        <NavLink to={"/home"}>
                             <button className={styles.btnS}>Salir</button>
                         </NavLink>
                         <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Editar</button>
