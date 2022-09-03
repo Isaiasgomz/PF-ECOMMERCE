@@ -373,3 +373,7 @@ export function adminProduct(arr){
         payload:arr
     }
 }
+
+export function clearPerif(){
+    return { type: "CLEAR_PERIF", payload: []}
+ }

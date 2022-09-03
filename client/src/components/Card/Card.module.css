@@ -200,6 +200,7 @@
     margin-bottom: 15px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.507);
+    z-index: 4;
 }
 
 
@@ -231,10 +232,10 @@
 }
 
 .spanPrice{
-    width: 61px;
+    
     text-align: left;
-    font-size: 20px;
-
+    font-size: 23px;
+}
 .discount{
     text-decoration:line-through
 

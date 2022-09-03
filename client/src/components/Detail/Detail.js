@@ -342,7 +342,7 @@ function Detail(props) {
               <div className={style.descriptionConteiner}>
                 <div className={style.title}>MARCA</div>
                 <div className={style.txt}>{product.brand}</div>
-                <div className={style.title}>TEXTO</div>
+                <div className={style.title}>ESPECIFICACIONES</div>
                 <div className={style.txt}>{product.description}</div>
                 <span>{product.qualification}</span>
               </div>

@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteFavourite, getFavourite } from "../../Actions";
 import { createCont } from "../contexto/contextProvider";
 import style from "./FavouriteCard.module.css";
+import agotado from "../../imagenes/agotado.png"
+import { Link, NavLink } from "react-router-dom";
 
 const FavouriteCard = ({ obj }) => {
 
@@ -71,24 +73,67 @@ const FavouriteCard = ({ obj }) => {
   return (
     <div className={style.containerCard}>
       
-      <div className={style.containerImg}>
+
+      {obj.stock <= 0 ?
+        <div className={style.containerImg}>
+          <img className={style.contAgotado} src={agotado} alt="agotado" />
+          <div className={style.SupportContainerImg}>
+          
+            <img className={style.img} src={obj.image} alt={obj.productName} />
+            
+          </div>
+
+        </div>
+        :
+        <div className={style.containerImg}>
+          
         <div className={style.SupportContainerImg}>
           <img src={obj.image} alt={obj.productName} />
         </div>
+        
       </div>
+      }
+
+
+
+
+
       <div className={style.containerInfo2}>
         <div className={style.containerName}>
+        <NavLink to={`/detail/${obj.id}`}>
           <p>{obj.productName}</p>
+          </NavLink>
         </div>
         <div className={style.containerIcons}>
         <div onClick={()=>deleteProduct(obj)} className={style.containerHeart}>
 
-        <i class="fa-solid fa-heart"></i>
+        <i class="fa-solid fa-trash"></i>
         </div>
+
+        {
+        obj.stock <= 0 ? 
+        <div   className={style.containerCartDisable}>
+
+        <i className="fa-solid fa-cart-plus"></i>
+        </div>
+
+        :
         <div onClick={()=>addProductCartStorage(obj)}  className={style.containerCart}>
 
         <i className="fa-solid fa-cart-plus"></i>
         </div>
+        }
+
+{obj.reduction !== 0 ?
+          <div className={style.containerDescuento}>
+            <div className={style.reduction}>
+              <span className={style.porcentaje}>-{obj.reduction}%</span>
+            </div>
+          </div>
+          :
+          null
+        }
+
         </div>
         <div className={style.containerCant}>
           <p>${obj.price}</p>
