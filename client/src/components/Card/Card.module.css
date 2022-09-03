@@ -231,10 +231,10 @@
 }
 
 .spanPrice{
-    width: 61px;
+    
     text-align: left;
-    font-size: 20px;
-
+    font-size: 23px;
+}
 .discount{
     text-decoration:line-through
 
