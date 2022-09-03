@@ -118,12 +118,12 @@
 
 .containerAgotado{
     display: flex;
-    
     justify-content: center;
     top: 0;
 }
 
 .containerImgAgot{
+    padding-top: 10px;
     height: 170px; 
     display: flex;
     align-items: center;
@@ -135,8 +135,6 @@
 .imgAgot{
     z-index: 2;
     height: 155px;
-    
-    
     position: absolute;
 }
 
