@@ -1,0 +1,31 @@
+.container{
+    width: 40%;
+    height: 600px;
+    margin-left: 600px;
+    display: flex;
+    flex-direction: row;
+    background-color: aquamarine;
+}
+
+
+
+
+.season{
+    width: 1.8em;
+    height: 1.8em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    margin-right: 25px;
+    
+    
+}
+
+.season:checked{
+    background-color: gray;
+}

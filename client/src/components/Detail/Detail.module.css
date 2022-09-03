@@ -1,6 +1,11 @@
 .conteiner {
     background-color: rgb(255, 255, 255);
     font-family: sans-serif;
+    position: relative;
+}
+
+.imagenProducto{
+    position: relative;
 }
 
 .textError{
@@ -50,6 +55,27 @@
 }
 
 .price {
+    display: flex;
+    flex-direction: column;
+    margin-right: 140px;
+    text-align: start;
+}
+
+.priceTachado{
+    font-size: 25px;
+    font-weight: 80px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 140px;
+    text-align: start;
+    text-decoration: line-through;
+    color: gray;
+}
+
+.priceDescuento{
+    font-size: 35px;
+    font-weight: 150px;
+    color: #91C612;
     display: flex;
     flex-direction: column;
     margin-right: 140px;
@@ -257,59 +283,81 @@
 
 
 .favContainer{
-    border: 2px solid #ff0000;
-    width: 30px;
-    height: 30px;
-    border-radius: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ff0000;
-
+    font-size: 42.5px;
+    margin-left: 20px;
+    color:  rgb(255, 101, 101);
 }
 
 .favContainer:hover{
     cursor: pointer;
+    color:  rgb(255, 111, 111);
 }
 
-.favContainer i {
-    color: white;
-}
+
+
 
 .noFavContainer{
-    border: 2px solid #ff0000;
-    width: 30px;
-    height: 30px;
-    border-radius: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
+    color: rgb(255, 144, 144);
+    margin-left: 20px;
+    font-size: 42.5px;
+
 }
 
 .noFavContainer:hover{
+    color:  rgb(255, 101, 101);
     cursor: pointer;
-}
-
-.noFavContainer i {
-    color: red;
 }
 
 .img {
     margin: 20px;
     padding: 20px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    width: 450px; 
+    z-index: 0;
+    position: relative;
 }
 
 .imgAgot{
+    margin-right: 20px;
+    margin-left: -20px;
     height: 200px;
+    left: 0;
     z-index: 2;
-
+    position: absolute;
+    top: 0;
 }
 
 .imgProduc{
-    z-index: 1;
-    
+    width: 450px;
+}
 
+.containerDescuento{
+    
+    height: 70px;
+    width: 120px;
+    position: absolute;
+    right: 0;
+    bottom: 80;
+    margin-top: 20px;
+    margin-left: 10px;
+    z-index: 2;
+}
+
+
+.reduction{
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    background-color: #91C612;
+    padding: 6px;
+    padding-right: 10px;
+    padding-left: 15px;
+    z-index: 3;
+}
+
+.porcentaje{
+    font-weight: bold;
+    font-size: 35px;
+    color: rgb(39, 38, 38);
 }

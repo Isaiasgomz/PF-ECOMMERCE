@@ -292,7 +292,22 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
             }
 
+            case 'CLEAR_PERIF':
+                return {
+                    ...state,
+                    buildPerifState: action.payload
+                }
+        
+            case 'ADMIN_PRODUCTS':
+                return {
+                    ...state,
+                    adminProducts: action.payload
+                }
+
         default:
             return state
     }
 }
+
+
+

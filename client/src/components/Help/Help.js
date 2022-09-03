@@ -43,14 +43,14 @@ function Help() {
             </a>
           </span>
         </a>
-        <a href="https://web.whatsapp.com/">
+        <a href="https://wa.me/5492358413208">
           <img
             alt="nombre"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/479px-WhatsApp.svg.png"
             height="40"
             width="60"
           ></img>
-          <span className={style.spanContacto}>+54 9 11 22 3344</span>
+          <span className={style.spanContacto}>+54 9 2358 41-3208</span>
         </a>
       </div>
       <br />
