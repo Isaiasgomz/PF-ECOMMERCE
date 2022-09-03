@@ -7,7 +7,7 @@
 }
 
 .containerAdminSideBar{
-    width: 20%;
+    width: 16%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +26,7 @@
     justify-content: space-around;
     margin-bottom: 15px;
     margin-top: 20px;
-
+    padding: 30px;
 }
 
 .infoProduct{
@@ -125,6 +125,21 @@
     align-items: center;
 }
 
+.containerCheckAll{
+    border:none;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3312c6;
+}
+
+.containerCheckAll i {
+    color: white;
+}
+
 .containerCheckv{
     border:none;
     width: 40px;
@@ -139,6 +154,22 @@
 .containerCheckv i {
     color: white;
 }
+
+.containerCheckD{
+    border:none;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1b8f21;
+}
+
+.containerCheckD i {
+    color: white;
+}
+
 
 .containerCheckx{
     border:none;
@@ -332,6 +363,13 @@
 
 .containercAgotado{
     background-color: #77aeff;
+    width: 99%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.containercDiscount{
+    background-color: #77ffa0;
     width: 99%;
     display: flex;
     justify-content: space-between;

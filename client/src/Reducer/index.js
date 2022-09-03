@@ -286,8 +286,17 @@ export default function rootReducer(state = initialState, action) {
             return {
                 ...state,
             }
+        
+            case 'ADMIN_PRODUCTS':
+                return {
+                    ...state,
+                    adminProducts: action.payload
+                }
 
         default:
             return state
     }
 }
+
+
+
