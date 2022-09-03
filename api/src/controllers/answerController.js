@@ -13,5 +13,25 @@ module.exports = {
         }}catch(e){
             return e;
         }
+    },    getAllAnswers: async function () {
+        try {
+            let allAnswer = await Answer.findAll();
+            console.log(allAnswer);
+            return allAnswer;
+        } catch (error) {
+            return error.message;
+        }
+    },
+    updateAnswer: async function (id,obj) {
+        try {
+            await Answer.update({ answer: obj }, {
+                where: {
+                    id: id
+                }
+            })
+
+        } catch (error) {
+            throw error;
+        }
     }
 }
