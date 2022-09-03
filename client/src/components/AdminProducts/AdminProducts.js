@@ -48,6 +48,11 @@ function AdminProducts() {
     
   );
 
+  const productsAbiable = allProductsBackup.filter(
+    (product) => product.disabled !== true
+    
+  );
+
   let [currentPage, setCurrentPage] = useState(1);
   let [ProductsPerPage, setProductsPerPage] = useState(6);
   let indexOfLastProduct = currentPage * ProductsPerPage;
@@ -88,13 +93,13 @@ function AdminProducts() {
   };
 
   const filterProductByIconGreen = () =>{
-   let currentProducts2 = allProducts.filter(e => e.disabled !== true &&  e.stock > 3 )
-    dispatch(adminProduct(currentProducts2))
+    dispatch(adminProduct(productsAbiable))
  }
 
-  /* const filterProductByIconGreen = () =>{
+   const filterProductByAll = () =>{
     dispatch(adminProduct(allProductsBackup))  
-  } */
+  } 
+
   const filterProductByIconBlue = () =>{
       
     dispatch(adminProduct(productsDisabled))
@@ -125,6 +130,21 @@ function AdminProducts() {
       <div className={style.productContainer}>
         
         <div className={style.infoConteiner}>
+
+        <button onClick={filterProductByAll} className={style.infoButton}>
+          <div className={style.infoProduct}>
+            <div className={style.info}>
+              <h3>{allProductsBackup.length}</h3>
+              <p>Todos los Productos</p>
+            </div>
+            <div className={style.icon}>
+              <div className={style.containerCheckAll}>
+              <i className="fa-solid fa-database"></i>
+              </div>
+            </div>
+          </div>
+          </button>
+
 
           <button onClick={filterProductByIconGreen} className={style.infoButton}>
           <div className={style.infoProduct}>
@@ -242,6 +262,9 @@ function AdminProducts() {
               <li className={style.header}>Marca</li>
             </div>
             <div className={style.containHeadr}>
+              <li className={style.header}>Descuento %</li>
+            </div>
+            <div className={style.containHeadr}>
               <li className={style.header}>Precio</li>
             </div>
             <div className={style.containHeadr}>
@@ -274,6 +297,9 @@ function AdminProducts() {
                   <p> {product.brand}</p>
                 </div>
                 <div className={style.containCardInfo}>
+                  <p> {product.reduction} %</p>
+                </div>
+                <div className={style.containCardInfo}>
                   <p> {product.price}</p>
                 </div>
                 <div className={style.containCardInfo}>
@@ -295,7 +321,16 @@ function AdminProducts() {
                      <i class="fa-solid fa-pencil"></i>
                     </div>
                   </NavLink>
+
+                  <NavLink to={`/admin/update/${product.idProduct}`}>
+                    <div className={style.containerPencil}>
+                    <i class="fa-sharp fa-solid fa-tag"></i>
+                    </div>
+                  </NavLink>
                   <div>
+
+                  
+
                   {
                     
                   product.disabled?
