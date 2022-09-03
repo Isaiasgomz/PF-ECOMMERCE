@@ -28,6 +28,8 @@ function Card({
 
   const dispatch = useDispatch();
 
+  const [hidden , setHidden] = useState(true)
+
   const { user } = useAuth0();
 
   const Fav = useSelector((state) => state.Favourites);
@@ -37,6 +39,8 @@ function Card({
   let filtered = mapFav.includes(ob.idProduct);
 
   ob.fav = filtered ? true : false;
+
+  console.log()
 
   let estilos = ob.fav || filtered ? style.favContainer : style.noFavContainer;
 
@@ -49,8 +53,7 @@ function Card({
       await dispatch(addFavourite(user?.email, ob.idProduct));
       notifyAddFav();
       dispatch(getFavourite(user?.email));
-      console.log("fav,desde la func", Fav);
-      console.log("------------------desdelafunc", filtered);
+      setHidden(false)
       return;
     }
 
@@ -58,46 +61,77 @@ function Card({
       await dispatch(deleteFavourite(user?.email, ob.idProduct));
       notifyRemove();
       dispatch(getFavourite(user?.email));
-      console.log("fav,desde la func", Fav);
-      console.log("------------------desdelafunc", filtered);
+    
       return;
     }
   };
 
+  
+
+
+  const hacerHiddenTrue = ()  =>{
+    setHidden(false)
+  }
+
+  const hacerHiddenFalse = ()  =>{
+    if (ob.fav === true) {return}
+    else{ setHidden(true)}
+  }
+
 
   const beforeDiscountPrice = price + reducedAmount;
 
-  return (
-    <div className={style.containerCard}>
-      {console.log("ad12321312", ob)}
-      {console.log("acaaaaaaaaaaaaa favvvvv", Fav)}
-      {console.log("------------------", filtered)}
-      {stock <= 0 ? (
-        <div className={style.containerAgotado}>
-          <div className={style.contAgotado}>
-            <img className={style.contAgotado} src={agotado} alt="agotado" />
-          </div>
-          <Link to={`/detail/${id}`}>
-            <div className={style.containerImgAgot}>
-              <img className={style.imgAgot} src={img} alt={name} />
-            </div>
-          </Link>
-        </div>
-      ) : (
-        <Link to={`/detail/${id}`}>
-          <div className={style.containerImg}>
-            <img className={style.img} src={img} alt={name} />
-          </div>
-        </Link>
-      )}
 
-      {reduction !== 0 ? (
-        <div className={style.containerDescuento}>
-          <div className={style.reduction}>
-            <span className={style.porcentaje}>{reduction} %</span>
+  return (
+    <div className={style.containerCard} onMouseEnter={hacerHiddenTrue} onMouseLeave={hacerHiddenFalse} >
+     
+      <div className={style.superiorPart}>
+
+        {reduction !== 0 ?
+          <div className={style.containerDescuento}>
+            <div className={style.reduction}>
+              <span className={style.porcentaje}>-{reduction}%</span>
+            </div>
           </div>
-        </div>
-      ) : null}
+          :
+          null
+        }
+
+        {stock <= 0 ? (
+          <div >
+            <div className={style.contAgotado}>
+              <img className={style.contAgotado} src={agotado} alt="agotado" />
+            </div>
+            <Link to={`/detail/${id}`}>
+              <div className={style.containerImg}>
+                <img className={style.imgAgot} src={img} alt={name} />
+              </div>
+            </Link>
+          </div>
+
+        ) :
+          <Link to={`/detail/${id}`}>
+            <div className={style.containerImg}>
+              <img className={style.img} src={img} alt={name} />
+            </div>
+
+          </Link>}
+
+          <div className={style.favConteiner}>
+          {user && (
+            <div hidden={ ob.fav === true? false : hidden} onClick={(e) => HandleChangeFav(ob, e)} className={estilos}>
+              {estilos === style.favContainer ? (
+                <i class="fa-solid fa-heart"></i>
+              ) : (
+                <i class="fa-regular fa-heart"></i>
+              )}
+            </div>
+          )}
+          </div>
+
+
+      </div>
+
 
       <div className={style.containerInfo}>
         <div className={style.containerTitle}>
@@ -108,6 +142,10 @@ function Card({
         </div>
 
         <div className={style.containerPriceCart}>
+
+          <span className={style.spanPrice}>${price}</span>
+          
+
           <span>
             {reduction !== 0 ? (<span className={style.discount} >Antes {beforeDiscountPrice}</span>
             ): null}
@@ -130,6 +168,7 @@ function Card({
             </div>
           )}
 
+
           {stock <= 0 ? (
             <div className={style.buttonCarritoAgotado}>
               {" "}
@@ -143,11 +182,8 @@ function Card({
               <i className="fa-solid fa-cart-plus"></i>
             </div>
           )}
-          <div className={style.aaa}></div>
-          {/* <div>
-      <button onClick={notify}>Make me a toast</button>
-      <Toaster />
-      </div> */}
+          
+          
         </div>
       </div>
     </div>
