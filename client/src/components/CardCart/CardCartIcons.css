@@ -11,21 +11,21 @@
     
 }
 
-.fa-trash-can{
+.fa-trash{
     font-size: 25px;
     color: red;
 }
-.fa-trash-can:hover{
+.fa-trash:hover{
     
     color: rgb(255, 58, 58);
 }
-.fa-trash-can:active{
+.fa-trash:active{
     
     color: rgb(170, 14, 14);
 }
 
 .fa-circle-minus{
-    font-size: 25px;
+    font-size: 28px;
     color: #91C612;
 }
 .fa-circle-minus:hover{
