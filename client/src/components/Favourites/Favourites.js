@@ -28,12 +28,12 @@ const Favourites = () => {
 
     if(user) {return (
         <div className={style.containerFav}>
-            <div className={style.containerButton}>
+          {/*   <div className={style.containerButton}>
             <Link to={"/home"}>
 
             <button className={style.buttonNoLoged}>Volver</button>
             </Link>
-            </div>
+            </div> */}
             <div className={style.containerCardsFav}>
 
             

@@ -1,8 +1,9 @@
 .containerAll{
-    width: 100%;
-    height: 100%;
+    width: 80vw;
+    height: 83vh;
     display: flex;
     background-color: rgb(231, 231, 231);
+    z-index: -1;
 }
 
 .prodandQACont{
@@ -14,15 +15,28 @@
 }
 /* prodconteiner */
 .productCont{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     width: 350px;
-    margin-left: 80px;
-    margin-top: 50px;
+    
+    margin-top: 50px; */
+    width: 340px;
+    height: 385px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 7px;
+    background-color: white;
+    margin: 45px;
+    transition: 0.5s;
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.637);
+    border: 1px solid rgb(231, 231, 231);
+    margin-left: 220px;
 }
 
 .imgCont{
-    height: 200px; 
+    height: 170px; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,74 +49,180 @@
       object-position: center center;
     }
 }
+.img{
+    width: 100%;
+}
 .infoProdCont{
+    width: 70%;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: flex-start;
-    font-size: large;
 }
 
 .infoProdCont span{
     padding: 10px;
 }
 
+.containerTitle{
+    padding: 5px;
+}
+
 /* QandA cont */
 .qAndAcont{
     
-    margin-left: 80px;
-    margin-top: 80px;
+   padding: 40px;
     width: 700px;
 }
+
 
 .questionCont{
     padding-bottom: 50px;
 font-size: 22px;
 text-align: justify;
+display: flex;
+justify-content: flex-end;
+
+background-color: #EEEEEE;
+padding: 20px;
 }
+.questionCont2{
+    padding-bottom: 50px;
+font-size: 22px;
+text-align: justify;
+display: flex;
+justify-content: flex-start;
+
+background-color: #EEEEEE;
+padding: 20px;
+}
+
+
 .answerInput{
     width: 100%;
-    caret-color: #91C612;
+    caret-color: rgb(0, 0, 0);
     padding: 10px;
-    padding-top: 100px;
-    box-sizing: border-box;
-    background: none;
-    outline: none;
+    padding-bottom: 150px;
+    border: none;
+    /* box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.637); */
     resize: none;
-    border: 0;
-    font-family: "Montserrat", sans-serif;
-    transition: all 0.3s;
-    border-bottom: 2px solid #bebed2;
-    font-size: 22px;
+   
 }
+.answerInput::-webkit-scrollbar{
+    background: transparent;
+    width: 13px;
+ }
+
+.answerInput:focus{
+   outline: #000000;
+   
+}
+
+.anwserFilled{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: justify;
+    font-size: 22px;
+    background-color: white;
+    padding: 20px;
+    padding-top: 7px;
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.637);
+}
+
+.tuResputesta{
+    padding: 7px;
+display: flex;
+font-size: 22px;
+background-color: white;
+box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.637);
+}
+
+.fecha{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.formResp{
+
+}
+
 /* estado */
 .estadoCont{
-    margin-left: 50px;
-    margin-top: 80px;
+    background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     align-items:flex-start;
-    
-    font-size: 25px;
+    padding: 40px;
+    font-size: 22px;
+    width: 54.8vh;
+
 }
 
+.estado{
+    font-size: 24px;
+    font-weight:500;
+}
 
+.actual{
+font-size: 20px;
+color: #999999;
+}
 
-.resp{
-    margin-top: 22px;
+.hr{
+    color: #91C612;
+    background-color: #91C612;
+    border-bottom: rgb(216, 216, 216) 1px solid;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 63%;
 }
 
 .resp label{
+    font-size: 21px;
    margin-right: 10px;
 }
 
 
 
-.ton{
+
+
+
+
+
+/* buttons */
+.buttonCont{
+ display: flex;
+ justify-content: flex-start;
+}
+
+.Editton{
     border-radius: 3px;
-    background-color: #b7e943;
+    background-color: #3483FA;
     color: #ffffff;
     border: none;
     padding: 7px;
+    font-size: 18px;
+    margin-top: 7px;
+    width: 110px;
+
+}
+
+.Editton:hover{
+    opacity: 0.7;
+    transition: 0.3s ease;
+}
+
+.ton{
+    border-radius: 3px;
+    background-color: #3483FA;
+    color: #ffffff;
+    border: none;
+    padding: 7px;
+    font-size: 18px;
+    margin-top: 7px;
+    width: 110px;
 }
 
 .ton:hover{
@@ -111,7 +231,6 @@ text-align: justify;
 }
 
 .loginButton {
-    margin-top: 30px;
     border-radius: 3px;
     background-color: #b7e943;
     color: #ffffff;

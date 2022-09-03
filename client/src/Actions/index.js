@@ -342,12 +342,28 @@ export function getAllQuestions(){
         
     }
 }
+export function getAllAnswers(){
+    return async function (dispatch) {
+        const allQuestions = await axios.get(`http://localhost:3001/answer`);
+        return dispatch({ type:'GET_ALL_ANSWER', payload: allQuestions.data })
+        
+    }
+}
 
 export function postAnswer(obj) {
     return async function () {
         console.log(obj)
         return axios.post(`http://localhost:3001/answer`,  obj )
             .then(data => console.log('question responded!'))
+            .catch(error => console.log(error.response.data))
+    }
+}
+
+
+export function updateAnswer(id,obj) {
+    return async function () {
+        return axios.put(`http://localhost:3001/answer/update/${id}`,  obj )
+            .then(data => console.log('answer updated!'))
             .catch(error => console.log(error.response.data))
     }
 }
@@ -373,3 +389,7 @@ export function adminProduct(arr){
         payload:arr
     }
 }
+
+export function clearPerif(){
+    return { type: "CLEAR_PERIF", payload: []}
+ }
