@@ -230,10 +230,12 @@
     color: rgb(255, 175, 175);
 }
 
-.spanPrice{
+.price{
     width: 61px;
+    font-weight: 350;
     text-align: left;
-    font-size: 20px;
+    font-size: 25px;
+}
 
 .discount{
     text-decoration:line-through

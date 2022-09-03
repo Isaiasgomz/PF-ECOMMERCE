@@ -143,30 +143,9 @@ function Card({
 
         <div className={style.containerPriceCart}>
 
-          <span className={style.spanPrice}>${price}</span>
+          <span className={style.price}>${price}</span>
           
-
-          <span>
-            {reduction !== 0 ? (<span className={style.discount} >Antes {beforeDiscountPrice}</span>
-            ): null}
-            ${price}
-          </span>
-          {/* <Rating
-            name="half-rating"
-            size="small"
-            defaultValue={Number(calification)}
-            precision={0.5}
-            readOnly
-          /> */}
-          {user && (
-            <div onClick={(e) => HandleChangeFav(ob, e)} className={estilos}>
-              {estilos === style.favContainer ? (
-                <i class="fa-solid fa-heart"></i>
-              ) : (
-                <i class="fa-regular fa-heart"></i>
-              )}
-            </div>
-          )}
+        
 
 
           {stock <= 0 ? (
