@@ -213,7 +213,7 @@ function UserData() {
         <br/>
         <div className={styles.containerBtn}>
           
-          <NavLink to={"/userPanel"}>
+          <NavLink to={"/home"}>
             <button className={styles.btn}>Cancelar</button>
           </NavLink>
           <button className={styles.btn} type='submit'>Guardar</button>

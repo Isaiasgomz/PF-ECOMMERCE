@@ -63,7 +63,7 @@ console.log("personaldata: ",personalData);
     <NavIcon >
     {
       personalData ?
-      <Link to={"/updateUserData"} className={styles.link}><i className="fa-solid fa-address-card" style={{ fontSize: "1.75em" }}></i></Link>
+      <Link to={"/presentationCard"} className={styles.link}><i className="fa-solid fa-address-card" style={{ fontSize: "1.75em" }}></i></Link>
         : 
         <Link to={"/userData"} className={styles.link}><i className="fa-solid fa-address-card" style={{ fontSize: "1.75em" }}></i></Link>
     }
@@ -71,7 +71,7 @@ console.log("personaldata: ",personalData);
     </NavIcon>
     <NavText >{
       personalData ?
-        <Link to={"/updateUserData"} className={styles.link}>  Datos Personales</Link>
+        <Link to={"/presentationCard"} className={styles.link}>  Datos Personales</Link>
         : 
         <Link to={"/userData"} className={styles.link}>  Datos Personales</Link>
     }</NavText>

@@ -98,7 +98,7 @@ function UpdateUserData() {
       department: info?.department
     });
 
-    history.push("/userPanel");
+    history.push("/home");
   };
 
   setTimeout((loading) => {
@@ -255,7 +255,7 @@ function UpdateUserData() {
 
               
 
-              <NavLink to={"/userPanel"}>
+              <NavLink to={"/home"}>
                 <button className={styles.btnS}>Salir</button>
               </NavLink>
               <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Editar</button>
