@@ -62,6 +62,11 @@ function UserShippingAddress() {
         );
     };
 
+    const handleClose = (e) => {
+      e.preventDefault();
+      window.history.back();
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         trueorfalse2? setTrueorFalse2(false):setTrueorFalse2(true)
@@ -77,7 +82,9 @@ function UserShippingAddress() {
         country: "",
         department:""
     });
-    history.push("/home");
+    /* history.push("/userAllAddresses"); */
+    window.history.back();
+    /* window.history.go() */
     };
 
   return (
@@ -205,12 +212,10 @@ function UserShippingAddress() {
          </div>
         </div>
         <br/>
-        <div className={styles.containerBtn}>
-          
-         
-          <NavLink to={"/userPanel"}>
-            <button className={styles.btnS}>Salir</button>
-          </NavLink>
+        <div className={styles.containerBtn}>   
+          {/* <NavLink to={"/userAllAddresses"}> */}
+            <button className={styles.btnS} onClick={handleClose}>Salir</button>
+          {/* </NavLink>  */}
           <button className={styles.btn} type='submit'>Guardar</button>
         </div>
       </form>

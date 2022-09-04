@@ -49,7 +49,7 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
         country: country,
         department: department
     });
-    console.log("input",input)
+
     const [isDisabled, setIsDisabled] = useState(true);
     
     const [errors, setErrors] = useState({});
@@ -85,6 +85,11 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
         );
     };
 
+    const handleClose = (e) => {
+        e.preventDefault();
+        window.history.back();
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!input.reference) {
@@ -96,7 +101,8 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
                 swal('Su dirección de envío se actualizó correctamente');
                 clearAddress();
                 setIsDisabled(true);
-                history.push("/userAllAddresses");
+                window.history.back();
+                /* history.push("/userAllAddresses"); */
             }
     };
 
@@ -215,13 +221,10 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
                         </div>
                         <br />
                     </div>
-                    <div className={styles.containerBtn}>
-                        
-                        
-                        
-                        <NavLink to={"/userPanel"}>
-                            <button className={styles.btnS}>Salir</button>
-                        </NavLink>
+                    <div className={styles.containerBtn}> 
+                        {/* <NavLink to={"/userAllAddresses"}> */}
+                            <button className={styles.btnS} onClick={handleClose}>Salir</button>
+                       {/*  </NavLink> */}
                         <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Editar</button>
                         <button className={styles.btn} type='submit' disabled={isDisabled}>Guardar</button>
                     </div>

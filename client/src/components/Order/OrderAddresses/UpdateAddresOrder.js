@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAddress } from "../../../Actions";
 import UpdateShippingAddress from "../UpdateShippingAddress/UpdateShippingAddress";
 
-function UpdateAddres(props) {
+function UpdateAddresOrder(props) {
     const id = props.match.params?.id
+ 
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user.email);
     const address = useSelector((state) => state.ShippingAddress);
@@ -14,8 +15,7 @@ function UpdateAddres(props) {
     },[dispatch])
     
   return (
-  <div>
-                    
+  <div>                    
                     <div>
                     <UpdateShippingAddress
                         key= {address?.id}
@@ -34,4 +34,4 @@ function UpdateAddres(props) {
   )
 }
 
-export default UpdateAddres;
+export default UpdateAddresOrder;

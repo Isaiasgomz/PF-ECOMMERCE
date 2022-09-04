@@ -90,6 +90,7 @@ function UserAllAddresses() {
                   country={e.country}
                   key={index}
                   filterAddress={() => filterAddress(e.id)}
+                  direccion= {e}
                 />
               ))}
             </div>
