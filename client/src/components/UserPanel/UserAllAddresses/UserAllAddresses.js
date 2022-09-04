@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAddress, getUserDetail } from "../../../Actions/index.js";
-import UserPanel from "../UserPanel";
-import UpdateShippingAddress from "../UpdateShippingAddress/UpdateShippingAddress";
 import style from "./UserAllAddresses.module.css";
 import loadingLogo from "../../../imagenes/loading.png";
 import AllAddresessCard from "./AllAddresessCard.js";
@@ -13,27 +11,24 @@ function UserAllAddresses() {
 
   const user = useSelector((state) => state.user.email);
   const addresses = useSelector((state) => state.userDetail.ShippingAddresses);
+
+
+  const address = useSelector((state) => state.ShippingAddress);
+
   const address = useSelector((state) => state.ShippingAddress);
   const personalData = useSelector((state) => state.userDetail.PersonalDatum);
 
-  const [loading, setLoading] = useState(true);
-  const [dropDown, setDropDown] = useState(false);
 
-  const openCloseDropDown = () => {
-    setDropDown(!dropDown);
-  };
+  const [loading, setLoading] = useState(true);
 
   function filterAddress(e) {
-    console.log("filter addres");
     e.preventDefault();
-    console.log(e.target.value);
     dispatch(getAddress(e.target.value));
   }
-  const history = useHistory();
-  /*   
-     useEffect(() => {
-        if(user?.length>0)dispatch(getUserDetail(user));    
-    }, [addresses]); */
+
+  useEffect(() => {
+    if(user?.length>0) dispatch(getUserDetail(user))
+  },[dispatch])
 
   setTimeout((loading) => {
     setLoading(false);
@@ -92,6 +87,7 @@ function UserAllAddresses() {
                   country={e.country}
                   key={index}
                   filterAddress={() => filterAddress(e.id)}
+                  direccion= {e}
                 />
               ))}
             </div>

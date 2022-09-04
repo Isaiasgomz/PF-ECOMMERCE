@@ -109,6 +109,14 @@ function Card({
             </Link>
           </div>
 
+        </Link>
+      )}
+      {reduction !== 0 ? (
+        <div className={style.containerDescuento}>
+          <div className={style.reduction}>
+            <span className={style.porcentaje}>{reduction} %</span>
+
+
         ) :
           <Link to={`/detail/${id}`}>
             <div className={style.containerImg}>
@@ -127,6 +135,7 @@ function Card({
               )}
             </div>
           )}
+
           </div>
 
 

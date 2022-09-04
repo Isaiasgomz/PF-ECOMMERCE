@@ -249,7 +249,7 @@ export function postUserAddress(email, data) {
     return async function (dispatch) {
         await axios.post(`http://localhost:3001/user/${email}/shippingAddress`,data)
         .catch(error => console.log(error.response.data))
-        return dispatch({ type: 'SHIPPING_ADDRESS'})
+        return dispatch({ type: 'SHIPPING_ADDRESS', payload: data})
     }
 }
 

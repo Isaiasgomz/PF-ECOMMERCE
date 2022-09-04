@@ -59,6 +59,7 @@ import EditDiscount from "./components/AdminDiscount/EditDiscount";
 
 
 import UpdateAddres from "./components/UserPanel/UserAllAddresses/UpdateAddres";
+import UserAllAddressesOrder from "./components/Order/OrderAddresses/UserAllAddressesOrder";
 
 
 
@@ -133,6 +134,9 @@ function App() {
 
 
         <Route exact path={"/updateAddres/:id"} component={UpdateAddres}/>
+
+        <Route exact path={"/userAllAddressesOrder"} component={UserAllAddressesOrder}/>
+
 
       </ContextProvider>
     </div>
