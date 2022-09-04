@@ -8,13 +8,13 @@
   justify-content: center;
   position: absolute;
   top: 29px !important;
-  width: 600px;
+  width: 700px;
 }
 
 .dropdownProdConteiner {
   display: flex;
   flex-direction: column;
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   z-index: 1;
   margin-right: 58px;
   border-bottom-left-radius: 10px;
@@ -30,7 +30,7 @@
 }
 
 .products:hover {
-  background-color: #37373F;
+  background-color: #37373f;
   color: white;
 }
 
@@ -40,7 +40,7 @@
   border: 1px solid white;
   color: black;
   padding: 7px;
-  width: 25vw;
+  width: 22vw;
 }
 
 .searchButton {

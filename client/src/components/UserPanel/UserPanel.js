@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from './UserPanel.module.css';
+
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearAddress, getUserDetail } from "../../Actions";
@@ -18,7 +19,7 @@ import { createCont } from "../contexto/contextProvider";
 
 export default function UserPanel() {
 
-
+  const { logout } = useAuth0();
   const dispatch = useDispatch();
   const { trueorfalse2} = useContext(createCont)
 
@@ -63,7 +64,7 @@ console.log("personaldata: ",personalData);
     <NavIcon >
     {
       personalData ?
-      <Link to={"/updateUserData"} className={styles.link}><i className="fa-solid fa-address-card" style={{ fontSize: "1.75em" }}></i></Link>
+      <Link to={"/presentationCard"} className={styles.link}><i className="fa-solid fa-address-card" style={{ fontSize: "1.75em" }}></i></Link>
         : 
         <Link to={"/userData"} className={styles.link}><i className="fa-solid fa-address-card" style={{ fontSize: "1.75em" }}></i></Link>
     }
@@ -71,7 +72,7 @@ console.log("personaldata: ",personalData);
     </NavIcon>
     <NavText >{
       personalData ?
-        <Link to={"/updateUserData"} className={styles.link}>  Datos Personales</Link>
+        <Link to={"/presentationCard"} className={styles.link}>  Datos Personales</Link>
         : 
         <Link to={"/userData"} className={styles.link}>  Datos Personales</Link>
     }</NavText>
@@ -108,6 +109,22 @@ console.log("personaldata: ",personalData);
     </NavIcon>
     <NavText>
       <Link to={"/Favourites"} className={styles.link}>Favoritos</Link>
+    </NavText>
+  </NavItem>
+  <NavItem eventKey="6" className={styles.items}>
+    <NavIcon>
+      <Link to={"/cart"} className={styles.link}><i class="fa-sharp fa-solid fa-cart-shopping" style={{ fontSize: "1.75em" }}></i> </Link>
+    </NavIcon>
+    <NavText>
+      <Link to={"/cart"} className={styles.link}>Carrito</Link>
+    </NavText>
+  </NavItem>
+  <NavItem eventKey="7" className={styles.items}>
+    <NavIcon>
+      <i className="fa-solid fa-power-off" onClick={() => logout({ returnTo: window.location.origin })} style={{ fontSize: "1.75em" }}></i>
+    </NavIcon>
+    <NavText>
+      <Link onClick={() => logout({ returnTo: window.location.origin })} className={styles.link}>Cerrar Sesión</Link>
     </NavText>
   </NavItem>
 </SideNav.Nav>

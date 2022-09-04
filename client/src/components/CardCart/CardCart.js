@@ -58,7 +58,7 @@ const CardCart = ({ obj, deleteP, returnPrice }) => {
             ></i>
             <i
               onClick={() => deleteP(obj)}
-              className="fa-solid fa-trash-can"
+              className="fa-solid fa-trash"
             ></i>
           </div>
         </div>

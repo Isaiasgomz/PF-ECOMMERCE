@@ -12,7 +12,13 @@ function UserAllAddresses() {
   const user = useSelector((state) => state.user.email);
   const addresses = useSelector((state) => state.userDetail.ShippingAddresses);
 
+
   const address = useSelector((state) => state.ShippingAddress);
+
+  const address = useSelector((state) => state.ShippingAddress);
+  const personalData = useSelector((state) => state.userDetail.PersonalDatum);
+
+
   const [loading, setLoading] = useState(true);
 
   function filterAddress(e) {
@@ -44,8 +50,34 @@ function UserAllAddresses() {
               <h2> Mis direcciones</h2>
             </div>
 
-            <div className={style.span}>Seleccione la dirección que quiere ver y/o editar</div>
+            <div className={style.span}>
+              Seleccione la dirección que quiere ver y/o editar
+            </div>
             <div className={style.containerCards}>
+              {personalData ? (
+                <div className={style.card}>
+                  <div className={style.fila}>
+                    <div className={style.text}>
+                      <i class="fa-solid fa-house"></i> Mi dirección
+                    </div>
+                    <div>
+                      {" "}
+                      {personalData.address}, {personalData.city},{" "}
+                      {personalData.country}{" "}
+                    </div>
+                    <div>
+                      {" "}
+                      <Link to={"/updateUserData"}>
+                        <div className={style.pencil}>
+                          <i class="fa-solid fa-pencil"></i>
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div></div>
+              )}
               {addresses?.map((e, index) => (
                 <AllAddresessCard
                   id={e.id}
@@ -59,7 +91,7 @@ function UserAllAddresses() {
                 />
               ))}
             </div>
-            <div className={style.anadir} >
+            <div className={style.anadir}>
               <Link to="/userShippingAddress">
                 <button className={style.button}>AÑADIR NUEVA DIRECCION</button>
               </Link>
