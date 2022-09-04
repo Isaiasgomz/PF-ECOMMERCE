@@ -70,9 +70,18 @@ align-items: center;
   padding-top: 20px;
 }
 
+.control{
+  padding: 20px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 15px 12px;
+}
+
 .button{
   /* background-color:#78788C ; */
   background-color: #91C612;
+  float: center;
   border: none;
   padding-top: 2px;
   padding-bottom: 2px;

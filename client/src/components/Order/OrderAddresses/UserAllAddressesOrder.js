@@ -1,20 +1,23 @@
-import React, {useState } from "react";
+import React, {useEffect, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { postDataMap } from "../../../Actions/index.js";
+import { getUserDetail, postDataMap } from "../../../Actions/index.js";
 import style from "./UserAllAddressesOrder.module.css";
 import loadingLogo from "../../../imagenes/loading.png";
 import swal from "sweetalert";
 
-function UserAllAddressesOrder({/* locAllOrder */}) {
+function UserAllAddressesOrder() {
 
   const dispatch = useDispatch();
+  const user = useSelector(state => state.user.email);
   const addresses = useSelector((state) => state.userDetail.ShippingAddresses);
   const [loading, setLoading] = useState(true);
   const [isChecked, setIsChecked] = useState(false);
   const history = useHistory();
-  const location = useLocation();
-  const locAllOrder = location.pathname
+  
+  useEffect(() => {
+    if(user?.length>0) dispatch(getUserDetail(user))
+  },[dispatch])
 
   const handleConfirm = (e) => {
     e.preventDefault();
@@ -82,14 +85,16 @@ function UserAllAddressesOrder({/* locAllOrder */}) {
                     </div>
                   </div>
                ))}    
-
-            </div>
+            </div> 
             <div className={style.anadir} >
               <Link to="/userShippingAddress">
                 <button className={style.button}>AÑADIR NUEVA DIRECCIÓN</button>
               </Link>
             </div>
-            <div className={style.anadir} >
+            <div className={style.control} >
+              <Link to="/resumeOrder">
+                <button className={style.button}>VOLVER AL CARRITO</button>
+              </Link>
               <Link to="/payment">
                 <button className={style.button} onClick={handleConfirm} >CONFIRMAR</button>
               </Link>

@@ -29,7 +29,7 @@ function validate(input) {
 
 function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, country, department}) {
     const dispatch = useDispatch();
-    console.log("prop", country)
+ 
     const user = useSelector((state) => state.user.email);
     /* const addresses = useSelector((state) => state.userDetail.ShippingAddresses) */
     useEffect(async ()=> {

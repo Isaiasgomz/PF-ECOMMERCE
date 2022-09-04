@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAddress, getUserDetail } from "../../../Actions/index.js";
-import UserPanel from "../UserPanel";
-import UpdateShippingAddress from "../UpdateShippingAddress/UpdateShippingAddress";
 import style from "./UserAllAddresses.module.css";
 import loadingLogo from "../../../imagenes/loading.png";
 import AllAddresessCard from "./AllAddresessCard.js";
@@ -12,52 +10,19 @@ function UserAllAddresses() {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.user.email);
-  // "email": "anajuliaa.22.jp@gmail.com",
   const addresses = useSelector((state) => state.userDetail.ShippingAddresses);
-  // "ShippingAddresses": [
-  //     {
-  //       "id": 1,
-  //       "reference": "Amiga",
-  //       "address": "o'higgins 440",
-  //       "department": "0",
-  //       "city": "Mendoza",
-  //       "CP": "5547",
-  //       "country": "Argentina",
-  //       "telephone": "23545657",
-  //       "UserEmail": "anajuliaa.22.jp@gmail.com"
-  //     },
-  //     {
-  //       "id": 2,
-  //       "reference": "amiga",
-  //       "address": "Avenida San Martin",
-  //       "department": "0",
-  //       "city": "Mendoza",
-  //       "CP": "5547",
-  //       "country": "Argentina",
-  //       "telephone": "23545657",
-  //       "UserEmail": "anajuliaa.22.jp@gmail.com"
-  //     }
-  //   ],
-  const address = useSelector((state) => state.ShippingAddress);
-  console.log(address);
-  const [loading, setLoading] = useState(true);
-  const [dropDown, setDropDown] = useState(false);
 
-  const openCloseDropDown = () => {
-    setDropDown(!dropDown);
-  };
+  const address = useSelector((state) => state.ShippingAddress);
+  const [loading, setLoading] = useState(true);
 
   function filterAddress(e) {
-    console.log("filter addres");
     e.preventDefault();
-    console.log(e.target.value);
     dispatch(getAddress(e.target.value));
   }
-  const history = useHistory();
-  /*   
-     useEffect(() => {
-        if(user?.length>0)dispatch(getUserDetail(user));    
-    }, [addresses]); */
+
+  useEffect(() => {
+    if(user?.length>0) dispatch(getUserDetail(user))
+  },[dispatch])
 
   setTimeout((loading) => {
     setLoading(false);
