@@ -201,6 +201,14 @@ userAdm?
       <Link to={"/adminPreguntas"} className={styles.link}>Preguntas</Link>
     </NavText>
   </NavItem>
+  <NavItem eventKey="7" className={styles.items}>
+    <NavIcon>
+      <i className="fa-solid fa-power-off" onClick={() => logout({ returnTo: window.location.origin })} style={{ fontSize: "1.75em" }}></i>
+    </NavIcon>
+    <NavText>
+      <Link onClick={() => logout({ returnTo: window.location.origin })} className={styles.link}>Cerrar Sesión</Link>
+    </NavText>
+  </NavItem>
 </SideNav.Nav>
 </SideNav>:null}
     
