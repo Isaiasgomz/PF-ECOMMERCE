@@ -63,15 +63,6 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
             }
     };
 
-    /* const handleDelete = () => {
-        if (!input.reference) {
-            swal('Debe seleccionar una dirección de envío para eliminar')
-        }
-            else {
-                
-            }
-      }; */
-
     const handleInput = (e) => {
         setInput({
         ...input,
@@ -223,18 +214,7 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
                     </div>
 
                     <div className={styles.containerBtn}> 
-                        {/* <NavLink to={"/userAllAddresses"}> */}
-                            <button className={styles.btnS} onClick={handleClose}>Salir</button>
-                       {/*  </NavLink> */}
-
-                    <div className={styles.containerBtn}>
-                        
-                        
-                        
-                        <NavLink to={"/home"}>
-                            <button className={styles.btnS}>Salir</button>
-                        </NavLink>
-
+                        <button className={styles.btnS} onClick={handleClose}>Salir</button>
                         <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Editar</button>
                         <button className={styles.btn} type='submit' disabled={isDisabled}>Guardar</button>
                     </div>
