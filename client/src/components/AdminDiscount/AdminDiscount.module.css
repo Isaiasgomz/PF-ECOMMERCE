@@ -1,13 +1,13 @@
 
 .containerAll{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     background-color: rgb(250, 250, 250);
 }
 
 .containerAdminSideBar{
-    width: 16%;
+    width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,15 +26,15 @@
     justify-content: space-around;
     margin-bottom: 15px;
     margin-top: 20px;
-    padding: 30px;
+
 }
 
 .infoProduct{
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    width: 250px;
-    height: 130px;
+    width: 300px;
+    height: 150px;
     border-radius: 5px;
     border: none;
     border-bottom: 1px solid gray;
@@ -50,65 +50,7 @@
    
 }
 
-/* .infoProductR{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    width: 300px;
-    height: 150px;
-    border-radius: 5px;
-    border: none;
-    background-color: rgb(48, 48, 48);
-    color: rgb(240, 240, 240);
-    transition: 0.5s;
-    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.404);
-}
 
-.infoProductR:hover{
-    box-shadow: 0px 0px 15px 5px rgb(214, 23, 23);
-    color: rgb(255, 255, 255);
-    background-color: rgb(27, 27, 27);
-}
-
-.infoProductB{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    width: 300px;
-    height: 150px;
-    border-radius: 5px;
-    border: none;
-    background-color: rgb(48, 48, 48);
-    color: rgb(240, 240, 240);
-    transition: 0.5s;
-    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.404);
-}
-
-.infoProductB:hover{
-    box-shadow: 0px 0px 15px 5px rgb(48, 46, 192);
-    color: rgb(255, 255, 255);
-    background-color: rgb(27, 27, 27);
-}
-
-.infoProductY{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    width: 300px;
-    height: 150px;
-    border-radius: 5px;
-    border: none;
-    background-color: rgb(48, 48, 48);
-    color: rgb(240, 240, 240);
-    transition: 0.5s;
-    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.404);
-}
-
-.infoProductY:hover{
-    box-shadow: 0px 0px 15px 5px rgb(208, 211, 18);
-    color: rgb(255, 255, 255);
-    background-color: rgb(27, 27, 27);
-} */
 
 .info{
     width: 80%;
@@ -125,21 +67,6 @@
     align-items: center;
 }
 
-.containerCheckAll{
-    border:none;
-    width: 40px;
-    height: 40px;
-    border-radius: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #3312c6;
-}
-
-.containerCheckAll i {
-    color: white;
-}
-
 .containerCheckv{
     border:none;
     width: 40px;
@@ -154,22 +81,6 @@
 .containerCheckv i {
     color: white;
 }
-
-.containerCheckD{
-    border:none;
-    width: 40px;
-    height: 40px;
-    border-radius: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1b8f21;
-}
-
-.containerCheckD i {
-    color: white;
-}
-
 
 .containerCheckx{
     border:none;
@@ -255,55 +166,7 @@
 }
 
 
-/* .items{
-    display: flex;
-    justify-self: flex-start;
-    width: 320px;
-    border-bottom: solid 1px black;
-    height: 60px;
-    
-}
 
-.itemCreated{
-    display: flex;
-    justify-self: flex-start;
-    align-items: center;
-    width:250px;
-    border-bottom: solid 1px black;   
-    height: 60px;
-}
-
-.itemName{
-    display: flex;
-    justify-self: flex-start;
-    width:230px;
-    border-bottom: solid 1px black;
-    height: 60px;  
-}
-
-.itemPrice{
-    display: flex;
-    justify-self: flex-start;
-    width: 100px;
-    border-bottom: solid 1px black;
-    height: 60px;
-}
-
-.itemBrand{
-    display: flex;
-    justify-self: flex-start;
-    width: 120px;
-    border-bottom: solid 1px black;
-    height: 60px;
-}
-
-.itemStock{
-    display: flex;
-    justify-self: flex-start;
-    width: 100px;
-    border-bottom: solid 1px black;
-    height: 60px;
-} */
 
 .containerInfoTable{
     display: flex;
@@ -363,13 +226,6 @@
 
 .containercAgotado{
     background-color: #77aeff;
-    width: 99%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.containercDiscount{
-    background-color: #77ffa0;
     width: 99%;
     display: flex;
     justify-content: space-between;
@@ -477,4 +333,3 @@
     background-color: transparent;
     color: transparent;
 }
-

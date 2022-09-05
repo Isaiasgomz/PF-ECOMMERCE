@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserDetail } from "../../Actions";
 import styles from './OrderInfo.module.css';
 import loadingLogo from '../../imagenes/loading.png';
-import  OrderAllAddresses  from "../OrderInfo/OrderAllAddresses/OrderAllAddresses";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link, useHistory } from "react-router-dom";
+import UserAllAddressesOrder from "./OrderAddresses/UserAllAddressesOrder";
+import OrderUserData from "../Order/OrderUserData/OrderUserData";
 
 export default function OrderInfo() {
     const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export default function OrderInfo() {
 
     useEffect(() => {
         if (user?.email) dispatch(getUserDetail(user.email));
-    }, [user]);
+    }, [dispatch]);
 
     setTimeout((loading) => {
         setLoading(false)
@@ -39,20 +40,18 @@ export default function OrderInfo() {
             <React.Fragment>
                 <div>
                 {
-                  (personalData && addresses.length > 0)?
-                    <OrderAllAddresses
-                      key= {addresses.id}
-                    />
-                    : 
-                    /* history.push('/userPanel') */
+                  personalData?
                     <div className={styles.container}>
-                      <h1>Información de contacto</h1>
+                      <h1>Dirección de envío</h1>
+                        <UserAllAddressesOrder
+                          key= {addresses.id}
+                        />
+                    </div>    
+                    : 
+                    <div className={styles.container}>
+                      <h1>Información de contacto y envío</h1>
                       <br></br>
-                        <span>Si es la primera vez que realiza una compra, debe cargar sus datos personales (Mi perfil/Datos personales) y por lo menos una dirección a la cuál se enviará su compra (Mi perfil/Direcciones de Envío/Añadir Dirección).</span>
-                        <br></br>
-                        <span>Después vuelva al Carrito para seguir con su compra</span>
-                        <br></br>
-                        <Link to={"/userPanel"} className={styles.link}> <i className="fa-solid fa-circle-user"></i> Mi perfil</Link>
+                        <OrderUserData/>
                     </div>
                 }
                 </div>

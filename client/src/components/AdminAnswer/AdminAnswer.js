@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { getAllQuestions, postAnswer, updateQuestion } from '../../Actions';
+import { getAllAnswers, getAllQuestions, postAnswer, updateAnswer, updateQuestion } from '../../Actions';
 import AdminSideBar from '../AdminSideBar/AdminSideBar';
 import style from './AdminAnswer.module.css';
 import Radio from '@mui/material/Radio';
@@ -17,9 +17,12 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 function AdminAnswer(props) {
   const dispatch = useDispatch()
   const allQuestions = useSelector(state => state.allQuestions)
+  const allAnswers = useSelector(state => state.allAnswers)
   const AllProducts = useSelector(state => state.AllProducts)
   const id = props.match?.params?.id
-  const [trueor,setTrueor] = useState(true)
+  const [trueor, setTrueor] = useState(true)
+  const [isDisable, setIsDisable] = useState(true)
+
 
   const [answer, setAnswer] = useState({
 
@@ -27,21 +30,33 @@ function AdminAnswer(props) {
     answer: ""
   })
   const [checkbox, setCheckbox] = useState({
-    status: "No vista"
+    status: "En espera"
   })
   const [errors, setErrors] = useState({})
 
   useEffect(() => {
     dispatch(getAllQuestions())
-
+    dispatch(getAllAnswers())
+    dispatch(updateQuestion(id, checkbox))
   }, [trueor])
 
-  let oneQuestion = allQuestions.find(e => e.id === Number(id))
-
+  let oneQuestion = allQuestions?.find(e => e.id === Number(id))
+  let theAnswer = allAnswers?.find(e =>   e.QuestionId === Number(id)  )
+  
   const product = AllProducts.find(e => Number(oneQuestion?.ProductIdProduct) === Number(e.idProduct))
   const handleSubmit = (e) => {
     /* e.preventDefault(); */
+
     dispatch(postAnswer(answer))
+
+    setAnswer({
+      QuestionId: id,
+      answer: ""
+    })
+  }
+  const handleEdit = (e) => {
+    /* e.preventDefault(); */
+    dispatch(updateAnswer(theAnswer.id,answer))
     setAnswer({
       QuestionId: id,
       answer: ""
@@ -67,13 +82,13 @@ function AdminAnswer(props) {
 
   const handleClik = e => {
     /* e.preventDefault() */
-    trueor===false?setTrueor(true):setTrueor(false)
+    trueor === false ? setTrueor(true) : setTrueor(false)
     notify()
-    dispatch(updateQuestion(id,checkbox))
+    dispatch(updateQuestion(id, checkbox))
     setCheckbox({
       status: ""
     })
-    
+
   }
   const notify = () => toast.success('Estado actualizado', {
     style: {
@@ -81,86 +96,129 @@ function AdminAnswer(props) {
       color: "white"
     }
   });
+
+  const editButton = async(e) => {
+    e.preventDefault()
+   await setAnswer({
+      ...answer,
+       answer:oneQuestion.Answer.answer
+      })
+    setIsDisable(false)
+    
+  }
   return (
     <div className={style.containerAll}>
-      <div className={style.containerAdminSideBar}>
-        <AdminSideBar></AdminSideBar>
-      </div>
+
 
       <div className={style.prodandQACont}>
         <div className={style.productCont}>
           <div className={style.imgCont}>
-            <img src={product?.image}></img>
+            <img src={product?.image} className={style.img}></img>
           </div>
           <div className={style.infoProdCont}>
-            <span>{product?.productName}</span>
-            <span>{product?.brand}</span>
-            <span>${product?.price}</span>
-            <span>Stock: {product?.stock}</span>
+
+            <div className={style.containerTitle}>
+              <span>{product?.productName}</span>
+            </div>
+
+            <div className={style.containerTitle}>
+              <span>{product?.brand}</span>
+            </div>
+
+            <div className={style.containerTitle}>
+              <span>${product?.price}</span>
+            </div>
+            <div className={style.containerTitle}>
+              <span>Descuento: {product?.reduction}%</span>
+            </div>
+            <div className={style.containerTitle}>
+              <span>Stock: {product?.stock}</span>
+            </div>
           </div>
         </div>
         <div className={style.qAndAcont}>
-          <div className={style.questionCont}>
+          <div className={style.questionCont2}>
             {oneQuestion?.question}
           </div>
           <div className={style.questionCont}>
             Realizada el {oneQuestion?.date}
           </div>
-          {oneQuestion?.Answer ? <div className={style.questionCont}>
-            Tu respuesta:
-            <div >{oneQuestion.Answer.answer}</div>
-            <div >Realizada el {oneQuestion.Answer.date}</div>
-            {/* <div > Realizada el {oneQuestion.Answer.date}</div> */}
-          </div> : <div className={style.answerCont}>
+          <hr />
+          <div className={style.tuResputesta}>
+            <div> Tu respuesta</div>
+          </div>
+          {oneQuestion?.Answer ? <form onSubmit={handleEdit}>
+            
+            <div className={style.anwserFilled}>
+
+              <textarea className={style.answerInput}
+                disabled={isDisable}
+                name="answer"
+                value={answer?.answer?answer?.answer:setAnswer({
+                  ...answer,
+                   answer:oneQuestion.Answer.answer
+                  })}
+                onChange={handleChange}></textarea>
+
+              <div className={style.fecha}>Realizada el {oneQuestion.Answer.date}</div>
+            </div>
+            <div className={style.buttonCont}>
+             {isDisable?<button className={style.Editton} 
+              onClick={editButton}
+              >Editar</button>:<button className={style.ton} type='submit'
+              >Guardar</button>} 
+            </div>
+          </form> : <div className={style.answerCont}>
             <form onSubmit={handleSubmit}>
-              <label>Tu respuesta</label>
+
               <textarea className={style.answerInput}
                 name='answer'
                 value={answer?.answer}
                 onChange={handleChange}
+                placeholder={oneQuestion?.Answer}
               ></textarea>
-              <button className={style.ton} type='submit'
-              >Responder</button>
+              <div className={style.buttonCont}>
+                <button className={style.ton} type='submit'
+                >Responder</button>
+              </div>
             </form>
           </div>}
 
         </div>
         <div className={style.estadoCont}>
-          <div className={style.estado}>Estado actual: {oneQuestion?.status}</div>
+          <div className={style.estado}>Estado actual</div>
 
+          <div className={style.actual}> {oneQuestion?.status}</div>
+          <div className={style.hr} />
           <RadioGroup
             row
             aria-labelledby="demo-row-radio-buttons-group-label"
             name="row-radio-buttons-group"
           >
             <div className={style.resp}>
-
               <span>
                 <label>Respondida</label>
               </span>
               <span>
-              <FormControlLabel 
-              name='status'
-              value="Respondida" 
-              onChange={handleCheck}
-
-              control={<Radio />}  />
-
-
+                <FormControlLabel
+                  name='status'
+                  value="Respondida"
+                  onChange={handleCheck}
+                  control={<Radio />} />
               </span>
-
             </div>
-            <div className={style.resp}>
+            {/* <div className={style.resp}>
               <label >En espera</label>
               <span>
-              <FormControlLabel 
-              name='status'
-              value="En espera" 
-              onChange={handleCheck}
-              control={<Radio />}  />
+                <FormControlLabel
+                  name='status'
+                  value="En espera"
+                  onChange={handleCheck}
+                  control={<Radio />} />
               </span>
-            </div>
+            </div> */}
           </RadioGroup>
+          <div className={style.hr} />
           <button className={style.loginButton} onClick={handleClik} >Guardar estado</button>
         </div>
       </div>

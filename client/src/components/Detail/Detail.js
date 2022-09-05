@@ -34,9 +34,9 @@ function Detail(props) {
   const userDetail = useSelector(state => state.userDetail)
 
   const questions = useSelector(state => state.questions)
-  
 
-  const {AllOrders} = useSelector(state => state)
+
+  const { AllOrders } = useSelector(state => state)
 
 
 
@@ -56,17 +56,7 @@ function Detail(props) {
   })
   let validacion = false;
 
-        for (let i = 0; i < orderandProdId?.length; i++) {
-          for (let j = 0; j < AllOrders?.length; j++) {
-            if(orderandProdId[i].pOrder===AllOrders[j].orderN && orderandProdId[i].idProduct===Number(id)){
-              if(AllOrders[j].status === "Completado")
-              validacion = true
-            }
-          }
-        }
-        
-
-/*   for (let i = 0; i < orderandProdId?.length; i++) {
+  for (let i = 0; i < orderandProdId?.length; i++) {
     for (let j = 0; j < AllOrders?.length; j++) {
       if (orderandProdId[i].pOrder === AllOrders[j].orderN && orderandProdId[i].idProduct === Number(id)) {
         if (AllOrders[j].status === "Completado")
@@ -74,7 +64,17 @@ function Detail(props) {
       }
     }
   }
- */
+
+
+  /*   for (let i = 0; i < orderandProdId?.length; i++) {
+      for (let j = 0; j < AllOrders?.length; j++) {
+        if (orderandProdId[i].pOrder === AllOrders[j].orderN && orderandProdId[i].idProduct === Number(id)) {
+          if (AllOrders[j].status === "Completado")
+            validacion = true
+        }
+      }
+    }
+   */
 
 
   const opinar = () => toast.success('Gracias por dejar tu opinion!');
@@ -87,7 +87,7 @@ function Detail(props) {
 
   /* button login */
 
-  const {user: usuario} = useAuth0()
+  const { user: usuario } = useAuth0()
 
   /* tabs */
 
@@ -176,44 +176,47 @@ function Detail(props) {
 
   // favoritos
 
-  const Fav = useSelector(state=> state.Favourites)
+  const Fav = useSelector(state => state.Favourites)
 
-  let mapFav = Fav.map(e=>e.idProduct)
-  
+  let mapFav = Fav.map(e => e.idProduct)
+
   let filtered = mapFav.includes(product.idProduct)
 
 
   product.fav = filtered ? true : false
 
-  let estilos = product.fav || filtered? style.favContainer : style.noFavContainer
+  let estilos = product.fav || filtered ? style.favContainer : style.noFavContainer
 
 
-  const notifyRemove=  ()=> toast.error("Removido de favoritos!",{style:{
-    background:"red",
-    color:"white"
-}})
+  const notifyRemove = () => toast.error("Removido de favoritos!", {
+    style: {
+      background: "red",
+      color: "white"
+    }
+  })
 
-const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
-  background: "rgb(67, 160, 71)",
-  color:"white"
-}});
+  const notifyAddFav = () => toast.success('Agregado a favoritos!', {
+    style: {
+      background: "rgb(67, 160, 71)",
+      color: "white"
+    }
+  });
 
-  const HandleChangeFav = async (obj,e)=>
-  {
+  const HandleChangeFav = async (obj, e) => {
     e.preventDefault()
     console.log("asdnasodnasidoasndioasndioasndoasd40046051060---------")
-  
+
     obj.fav = !obj.fav
 
-    if(obj.fav === true){
-      await dispatch(addFavourite(user?.email,obj.idProduct))
+    if (obj.fav === true) {
+      await dispatch(addFavourite(user?.email, obj.idProduct))
       notifyAddFav()
       dispatch(getFavourite(user?.email))
       return
     }
-    
-    if(obj.fav === false){
-      await dispatch(deleteFavourite(user?.email,obj.idProduct))
+
+    if (obj.fav === false) {
+      await dispatch(deleteFavourite(user?.email, obj.idProduct))
       notifyRemove()
       dispatch(getFavourite(user?.email))
 
@@ -221,24 +224,37 @@ const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
     }
   }
 
-  
+  let totalPrice = product.price + product.reducedAmount
 
   return (
     <div className={style.conteiner}>
-    {console.log("asdasdasd-------------asdasdasdasd-adasdasdad",product)}
+      {console.log("asdasdasd-------------asdasdasdasd-adasdasdad", product)}
       <div className={style.product}>
+      <div className={style.imagenProducto}>
+      {product.reduction !== 0 ?
+          <div className={style.containerDescuento}>
+            <div className={style.reduction}>
+              <span className={style.porcentaje}>-{product.reduction}%</span>
+            </div>
+          </div>
+          :
+          null
+        }
+
+
         {product.stock <= 0 ?
           <div className={style.img}>
             <img className={style.imgAgot} src={agotado} alt="" />
-          <img className={style.imgProduc} src={product.image} alt="" />
-        </div>
+            <img className={style.imgProduc} src={product.image} alt="" />
+          </div>
 
           :
 
 
           <div className={style.img}>
-            <img src={product.image} alt="" />
+            <img className={style.imgProduc} src={product.image} alt="" />
           </div>}
+          </div>
         <div className={style.infoConteiner}>
           <div className={style.nameConteiner}>
             <span className={style.titulo}>{product.productName}</span>
@@ -252,10 +268,32 @@ const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
             </div>
           </div>
           <div className={style.priceConteiner}>
-            <div className={style.price}>
-              <span>$ {product.price} </span>
-              <span className={style.textPrice}>Precio de lista</span>
-            </div>
+
+            {product.reduction !== 0 ?
+              <div className={style.priceConteine}>
+
+                <div className={style.price}>
+                  <span className={style.priceDescuento}>$ {product.price} </span>
+                  <span className={style.textPrice}>Precio con Descuento</span>
+                </div>
+
+                <div className={style.price}>
+                  <span className={style.priceTachado}>$ {totalPrice} </span>
+                  <span className={style.textPrice}>Precio de lista</span>
+                </div>
+
+
+
+              </div>
+              :
+
+              <div className={style.price}>
+                <span>$ {product.price} </span>
+                <span className={style.textPrice}>Precio de lista</span>
+              </div>
+
+            }
+
             <div className={style.price}>
               <span>$ {Math.round(product.price / 12)}.99</span>
               <span className={style.textPrice}>12 cuotas sin interes </span>
@@ -271,8 +309,9 @@ const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
             </div>
           </div>
 
-          {usuario?(
+          {usuario ? (
             <div className={style.buttonConteiner}>
+
             <button disabled={product.stock<=0 || product.disabled===true}  onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
             <div onClick={(e)=>HandleChangeFav(product,e)} className={estilos}>
             {estilos === style.favContainer ? (
@@ -284,9 +323,9 @@ const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
           </div>
           ):(
             <div >
-            <button disabled={product.stock<=0 || product.disabled===true}  onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
+              <button disabled={product.stock <= 0 || product.disabled === true} onClick={() => addProductCartStorage(product)} className={style.button}  >Agregar al carrito</button>
 
-          </div>
+            </div>
           )}
         </div>
       </div>
@@ -303,7 +342,7 @@ const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
               <div className={style.descriptionConteiner}>
                 <div className={style.title}>MARCA</div>
                 <div className={style.txt}>{product.brand}</div>
-                <div className={style.title}>TEXTO</div>
+                <div className={style.title}>ESPECIFICACIONES</div>
                 <div className={style.txt}>{product.description}</div>
                 <span>{product.qualification}</span>
               </div>
@@ -457,11 +496,11 @@ const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
             </div>
             <div className={toggleState === 3 ? style.activeContent : style.content}>
 
-            <QandA
-            idProduct={id}
-            email={user.email}
-            questions={questions}
-            />
+              <QandA
+                idProduct={id}
+                email={user.email}
+                questions={questions}
+              />
 
             </div>
           </div>

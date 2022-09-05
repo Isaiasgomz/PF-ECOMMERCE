@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import style from "./BuildPerif.module.css"
 import { useDispatch, useSelector } from 'react-redux';
-import { buildPerif } from '../../Actions';
+import { buildPerif, clearPerif } from '../../Actions';
 
 import { createCont } from "../contexto/contextProvider";
 import { Link } from 'react-router-dom';
@@ -30,8 +30,16 @@ function BuildPerif(props) {
     const category = [...categorias]
     const [cat, setCat] = useState(0)
     
-
+    useEffect(() => {
+      
+    
+      return () => {
+        dispatch(clearPerif())
+      }
+    }, [])
+    
   
+
     let productCategory = sinlaptop.filter(e => e.category === category[cat])
     
     

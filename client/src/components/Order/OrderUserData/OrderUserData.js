@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from "react";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postUserData } from "../../../Actions/index.js";
-import styles from './UserData.module.css';
+import styles from './OrderUserData.module.css';
 import swal from "sweetalert";
 import { createCont } from "../../contexto/contextProvider";
 
@@ -31,7 +31,7 @@ function validate(input) {
   return errors;
 }
 
-function UserData() {
+function OrderUserData() {
     const dispatch = useDispatch();
 
     const user = useSelector((state) => state.user);
@@ -79,8 +79,7 @@ function UserData() {
         country: "",
         department:""
     });
-    history.push("/presentationCard");
-    /* window.history.back(); */
+    history.push("/orderInfo");
     };
 
   return (
@@ -212,7 +211,7 @@ function UserData() {
         </div>
         <br/>
         <div className={styles.containerBtn}>
-            <Link to={"/home"}>
+            <Link to={"/resumeOrder"}>
               <button className={styles.btn}>Cancelar</button>
             </Link>
           <button className={styles.btn} type='submit'>Guardar</button>
@@ -223,5 +222,5 @@ function UserData() {
   );
 }
 
-export default UserData;
+export default OrderUserData;
 

@@ -20,7 +20,7 @@ const initialState = {
     usersAdmin: [],
     shoppingCart: [],
     ShippingAddress: {},
-    dataMap: {},
+    dataMap: [],
 
     questions: [],
     adminProfile: {},
@@ -29,7 +29,7 @@ const initialState = {
     AllOrders: [],
     allProductSold: [],
     allQuestions:[],
-
+    allAnswers:[],
 
     Favourites:[],
 
@@ -193,11 +193,12 @@ export default function rootReducer(state = initialState, action) {
 
         case 'SHIPPING_ADDRESS':
             return {
-                ...state
+                ...state,
+                dataMap: action.payload
             }
 
         case 'GET_ADDRESS':
-            const address = state.userDetail.ShippingAddresses.find((sa) =>  sa.id === Number(action.payload))
+            const address = state.userDetail?.ShippingAddresses?.find((sa) =>  sa.id === Number(action.payload))
             console.log("addres reducer", state.userDetail.ShippingAddresses)
             return {
                 ...state,
@@ -275,11 +276,17 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 allQuestions: action.payload
             }
-
-        case 'DATA_MAP':
+        case 'GET_ALL_ANSWER':
             return {
                 ...state,
-                dataMap: action.payload
+                allAnswers: action.payload
+            }
+
+        case 'DATA_MAP':
+            const map= action.payload.split(",")
+            return {
+                ...state,
+                dataMap: map
             }
 
         case 'UPDATE_PRICE':
@@ -287,7 +294,22 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
             }
 
+            case 'CLEAR_PERIF':
+                return {
+                    ...state,
+                    buildPerifState: action.payload
+                }
+        
+            case 'ADMIN_PRODUCTS':
+                return {
+                    ...state,
+                    adminProducts: action.payload
+                }
+
         default:
             return state
     }
 }
+
+
+
