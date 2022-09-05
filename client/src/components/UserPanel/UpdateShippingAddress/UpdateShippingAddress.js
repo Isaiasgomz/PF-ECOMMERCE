@@ -221,10 +221,20 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
                         </div>
                         <br />
                     </div>
+
                     <div className={styles.containerBtn}> 
                         {/* <NavLink to={"/userAllAddresses"}> */}
                             <button className={styles.btnS} onClick={handleClose}>Salir</button>
                        {/*  </NavLink> */}
+
+                    <div className={styles.containerBtn}>
+                        
+                        
+                        
+                        <NavLink to={"/home"}>
+                            <button className={styles.btnS}>Salir</button>
+                        </NavLink>
+
                         <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Editar</button>
                         <button className={styles.btn} type='submit' disabled={isDisabled}>Guardar</button>
                     </div>

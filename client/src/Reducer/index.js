@@ -29,7 +29,7 @@ const initialState = {
     AllOrders: [],
     allProductSold: [],
     allQuestions:[],
-
+    allAnswers:[],
 
     Favourites:[],
 
@@ -198,7 +198,7 @@ export default function rootReducer(state = initialState, action) {
             }
 
         case 'GET_ADDRESS':
-            const address = state.userDetail.ShippingAddresses.find((sa) =>  sa.id === Number(action.payload))
+            const address = state.userDetail?.ShippingAddresses?.find((sa) =>  sa.id === Number(action.payload))
             console.log("addres reducer", state.userDetail.ShippingAddresses)
             return {
                 ...state,
@@ -276,6 +276,11 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 allQuestions: action.payload
             }
+        case 'GET_ALL_ANSWER':
+            return {
+                ...state,
+                allAnswers: action.payload
+            }
 
         case 'DATA_MAP':
             const map= action.payload.split(",")
@@ -289,7 +294,22 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
             }
 
+            case 'CLEAR_PERIF':
+                return {
+                    ...state,
+                    buildPerifState: action.payload
+                }
+        
+            case 'ADMIN_PRODUCTS':
+                return {
+                    ...state,
+                    adminProducts: action.payload
+                }
+
         default:
             return state
     }
 }
+
+
+

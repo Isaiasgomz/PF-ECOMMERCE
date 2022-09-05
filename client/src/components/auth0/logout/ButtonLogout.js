@@ -8,7 +8,7 @@ const LogoutButton = () => {
 
   return (
     <button className={style.buttonLog} onClick={() => logout({ returnTo: window.location.origin })}>
-      Cerrar Sesión
+      <i className="fa-solid fa-power-off"></i>  Cerrar Sesión
     </button>
   );
 };

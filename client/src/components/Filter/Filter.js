@@ -66,6 +66,15 @@ function Filter() {
             setCurrentPage(1);
             trueorfalse===true?setTrueorFalse(false):setTrueorFalse(true)
         }
+
+        if (e.target.textContent.slice(2) === "Descuentos") {
+            let productSorted = (productsByName.length === 0 ? Products : productsByName).filter(
+                (product) => product.reduction > 0 )
+
+            dispatch(sortProductByPrice(productSorted))
+            setCurrentPage(1);
+            trueorfalse===true?setTrueorFalse(false):setTrueorFalse(true)
+        }
     }
 
     const sortByBrand = (e) => {
@@ -161,6 +170,7 @@ function Filter() {
             <div>
             <div className={styles.toggleItem} value="Menor precio" onClick={sortByPrice}><span>- Menor precio</span></div>
             <div className={styles.toggleItem} value="Mayor precio" onClick={sortByPrice}><span>- Mayor precio</span></div>
+            <div className={styles.toggleItem} value="Descuentos" onClick={sortByPrice}><span>- Descuentos</span></div>
             </div>
             :null}
         

@@ -12,7 +12,7 @@
     height: auto;
     border-radius: 8px;
     
-    margin-top: -100px;
+    /* margin-top: -100px; */
     margin-bottom: 5px;
     padding: 20px 30px;
     max-width: calc(90vw - 40px);
@@ -69,7 +69,7 @@
 }
 
 .formInput:focus {
-  border-bottom: 2px solid #91C612 ;
+  border: 2px solid #91C612 ;
 }
 
 .formInput:disabled{

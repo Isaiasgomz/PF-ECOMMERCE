@@ -36,9 +36,7 @@ function AdminQuestions() {
   } )
   return (
     <div className={style.containerAll}>
-      <div className={style.containerAdminSideBar}>
-        {/* <AdminSideBar></AdminSideBar> */}
-      </div>
+      
 
       <div className={style.productContainer}>
         <div className={style.containerInfoTable}>
