@@ -28,7 +28,7 @@ function ResumeOrder() {
         <h3>Precio total: ${total} </h3>
 
 
-        <Link to="/UserAllAddressesOrder">
+        <Link to="/orderInfo">
           <button className={style.button}>Continuar</button>
         </Link>
       </div>

@@ -45,7 +45,7 @@ import UsertProfile from "./components/UserPanel/UserProfile";
 
 import Favourites from "./components/Favourites/Favourites";
 
-import OrderInfo from "./components/OrderInfo/OrderInfo";
+import OrderInfo from "./components/Order/OrderInfo";
 
 import AdminQuestions from "./components/AdminQuestions/AdminQuestions";
 import AdminAnswer from "./components/AdminAnswer/AdminAnswer";
