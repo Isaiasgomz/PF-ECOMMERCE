@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserDetail, updateUserData } from "../../../Actions/index.js";
-import UserPanel from "../UserPanel";
 import styles from './UpdateUserData.module.css';
 import loadingLogo from "../../../imagenes/loading.png"
 import swal from "sweetalert";
@@ -41,7 +40,6 @@ function UpdateUserData() {
   const email = useSelector((state) => state.user.email);
   const info = useSelector((state) => state.userDetail.PersonalDatum);
   const { user } = useAuth0();
-  console.log(info)
 
   useEffect(() => {
     if(user?.email.length > 0) dispatch(getUserDetail(user.email));
@@ -81,6 +79,11 @@ function UpdateUserData() {
     );
   };
 
+  const handleClose = (e) => {
+    e.preventDefault();
+    window.history.back();
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -98,7 +101,8 @@ function UpdateUserData() {
       department: info?.department
     });
 
-    history.push("/home");
+    /* history.push("/presentationCard"); */
+    window.history.back();
   };
 
   setTimeout((loading) => {
@@ -252,13 +256,7 @@ function UpdateUserData() {
             </div>
 
             <div className={styles.containerBtn}>
-              
-
-              
-
-              <NavLink to={"/home"}>
-                <button className={styles.btnS}>Salir</button>
-              </NavLink>
+                <button className={styles.btnS} onClick={handleClose}>Salir</button>
               <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Editar</button>
               <button className={styles.btn} type='submit' disabled={isDisabled}>Guardar</button>
             </div>

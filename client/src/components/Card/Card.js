@@ -98,7 +98,7 @@ function Card({
         }
 
         {stock <= 0 ? (
-          <div >
+          <div>
             <div className={style.contAgotado}>
               <img className={style.contAgotado} src={agotado} alt="agotado" />
             </div>
@@ -108,16 +108,17 @@ function Card({
               </div>
             </Link>
           </div>
-
-        </Link>
-      )}
+        ) :
+        
+     /* )}
       {reduction !== 0 ? (
         <div className={style.containerDescuento}>
           <div className={style.reduction}>
             <span className={style.porcentaje}>{reduction} %</span>
 
 
-        ) :
+        ) :*/
+          
           <Link to={`/detail/${id}`}>
             <div className={style.containerImg}>
               <img className={style.img} src={img} alt={name} />
@@ -137,8 +138,6 @@ function Card({
           )}
 
           </div>
-
-
       </div>
 
 

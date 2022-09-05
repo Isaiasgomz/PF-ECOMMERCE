@@ -271,7 +271,7 @@ function Detail(props) {
               <span>Categoría: </span> <span>{product.category}</span>
             </div>
           </div>
-          {product.reducedAmount? (
+/* {product.reducedAmount? (
           <div className={style.priceConteiner}>
 
             <div className={style.price}>     
@@ -281,8 +281,7 @@ function Detail(props) {
             <div className={style.priceNow}>     
                 <span>$ {product.price} </span>
                 <span className={style.textPriceNow}>Ahora!</span>
-
-
+                */
             {product.reduction !== 0 ?
               <div className={style.priceConteine}>
 
@@ -314,7 +313,9 @@ function Detail(props) {
 
             </div>
           </div>
-            ):(
+            )
+            
+            /* ):(
             <div className={style.priceConteiner}>  
               <div className={style.price}>
                 <span>$ {product.price} </span>
@@ -325,7 +326,8 @@ function Detail(props) {
                 <span className={style.textPrice}>12 cuotas sin interés </span>
               </div>
             </div>  
-           )}
+           )} */
+           
           <div className={style.garantiaConteiner}>
             <div>
               <span><i className="fa-solid fa-shield-halved"></i> </span> <span className={style.miniGarantia2}>Garantía - 12 meses</span>
@@ -355,7 +357,6 @@ function Detail(props) {
             </div>
           )}
         </div>
-      </div>
       <br />
       <div className={style.bottomConteiner}>
         <div className={style.reviewConteiner}>

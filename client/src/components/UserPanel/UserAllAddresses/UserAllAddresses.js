@@ -12,9 +12,6 @@ function UserAllAddresses() {
   const user = useSelector((state) => state.user.email);
   const addresses = useSelector((state) => state.userDetail.ShippingAddresses);
 
-
-  const address = useSelector((state) => state.ShippingAddress);
-
   const address = useSelector((state) => state.ShippingAddress);
   const personalData = useSelector((state) => state.userDetail.PersonalDatum);
 

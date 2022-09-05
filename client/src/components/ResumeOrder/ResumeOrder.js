@@ -25,7 +25,7 @@ function ResumeOrder() {
           <button className={style.button}>Volver al carrito</button>
         </Link>
 
-        <Link to="/UserAllAddressesOrder">
+        <Link to="/orderInfo">
           <button className={style.button}>Continuar</button>
         </Link>
         </div>
