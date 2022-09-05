@@ -30,14 +30,14 @@ function AdminAnswer(props) {
     answer: ""
   })
   const [checkbox, setCheckbox] = useState({
-    status: "No vista"
+    status: "En espera"
   })
   const [errors, setErrors] = useState({})
 
   useEffect(() => {
     dispatch(getAllQuestions())
     dispatch(getAllAnswers())
-
+    dispatch(updateQuestion(id, checkbox))
   }, [trueor])
 
   let oneQuestion = allQuestions?.find(e => e.id === Number(id))
@@ -46,7 +46,9 @@ function AdminAnswer(props) {
   const product = AllProducts.find(e => Number(oneQuestion?.ProductIdProduct) === Number(e.idProduct))
   const handleSubmit = (e) => {
     /* e.preventDefault(); */
+
     dispatch(postAnswer(answer))
+
     setAnswer({
       QuestionId: id,
       answer: ""
@@ -205,7 +207,7 @@ function AdminAnswer(props) {
                   control={<Radio />} />
               </span>
             </div>
-            <div className={style.resp}>
+            {/* <div className={style.resp}>
               <label >En espera</label>
               <span>
                 <FormControlLabel
@@ -214,7 +216,7 @@ function AdminAnswer(props) {
                   onChange={handleCheck}
                   control={<Radio />} />
               </span>
-            </div>
+            </div> */}
           </RadioGroup>
           <div className={style.hr} />
           <button className={style.loginButton} onClick={handleClik} >Guardar estado</button>
