@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postUserAddress } from "../../../Actions/index.js";
-import UserPanel from "../UserPanel";
 import styles from './UserShippingAddress.module.css';
 import swal from "sweetalert";
 import { createCont } from "../../contexto/contextProvider.js";
@@ -82,9 +81,8 @@ function UserShippingAddress() {
         country: "",
         department:""
     });
-    /* history.push("/userAllAddresses"); */
+    
     window.history.back();
-    /* window.history.go() */
     };
 
   return (
@@ -213,9 +211,7 @@ function UserShippingAddress() {
         </div>
         <br/>
         <div className={styles.containerBtn}>   
-          {/* <NavLink to={"/userAllAddresses"}> */}
             <button className={styles.btnS} onClick={handleClose}>Salir</button>
-          {/* </NavLink>  */}
           <button className={styles.btn} type='submit'>Guardar</button>
         </div>
       </form>

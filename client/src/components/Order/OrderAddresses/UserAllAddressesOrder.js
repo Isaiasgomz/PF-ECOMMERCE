@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserDetail, postDataMap } from "../../../Actions/index.js";
 import style from "./UserAllAddressesOrder.module.css";
@@ -11,6 +11,8 @@ function UserAllAddressesOrder() {
   const dispatch = useDispatch();
   const user = useSelector(state => state.user.email);
   const addresses = useSelector((state) => state.userDetail.ShippingAddresses);
+  const personalData = useSelector((state) => state.userDetail.PersonalDatum);
+
   const [loading, setLoading] = useState(true);
   const [isChecked, setIsChecked] = useState(false);
   const history = useHistory();
@@ -25,7 +27,7 @@ function UserAllAddressesOrder() {
       history.push("/payment");    
     }
       else {
-        swal('Debe seleccionar una dirección de envío')  
+        swal('Debe seleccionar una dirección de envío para continuar')  
       }
   } 
 
@@ -58,6 +60,44 @@ function UserAllAddressesOrder() {
 
             <div className={style.span}>Seleccione la dirección a la cual se enviará su compra</div>
             <div className={style.containerCards}>
+            {personalData ? (
+                <div className={style.card}>
+                  <div className={style.fila}>
+                    <div className={style.text}>
+                      <i class="fa-solid fa-house"></i> Mi dirección
+                    </div>
+                    <div>
+                      {" "}
+                      {personalData.address}, {personalData.city},{" "}
+                      {personalData.country}{" "}
+                    </div>
+
+                    <div className="radio">
+                            <div className="radio1">
+                                <input
+                                  key = {personalData.id}
+                                  type= 'radio'
+                                  name= 'radio' 
+                                  value= {["Mi domicilio", personalData.address, personalData.city, personalData.country]}
+                                  onChange={e => handleChangeRadio(e)}
+                                /> 
+                            </div>
+                        </div>
+                    <div>
+
+                      {" "}
+                      <Link to={"/updateUserData"}>
+                        <div className={style.pencil}>
+                          <i class="fa-solid fa-pencil"></i>
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div></div>
+              )}
+
             {addresses?.map((a, index) => (  
 
                  <div className={style.card}>

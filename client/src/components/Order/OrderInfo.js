@@ -5,9 +5,8 @@ import styles from './OrderInfo.module.css';
 import loadingLogo from '../../imagenes/loading.png';
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link, useHistory } from "react-router-dom";
-import UserData from "../UserPanel/UserData/UserData";
-import UserShippingAddress from "../UserPanel/UserShippingAddress/UserShippingAddress"
 import UserAllAddressesOrder from "./OrderAddresses/UserAllAddressesOrder";
+import OrderUserData from "../Order/OrderUserData/OrderUserData";
 
 export default function OrderInfo() {
     const dispatch = useDispatch();
@@ -41,7 +40,7 @@ export default function OrderInfo() {
             <React.Fragment>
                 <div>
                 {
-                  (personalData && addresses.length > 0)?
+                  personalData?
                     <div className={styles.container}>
                       <h1>Dirección de envío</h1>
                         <UserAllAddressesOrder
@@ -52,7 +51,7 @@ export default function OrderInfo() {
                     <div className={styles.container}>
                       <h1>Información de contacto y envío</h1>
                       <br></br>
-                        <UserData/>
+                        <OrderUserData/>
                     </div>
                 }
                 </div>
