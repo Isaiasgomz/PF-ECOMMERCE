@@ -30,7 +30,7 @@ function ProcessorSelector(props) {
   let categorias = new Set(productos?.map(e => e.category))
   const category = [...categorias]
   const [cat, setCat] = useState(0)
-  let brand = props.match.params.brand
+  let brand = props?.match?.params?.brand
 
   let brandProduct = productos.filter(e => e.compatible === brand || e.compatible === "All")
   
@@ -83,68 +83,183 @@ function ProcessorSelector(props) {
   };
   
   return (
-
-    <div className={brand === "AMD"? style.containerTotalAMD : style.containerTotalIntel}>
-
-
+    <div
+      className={
+        brand === "AMD" ? style.containerTotalAMD : style.containerTotalIntel
+      }
+    >
       <div className={style.containerBuild}>
         <div className={style.build}>
           <div className={style.imgLabel}>
-            {buildPCState?.length > 0 ? <img alt="1" className={style.buildImg} src={img1} /> : <img alt="1" className={style.buildImg} src='https://compragamer.net/img_armado/paso2.png' />}
-            {buildPCState?.length > 0 ? <label className={style.labelBuild}> {buildPCState[0].productName}</label> : <label>- Procesador</label>}
+            {buildPCState?.length > 0 ? (
+              <img alt="1" className={style.buildImg} src={img1} />
+            ) : (
+              <img
+                alt="1"
+                className={style.buildImg}
+                src="https://compragamer.net/img_armado/paso2.png"
+              />
+            )}
+            {buildPCState?.length > 0 ? (
+              <label className={style.labelBuild}>
+                {" "}
+                {buildPCState[0].productName}
+              </label>
+            ) : (
+              <label>- Procesador</label>
+            )}
           </div>
           <div className={style.imgLabel}>
-            {buildPCState?.length > 1 ? <img alt="2" className={style.buildImg} src={img2} /> : <img alt="2" className={style.buildImg} src='https://compragamer.net/img_armado/paso1.png' />}
-            {buildPCState?.length > 1 ? <label className={style.labelBuild}>{buildPCState[1].productName}</label> : <label>- Mother</label>}
+            {buildPCState?.length > 1 ? (
+              <img alt="2" className={style.buildImg} src={img2} />
+            ) : (
+              <img
+                alt="2"
+                className={style.buildImg}
+                src="https://compragamer.net/img_armado/paso1.png"
+              />
+            )}
+            {buildPCState?.length > 1 ? (
+              <label className={style.labelBuild}>
+                {buildPCState[1].productName}
+              </label>
+            ) : (
+              <label>- Mother</label>
+            )}
           </div>
           <div className={style.imgLabel}>
-            {buildPCState?.length > 2 ? <img alt="3" className={style.buildImg} src={img3} /> : <img alt="3" className={style.buildImg} src='https://compragamer.net/img_armado/paso5.png' />}
-            {buildPCState?.length > 2 ? <label className={style.labelBuild}>{buildPCState[2].productName}</label> : <label>- Placa de Video</label>}
+            {buildPCState?.length > 2 ? (
+              <img alt="3" className={style.buildImg} src={img3} />
+            ) : (
+              <img
+                alt="3"
+                className={style.buildImg}
+                src="https://compragamer.net/img_armado/paso5.png"
+              />
+            )}
+            {buildPCState?.length > 2 ? (
+              <label className={style.labelBuild}>
+                {buildPCState[2].productName}
+              </label>
+            ) : (
+              <label>- Placa de Video</label>
+            )}
           </div>
           <div className={style.imgLabel}>
-            {buildPCState?.length > 3 ? <img alt="4" className={style.buildImg} src={img4} /> : <img alt="4" className={style.buildImg} src='https://compragamer.net/img_armado/paso4.png' />}
-            {buildPCState?.length > 3 ? <label className={style.labelBuild}>{buildPCState[3].productName}</label> : <label>- Memoria RAM</label>}
+            {buildPCState?.length > 3 ? (
+              <img alt="4" className={style.buildImg} src={img4} />
+            ) : (
+              <img
+                alt="4"
+                className={style.buildImg}
+                src="https://compragamer.net/img_armado/paso4.png"
+              />
+            )}
+            {buildPCState?.length > 3 ? (
+              <label className={style.labelBuild}>
+                {buildPCState[3].productName}
+              </label>
+            ) : (
+              <label>- Memoria RAM</label>
+            )}
           </div>
           <div className={style.imgLabel}>
-            {buildPCState?.length > 4 ? <img alt="5" className={style.buildImg} src={img5} /> : <img alt="5" className={style.buildImg} src='https://compragamer.net/img_armado/paso6.png' />}
-            {buildPCState?.length > 4 ? <label className={style.labelBuild}>{buildPCState[4].productName}</label> : <label>- Almacenamiento</label>}
+            {buildPCState?.length > 4 ? (
+              <img alt="5" className={style.buildImg} src={img5} />
+            ) : (
+              <img
+                alt="5"
+                className={style.buildImg}
+                src="https://compragamer.net/img_armado/paso6.png"
+              />
+            )}
+            {buildPCState?.length > 4 ? (
+              <label className={style.labelBuild}>
+                {buildPCState[4].productName}
+              </label>
+            ) : (
+              <label>- Almacenamiento</label>
+            )}
           </div>
           <div className={style.imgLabel}>
-            {buildPCState?.length > 5 ? <img alt="6" className={style.buildImg} src={img6} /> : <img alt="6" className={style.buildImg} src='https://compragamer.net/img_armado/paso11.png' />}
-            {buildPCState?.length > 5 ? <label className={style.labelBuild}>{buildPCState[5].productName}</label> : <label>- Fuente</label>}
+            {buildPCState?.length > 5 ? (
+              <img alt="6" className={style.buildImg} src={img6} />
+            ) : (
+              <img
+                alt="6"
+                className={style.buildImg}
+                src="https://compragamer.net/img_armado/paso11.png"
+              />
+            )}
+            {buildPCState?.length > 5 ? (
+              <label className={style.labelBuild}>
+                {buildPCState[5].productName}
+              </label>
+            ) : (
+              <label>- Fuente</label>
+            )}
           </div>
           <div className={style.imgLabel}>
-            {buildPCState?.length > 6 ? <img alt="7" className={style.buildImg} src={img7} /> : <img alt="7" className={style.buildImg} src='https://compragamer.net/img_armado/paso10.png' />}
-            {buildPCState?.length > 6 ? <label className={style.labelBuild}>{buildPCState[6].productName}</label> : <label>- Gabinete</label>}
+            {buildPCState?.length > 6 ? (
+              <img alt="7" className={style.buildImg} src={img7} />
+            ) : (
+              <img
+                alt="7"
+                className={style.buildImg}
+                src="https://compragamer.net/img_armado/paso10.png"
+              />
+            )}
+            {buildPCState?.length > 6 ? (
+              <label className={style.labelBuild}>
+                {buildPCState[6].productName}
+              </label>
+            ) : (
+              <label>- Gabinete</label>
+            )}
           </div>
         </div>
-        {buildPCState?.length > 6? 
-
-        <div className={style.contLink}>
-        <div >
-        
-        <button onClick={() => addProductCartStorage(buildPCState)} disabled={disable} className={style.button}> Agregar al carrito</button>
-                
+        {buildPCState?.length > 6 ? (
+          <div className={style.contLink}>
+            <div>
+              <button
+                onClick={() => addProductCartStorage(buildPCState)}
+                disabled={disable}
+                className={style.button}
+              >
+                {" "}
+                Agregar al carrito
+              </button>
+            </div>
+            <div>
+              <Link className={style.Link} to={`/perif`}>
+                <button
+                  onClick={() => addProductCartStorage(buildPCState)}
+                  disabled={!disable}
+                  className={style.button}
+                >
+                  {" "}
+                  Agregar Perifericos
+                </button>
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <label></label>
+        )}
       </div>
-      <div >
-        <Link className={style.Link} to={`/perif`}>
-        <button onClick={() => addProductCartStorage(buildPCState)} disabled={!disable} className={style.button}> Agregar Perifericos</button>
-        </Link>        
-      </div>
-      </div>
-      :<label></label>}
-
-      </div>
-          
 
       <div className={style.containerProducts}>
-
-        {buildPCState?.length === 7 ? <ConfirmBuild components={buildPCState} /> :
-
+        {buildPCState?.length === 7 ? (
+          <ConfirmBuild components={buildPCState} />
+        ) : (
           productCategory?.map((e, index) => (
-
-            
-            <button key={index} className={style.buttonBuild} name={e.idProduct} disabled={ e.stock <= 0} onClick={() => nextCategory(e)}>
+            <button
+              key={index}
+              className={style.buttonBuild}
+              name={e.idProduct}
+              disabled={e.stock <= 0}
+              onClick={() => nextCategory(e)}
+            >
               <BuildCard
                 ob={e}
                 price={e.price}
@@ -154,17 +269,12 @@ function ProcessorSelector(props) {
                 key={index}
               />
             </button>
-
-
           ))
-        }
+        )}
       </div>
-      <Toaster
-      position="bottom-left"
-      reverseOrder={false}
-       />
+      <Toaster position="bottom-left" reverseOrder={false} />
     </div>
-  )
+  );
 }
 
 export default ProcessorSelector
