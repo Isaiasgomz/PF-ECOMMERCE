@@ -322,8 +322,8 @@ function AdminProducts() {
                     </div>
                   </NavLink>
 
-                  <NavLink to={`/admin/update/${product.idProduct}`}>
-                    <div className={style.containerPencil}>
+                  <NavLink to={`/adminDiscount/editDiscount/${product.idProduct}`}>
+                    <div className={style.containerTag}>
                     <i class="fa-sharp fa-solid fa-tag"></i>
                     </div>
                   </NavLink>
