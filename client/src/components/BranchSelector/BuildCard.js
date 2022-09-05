@@ -9,7 +9,7 @@ function BuildCard({ name, price, img, calification, localStor, ob, id, stock })
   return (
     <div className={style.containerCard}>
         
-      {ob.stock <= 0 ?
+      {ob?.stock <= 0 ?
        <div className={style.containerAgotado}>
         
           <img className={style.contAgotado} src={agotado} alt="agotado" />
