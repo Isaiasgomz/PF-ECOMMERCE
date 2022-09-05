@@ -271,7 +271,17 @@ function Detail(props) {
               <span>Categoría: </span> <span>{product.category}</span>
             </div>
           </div>
+/* {product.reducedAmount? (
+          <div className={style.priceConteiner}>
 
+            <div className={style.price}>     
+                <span>$ {oldPrice} </span>
+                <span className={style.textPrice}>Antes</span>
+            </div>
+            <div className={style.priceNow}>     
+                <span>$ {product.price} </span>
+                <span className={style.textPriceNow}>Ahora!</span>
+                */
             {product.reduction !== 0 ?
               <div className={style.priceConteine}>
 
@@ -304,6 +314,19 @@ function Detail(props) {
             </div>
           </div>
             )
+            
+            /* ):(
+            <div className={style.priceConteiner}>  
+              <div className={style.price}>
+                <span>$ {product.price} </span>
+                <span className={style.textPrice}>Precio de lista</span>
+              </div>
+              <div className={style.price}>
+                <span>$ {Math.round(product.price / 12)}.99</span>
+                <span className={style.textPrice}>12 cuotas sin interés </span>
+              </div>
+            </div>  
+           )} */
            
           <div className={style.garantiaConteiner}>
             <div>
