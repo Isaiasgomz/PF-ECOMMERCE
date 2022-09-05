@@ -224,11 +224,7 @@ function Detail(props) {
     }
   }
 
-
-  const oldPrice = product.price + product.reducedAmount;
-
   let totalPrice = product.price + product.reducedAmount
-
 
   return (
     <div className={style.conteiner}>
@@ -268,20 +264,11 @@ function Detail(props) {
               </Box>
             </div>
             <div>
-              <span>Categoría: </span> <span>{product.category}</span>
+              <span>Categoria: </span> <span>{product.category}</span>
             </div>
           </div>
-/* {product.reducedAmount? (
           <div className={style.priceConteiner}>
 
-            <div className={style.price}>     
-                <span>$ {oldPrice} </span>
-                <span className={style.textPrice}>Antes</span>
-            </div>
-            <div className={style.priceNow}>     
-                <span>$ {product.price} </span>
-                <span className={style.textPriceNow}>Ahora!</span>
-                */
             {product.reduction !== 0 ?
               <div className={style.priceConteine}>
 
@@ -310,31 +297,15 @@ function Detail(props) {
             <div className={style.price}>
               <span>$ {Math.round(product.price / 12)}.99</span>
               <span className={style.textPrice}>12 cuotas sin interes </span>
-
             </div>
           </div>
-            )
-            
-            /* ):(
-            <div className={style.priceConteiner}>  
-              <div className={style.price}>
-                <span>$ {product.price} </span>
-                <span className={style.textPrice}>Precio de lista</span>
-              </div>
-              <div className={style.price}>
-                <span>$ {Math.round(product.price / 12)}.99</span>
-                <span className={style.textPrice}>12 cuotas sin interés </span>
-              </div>
-            </div>  
-           )} */
-           
           <div className={style.garantiaConteiner}>
             <div>
-              <span><i className="fa-solid fa-shield-halved"></i> </span> <span className={style.miniGarantia2}>Garantía - 12 meses</span>
+              <span><i className="fa-solid fa-shield-halved"></i> </span> <span className={style.miniGarantia2}>Garantia - 12 meses</span>
             </div>
             {product.stock > 0 ? <div> <span><i className="fa-solid fa-check"></i></span> <span className={style.miniGarantia1}>  Stock disponible</span></div> : <div className={style.miniGarantia1Ago}>  <i className="fa-solid fa-xmark"></i> <span className={style.miniGarantia1}>     Stock Agotado</span></div>}
             <div >
-              <span> <i className="fa-solid fa-truck"></i></span> <span className={style.miniGarantia} > Envíos a todo el País</span>
+              <span> <i className="fa-solid fa-truck"></i></span> <span className={style.miniGarantia} > Envio a todo el Pais</span>
             </div>
           </div>
 
@@ -357,11 +328,12 @@ function Detail(props) {
             </div>
           )}
         </div>
+      </div>
       <br />
       <div className={style.bottomConteiner}>
         <div className={style.reviewConteiner}>
           <div className={style.blocTabs}>
-            <div className={toggleState === 1 ? style.activeTabs : style.tabs} onClick={() => toggleTab(1)}>Descripción</div>
+            <div className={toggleState === 1 ? style.activeTabs : style.tabs} onClick={() => toggleTab(1)}>Descripcion</div>
             <div className={toggleState === 2 ? style.activeTabs : style.tabs} onClick={() => toggleTab(2)}>Opiniones</div>
             <div className={toggleState === 3 ? style.activeTabs : style.tabs} onClick={() => toggleTab(3)}>Preguntas</div>
           </div>
@@ -418,7 +390,7 @@ function Detail(props) {
                                 noValidate
                                 autoComplete="off"
                               >
-                                <label>Vimos que compraste este producto, déjanos tu opinión!</label>
+                                <label>Vimos que compraste este producto, dejanos tu opinion!</label>
                                 <hr />
                                 <Box component="fieldset" mb={3} borderColor="transparent">
                                   <StyledRating
@@ -468,7 +440,7 @@ function Detail(props) {
                                 noValidate
                                 autoComplete="off"
                               >
-                                <label>Vimos que compraste este producto, déjanos tu opinión!</label>
+                                <label>Vimos que compraste este producto, dejanos tu opinion!</label>
                                 <hr />
                                 <Box component="fieldset" mb={3} borderColor="transparent">
                                   <StyledRating
