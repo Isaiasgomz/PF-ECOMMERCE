@@ -109,15 +109,6 @@ function Card({
             </Link>
           </div>
         ) :
-        
-     /* )}
-      {reduction !== 0 ? (
-        <div className={style.containerDescuento}>
-          <div className={style.reduction}>
-            <span className={style.porcentaje}>{reduction} %</span>
-
-
-        ) :*/
           
           <Link to={`/detail/${id}`}>
             <div className={style.containerImg}>
@@ -130,9 +121,9 @@ function Card({
           {user && (
             <div hidden={ ob.fav === true? false : hidden} onClick={(e) => HandleChangeFav(ob, e)} className={estilos}>
               {estilos === style.favContainer ? (
-                <i class="fa-solid fa-heart"></i>
+                <i className="fa-solid fa-heart"></i>
               ) : (
-                <i class="fa-regular fa-heart"></i>
+                <i className="fa-solid fa-heart"></i>
               )}
             </div>
           )}
@@ -151,7 +142,7 @@ function Card({
 
         <div className={style.containerPriceCart}>
 
-          <span className={style.spanPrice}>${price}</span>
+          <span className={style.price}>${price}</span>
           
         
 

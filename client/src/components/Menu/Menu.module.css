@@ -1,7 +1,9 @@
 .buttons{
     font-family: Arial, Helvetica, sans-serif;
     border: none;
-    padding: 20px;
+    padding: 5px 20px 5px 20px;
+    
+    
     font-size: 22px;
     color: black;
     background-color: transparent;   
@@ -21,6 +23,7 @@
     /* height: 65%; */
     width: 100%;
     flex-wrap: wrap;
+    height: 55px;
    
 }
 
@@ -44,8 +47,11 @@
     .categories{
         display: flex;
         justify-content: end;
+        
     }
-  
+  .buttons{
+    padding-right: 24px;
+  }
     
   
   }

@@ -91,31 +91,31 @@ function ProcessorSelector(props) {
         <div className={style.build}>
           <div className={style.imgLabel}>
             {buildPCState?.length > 0 ? <img alt="1" className={style.buildImg} src={img1} /> : <img alt="1" className={style.buildImg} src='https://compragamer.net/img_armado/paso2.png' />}
-            {buildPCState?.length > 0 ? <label className={style.labelBuild}> {buildPCState[0].productName}</label> : <label>- Procesador</label>}
+            {buildPCState?.length > 0 ? <label className={style.labelBuild}> {buildPCState[0].productName}</label> : <label className={style.labelBuild2}>- Procesador</label>}
           </div>
           <div className={style.imgLabel}>
             {buildPCState?.length > 1 ? <img alt="2" className={style.buildImg} src={img2} /> : <img alt="2" className={style.buildImg} src='https://compragamer.net/img_armado/paso1.png' />}
-            {buildPCState?.length > 1 ? <label className={style.labelBuild}>{buildPCState[1].productName}</label> : <label>- Mother</label>}
+            {buildPCState?.length > 1 ? <label className={style.labelBuild}>{buildPCState[1].productName}</label> : <label className={style.labelBuild2}>- Mother</label>}
           </div>
           <div className={style.imgLabel}>
             {buildPCState?.length > 2 ? <img alt="3" className={style.buildImg} src={img3} /> : <img alt="3" className={style.buildImg} src='https://compragamer.net/img_armado/paso5.png' />}
-            {buildPCState?.length > 2 ? <label className={style.labelBuild}>{buildPCState[2].productName}</label> : <label>- Placa de Video</label>}
+            {buildPCState?.length > 2 ? <label className={style.labelBuild}>{buildPCState[2].productName}</label> : <label className={style.labelBuild2}>- Placa de Video</label>}
           </div>
           <div className={style.imgLabel}>
             {buildPCState?.length > 3 ? <img alt="4" className={style.buildImg} src={img4} /> : <img alt="4" className={style.buildImg} src='https://compragamer.net/img_armado/paso4.png' />}
-            {buildPCState?.length > 3 ? <label className={style.labelBuild}>{buildPCState[3].productName}</label> : <label>- Memoria RAM</label>}
+            {buildPCState?.length > 3 ? <label className={style.labelBuild}>{buildPCState[3].productName}</label> : <label className={style.labelBuild2}>- Memoria RAM</label>}
           </div>
           <div className={style.imgLabel}>
             {buildPCState?.length > 4 ? <img alt="5" className={style.buildImg} src={img5} /> : <img alt="5" className={style.buildImg} src='https://compragamer.net/img_armado/paso6.png' />}
-            {buildPCState?.length > 4 ? <label className={style.labelBuild}>{buildPCState[4].productName}</label> : <label>- Almacenamiento</label>}
+            {buildPCState?.length > 4 ? <label className={style.labelBuild}>{buildPCState[4].productName}</label> : <label className={style.labelBuild2}>- Almacenamiento</label>}
           </div>
           <div className={style.imgLabel}>
             {buildPCState?.length > 5 ? <img alt="6" className={style.buildImg} src={img6} /> : <img alt="6" className={style.buildImg} src='https://compragamer.net/img_armado/paso11.png' />}
-            {buildPCState?.length > 5 ? <label className={style.labelBuild}>{buildPCState[5].productName}</label> : <label>- Fuente</label>}
+            {buildPCState?.length > 5 ? <label className={style.labelBuild}>{buildPCState[5].productName}</label> : <label className={style.labelBuild2}>- Fuente</label>}
           </div>
           <div className={style.imgLabel}>
             {buildPCState?.length > 6 ? <img alt="7" className={style.buildImg} src={img7} /> : <img alt="7" className={style.buildImg} src='https://compragamer.net/img_armado/paso10.png' />}
-            {buildPCState?.length > 6 ? <label className={style.labelBuild}>{buildPCState[6].productName}</label> : <label>- Gabinete</label>}
+            {buildPCState?.length > 6 ? <label className={style.labelBuild}>{buildPCState[6].productName}</label> : <label className={style.labelBuild2}>- Gabinete</label>}
           </div>
         </div>
         {buildPCState?.length > 6? 

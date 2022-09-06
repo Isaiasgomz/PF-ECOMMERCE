@@ -188,27 +188,7 @@ function Filter() {
             {brands?.map((e, index) => <div className={styles.toggleItem} key={index} value={e} onClick={sortByBrand}><span>- {e}</span></div>) }
             <div className={styles.toggleItem} value="Todas las marcas" onClick={sortByBrand}><span>- Todas las marcas</span></div>
             </div>
-            :null}
-
-         {/*    <select className={styles.selector} onChange={sortByBrand}>
-                <option value="default">All Brands</option>
-                {brands?.map((e, index) => <option key={index} value={e}>{e}</option>)}
-            </select>
-
-            <select className={styles.selector} onChange={sortByCategory}>
-                <option value="default">All Categories</option>
-                {category?.map((e, index) => <option key={index} value={e}>{e}</option>)}
-            </select> 
-            
-             <select className={styles.selector} onChange={sortByPrice}>
-                <option value="default">Order by Price</option>
-                <option value="cheaper">cheaper</option>
-                <option value="expensive">expensive</option>
-            </select>
-
-            */}
-
-            
+            :null}            
 
         </div>
     )

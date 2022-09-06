@@ -91,19 +91,19 @@ function BuildPerif(props) {
           <div className={style.build}>
             <div className={style.imgLabel}>
               {buildPerifState?.length > 0 ? <span className={style.buildImg}><i className="fa-solid fa-keyboard"></i></span> : <span className={style.buildImg2}><i className="fa-solid fa-keyboard"></i> </span>}
-              {buildPerifState?.length > 0 ? <label className={style.labelBuild}> {buildPerifState[0].productName}</label> : <label> - Teclado</label>}
+              {buildPerifState?.length > 0 ? <label className={style.labelBuild}> {buildPerifState[0].productName}</label> : <label className={style.labelBuild2}> - Teclado</label>}
             </div>
             <div className={style.imgLabel}>
               {buildPerifState?.length > 1 ? <span className={style.buildImg}><i className="fa-solid fa-desktop"></i></span> : <span className={style.buildImg2}><i className="fa-solid fa-desktop"></i> </span>}
-              {buildPerifState?.length > 1 ? <label className={style.labelBuild}>{buildPerifState[1].productName}</label> : <label> - Monitor</label>}
+              {buildPerifState?.length > 1 ? <label className={style.labelBuild}>{buildPerifState[1].productName}</label> : <label className={style.labelBuild2}> - Monitor</label>}
             </div>
             <div className={style.imgLabel}>
               {buildPerifState?.length > 2 ? <span className={style.buildImg3}><i className="fa-solid fa-mouse"></i></span> : <span className={style.buildImg4}><i className="fa-solid fa-mouse"></i> </span>}
-              {buildPerifState?.length > 2 ? <label className={style.labelBuild}>{buildPerifState[2].productName}</label> : <label> - Mouse</label>}
+              {buildPerifState?.length > 2 ? <label className={style.labelBuild}>{buildPerifState[2].productName}</label> : <label className={style.labelBuild2}> - Mouse</label>}
             </div>
             <div className={style.imgLabel}>
               {buildPerifState?.length > 3 ? <span className={style.buildImg}><i className="fa-solid fa-headset"></i></span> : <span className={style.buildImg2}><i className="fa-solid fa-headset"></i> </span>}
-              {buildPerifState?.length > 3 ? <label className={style.labelBuild}>{buildPerifState[3].productName}</label> : <label> - Auricular</label>}
+              {buildPerifState?.length > 3 ? <label className={style.labelBuild}>{buildPerifState[3].productName}</label> : <label className={style.labelBuild2}> - Auricular</label>}
             </div>
            
             
