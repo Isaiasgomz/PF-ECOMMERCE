@@ -69,6 +69,26 @@
   outline: none;
 }
 
+@media screen and (max-width:1400px) {
+
+  
+  .dropdownProdConteiner{
+    margin-left: 17px;
+
+  }
+
+
+  .products {
+    width: 25vw;
+  }
+  
+  
+  .searchBar {
+    width: 25vw;
+  }
+}
+
+
 @media screen and (max-width:450px) {
   .searchButton{
     width: 33px;

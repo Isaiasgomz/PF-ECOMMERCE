@@ -73,7 +73,7 @@ function UserAllAddressesOrder() {
                     </div>
 
                     <div className="radio">
-                            <div className="radio1">
+                            <div className={style.radio1}>
                                 <input
                                   key = {personalData.id}
                                   type= 'radio'
@@ -107,7 +107,7 @@ function UserAllAddressesOrder() {
                           {a.address}, {a.city}, {a.country}
                         </div>
                         <div className="radio">
-                            <div className="radio1">
+                            <div className={style.radio1}>
                                 <input
                                   id = {a.id}
                                   type= 'radio'

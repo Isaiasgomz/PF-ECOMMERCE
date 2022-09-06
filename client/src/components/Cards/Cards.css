@@ -64,6 +64,19 @@
 
 }
 
+@media screen and (max-width:1400px) {
+    
+    .mapeoCards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* grid-template-columns: auto auto; */
+
+    }
+
+    
+  }
+
 @media screen and (max-width:450px) {
     .mapeoCards {
         display: flex;

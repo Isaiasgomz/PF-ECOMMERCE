@@ -112,3 +112,15 @@
   margin-top: 22px;
   /* border: purple 1px solid; */
 }
+
+@media screen and (max-width:1400px) {
+  
+  .containerForm{
+    padding-bottom: 35px;
+  }
+
+  .containerCards{
+    width: 100%;
+  }
+
+}
