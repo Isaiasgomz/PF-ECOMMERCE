@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getUsersAdmin, userDisabled } from "../../Actions";
 import style from "./AdminUsers.module.css";
-import AdminSideBar from "../AdminSideBar/AdminSideBar";
 import AdminProfile from "../AdminProfile/AdminProfile";
 import PaginadoUsers from "./Paginado";
 

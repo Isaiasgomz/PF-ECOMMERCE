@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import {getProductDetailAdmin, updatePrice}  from "../../Actions"
 import style from './EditDiscount.module.css'
 
@@ -31,9 +31,9 @@ function EditDiscount(props) {
     const history = useHistory()
   
   const dispatch = useDispatch()
-  
+  const propsID = useParams().id
   useEffect(() => {
-    dispatch(getProductDetailAdmin(props.match.params.id))
+    dispatch(getProductDetailAdmin(propsID));
   },[])
 
     const  detail =  useSelector(state => state.adminProductDetail)
@@ -63,10 +63,10 @@ function EditDiscount(props) {
         e.preventDefault()
 
         const updatingPrice = {
-          idProduct: props.match.params.id,
-          price:detail.price,
+          idProduct: propsID,
+          price: detail.price,
           reduction: parseInt(product.reduction),
-        }
+        };
     
         console.log(updatingPrice)
         dispatch(updatePrice(updatingPrice));

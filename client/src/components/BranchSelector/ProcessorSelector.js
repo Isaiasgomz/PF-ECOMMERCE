@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { buildPC } from '../../Actions';
 import ConfirmBuild from './ConfirmBuild';
 import { createCont } from "../contexto/contextProvider";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import img1 from "../../imagenes/paso1.png"
 import img2 from "../../imagenes/paso2.png"
 import img3 from "../../imagenes/paso3.png"
@@ -30,7 +30,7 @@ function ProcessorSelector(props) {
   let categorias = new Set(productos?.map(e => e.category))
   const category = [...categorias]
   const [cat, setCat] = useState(0)
-  let brand = props?.match?.params?.brand
+  let brand = useParams().brand
 
   let brandProduct = productos.filter(e => e.compatible === brand || e.compatible === "All")
   
