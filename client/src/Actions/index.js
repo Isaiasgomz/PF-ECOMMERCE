@@ -49,7 +49,7 @@ export function getUserDetail(email) {
 
 export function getFavourite(email) {
     return async function (dispatch) {
-        const result = await axios.get(`http://localhost:3001/user/${email}`)
+        const result = await axios.get(`/user/${email}`)
         return dispatch({ type: 'USER_FAVOURITE', payload: result.data.Products })
     }
 }
@@ -164,7 +164,7 @@ export function clearAddress(){
 
  export function deleteFavourite(email,idProduct){
     return async function (dispatch) {
-        await axios.delete(`http://localhost:3001/user/deleteFavourite/${email}/${idProduct}`)
+        await axios.delete(`/user/deleteFavourite/${email}/${idProduct}`)
         return dispatch({type: 'DELETE_FAVOURITE', payload: idProduct})
     } 
 }
