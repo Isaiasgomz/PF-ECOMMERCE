@@ -42,10 +42,10 @@ import AdminDashboard from "./components/AdminDashboard/Dashboard";
 import DashboardSold from "./components/AdminDashboard/DashboardSold";
 import CreateCategory from "./components/AdminCreateCategory/CreateCategory";
 import UsertProfile from "./components/UserPanel/UserProfile";
-
+import PresentationCard from "./components/UserPanel/PresentationCard/PresentationCard";
 import Favourites from "./components/Favourites/Favourites";
 
-import OrderInfo from "./components/OrderInfo/OrderInfo";
+import OrderInfo from "./components/Order/OrderInfo";
 
 import AdminQuestions from "./components/AdminQuestions/AdminQuestions";
 import AdminAnswer from "./components/AdminAnswer/AdminAnswer";
@@ -59,6 +59,7 @@ import EditDiscount from "./components/AdminDiscount/EditDiscount";
 
 
 import UpdateAddres from "./components/UserPanel/UserAllAddresses/UpdateAddres";
+import UserAllAddressesOrder from "./components/Order/OrderAddresses/UserAllAddressesOrder";
 
 
 
@@ -90,6 +91,7 @@ function App() {
         <Route exact path={"/cart"} component={ShoppingCar} />
         <Route exact path={"/payment/success"} component={Success} />
         <Route exact path={"/userPanel"} component={UsertProfile} />
+        <Route exact path={"/presentationCard"} component={PresentationCard}/>
         <Route exact path={"/userData"} component={UserData} />
         <Route exact path={"/updateUserData"} component={UpdateUserData} />
         <Route exact path={"/userShippingAddress"} component={UserShippingAddress} />
@@ -132,6 +134,9 @@ function App() {
 
 
         <Route exact path={"/updateAddres/:id"} component={UpdateAddres}/>
+
+        <Route exact path={"/userAllAddressesOrder"} component={UserAllAddressesOrder}/>
+
 
       </ContextProvider>
     </div>

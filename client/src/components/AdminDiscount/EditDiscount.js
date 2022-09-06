@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import {getProductDetailAdmin, updatePrice}  from "../../Actions"
+import { getProductDetailAdmin, updatePrice } from "../../Actions"
 import style from './EditDiscount.module.css'
 
 // brand: "Asus"
@@ -18,126 +18,118 @@ import style from './EditDiscount.module.css'
 // stock: 4
 // updatedAt: "2022-08-29T03:19:36.991Z"
 
-function onlyOne(value){
-    var x = document.getElementsByName('check');
-    var i;
-    for (i = 0; i < x.length; i++) {
-      if(x[i].value !==  value) x[i].checked = false;}
-    
-    }
+function onlyOne(value) {
+  var x = document.getElementsByName('check');
+  var i;
+  for (i = 0; i < x.length; i++) {
+    if (x[i].value !== value) x[i].checked = false;
+  }
+
+}
 
 function EditDiscount(props) {
 
-    const history = useHistory()
-  
+  const history = useHistory()
+
   const dispatch = useDispatch()
-  
+
   useEffect(() => {
     dispatch(getProductDetailAdmin(props.match.params.id))
-  },[])
+  }, [])
 
-    const  detail =  useSelector(state => state.adminProductDetail)
-
-
+  const detail = useSelector(state => state.adminProductDetail)
 
 
-    const [product, setProduct] = useState({
-        price:'',
-        reduction: '',
-        
-        
+
+
+  const [product, setProduct] = useState({
+    price: '',
+    reduction: 0,
+
+
+  })
+
+
+
+  const handleInput = (e) => {
+    setProduct({
+      ...product,
+      [e.target.name]: e.target.value,
+      price: detail.price - ((detail.price / 100) * e.target.value)
     })
-  
-  
-  
-    const handleInput = (e) =>{
-      setProduct({
-        ...product,
-        [e.target.name]: e.target.value,
-        price:detail.price - ((detail.price/100) * e.target.value)
-      })
+  }
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    const updatingPrice = {
+      idProduct: props.match.params.id,
+      price: detail.price,
+      reduction: parseInt(product.reduction),
     }
 
-  
-      const handleSubmit = (e)=>{
-        e.preventDefault()
+    console.log(updatingPrice)
+    dispatch(updatePrice(updatingPrice));
 
-        const updatingPrice = {
-          idProduct: props.match.params.id,
-          price:detail.price,
-          reduction: parseInt(product.reduction),
-        }
-    
-        console.log(updatingPrice)
-        dispatch(updatePrice(updatingPrice));
-        
-        setProduct({
-        productName: '',
-        price:'', 
-        image: '', 
-        description: '',
-        stock: '', 
-        category: '',
-        brand: '',
-        })
-         history.push('/adminDiscount')
-      }
-  
+    setProduct({
+      productName: '',
+      price: '',
+      image: '',
+      description: '',
+      stock: '',
+      category: '',
+      brand: '',
+    })
+    history.push('/adminDiscount')
+  }
 
-      const handleCheckBoxSeason = (e) =>{
-       
-        // if(e.target.checked){
-        //     setInput({
-        //         ...input,
-        //         season:e.target.value
-        //     })
-        
-        // }
-        onlyOne(e.target.value)
-     }
-  
+
+  const handleCheckBoxSeason = (e) => {
+
+    // if(e.target.checked){
+    //     setInput({
+    //         ...input,
+    //         season:e.target.value
+    //     })
+
+    // }
+    onlyOne(e.target.value)
+  }
+
 
   return (
-    <div className={style.container}>
-      <div className={style.image}>
+    <div className={style.containerAll} >
+      <div className={style.container}>
+        <div className={style.image}>
+          <img src={detail.image} alt="imagenes_publicadas" width='300px' height='300px' />
+        </div>
+        <div className={style.containerText}>
+          <span className={style.title}>{detail.productName}</span>
 
-        <img src={detail.image} alt="imagenes_publicadas" width='300px' height='300px' />
-      </div>
-        <div>
-            <p>{detail.productName}</p>
-            <p>Marca: {detail.brand}</p>
-            <p>Categoria: {detail.category}</p>
-            {/* <div>
+          <div className={style.infoProduct}>
+            <span className={style.info}>Categoria: {detail.category}</span>
+            <span className={style.info}>Marca: {detail.brand}</span>
+          <span className={style.info}>stock: {detail.stock}</span>
+            <span className={style.info}>Precio actual: {detail.price}</span>
+            <span className={style.info}>Precio final con {product.reduction}%  de descuento: {product.price} </span>
+          </div>
 
-            <label > Activar Descuento</label><br/>
-            <label className='text-input'> SI
-            <input className={style.season} type={'checkbox'}
-            name={'check'}
-            value={'Primavera'}
-            onChange={(e)=> handleCheckBoxSeason(e)}/>
-            </label>
+          
 
-            <label> NO
-            <input className={style.season}
-            type={'checkbox'}
-            name={'check'}
-            value={'Verano'}
-            onChange={(e)=> handleCheckBoxSeason(e)}/>
-            </label>
+          <div className={style.infoProduct}>
+          <hr className={style.hr}></hr>
+            <label>Porcentaje de descuento: </label>
+            <input className={style.input} type='number' name='reduction' value={product.reduction} onChange={(e) => handleInput(e)} />
 
-            </div> */}
-            <p>Precio Actual: {detail.price}</p>
-
-        
-        <input type='number' name='reduction' value={product.reduction} onChange={(e) => handleInput(e)}/>
-        <p> precio Final con {product.reduction} % de Descuento: {product.price} </p>
-        
-        <button type='submit' onClick={(e) => handleSubmit(e)}>Aplicar Descuento</button>
+            <button className={style.button} type='submit' onClick={(e) => handleSubmit(e)}>Aplicar Descuento</button>
+          </div>
         </div>
 
 
+      </div>
     </div>
-  )  
+  )
 }
 
 export default EditDiscount

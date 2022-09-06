@@ -63,7 +63,7 @@ function Menu() {
 
     <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("Laptops")}> Notebooks <i className="fa-solid fa-laptop"></i> </button></Link>
 
-    <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("componentes")}> Componentes <i className="fa-solid fa-screwdriver-wrench"></i> </button></Link>
+    <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("componentes")}><span>Componentes</span>  <i className="fa-solid fa-screwdriver-wrench"></i> </button></Link>
 
     <Link to="/build"><button  className={styles.buttons} onClick={clear}> Armá tu PC <i className="fa-solid fa-computer"></i></button></Link>
 

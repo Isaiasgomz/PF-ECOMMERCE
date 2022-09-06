@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getAllQuestions } from '../../Actions';
 import AdminSideBar from '../AdminSideBar/AdminSideBar';
+import Paginado from '../Paginado/Paginado';
 import style from './AdminQuestions.module.css';
 
 
@@ -34,6 +35,14 @@ function AdminQuestions() {
       }      
     }
   } )
+  let [currentPage, setCurrentPage] = useState(1);
+  let [ProductsPerPage, setProductsPerPage] = useState(6);
+  let indexOfLastProduct = currentPage * ProductsPerPage;
+  let indexOfFirstProduct = indexOfLastProduct - ProductsPerPage;
+  let currentProducts = products.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
   return (
     <div className={style.containerAll}>
       
@@ -65,9 +74,12 @@ function AdminQuestions() {
             
           </ul>
 
-          {products.length > 0 &&
-            products.map((quest,index) => (
-              <div key={index} className={style.containerc}>
+          {currentProducts.length > 0 &&
+            currentProducts.map((quest,index) => (
+              <div key={index} className={quest?.status==="No vista"? 
+              style.containercNoVista : quest?.status==="En espera" ? 
+              style.containerCenEspera :style.containerc}>
+                 
                 <div className={style.containCardInfo}>
                   <p> {quest?.UserEmail}</p>
                 </div>
@@ -100,7 +112,14 @@ function AdminQuestions() {
             ))}
         </div>
 
-
+        <div className={style.containerPaginate}>
+          <Paginado
+            ProductsPerPage={ProductsPerPage}
+            allProducts={allQuestions.length}
+            paginado={setCurrentPage}
+            currentPage={currentPage}
+          />
+        </div>
       </div>
     </div>
 

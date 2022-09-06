@@ -15,13 +15,13 @@ function NavBar() {
   return (
     <div className={styles.menus}>
       <div className={styles.container}>
-        <div className={styles.divs}>
+        
           <Link to="/">
             <div className={styles.imagen}>
               <img alt="imagen" className={styles.imagen} src={logo} />
             </div>
           </Link>
-        </div>
+       
         <div className={styles.divs}>
           <SearchBar />
         </div>

@@ -9,6 +9,7 @@
   position: absolute;
   top: 29px !important;
   width: 30vw;
+
 }
 
 .dropdownProdConteiner {
@@ -40,7 +41,7 @@
   border: 1px solid white;
   color: black;
   padding: 7px;
-  width: 25vw;
+  width: 22vw;
 }
 
 .searchButton {

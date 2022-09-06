@@ -20,7 +20,7 @@ const initialState = {
     usersAdmin: [],
     shoppingCart: [],
     ShippingAddress: {},
-    dataMap: {},
+    dataMap: [],
 
     questions: [],
     adminProfile: {},
@@ -193,7 +193,8 @@ export default function rootReducer(state = initialState, action) {
 
         case 'SHIPPING_ADDRESS':
             return {
-                ...state
+                ...state,
+                dataMap: action.payload
             }
 
         case 'GET_ADDRESS':
@@ -282,9 +283,10 @@ export default function rootReducer(state = initialState, action) {
             }
 
         case 'DATA_MAP':
+            const map= action.payload.split(",")
             return {
                 ...state,
-                dataMap: action.payload
+                dataMap: map
             }
 
         case 'UPDATE_PRICE':
