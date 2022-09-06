@@ -78,12 +78,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 15px;
     flex-wrap: wrap;
 }
-.containerTitle p{
-    margin: 0;
-}
+
 
 .containerPriceCart{
     border-bottom: 1px solid rgb(221, 221, 221);
@@ -169,4 +167,66 @@
     font-weight: bold;
     font-size: 18px;
     color: rgb(39, 38, 38);
+}
+
+
+@media screen and (max-width:450px) {
+
+    .reduction{
+        padding-left: 10px; 
+    }
+    .porcentaje{
+        font-size: 14px;
+    }
+    .containerDescuento{
+    
+        height: 20px;
+        width: 50px;
+
+    }
+
+    .containerPriceCart{
+        border-bottom: 1px solid rgb(221, 221, 221);
+        background-color:#37373f;
+        color:#91C612;
+        width: 240px;
+        font-size:18px;        
+    }
+    
+    .containerPriceCart p{
+        margin: 0;
+        font-size: 15px;
+        font-weight: bolder;
+    }
+    
+    
+    .contAgotado{
+        z-index: 2;
+        height: 100px;
+        width: 100px;
+      
+    }
+    
+    .containerAgotado{
+        display: flex;
+        justify-content: center;
+        top: 0;
+    }
+    
+    .superiorPart{
+        width: 240px;
+        position: relative;
+        padding-top: 15px;
+    }
+    .containerCard{
+        width: 240px;
+        height: 285px;
+    }
+    .containerImg{
+        height: 120px;    
+    }
+    .containerImgAgot{
+        height: 120px;
+        width: 240px;
+    }
 }
