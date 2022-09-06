@@ -7,7 +7,7 @@ function Footer() {
     <div className={style.containerFooter}>
       <div className={style.containerCopy}>
         <p className={style.copyright}>
-          Copyright © 2022 -{" "}
+         Copyright © 2022 -{" "}
           <Link to="/">
             <button className={style.title}>Pull Request</button>
           </Link>
@@ -15,7 +15,7 @@ function Footer() {
       </div>
       <div className={style.containerButtons}>
         <Link to="/FAQs">
-          <button className={style.buttonFooter}>Preguntas y Respuestas</button>
+          <button className={style.buttonFooter}>Preguntas</button>
         </Link>
         <Link to="/help">
           <button className={style.buttonFooter}>Ayuda</button>
