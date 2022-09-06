@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { getProductDetailAdmin } from "../../Actions";
 import { productDisabled } from "../../Actions";
-
+import axios from "axios";
 
 import styles from "./AdminUpdate.module.css";
 

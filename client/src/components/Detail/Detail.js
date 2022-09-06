@@ -263,11 +263,11 @@ function Detail(props) {
               <img className={style.imgProduc} src={product.image} alt="" />
             </div>
 
-          ) : (
-            <div className={style.img}>
-              <img className={style.imgProduc} src={product.image} alt="" />
-            </div>
-          )}
+            : (
+              <div className={style.img}>
+                <img className={style.imgProduc} src={product.image} alt="" />
+              </div>
+            )}
 
         </div>
         <div className={style.infoConteiner}>
