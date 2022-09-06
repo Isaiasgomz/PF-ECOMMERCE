@@ -175,3 +175,70 @@
 .contLink{
     display: flex;
 }
+
+@media screen and (max-width:450px) {
+    .containerBrand0 {
+        height: 70vh;
+        padding: 0%;
+        padding-top: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .containerBrand1{
+        display: flex;
+        flex-direction: column;  
+    }
+    .containerBrand2{
+        display: flex;
+        flex-wrap: wrap;
+       justify-content: flex-end;
+       align-items: flex-start;
+    }
+    .brandButton{
+        width: 250px;
+        height: 250px;
+        margin-left: 100px;
+        
+    }
+   .labelBuild{
+    display: none;
+   }
+  .labelBuild2{
+    display: none;
+  }
+
+  .build{
+    height: 410px;
+    width: 70px;
+    margin-top: 10px;
+    margin-right: 0;
+    padding: 5px;
+  }
+  .containerBuild{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    position: fixed;
+    right: 0;
+    margin-left: -5px;
+}
+.imgLabel{
+    padding: 0px;
+    margin: 0px;
+}
+
+.buildImg{
+    margin: 10px;
+}
+.containerProducts{
+    
+    flex-wrap: wrap;
+    padding-top: 20px;
+   
+}
+  }

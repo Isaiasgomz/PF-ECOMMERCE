@@ -22,7 +22,18 @@ import toast, { Toaster } from "react-hot-toast";
 import QandA from "./QandA/QandA";
 import agotado from "../../imagenes/agotado.png";
 import { useAuth0 } from "@auth0/auth0-react";
+
 import { useParams } from "react-router-dom";
+
+import MediaQuery from 'react-responsive';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { styled } from '@mui/material/styles';
+
+
 
 const StyledRating = withStyles({
   iconFilled: {
@@ -74,19 +85,11 @@ function Detail(props) {
     }
   }
 
-  /*   for (let i = 0; i < orderandProdId?.length; i++) {
-      for (let j = 0; j < AllOrders?.length; j++) {
-        if (orderandProdId[i].pOrder === AllOrders[j].orderN && orderandProdId[i].idProduct === Number(id)) {
-          if (AllOrders[j].status === "Completado")
-            validacion = true
-        }
-      }
-    }
-   */
 
-  const opinar = () => toast.success("Gracias por dejar tu opinion!");
+  const opinar = () => toast.success('Gracias por dejar tu opinion!');
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({})
+
   /* promedio */
   let promedio = reviews?.map((e) => e.qualification);
   let promResult = prom(promedio);
@@ -236,26 +239,36 @@ function Detail(props) {
 
   return (
     <div className={style.conteiner}>
+
+
       <div className={style.product}>
         <div className={style.imagenProducto}>
-          {product.reduction !== 0 ? (
+          {product.reduction !== 0 ?
+
             <div className={style.containerDescuento}>
               <div className={style.reduction}>
                 <span className={style.porcentaje}>-{product.reduction}%</span>
               </div>
             </div>
-          ) : null}
 
-          {product.stock <= 0 ? (
+            :
+            null
+          }
+
+
+          {product.stock <= 0 ?
+
             <div className={style.img}>
               <img className={style.imgAgot} src={agotado} alt="" />
               <img className={style.imgProduc} src={product.image} alt="" />
             </div>
+
           ) : (
             <div className={style.img}>
               <img className={style.imgProduc} src={product.image} alt="" />
             </div>
           )}
+
         </div>
         <div className={style.infoConteiner}>
           <div className={style.nameConteiner}>
@@ -270,7 +283,7 @@ function Detail(props) {
                 />
               </Box>
             </div>
-            <div>
+            <div className={style.category}>
               <span>Categoria: </span> <span>{product.category}</span>
             </div>
           </div>
@@ -289,12 +302,18 @@ function Detail(props) {
                   <span className={style.textPrice}>Precio de lista</span>
                 </div>
               </div>
+
             ) : (
+
+              
+
               <div className={style.price}>
                 <span>$ {product.price} </span>
                 <span className={style.textPrice}>Precio de lista</span>
               </div>
+
             )}
+
 
             <div className={style.price}>
               <span>$ {Math.round(product.price / 12)}.99</span>
@@ -334,6 +353,7 @@ function Detail(props) {
 
           {usuario ? (
             <div className={style.buttonConteiner}>
+
               <button
                 disabled={product.stock <= 0 || product.disabled === true}
                 onClick={() => addProductCartStorage(product)}
@@ -361,6 +381,7 @@ function Detail(props) {
               >
                 Agregar al carrito
               </button>
+
             </div>
           )}
         </div>
@@ -645,9 +666,213 @@ function Detail(props) {
           </div>
         </div>
       </div>
-      <Toaster position="bottom-left" reverseOrder={false} />
-    </div>
-  );
+
+      
+        <MediaQuery maxWidth={450}>
+          <div className={style.accordion}>
+        <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Descripcion</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+          <div className={style.title}>MARCA</div>
+                <div className={style.txt}>{product.brand}</div>
+                <div className={style.title}>ESPECIFICACIONES</div>
+                <div className={style.txt}>{product.description}</div>
+            
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography>Opiniones</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+          <div className={style.reviewsConteiner}>
+                {reviews?.length === 0 && validacion === false ?
+                  <div className={style.noNoConteiner}>
+                    <div className={style.noExisteReviews}>
+                      <span> No existen opiniones de este producto</span>
+                    </div>
+                    <div className={style.needLog}>
+                      <span> Necesitas comprar este producto para dejar un comentario</span>
+                      <hr />
+                    </div>
+                  </div> : <div>
+                    {reviews?.length !== 0 && validacion === false ?
+                      <div>
+                        <div className={style.needLog}>
+                          <span className={style.needLogText}>Necesitas comprar este producto para dejar un comentario</span>
+                        </div>
+                        <hr />{reviews?.map(e => {
+                          return <div key={e.id} className={style.mapReviewConteiner}>
+                            <div className={style.valoracion}>
+                              <Box component="fieldset" mb={3} borderColor="transparent">
+                                <StyledRating name="read-only" value={e.qualification} readOnly />
+                              </Box>
+                            </div>
+                            <div className={style.comentario}>
+                              <span>{e.review} </span>
+                            </div>
+                            <hr />
+                          </div>
+                        })}
+                      </div> : <div>{
+                        reviews?.length === 0 && validacion === true ?
+                          <div className={style.noRsiUserConteiner}>
+                            <div className={style.formConteiner}>
+                              <Boxx
+                                onSubmit={handleSubmit}
+                                component="form"
+                                sx={{
+                                  '& > :not(style)': { m: 1 },
+                                }}
+                                noValidate
+                                autoComplete="off"
+                              >
+                                <label>Vimos que compraste este producto, dejanos tu opinion!</label>
+                                <hr />
+                                <Box component="fieldset" mb={3} borderColor="transparent">
+                                  <StyledRating
+                                    name="qualification"
+                                    value={Number(state?.qualification)}
+                                    onChange={handleChange}
+                                  />
+                                </Box>
+
+                                {
+                                  errors.qualification && (
+                                    <p className={style.textError} >{errors.qualification}</p>)
+                                }
+                                <TextField
+                                  fullWidth
+                                  name='review'
+                                  value={state?.review}
+                                  onChange={handleChange}
+                                  id="filled-textarea"
+                                  label="Tu opinion"
+                                  placeholder="Minimo 5 palabras"
+                                  multiline
+                                  variant="filled"
+                                  error={errors.review?.split(" ").length > 1}
+                                />
+                                {
+                                  errors.review && (
+                                    <p className={style.textError} >{errors.review}</p>)
+                                }
+                                <button disabled={Object.keys(errors).length > 0 || state.review.length === 0} className={style.loginButton} type="submit" onClick={opinar}>Opinar!</button>
+                              </Boxx>
+                              <hr />
+                            </div>
+                            <div className={style.noExisteReviews}>
+                              <span> No existen opiniones de este producto</span>
+                            </div>
+                          </div> : <div className={style.siRsiUserConteiner}>
+                            <div className={style.formConteiner}>
+                              <Boxx
+                                onSubmit={handleSubmit}
+                                component="form"
+                                sx={{
+                                  '& > :not(style)': { m: 1 },
+                                  width: 1000,
+                                  maxWidth: '100%',
+                                }}
+                                noValidate
+                                autoComplete="off"
+                              >
+                                <label>Vimos que compraste este producto, dejanos tu opinion!</label>
+                                <hr />
+                                <Box component="fieldset" mb={3} borderColor="transparent">
+                                  <StyledRating
+                                    name="qualification"
+                                    value={Number(state?.qualification)}
+                                    onChange={handleChange}
+                                  />
+                                </Box>
+
+                                {
+                                  errors.qualification && (
+                                    <p className={style.textError} >{errors.qualification}</p>)
+                                }
+                                <TextField
+                                  fullWidth
+                                  name='review'
+                                  value={state?.review}
+                                  onChange={handleChange}
+                                  id="filled-textarea"
+                                  label="Tu opinion"
+                                  placeholder="Minimo 5 palabras"
+                                  multiline
+                                  variant="filled"
+                                  error={errors.review?.split(" ").length > 1}
+                                />
+
+                                {
+                                  errors.review && (
+                                    <p className={style.textError} >{errors.review}</p>)
+                                }
+                                <button disabled={Object.keys(errors).length > 0 || state.review.length === 0} className={style.loginButton} type="submit" onClick={opinar}>Opinar!</button>
+                              </Boxx>
+                              <hr />
+                            </div>
+                            {reviews?.map(e => {
+                              return <div key={e.id} className={style.mapReviewConteiner}>
+                                <div className={style.valoracion}>
+                                  <Box component="fieldset" mb={3} borderColor="transparent" >
+                                    <StyledRating name="read-only" value={e.qualification} readOnly />
+                                  </Box>
+                                </div>
+                                <div className={style.comentario}>
+                                  <span>{e.review} </span>
+                                </div>
+                                <hr />
+                              </div>
+                            })}
+                          </div>
+                      }</div>}
+                  </div>}
+              </div>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Preguntas</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+          <QandA
+                idProduct={id}
+                email={user.email}
+                questions={questions}
+              />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      </div>
+        </MediaQuery>
+      
+      <Toaster
+        position="bottom-left"
+        reverseOrder={false}
+      />
+    </div >
+  )
+
 }
 
 export default Detail;

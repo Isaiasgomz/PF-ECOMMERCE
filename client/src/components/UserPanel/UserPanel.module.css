@@ -5,6 +5,7 @@
   margin-top: 97px;
   margin-bottom: 58px;
   color: white !important;
+  min-width: 59px;
   
 }
 
@@ -87,3 +88,17 @@ position: absolute;
   color: white;
 }
 
+
+/* @media screen and (max-width:450px) {
+  .Success {
+    width: 60%;
+    height: 240px;
+    display: flex;
+    justify-content: center;
+  }
+
+  
+
+  
+
+} */

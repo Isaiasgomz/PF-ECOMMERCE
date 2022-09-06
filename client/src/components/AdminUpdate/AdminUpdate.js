@@ -1,9 +1,11 @@
+
 import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { getProductDetailAdmin } from "../../Actions";
 import { productDisabled } from "../../Actions";
+
 
 import styles from "./AdminUpdate.module.css";
 
@@ -16,10 +18,74 @@ function AdminUpdate(props) {
     dispatch(getProductDetailAdmin(propsID));
   }, []);
 
+
+
+
+  const detail = useSelector(state => state.adminProductDetail)
+
+  const [errors, setErrors] = useState({})
+  const [image, setImage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleImage = async (e) => {
+    const files = e.target.files
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "images")
+    setLoading(true);
+    
+    const res = await axios.post (
+        "https://api.cloudinary.com/v1_1/juliap/image/upload",
+        data
+    )
+
+    console.log(res)
+    setImage(res.data.secure_url)
+    
+    setProduct({
+      ...product,
+      image: res.data.secure_url
+    });
+    setErrors(validate({
+      ...product,
+      image:res.data.secure_url
+    }))
+    setLoading(false)
+}
+
+
+function validate (input){
+  const errors = {}
+  if(!input.productName){
+    errors.productName = 'Es Nombre es requerido'
+  }
+  if(!input.price){
+    errors.price = 'Es Precio es requerido'
+  }
+  if(!input.image){
+    errors.image = 'La Imagen es requerida'
+  }
+  if(!input.description){
+    errors.description = 'La Description es requerida'
+  }
+  if(!input.stock){
+    errors.stock = 'La Cantidad es requerida' 
+  }
+  if(!input.category){
+    errors.category = 'La Categoria es requerida'
+  }
+  if(!input.brand){
+    errors.brand = 'La Marca es requerida'
+  }
+  return errors
+}
+
+
   // let  detail =  useSelector(state => state.adminProductDetail)
 
   const [product, setProduct] = useState({
     // productName:'',
+
     // price: '',
     // image: '',
     // description: '',
@@ -35,10 +101,12 @@ function AdminUpdate(props) {
     });
   };
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     dispatch(productDisabled(propsID, product));
+
 
     setProduct({
       productName: "",
@@ -141,6 +209,7 @@ function AdminUpdate(props) {
             </button>
           </div>
         </form>
+
       </div>
     </div>
   );

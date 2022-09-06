@@ -17,8 +17,8 @@ const Payment = () => {
   const order = useSelector((state) => state.order);
   const history = useHistory();
 
-  console.log(user);
-  console.log(cart);
+  // console.log(user);
+  // console.log(cart);
 
   const { stringLocalStorage } = useContext(createCont);
 
@@ -53,7 +53,7 @@ const Payment = () => {
       "stock":e.quantity ? (e.stock-e.quantity)  :(e.stock-1),
     }
   })
-  console.log("array para modif stock: ",toModifyStock)
+  // console.log("array para modif stock: ",toModifyStock)
   let cartDB = y.map(e => {
 
     return {
@@ -63,7 +63,7 @@ const Payment = () => {
       price: e.price,
     };
   });
-  console.log("cariito antes del paynment", cartDB);
+  // console.log("cariito antes del paynment", cartDB);
   const handlePaymentSuccess = async (data) => {
     dispatch(postNorder(user.email, data.orderID, total));
 
@@ -76,7 +76,7 @@ const Payment = () => {
         PurchaseOrderOrderN: data.orderID,
       };
     });
-    console.log("cariito despues del paynment", cartDBfinal);
+    // console.log("cariito despues del paynment", cartDBfinal);
 
     dispatch(postShoppingCart(cartDBfinal))
     /* [{idProduct:idProduct,stock:stock}] */

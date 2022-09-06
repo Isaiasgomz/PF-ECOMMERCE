@@ -1,53 +1,45 @@
 .containerForm{
-    width: 100%;
-    height: 1100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #78788c
-}
-
-.productContainer{
-
-    width: 700px;
-    height: 90%;
-    background: #e6e6e6;
-    border-radius: 8px;
-    box-shadow: 0 0 40px -10px #000;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    padding: 20px 30px;
-    max-width: calc(100vw - 40px);
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
-    position: relative;
-
-    
+    width: 850px;
+    height: 600px;
+    background-color: rgb(230, 230, 230);
+    padding: 30px;
+    border-radius: 10px;
 }
 
 .form{
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 5%;
+}
+
+.container{
+    
+  display: flex;
+  flex-direction: row;
+  
+  border-radius: 10px;
+  padding: 20px;
+  margin: 30px;
+}
+
+.divForm{
+  
+  /* width: 400px; */
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .form input{
     margin-bottom: 20px;
 }
 
-.titleForm {
-    padding-bottom: 10px;
-    width: 300px;
-    color: black;
-    border-bottom: 3px solid #91C612 ;
-    margin-bottom: 20px;
-  }
-
 .formInput{
-    width: 100%;
+    width: 300px;
     padding: 10px;
     box-sizing: border-box;
     background: none;
@@ -63,9 +55,12 @@
     border-bottom: 2px solid #91C612 ;
   }
 
-  .containerBtn {
-    display: flex;
-    justify-content: center;
+.containerBtn {
+  
+  height: 100px;
+  display: flex;
+  align-items: center;
+  
 }
 
 .btn {
@@ -80,6 +75,9 @@
     font-weight: 550;
     cursor: pointer;
     transition: all 0.3s;
+    height: 60px;
+    width: 150px;
+    margin-left: 10px;
   }
   
   .btn:hover {
@@ -87,6 +85,36 @@
     color: rgb(255, 255, 255);
   }
   
-  .bton:active{
+  .btn:active{
     background: #91C612 ;
   }
+
+  .containerAll{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+
+
+.image{
+    
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    flex-wrap: wrap;
+}
+
+.info{
+    font-size: 20px;
+}
+
+.title{
+    font-weight: bold;
+    font-size: 20px;
+}
+

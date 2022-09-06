@@ -4,15 +4,6 @@
     position: relative;
 }
 
-.imagenProducto{
-    position: relative;
-}
-
-.textError{
-    font-size: 13px;
-    color: red;
-}
-
 .product {
     display: flex;
     flex-direction: row;
@@ -20,6 +11,124 @@
     align-items: flex-start;
     padding: 20px;
 }
+
+@media screen and (max-width:450px) {
+    .product {
+        width: 345px;
+        ;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+}
+
+/* imagen */
+.imagenProducto {
+    position: relative;
+}
+
+@media screen and (max-width:450px) {
+    .imagenProducto {
+        width: 200px;
+
+
+    }
+
+}
+
+.containerDescuento {
+
+    height: 70px;
+    width: 120px;
+    position: absolute;
+    right: 0;
+    bottom: 80;
+    margin-top: 20px;
+    margin-left: 10px;
+    z-index: 2;
+}
+
+@media screen and (max-width:450px) {
+    .containerDescuento {
+        width: 30%;
+        left: 120%;
+
+    }
+
+}
+.reduction {
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    background-color: #91C612;
+    padding: 6px;
+    padding-right: 10px;
+    padding-left: 15px;
+    z-index: 3;
+}
+
+.porcentaje {
+    font-weight: bold;
+    font-size: 35px;
+    color: rgb(39, 38, 38);
+}
+@media screen and (max-width:450px) {
+    .porcentaje {
+        font-size: 15px;
+
+    }
+
+}
+.img {
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    z-index: 0;
+    position: relative;
+}
+
+
+.imgAgot {
+    margin-right: 20px;
+    margin-left: -20px;
+    height: 200px;
+    left: 0;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+}
+@media screen and (max-width:450px) {
+    .imgAgot {
+        width: 100px;
+        margin-left: 30px;
+        height: 100px;
+    }
+
+}
+.imgProduc {
+    width: 450px;
+}
+
+@media screen and (max-width:450px) {
+    .imgProduc {
+        width: 200px;
+        margin-right: 120px;
+    }
+
+}
+
+/* imagen hacia arriba */
+
+
+.textError {
+    font-size: 13px;
+    color: red;
+}
+
+
 
 
 
@@ -30,6 +139,17 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+
+}
+
+@media screen and (max-width:450px) {
+    .infoConteiner {
+        width: 120%;
+        margin-left: 30px;
+        margin-right: 20px;
+    }
+
 }
 
 .nameConteiner {
@@ -37,7 +157,9 @@
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 10px;
+    font-size: large;
 }
+
 
 .titulo {
     font-family: sans-serif;
@@ -46,22 +168,74 @@
     margin-bottom: 10px;
 }
 
+@media screen and (max-width:450px) {
+    .titulo {
+        width: 250px;
+        text-align: justify;
+        font-size: 20px;
+
+    }
+
+}
+
 .priceConteiner {
     color: #2f6f7e;
     font-size: 30px;
     font-weight: 150px;
     display: flex;
     justify-content: space-between;
+
+}
+
+@media screen and (max-width:450px) {
+    .category {
+        font-size: 15px;
+
+    }
+
+}
+
+
+@media screen and (max-width:450px) {
+    .priceConteiner {
+        font-size: 20px;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        width: 100px;
+
+    }
+
+}
+@media screen and (max-width:450px) {
+    .priceConteine {
+        font-size: 20px;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        
+    }
+
 }
 
 .price {
     display: flex;
     flex-direction: column;
     margin-right: 140px;
-    text-align: start;  
+    text-align: start;
 }
 
-.priceTachado{
+@media screen and (max-width:450px) {
+    .price {
+        width: 200px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+}
+
+.priceTachado {
     font-size: 25px;
     font-weight: 80px;
     display: flex;
@@ -71,8 +245,15 @@
     text-decoration: line-through;
     color: gray;
 }
+@media screen and (max-width:450px) {
+    .priceTachado {
+        width: 200px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
 
-.priceDescuento{
+}
+.priceDescuento {
     font-size: 35px;
     font-weight: 150px;
     color: #91C612;
@@ -80,6 +261,14 @@
     flex-direction: column;
     margin-right: 140px;
     text-align: start;
+}
+@media screen and (max-width:450px) {
+    .priceDescuento {
+        width: 200px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
 }
 
 .textPrice {
@@ -108,6 +297,15 @@
     color: #91C612;
 }
 
+@media screen and (max-width:450px) {
+    .garantiaConteiner {
+
+        padding-bottom: 20px;
+    }
+
+}
+
+
 .miniGarantia {
     margin-left: 9px;
 }
@@ -119,7 +317,7 @@
 .miniGarantia1Ago {
     margin-left: 3px;
     color: #af3030;
-    
+
 }
 
 .miniGarantia2 {
@@ -136,24 +334,38 @@
     transition: 0.3s ease;
 }
 
+@media screen and (max-width:450px) {
+    .button {
+        padding: 8px;
+        
+        font-size: 14px;
+    }
+
+}
+
 .button:hover {
     background-color: #5294f7;
 }
 
-.button:disabled{
+.button:disabled {
     background-color: gray;
     cursor: default;
 }
 
-.spanAgotado{
+.spanAgotado {
     color: #af3030;
 }
 
 /* ---------------------------------------------------tabs........... */
-.bottomConteiner{
+.bottomConteiner {
     display: flex;
-    justify-content:center;
+    justify-content: center;
 }
+@media (max-width: 450px) {
+    .bottomConteiner{
+      display: none;
+    }
+  }
 .reviewConteiner {
     display: flex;
     flex-direction: column;
@@ -239,27 +451,28 @@
     position: relative;
 }
 
- reviews
-
-.reviewsConteiner{
+reviews .reviewsConteiner {
     display: flex;
     flex-direction: column;
     font: 15px sans-serif;
 }
- sin reviews sin login 
-.noNoConteiner{
+
+sin reviews sin login .noNoConteiner {
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
-.noExisteReviews{
+
+.noExisteReviews {
     padding: 10px;
     padding-left: 0px;
 }
-.needLogText{
+
+.needLogText {
     margin-right: 10px;
 }
-.loginButton{
+
+.loginButton {
     border-radius: 3px;
     background-color: #b7e943;
     color: #ffffff;
@@ -267,109 +480,79 @@
     padding: 7px;
 }
 
-.loginButton:hover{
+.loginButton:hover {
     opacity: 0.7;
     transition: 0.3s ease;
 }
- con reviews sin login 
 
-.mapReviewConteiner{
+con reviews sin login .mapReviewConteiner {
     display: flex;
     flex-direction: column;
 }
-.comentario{
+
+.comentario {
     padding: 5px;
 }
 
-.generalReview{
+.generalReview {
     padding: 10px;
 }
 
 
-.buttonConteiner{
+.buttonConteiner {
     width: 225px;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
+@media screen and (max-width:450px) {
+    .buttonConteiner {
+        margin-left: 40px;
+    }
 
+}
 
-.favContainer{
+.favContainer {
     font-size: 42.5px;
     margin-left: 20px;
-    color:  rgb(255, 101, 101);
+    color: rgb(255, 101, 101);
 }
+@media screen and (max-width:450px) {
+    .favContainer {
+        padding: 8px;
+        font-size: 14px;
+    }
 
-.favContainer:hover{
+}
+.favContainer:hover {
     cursor: pointer;
-    color:  rgb(255, 111, 111);
+    color: rgb(255, 111, 111);
 }
 
 
 
 
-.noFavContainer{
+.noFavContainer {
     color: rgb(255, 144, 144);
     margin-left: 20px;
     font-size: 42.5px;
 
 }
+@media screen and (max-width:450px) {
+    .noFavContainer {
+        padding: 8px;
+        font-size: 30px;
+    }
 
-.noFavContainer:hover{
-    color:  rgb(255, 101, 101);
+}
+.noFavContainer:hover {
+    color: rgb(255, 101, 101);
     cursor: pointer;
 }
 
-.img {
-    margin: 20px;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 450px; 
-    z-index: 0;
-    position: relative;
-}
-
-.imgAgot{
-    margin-right: 20px;
-    margin-left: -20px;
-    height: 200px;
-    left: 0;
-    z-index: 2;
-    position: absolute;
-    top: 0;
-}
-
-.imgProduc{
-    width: 450px;
-}
-
-.containerDescuento{
+/* dropdown */
+.accordion{
+    width: 80%;
+    margin-left: 66px;
     
-    height: 70px;
-    width: 120px;
-    position: absolute;
-    right: 0;
-    bottom: 80;
-    margin-top: 20px;
-    margin-left: 10px;
-    z-index: 2;
-}
-
-
-.reduction{
-    border-top-right-radius: 7px;
-    border-bottom-left-radius: 7px;
-    background-color: #91C612;
-    padding: 6px;
-    padding-right: 10px;
-    padding-left: 15px;
-    z-index: 3;
-}
-
-.porcentaje{
-    font-weight: bold;
-    font-size: 35px;
-    color: rgb(39, 38, 38);
 }

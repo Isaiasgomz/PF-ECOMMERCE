@@ -246,6 +246,7 @@ function Filter() {
             >
               <span>- {e}</span>
             </div>
+
           ))}
           <div
             className={styles.toggleItem}
@@ -257,25 +258,10 @@ function Filter() {
         </div>
       ) : null}
 
-      {/*    <select className={styles.selector} onChange={sortByBrand}>
-                <option value="default">All Brands</option>
-                {brands?.map((e, index) => <option key={index} value={e}>{e}</option>)}
-            </select>
-
-            <select className={styles.selector} onChange={sortByCategory}>
-                <option value="default">All Categories</option>
-                {category?.map((e, index) => <option key={index} value={e}>{e}</option>)}
-            </select> 
-            
-             <select className={styles.selector} onChange={sortByPrice}>
-                <option value="default">Order by Price</option>
-                <option value="cheaper">cheaper</option>
-                <option value="expensive">expensive</option>
-            </select>
-
-            */}
+     
     </div>
   );
+
 }
 
 export default Filter;

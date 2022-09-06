@@ -42,15 +42,16 @@ function UpdateUserData() {
   const { user } = useAuth0();
 
   useEffect(() => {
+    
     if(user?.email.length > 0) dispatch(getUserDetail(user.email));
   }, [user]);
 
   const history = useHistory();
 
   const [input, setInput] = useState({
-    fullname: info?.fullname,
+    fullname: "",
     UserEmail: email,
-    address: info?.address,
+    address: "",
     CP: info?.CP,
     telephone: info?.telephone,
     city: info?.city,
@@ -138,7 +139,10 @@ function UpdateUserData() {
                     required={true}
                     type="text"
                     name="fullname"
-                    value={input.fullname}
+                    value={input?.fullname/* ?input?.fullname:setInput({
+                      ...input,
+                      fullname:info?.fullname
+                    }) */}
                     placeholder="Por ej.: Juan Pérez"
                     onChange={(e) => handleInput(e)}
                   />
@@ -166,7 +170,10 @@ function UpdateUserData() {
                     required={true}
                     type="text"
                     name="address"
-                    value={input.address}
+                    value={input?.address?input?.address:setInput({
+                      ...input,
+                      address:info?.address
+                    })}
                     placeholder="Calle y Número"
                     onChange={(e) => handleInput(e)}
                   />

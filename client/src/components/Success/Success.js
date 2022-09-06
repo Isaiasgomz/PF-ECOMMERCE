@@ -13,8 +13,8 @@ const Success = () => {
     return (
       <div className={style.Success}>
         <div >
-          <h2>{`${fullname}, Gracias por tu compra`}</h2>
-          <span>{`Tu pedido llegará en un plazo no mayor a 3 días, a la dirección de ${map[0]} indicada:`}</span>
+          <h2 className={style.Title}>{`${fullname}, Gracias por tu compra`}</h2>
+          <span className={style.Title}>{`Tu pedido llegará en un plazo no mayor a 3 días, a la dirección de ${map[0]} indicada`}</span>
           <div className={style.SuccessMap}>
             <Map data={location} />
           </div>

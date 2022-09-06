@@ -81,9 +81,12 @@ function AdminAnswer(props) {
   const handleCheck = (e) => {
     setCheckbox({
       ...checkbox,
-      [e.target.name]: e.target.value,
-    });
-  };
+
+      [e.target.name]: e.target.value
+    })
+    window.history.back();
+  }
+
 
   const handleClik = (e) => {
     /* e.preventDefault() */

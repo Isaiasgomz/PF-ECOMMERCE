@@ -91,6 +91,7 @@ function ProcessorSelector(props) {
       <div className={style.containerBuild}>
         <div className={style.build}>
           <div className={style.imgLabel}>
+
             {buildPCState?.length > 0 ? (
               <img alt="1" className={style.buildImg} src={img1} />
             ) : (
@@ -216,6 +217,7 @@ function ProcessorSelector(props) {
             ) : (
               <label>- Gabinete</label>
             )}
+
           </div>
         </div>
         {buildPCState?.length > 6 ? (

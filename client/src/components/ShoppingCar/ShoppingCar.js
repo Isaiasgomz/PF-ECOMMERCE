@@ -63,7 +63,7 @@ function ShoppingCar() {
   const handleClickNoVerified = (e) => {
     e.preventDefault()
 
-    if(user && user.email_verified === false){
+    if (user && user.email_verified === false) {
       swal("No estás verificado!", "Verificación enviada a su casilla de correo", "error");
       return
     }
@@ -112,47 +112,47 @@ function ShoppingCar() {
   return (
     <div className={style.containerCart}>
 
-  <div className={style.containerSup}>
-      <div className={style.containerButtons}>
-        <Link to={"/home"}>
-          <button className={style.button2}>Volver a la tienda</button>
-        </Link>
-        
-        <div>
-          {user && user.email_verified && productsFromLocalStorage.length ? (
-            <Link to="/resumeOrder">
-              <button className={style.button}>Resumen de la orden</button>
-            </Link>
-          ) : (
-            <button
-              className={style.button}
-              onClick={(e) => handleClickNoVerified(e)}
-            >
-              Resumen de la orden
-            </button>
-          )}
-        </div>
-        <div>
-        {
-            productsFromLocalStorage.length &&
-              Array.isArray(productsFromLocalStorage) ?
-              <div><button className={style.button1} onClick={e => clearCart(e)}>Vaciar todo el carrito</button></div> : <div><button className={style.button1} disabled={true} onClick={e => clearCart(e)}>Vaciar todo el carrito</button></div>
-          }
-        </div>
-      </div>
+      <div className={style.containerSup}>
+        <div className={style.containerButtons}>
+          <Link to={"/home"}>
+            <button className={style.button2}>Volver a la tienda</button>
+          </Link>
 
-      
-      <div className={style.containerInfo}>
+          <div>
+            {user && user.email_verified && productsFromLocalStorage.length ? (
+              <Link to="/resumeOrder">
+                <button className={style.button}>Resumen de la orden</button>
+              </Link>
+            ) : (
+              <button
+                className={style.button}
+                onClick={(e) => handleClickNoVerified(e)}
+              >
+                Resumen de la orden
+              </button>
+            )}
+          </div>
+          <div>
+            {
+              productsFromLocalStorage.length &&
+                Array.isArray(productsFromLocalStorage) ?
+                <div><button className={style.button1} onClick={e => clearCart(e)}>Vaciar todo el carrito</button></div> : <div><button className={style.button1} disabled={true} onClick={e => clearCart(e)}>Vaciar todo el carrito</button></div>
+            }
+          </div>
+        </div>
 
-          <div className={style.containerPrice}>
+
+        <div className={style.containerInfo}>
+
+          <div className={style.containerPrice1}>
             <span>Mi orden</span>
           </div>
-          
+
           <div className={style.containerPrice}>
             <span>Precio total: ${price}</span>
           </div>
+        </div>
       </div>
-  </div>      
 
 
       <div className={style.cards}>

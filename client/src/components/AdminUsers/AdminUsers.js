@@ -66,9 +66,7 @@ function AdminUsers() {
 
   return (
     <div className={style.containerAll}>
-      <div className={style.containerAdminSideBar}>
-        {/* <AdminSideBar></AdminSideBar> */}
-      </div>
+
 
       <div className={style.productContainer}>
         <div className={style.infoConteiner}>
@@ -78,12 +76,10 @@ function AdminUsers() {
               <p>Usuarios Activos</p>
             </div>
             <div className={style.icon}>
-            <div className={style.containerIconInInfoProductv}>
-
-            <i class="fa-solid fa-check"></i>
-            </div>
-
-            </div>
+            <div className={style.containerCheckv}>
+                <i class="fa-solid fa-check"></i>
+              </div>
+              </div>
           </div>
 
           <div className={style.infoProduct}>
@@ -92,101 +88,106 @@ function AdminUsers() {
               <p>Usuarios Desabilitados</p>
             </div>
             <div className={style.icon}>
-            <div className={style.containerIconInInfoProductx}>
-
-            <i class="fa-solid fa-x"></i>
-            </div>
+              <div className={style.containerCheckx}>
+              <i class="fa-solid fa-x"></i>
+              </div>
             </div>
           </div>
         </div>
+        <div className={style.containerInfoTable}>
+          <ul className={style.ul}>
 
-        <div className={style.headerContainer}>
-          <div className={style.headerMove}>
-            <p className={style.headerItem}>Nombre</p>
-          </div>
-          <div className={style.headerMove}>
-            <p className={style.headerItem}>Apellidos</p>
-          </div>
-          <div className={style.headerMoveEmail}>
-            <p className={style.headerItem}>Correo</p>
-          </div>
-          <div className={style.headerMove}>
-            <p className={style.headerItem}>Role</p>
-          </div>
-          <div className={style.headerMove}>
-            <p className={style.headerItem}>Estatus</p>
-          </div>
-          <div className={style.headerMove}>
-            <p className={style.headerItem}>Creado</p>
-          </div>
-          <div className={style.headerMove}>
-            <p className={style.headerItem}>Acciones</p>
-          </div>
-        </div>
-        {currentUsers &&
-          currentUsers.map((item) => (
-            <div className={style.containerItems}>
-              <div className={style.items}>
-                <p>
-                  {" "}
-                  {item.PersonalDatum?.fullname
-                    ?.split(" ")
-                    .slice(0, 1)
-                    .join(" ")}
-                </p>
-              </div>
+            <div className={style.headerMove}>
+              <li className={style.headerItem}>Nombre</li>
+            </div>
+            <div className={style.headerMove}>
+              <li className={style.headerItem}>Apellidos</li>
+            </div>
+            <div className={style.headerMoveEmail}>
+              <li className={style.headerItem}>Correo</li>
+            </div>
+            <div className={style.headerMove}>
+              <li className={style.headerItem}>Role</li>
+            </div>
+            <div className={style.headerMove}>
+              <li className={style.headerItem}>Estatus</li>
+            </div>
+            <div className={style.headerMove}>
+              <li className={style.headerItem}>Creado</li>
+            </div>
+            <div className={style.headerMove}>
+              <li className={style.headerItem}>Acciones</li>
+            </div>
+          </ul>
 
-              <div className={style.items}>
-                <p>
-                  {" "}
-                  {item.PersonalDatum?.fullname?.split(" ").slice(1).join(" ")}
-                </p>
-              </div>
+          {currentUsers &&
+            currentUsers.map((item) => (
+              <div className={style.containerc}>
+                <div className={style.containCardInfo}>
+                  <p>
+                    {" "}
+                    {item.PersonalDatum?.fullname
+                      ?.split(" ")
+                      .slice(0, 1)
+                      .join(" ")}
+                  </p>
+                </div>
 
-              <div className={style.itemsEmail}>
-                <p> {item.email}</p>
-              </div>
+                <div className={style.containCardInfo}>
+                  <p>
+                    {" "}
+                    {item.PersonalDatum?.fullname?.split(" ").slice(1).join(" ")}
+                  </p>
+                </div>
 
-              <div className={style.items}>
-                <p> {item.admin === false ? "Customer" : "Admin"}</p>
-              </div>
+                <div className={style.containCardInfo}>
+                  <p> {item.email}</p>
+                </div>
 
-              <div className={style.items}>
-                <p> {item.status}</p>
-              </div>
+                <div className={style.containCardInfo}>
+                  <p> {item.admin === false ? "Customer" : "Admin"}</p>
+                </div>
 
-              <div className={style.items}>
-                <p> {item.createdAt}</p>
-              </div>
-              <div className={style.items}>
+                <div className={style.containCardInfo}>
+                  <p> {item.status}</p>
+                </div>
+
+                <div className={style.containCardInfo}>
+                  <p> {item.createdAt}</p>
+                </div>
+                <div className={style.containCardInfo}>
                   {item.status === "Autorizado" ? (
                     <i
-                  onClick={() => handleDisabled(item.email, item.status)}
-                  className="fa-solid fa-user-slash"
-                ></i>
-                  ):(
+                      onClick={() => handleDisabled(item.email, item.status)}
+                      className="fa-solid fa-user-slash"
+                    ></i>
+                  ) : (
                     <i
-                  onClick={() => handleDisabled(item.email, item.status)}
-                  className="fa-solid fa-user"
-                ></i>
+                      onClick={() => handleDisabled(item.email, item.status)}
+                      className="fa-solid fa-user"
+                    ></i>
                   )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+            
+        </div>
+        <div className={style.containerCreated}>
           <NavLink className={style.link} to={`/admin/createAdmin`}>
-          <div className={style.containerCreate}>
-      
-      <i class="fa-solid fa-plus"></i>
-        
-      </div>
-      </NavLink>
-      
-      <div className={style.containerPaginate}>
-      <PaginadoUsers
-      usersPerPage={usersPerPage}
-      allUsers={users.length}
-      paginado={setCurrentPage}/>
-      </div>
+            <div className={style.containerCreate}>
+
+              <i class="fa-solid fa-plus"></i>
+
+            </div>
+            
+          </NavLink>
+          </div>
+        <div className={style.containerPaginate}>
+          <PaginadoUsers
+            usersPerPage={usersPerPage}
+            allUsers={users.length}
+            paginado={setCurrentPage} />
+        </div>
       </div>
 
     </div>

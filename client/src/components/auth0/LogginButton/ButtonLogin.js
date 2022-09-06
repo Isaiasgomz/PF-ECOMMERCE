@@ -5,7 +5,9 @@ import style from "./ButtonLogin.module.css"
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
-  return <button className={style.buttonLog} onClick={() => loginWithRedirect()}>Iniciar Sesión</button>;
+
+  return <button className={style.buttonLog} onClick={() => loginWithRedirect()}> <i className="fa-solid fa-right-to-bracket"></i>  <span className={style.spanText}> Iniciar Sesion</span></button>;
+
 };
 
 export default LoginButton;
