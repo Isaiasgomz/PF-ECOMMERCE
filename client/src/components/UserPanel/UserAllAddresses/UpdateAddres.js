@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { getAddress } from "../../../Actions";
 import UpdateShippingAddress from "../UpdateShippingAddress/UpdateShippingAddress";
 
 function UpdateAddres(props) {
-    const id = props.match.params?.id
+    const propsID = useParams().id
+    const id = propsID;
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user.email);
     const address = useSelector((state) => state.ShippingAddress);

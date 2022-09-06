@@ -9,11 +9,13 @@ function BuildCard({ name, price, img, calification, localStor, ob, id, stock })
   return (
     <div className={style.containerCard}>
 
+
     <div className={style.superiorPart}>
       {ob.reduction !== 0 ?
         <div className={style.containerDescuento}>
           <div className={style.reduction}>
             <span className={style.porcentaje}>-{ob.reduction}%</span>
+
           </div>
         </div>
         :
@@ -21,7 +23,7 @@ function BuildCard({ name, price, img, calification, localStor, ob, id, stock })
       }
 
 
-      {ob.stock <= 0 ?
+      {ob?.stock <= 0 ?
         <div className={style.containerAgotado}>
 
           <img className={style.contAgotado} src={agotado} alt="agotado" />

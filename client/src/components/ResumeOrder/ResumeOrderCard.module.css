@@ -61,3 +61,11 @@
   font-weight: bolder;
 
 }
+
+@media screen and (max-width:450px) {
+  .containerCard{
+    width: 300px;
+    height: 150px;
+    margin-bottom: 25px;
+  }
+}
