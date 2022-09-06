@@ -74,3 +74,26 @@ body {
   margin: 0;
   margin-bottom: 60px;
 }
+
+
+@media screen and (max-width:450px) {
+  .copyright {
+    display: none;
+  }
+  .title{
+    display: none;
+  }
+  .containerFooter{
+    justify-content: space-evenly;
+  }
+
+  .containerCopy{
+    display: none;
+  }
+
+  
+
+  
+
+}
+
