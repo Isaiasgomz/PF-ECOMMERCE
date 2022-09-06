@@ -1,25 +1,23 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link, useHistory } from 'react-router-dom'
-import { getProductDetailAdmin } from "../../Actions"
-import { productDisabled } from '../../Actions'
-import { FormGroup } from '@mui/material';
-import axios from 'axios';
 
-import styles from './AdminUpdate.module.css'
+import React from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
+import { getProductDetailAdmin } from "../../Actions";
+import { productDisabled } from "../../Actions";
 
 
+import styles from "./AdminUpdate.module.css";
 
 function AdminUpdate(props) {
+  const history = useHistory();
 
-  const history = useHistory()
-
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch();
+  const propsID = useParams().id;
   useEffect(() => {
-    dispatch(getProductDetailAdmin(props.match.params.id))
-  }, [])
+    dispatch(getProductDetailAdmin(propsID));
+  }, []);
+
 
 
 
@@ -83,126 +81,138 @@ function validate (input){
 }
 
 
+  // let  detail =  useSelector(state => state.adminProductDetail)
+
   const [product, setProduct] = useState({
     // productName:'',
-    // price: '', 
-    // image: '', 
+
+    // price: '',
+    // image: '',
     // description: '',
-    // stock: '', 
+    // stock: '',
     // category: '',
     // brand: '',
-  })
-
-
+  });
 
   const handleInput = (e) => {
     setProduct({
       ...product,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
+    dispatch(productDisabled(propsID, product));
 
-    dispatch(productDisabled(props.match.params.id, product))
 
     setProduct({
-      productName: '',
-      price: '',
-      image: '',
-      description: '',
-      stock: '',
-      category: '',
-      brand: '',
-    })
-    history.push('/adminProducts')
-  }
-
+      productName: "",
+      price: "",
+      image: "",
+      description: "",
+      stock: "",
+      category: "",
+      brand: "",
+    });
+    history.push("/adminProducts");
+  };
 
   return (
+    <div className={styles.containerForm}>
+      <div className={styles.productContainer}>
+        <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+          <h2 className={styles.titleForm}>Editar producto</h2>
+          <label htmlFor="productName">Nombre</label>
+          <input
+            className={styles.formInput}
+            type={"text"}
+            placeholder={"Nombre"}
+            name={"productName"}
+            value={product.productName}
+            onChange={(e) => handleInput(e)}
+          />
+          <br />
 
-    <div className={styles.containerAll} >
+          <label htmlFor="price">Precio</label>
+          <input
+            className={styles.formInput}
+            type={"number"}
+            placeholder={"Precio"}
+            name={"price"}
+            value={product.price}
+            id="product"
+            onChange={(e) => handleInput(e)}
+          />
+          <br />
 
+          <label htmlFor="image">Imagen</label>
+          <input
+            className={styles.formInput}
+            type={"text"}
+            placeholder={"Imagen"}
+            name={"image"}
+            value={product.image}
+            onChange={(e) => handleInput(e)}
+          />
+          <br />
 
-      <div className={styles.container}>
+          <label htmlFor="description">Description</label>
+          <input
+            className={styles.formInput}
+            type={"text"}
+            placeholder={"descripcion"}
+            name={"description"}
+            value={product.description}
+            onChange={(e) => handleInput(e)}
+          />
+          <br />
 
-        <div className={styles.image}>
-          {image === ""? 
-          <img src={detail.image} alt="imagenes_publicadas" width='300px' height='300px' /> :
-          loading? (<h8>Cargando imagenes...</h8>) : <img src={image} style={{width: "300px"}} alt={'product'}/> 
-          }
-          <span className={styles.title}>{detail.productName} </span>
-        </div>
-        <div className={styles.containerForm}>
-          <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+          <label htmlFor="stock">Cantidad</label>
+          <input
+            className={styles.formInput}
+            type={"number"}
+            placeholder={"Cantidad"}
+            name={"stock"}
+            value={product.stock}
+            onChange={(e) => handleInput(e)}
+          />
+          <br />
 
+          <label htmlFor="category">Categoria</label>
+          <input
+            className={styles.formInput}
+            type={"text"}
+            placeholder={"Categoria"}
+            name={"category"}
+            value={product.category}
+            onChange={(e) => handleInput(e)}
+          />
+          <br />
 
-            <div className={styles.divForm}>
-              <span className={styles.info}>Nombre </span>
-              <input className={styles.formInput} type={'text'} placeholder={detail.productName}
-                name={'productName'} value={product.productName}
-                onChange={(e) => handleInput(e)} />
-            </div>
+          <label htmlFor="brand">Marca</label>
+          <input
+            className={styles.formInput}
+            type={"text"}
+            placeholder={"Marca"}
+            name={"brand"}
+            value={product.brand}
+            onChange={(e) => handleInput(e)}
+          />
+          <br />
 
-            <div className={styles.divForm}>
-              <span className={styles.info}>Precio actual:  $</span>
-              <input className={styles.formInput} type={'number'} placeholder={detail.price}
-                name={'price'} value={product.price} id='product'
-                onChange={(e) => handleInput(e)} />
-            </div>
-
-            <div className={styles.divForm}>
-            <span className={styles.info}>Imagen </span>
-        <FormGroup>
-        <input className={styles.formInput} type={'file'} placeholder={'Subir Imagen'}
-        name={'file'} 
-        onChange={(e)=> handleImage(e)} />
-        
-        
-        </FormGroup>
-        </div>
-
-            <div className={styles.divForm}>
-              <label className={styles.info} htmlFor='description'>Description</label>
-              <input className={styles.formInput} type={'text'} placeholder={'Editar Descripcion'}
-                name={'description'} value={product.description}
-                onChange={(e) => handleInput(e)} /></div>
-
-            <div className={styles.divForm}>
-              <span className={styles.info}>stock: </span>
-              <input className={styles.formInput} type={'number'} placeholder={detail.stock}
-                name={'stock'} value={product.stock}
-                onChange={(e) => handleInput(e)} /></div>
-
-            <div className={styles.divForm}>
-              <span className={styles.info}>Categoria: </span>
-              <input className={styles.formInput} type={'text'} placeholder={detail.category}
-                name={'category'} value={product.category}
-                onChange={(e) => handleInput(e)} /></div>
-
-            <div className={styles.divForm}>
-              <span className={styles.info}>Marca:</span>
-              < input className={styles.formInput} type={'text'} placeholder={detail.brand}
-                name={'brand'} value={product.brand}
-                onChange={(e) => handleInput(e)} /></div>
-
-            <div className={styles.containerBtn}>
-              <button className={styles.btn} type='submit'>Guardar Cambios</button>
-              <Link to="/adminProducts"> 
-              <button className={styles.btn}  >Volver</button>
-              </Link>
-            </div>
-          </form>
-        </div>
-
+          <div className={styles.containerBtn}>
+            <button className={styles.btn} type="submit">
+              Editar Producto
+            </button>
+          </div>
+        </form>
 
       </div>
     </div>
-  )
+  );
 }
 
-
-export default AdminUpdate
+export default AdminUpdate;

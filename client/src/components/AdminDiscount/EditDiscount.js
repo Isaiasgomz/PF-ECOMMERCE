@@ -1,8 +1,10 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
-import { getProductDetailAdmin, updatePrice } from "../../Actions"
+
+import { useHistory, useParams } from 'react-router-dom'
+import {getProductDetailAdmin, updatePrice}  from "../../Actions"
+
 import style from './EditDiscount.module.css'
 
 // brand: "Asus"
@@ -33,11 +35,11 @@ function EditDiscount(props) {
 
   const dispatch = useDispatch()
 
+  const propsID = useParams().id
   useEffect(() => {
-    dispatch(getProductDetailAdmin(props.match.params.id))
-  }, [])
+    dispatch(getProductDetailAdmin(propsID));
+  },[])
 
-  const detail = useSelector(state => state.adminProductDetail)
 
 
 
@@ -69,20 +71,45 @@ function EditDiscount(props) {
       reduction: parseInt(product.reduction),
     }
 
-    console.log(updatingPrice)
-    dispatch(updatePrice(updatingPrice));
+  
+      const handleSubmit = (e)=>{
+        e.preventDefault()
 
-    setProduct({
-      productName: '',
-      price: '',
-      image: '',
-      description: '',
-      stock: '',
-      category: '',
-      brand: '',
-    })
-    history.push('/adminDiscount')
-  }
+        const updatingPrice = {
+          idProduct: propsID,
+          price: detail.price,
+          reduction: parseInt(product.reduction),
+        };
+    
+        console.log(updatingPrice)
+        dispatch(updatePrice(updatingPrice));
+        
+        setProduct({
+        productName: '',
+        price:'', 
+        image: '', 
+        description: '',
+        stock: '', 
+        category: '',
+        brand: '',
+        })
+         history.push('/adminDiscount')
+      }
+  
+  
+      const handleCheckBoxSeason = (e) =>{
+       
+        // if(e.target.checked){
+        //     setInput({
+        //         ...input,
+        //         season:e.target.value
+        //     })
+        
+        // }
+        onlyOne(e.target.value)
+     }
+  
+
 
 
   const handleCheckBoxSeason = (e) => {
