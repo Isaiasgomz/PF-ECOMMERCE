@@ -78,6 +78,7 @@ function AdminAnswer(props) {
       ...checkbox,
       [e.target.name]: e.target.value
     })
+    window.history.back();
   }
 
   const handleClik = e => {

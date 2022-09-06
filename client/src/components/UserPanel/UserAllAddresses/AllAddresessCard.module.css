@@ -5,13 +5,14 @@
     width: 530px;
     height: 80px;
     /* display: flex; */
-    background-color: white;
+    background-color:red;
 }
 
 .fila{
     display: flex;
     justify-content: space-around;
     margin-top: 22px;
+    
     /* border: purple 1px solid; */
 }
 
