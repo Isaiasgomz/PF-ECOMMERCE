@@ -16,7 +16,13 @@
     display: flex;
     background-color: white;
 }
+@media screen and (max-width:450px) {
+    .containerCard {
+        height: auto;
+        
+    }
 
+}
 .containerImg{
     width: 30%;
     height: 100%;
@@ -78,6 +84,14 @@
     justify-content: space-around;
     align-items: center;
 }
+@media screen and (max-width:450px) {
+    .containerButtons {
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+}
 
 .containerPriceCart{
     width: 40%;
@@ -86,14 +100,27 @@
     justify-content: center;
     align-items: center;
 }
+@media screen and (max-width:450px) {
+    .containerPriceCart {
+        width: 150px;
+        
+    }
 
+}
 .price{
     font-size: 19px;
     color: #2f6f7e;
     margin-bottom: 30px;
     font-weight: bold;
 }
+@media screen and (max-width:450px) {
+    .price {
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 0px;
+    }
 
+}
 .quantity{
     font-size: large;
     width: 60%;
@@ -103,4 +130,11 @@
     justify-content: space-around;
 }
 
+@media screen and (max-width:450px) {
+    .quantity {
+        margin-bottom: -15px;
+        
+    }
+
+}
 

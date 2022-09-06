@@ -5,25 +5,59 @@
     background-color: #f3f3f3;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.637);
 }
+@media screen and (max-width:450px) {
+    .containerCart {
+        padding: 8px;
+    }
 
+}
 .containerInfo{
 
     height: 15%;
     display: flex;
     align-items: center;
 }
+@media screen and (max-width:450px) {
+    .containerInfo {
+        margin-left:70%;
+        width: 100%;
+    }
 
+}
 .containerButtons{
     display: flex;
     align-items: center;
     width: 40%;
     margin-left: 15%;
 }
+@media screen and (max-width:450px) {
+    .containerButtons {
+        display: flex;
+        margin-left: 0%;
+    }
+
+}
 
 .containerPrice{
     font-size: 250%;
     margin-left: 20px;
     margin-right: 20px;
+}
+.containerPrice1{
+    font-size: 250%;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+@media screen and (max-width:450px) {
+    .containerPrice1{
+        display: none;
+    }
+    .containerPrice {
+        font-size: 200%;
+    
+    
+    }
+
 }
 
 .inv{
@@ -40,6 +74,13 @@
     justify-content: center;
     gap: 25px;
 } 
+@media screen and (max-width:450px) {
+    .cards {
+        width: 80%;
+        margin-left: 66px;
+    }
+
+}
 
 .button{
     margin: 10px;
@@ -51,7 +92,13 @@
     color: white;
     font-weight: 600;
 }
+@media screen and (max-width:450px) {
+    .button {
+        width: 60px;
+        
+    }
 
+}
 .button:hover{
     background-color: #aadd32;
     transition: 0.3s ease;
@@ -88,7 +135,13 @@
 background-color: gray;
 cursor: default;
 }
+@media screen and (max-width:450px) {
+    .button1 {
+        width: 60px;
+        height: 50%;
+    }
 
+}
 .button2{
     margin: 10px;
     background-color:#126fc6;
@@ -99,10 +152,26 @@ cursor: default;
     color: white;
     font-weight: 600;
 }
+@media screen and (max-width:450px) {
+    .button2 {
+        width: 60px;
+        height: 56px;
+    }
+
+}
 .containerSup{
     display: flex;
     align-items: center;
     padding-bottom: 15px;
+}
+@media screen and (max-width:450px) {
+    .containerSup {
+        width: 80%;
+        font-size: 8px;
+        display: flex;
+        flex-direction: column;
+    }
+
 }
 .button2:hover{
     background-color: #3276dd;
