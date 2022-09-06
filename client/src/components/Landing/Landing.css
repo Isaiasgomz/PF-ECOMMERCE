@@ -39,28 +39,88 @@
 /* Carousel Marcas */
 .titleMarcas {
   display: flex;
-  justify-content: left;
-  margin-left: 250px;
-  margin-top: 30px;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  justify-content: center;
+  margin-top: 35px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   font-size: 30px;
-}
-
-/* Carousel Notebooks */
-.titleNotebooks {
-  display: flex;
-  justify-content: left;
-  margin-left: 250px;
-  margin-top: 30px;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 30px;
-  margin-top: 50px;
 }
 
 .spanTitle {
   margin-left: 10px;
+  color: #91c612;
+  font-weight: bold;
 }
 .spanTitle:hover {
-  transition: 0.3s ease;
-  color: #91C612;
+  filter: brightness(1.2);
+}
+
+.contImgCompra {
+  border: 2px solid #2d2d33;
+  background-color: #2d2d33;
+}
+
+.imgCompra {
+  width: 75%;
+  display: block;
+  margin: 60px auto;
+}
+.imgCompra img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.imgCompra img:hover {
+  filter: brightness(1.2);
+}
+
+.imgArmaPC {
+  width: 100%;
+  display: block;
+  margin: 60px auto;
+}
+
+.imgArmaPC img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.imgArmaPC img:hover {
+  filter: brightness(1.2);
+}
+
+.logoPartners {
+  background-color: #37373f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoPartners img {
+  max-width: 10%;
+  max-height: 10%;
+}
+
+.titlePartners {
+  color: white;
+  margin-left: 40px;
+  font-size: 25px;
+}
+
+.logoPartners img:hover {
+  filter: brightness(1.2);
+}
+
+.titlePartners:hover {
+  color: #91c612;
+  filter: brightness(1.2);
+}
+
+.contPcMarcas {
+  border: 1px solid #91c612;
+  background: linear-gradient(
+    184deg,
+    rgba(145, 198, 18, 1) 0%,
+    rgba(255, 255, 255, 1) 76%
+  );
 }

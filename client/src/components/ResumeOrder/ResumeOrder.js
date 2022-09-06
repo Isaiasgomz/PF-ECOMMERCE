@@ -18,25 +18,31 @@ function ResumeOrder() {
 
   return (
     <div className={style.containerCart}>
-      <div className={style.containerInfo}>
+
+      <div clasName={style.superior}>
+      <div className={style.containerButtons}>
         <Link to="/shoppingCar">
           <button className={style.button}>Volver al carrito</button>
         </Link>
-        <h2>Mi orden</h2>
 
-
-        <h3>Precio total: ${total} </h3>
-
-
-        <Link to="/order">
+        <Link to="/orderInfo">
           <button className={style.button}>Continuar</button>
         </Link>
-      </div>
-
-      <div className={style.cards}>
-        <div className={style.productos}>
-          <h3>Productos: {} </h3>
         </div>
+
+      <div className={style.containerInfo}>
+
+        <div className={style.containerPrice}>
+            <span>Mi orden</span>
+          </div>
+
+       <div className={style.containerPrice}>
+            <span>Precio total: ${total}</span>
+          </div>
+      </div>
+      </div>
+      <div className={style.cards}>
+       
 
         {productsFromLocalStorage &&
           productsFromLocalStorage.map((e) => (

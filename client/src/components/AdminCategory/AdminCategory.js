@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import style from './AdminCategory.module.css'
 import {NavLink} from 'react-router-dom'
 import AdminSideBar from "../AdminSideBar/AdminSideBar";
 import {getAdminProducts} from "../../Actions";
+import PaginadoCategory from './PaginadoCategory'
 
 
 function AdminCategory() {
@@ -23,11 +24,18 @@ function AdminCategory() {
     }
   })
 
+   let [currentPage, setCurrentPage] = useState(1);
+  let [categoryPerPage, setCategoryPerPage] = useState(6);
+  let indexOfLastCategory = currentPage * categoryPerPage;
+  let indexOfFirstCategory= indexOfLastCategory - categoryPerPage;
+  let currentCategory = categoryFilter.slice(
+    indexOfFirstCategory,
+    indexOfLastCategory
+  );
+
   return (
     <div className={style.containerAll}>
-      <div className={style.containerAdminSideBar}>
-        <AdminSideBar></AdminSideBar>
-      </div>
+
 
     <div className={style.productContainer}>
       <div className={style.containerInfoTable}>
@@ -49,8 +57,8 @@ function AdminCategory() {
             </div>
           </ul>
 
-          {categoryFilter &&
-            categoryFilter.map((product) => (
+          {currentCategory &&
+            currentCategory.map((product) => (
               <div className={style.containerc}>
                 <div className={style.containCardInfo}>
                   <p> {product}</p>
@@ -78,7 +86,16 @@ function AdminCategory() {
             </div>
           </NavLink>
         </div>
+
+      <div className={style.containerPaginate}>
+        <PaginadoCategory
+        categoryPerPage={categoryPerPage}
+        allCategory={categoryFilter.length}
+        paginado={setCurrentPage}/>
       </div>
+
+      </div>
+
     </div>
   )
 }

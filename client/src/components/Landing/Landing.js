@@ -3,6 +3,9 @@ import { useDispatch } from "react-redux";
 import { getProducts } from "../../Actions/index.js";
 import "./Landing.css";
 import CarouselMarcas from "./CarouselMarcas/CarouselMarcas.js";
+import DestacadosTech from "./DestacadosTech/DestacadosTech.js";
+import { Link } from "react-router-dom";
+import logo from "../../imagenes/logo.png";
 
 function Landing() {
   /////////////////////// declaro el dispatch
@@ -159,12 +162,42 @@ function Landing() {
           </button>
         </div>
       </div>
-      <div>
-        <h2 className="titleMarcas">
-          ¡Las mejores marcas las encontrás en<span className="spanTitle">PULL REQUEST!</span>
-        </h2>
+      <div className="contImgCompra">
+        <div className="imgCompra">
+          <Link to="/home">
+            <img
+              src="https://cdn.jsdelivr.net/gh/persano/BannersWebMaximus/top-under-header/mejores-precios-main-top.webp"
+              alt=""
+            />
+          </Link>
+        </div>
       </div>
-      <CarouselMarcas></CarouselMarcas>
+      <DestacadosTech></DestacadosTech>
+      <div className="contPcMarcas">
+        <div className="imgArmaPC">
+          <Link to="/build">
+            <img
+              src="https://cdn.jsdelivr.net/gh/persano/BannersWebMaximus/armado-pc-home/arma-tu-compu-new.webp"
+              alt=""
+            />
+          </Link>
+        </div>
+        <div>
+          <h2 className="titleMarcas">
+            ¡Las mejores marcas las encontrás en
+            <span className="spanTitle">PULL REQUEST!</span>
+          </h2>
+        </div>
+        <CarouselMarcas></CarouselMarcas>
+        <br />
+        <br />
+      </div>
+      <div className="logoPartners">
+        <img src={logo} alt="" />
+        <h3 className="titlePartners">
+          Somos partners certificados de las principales marcas de tecnología.
+        </h3>
+      </div>
     </div>
   );
 }

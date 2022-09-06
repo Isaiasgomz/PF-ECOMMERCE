@@ -7,7 +7,7 @@
   color: white;
   display: flex;
   align-items: center;
-  border-top: 2px solid gray;
+  border-top: 4px solid #91C612;
 }
 
 .containerCopy {
@@ -74,3 +74,26 @@ body {
   margin: 0;
   margin-bottom: 60px;
 }
+
+
+@media screen and (max-width:450px) {
+  .copyright {
+    display: none;
+  }
+  .title{
+    display: none;
+  }
+  .containerFooter{
+    justify-content: space-evenly;
+  }
+
+  .containerCopy{
+    display: none;
+  }
+
+  
+
+  
+
+}
+

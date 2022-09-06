@@ -29,7 +29,6 @@ import UserData from "./components/UserPanel/UserData/UserData";
 import UpdateUserData from "./components/UserPanel/UpdateUserData/UpdateUserData"
 import UserShippingAddress from "./components/UserPanel/UserShippingAddress/UserShippingAddress"
 import UserAllAddresses from "./components/UserPanel/UserAllAddresses/UserAllAddresses"
-
 import AdminProfile from "./components/AdminProfile/AdminProfile";
 import UserOrderDetail from "./components/UserOrderDetail/UserOrderDetail";
 import UpdateShippingAddress from "./components/UserPanel/UpdateShippingAddress/UpdateShippingAddress";
@@ -41,10 +40,28 @@ import AdminOrders from "./components/AdminOrders/AdminOrders";
 import AdminOrderEdit from "./components/AdminOrderEdit/AdminOrderEdit";
 import AdminDashboard from "./components/AdminDashboard/Dashboard";
 import DashboardSold from "./components/AdminDashboard/DashboardSold";
-
 import CreateCategory from "./components/AdminCreateCategory/CreateCategory";
-
 import UsertProfile from "./components/UserPanel/UserProfile";
+import PresentationCard from "./components/UserPanel/PresentationCard/PresentationCard";
+import Favourites from "./components/Favourites/Favourites";
+
+import OrderInfo from "./components/Order/OrderInfo";
+
+import AdminQuestions from "./components/AdminQuestions/AdminQuestions";
+import AdminAnswer from "./components/AdminAnswer/AdminAnswer";
+
+import BuildPerif from "./components/BranchSelectorPerif/BuildPerif";
+
+
+import AdminDiscount from "./components/AdminDiscount/AdminDiscount";
+
+import EditDiscount from "./components/AdminDiscount/EditDiscount";
+
+
+import UpdateAddres from "./components/UserPanel/UserAllAddresses/UpdateAddres";
+import UserAllAddressesOrder from "./components/Order/OrderAddresses/UserAllAddressesOrder";
+
+
 
 
 
@@ -56,6 +73,7 @@ function App() {
       <ContextProvider>
 
         <Route path={"/"} component={NavBar} />
+        <Route path={"/"} component={UserPanel} />
         <Route exact path={"/"} component={Landing} />
         <Route path={"/"} component={Footer} />
         <Route exact path={"/build"} component={BrandSelector} />
@@ -73,13 +91,19 @@ function App() {
         <Route exact path={"/cart"} component={ShoppingCar} />
         <Route exact path={"/payment/success"} component={Success} />
         <Route exact path={"/userPanel"} component={UsertProfile} />
+        <Route exact path={"/presentationCard"} component={PresentationCard}/>
         <Route exact path={"/userData"} component={UserData} />
         <Route exact path={"/updateUserData"} component={UpdateUserData} />
         <Route exact path={"/userShippingAddress"} component={UserShippingAddress} />
         <Route exact path={"/userAllAddresses"} component={UserAllAddresses} />
         <Route exact path={"/updateShippingAddress"} component={UpdateShippingAddress} />
 
+        <Route exact path={"/Favourites"} component={Favourites} />
+
         
+
+        <Route exact path={"/orderInfo"} component={OrderInfo} />
+
 
 
         <Route path={"/myReviews"} component={UserReviews} />
@@ -92,7 +116,7 @@ function App() {
         <Route exact path={"/adminUsers"} component={AdminUsers} />
         <Route exact path={"/signUp"} component={SignUp}  />
         <Route exact path={"/sideBar"} component={AdminSideBar} />
-        
+        <Route exact path={"/perif"} component={BuildPerif} />
         <Route exact path={"/profile"} component={AdminProfile} />
         <Route exact path={"/adminCategory"} component={AdminCategory} />
         <Route exact path={"/adminOrders"} component={AdminOrders} />
@@ -100,6 +124,19 @@ function App() {
         <Route exact path={"/adminDashboard"} component={AdminDashboard} />
         <Route exact path={"/sold"} component={DashboardSold} />
         <Route exact path={"/createCategory"} component={CreateCategory}/>
+        <Route exact path={"/adminPreguntas"} component={AdminQuestions}/>
+        <Route exact path={"/adminPreguntas/update/:id"} component={AdminAnswer}/>
+
+
+
+        <Route exact path={"/adminDiscount"} component={AdminDiscount}/>
+        <Route exact path={"/adminDiscount/editDiscount/:id"} component={EditDiscount}/>
+
+
+        <Route exact path={"/updateAddres/:id"} component={UpdateAddres}/>
+
+        <Route exact path={"/userAllAddressesOrder"} component={UserAllAddressesOrder}/>
+
 
       </ContextProvider>
     </div>

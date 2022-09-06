@@ -6,6 +6,9 @@
     padding: 20px;
 }
 
+.containerTitle{
+    padding-bottom: 10px;
+}
 .noReview {
     display: flex;
     flex-direction: column;
@@ -30,3 +33,54 @@
     color: #91C612;
     
 }
+
+.container{
+    width: 60%;
+    height: auto;
+    padding: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgba(255, 255, 255, 0);
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.637);
+      border-radius: 10px;
+      background-color: #EEEEEE;
+   
+  }
+.contenedorLoading{
+    /* background: #c61212; */
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loading{
+    /* background-color: #78788c; */
+    /* width: 100vw;
+    height: 77.7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .img{ 
+    border-radius: 50%;
+    box-shadow: 0 0 35px rgb(155, 255, 108);
+    width: 200px;
+    height: 200px;
+    animation: loading 16s infinite;
+  }
+  @keyframes loading {
+   100%{
+    transform: rotate(1560deg);
+   }
+   
+  }

@@ -1,7 +1,21 @@
 .conteiner {
     background-color: rgb(255, 255, 255);
     font-family: sans-serif;
+    position: relative;
 }
+
+
+
+.imagenProducto{
+    position: relative;
+}
+
+@media (max-width: 345px) {
+    .imagenProducto {
+        
+      width: 10%;
+    }
+  }
 
 .textError{
     font-size: 13px;
@@ -16,10 +30,7 @@
     padding: 20px;
 }
 
-.img {
-    margin: 20px;
-    padding: 20px;
-}
+
 
 .infoConteiner {
     margin: 10px;
@@ -28,21 +39,41 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    
+    
 }
+
+
 
 .nameConteiner {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 10px;
+    font-size: large;
 }
 
+@media  (max-width: 700px) {
+    .nameConteiner {
+        background-color: rgb(255, 0, 0);
+        
+      width: 75%;
+    }
+  }
 .titulo {
     font-family: sans-serif;
     font-size: 34px;
     text-align: left;
     margin-bottom: 10px;
 }
+
+@media screen and (max-width: 700px) {
+    .titulo {
+        background-color: rgb(255, 0, 0);
+        font-size: 100%;
+      width: 5%;
+    }
+  }
 
 .priceConteiner {
     color: #2f6f7e;
@@ -56,11 +87,44 @@
     display: flex;
     flex-direction: column;
     margin-right: 140px;
+    text-align: start;  
+}
+
+.priceTachado{
+    font-size: 25px;
+    font-weight: 80px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 140px;
+    text-align: start;
+    text-decoration: line-through;
+    color: gray;
+}
+
+.priceDescuento{
+    font-size: 35px;
+    font-weight: 150px;
+    color: #91C612;
+    display: flex;
+    flex-direction: column;
+    margin-right: 140px;
     text-align: start;
 }
 
 .textPrice {
     font-size: 17px;
+    color: #939393;
+}
+
+.priceNow {
+    display: flex;
+    flex-direction: column;
+    margin-right: 140px;
+    text-align: start;
+}
+
+.textPriceNow {
+    font-size: 27px;
     color: #939393;
 }
 
@@ -81,6 +145,12 @@
     margin-left: 14px;
 }
 
+.miniGarantia1Ago {
+    margin-left: 3px;
+    color: #af3030;
+    
+}
+
 .miniGarantia2 {
     margin-left: 12px;
 }
@@ -91,13 +161,21 @@
     border-radius: 4px;
     background-color: #3483FA;
     padding: 13px;
-    margin-top: 10px;
     cursor: pointer;
     transition: 0.3s ease;
 }
 
 .button:hover {
     background-color: #5294f7;
+}
+
+.button:disabled{
+    background-color: gray;
+    cursor: default;
+}
+
+.spanAgotado{
+    color: #af3030;
 }
 
 /* ---------------------------------------------------tabs........... */
@@ -234,4 +312,100 @@
 
 .generalReview{
     padding: 10px;
+}
+
+
+.buttonConteiner{
+    width: 225px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.favContainer{
+    font-size: 42.5px;
+    margin-left: 20px;
+    color:  rgb(255, 101, 101);
+}
+
+.favContainer:hover{
+    cursor: pointer;
+    color:  rgb(255, 111, 111);
+}
+
+
+
+
+.noFavContainer{
+    color: rgb(255, 144, 144);
+    margin-left: 20px;
+    font-size: 42.5px;
+
+}
+
+.noFavContainer:hover{
+    color:  rgb(255, 101, 101);
+    cursor: pointer;
+}
+
+.img {
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 450px; 
+    z-index: 0;
+    position: relative;
+}
+
+.imgAgot{
+    margin-right: 20px;
+    margin-left: -20px;
+    height: 200px;
+    left: 0;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+}
+
+.imgProduc{
+    width: 450px;
+}
+
+@media screen and (max-width: 345px) {
+    .imgProduc {
+      width: 25%;
+    }
+  }
+
+
+.containerDescuento{
+    
+    height: 70px;
+    width: 120px;
+    position: absolute;
+    right: 0;
+    bottom: 80;
+    margin-top: 20px;
+    margin-left: 10px;
+    z-index: 2;
+}
+
+
+.reduction{
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    background-color: #91C612;
+    padding: 6px;
+    padding-right: 10px;
+    padding-left: 15px;
+    z-index: 3;
+}
+
+.porcentaje{
+    font-weight: bold;
+    font-size: 35px;
+    color: rgb(39, 38, 38);
 }

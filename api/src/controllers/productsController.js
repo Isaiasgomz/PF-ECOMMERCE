@@ -1,4 +1,4 @@
-const { Op, Product, Review } = require('../db');
+const { Op, Product, Review, Question,Answer } = require('../db');
 const api = require("../jsonProducts.js");
 
 module.exports = {
@@ -17,7 +17,9 @@ module.exports = {
                     qualification: e.calification,
                     stock: e.quantity,
                     category: e.categories[0],
-                    compatible: e.compatible?  e.compatible : false
+                    compatible: e.compatible?  e.compatible : false,
+  /*                   reduction: e.reduction? e.reduction : 0,
+                    reducedAmount: e.reducedAmount? e.reducedAmount : 0, */
                 }
                 return obj;
             })
@@ -51,7 +53,9 @@ module.exports = {
                     qualification: e.calification,
                     stock: e.quantity,
                     category: e.categories[0],
-                    compatible: e.compatible?  e.compatible : false
+                    compatible: e.compatible?  e.compatible : false,
+ /*                    reduction: e.reduction? e.reduction : 0,
+                    reducedAmount: e.reducedAmount? e.reducedAmount : 0, */
                 }
                 return obj;
             })
@@ -75,7 +79,12 @@ module.exports = {
                 },
                 include: [{
                     model:Review
-                }]
+                },{
+                    model:Question,
+                    include:[{
+                        model:Answer
+                    }]
+                }],
             } )
                 return product;
         } catch (error) {
@@ -92,7 +101,7 @@ module.exports = {
                 description, 
                 category,
                 stock,
-                brand
+                brand,
             })
             return newProduct
         } catch (error) {
@@ -123,6 +132,24 @@ module.exports = {
                 })
             }
              
+        } catch (error) {
+           throw new Error(error); 
+        }
+    },
+    /* update price */
+    updatePrice: async function(idProduct, price, reduction){
+        try {
+            const reducedAmount = price * (reduction/100);
+            const newPrice = (price - (reducedAmount)); {
+                await Product.update({
+                    price: newPrice, 
+                    reduction: reduction,
+                    reducedAmount: reducedAmount}, {
+                    where: {
+                        idProduct: idProduct
+                    }
+                })
+            }     
         } catch (error) {
            throw new Error(error); 
         }

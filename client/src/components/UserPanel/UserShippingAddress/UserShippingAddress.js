@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postUserAddress } from "../../../Actions/index.js";
-import UserPanel from "../UserPanel";
 import styles from './UserShippingAddress.module.css';
+import swal from "sweetalert";
+import { createCont } from "../../contexto/contextProvider.js";
 
 function validate(input) {
   const errors = {};
@@ -31,7 +32,7 @@ function UserShippingAddress() {
     const dispatch = useDispatch();
 
     const user = useSelector((state) => state.user);
-
+    const { trueorfalse2,setTrueorFalse2} = useContext(createCont)
     const history = useHistory();
 
     const [input, setInput] = useState({
@@ -60,11 +61,16 @@ function UserShippingAddress() {
         );
     };
 
+    const handleClose = (e) => {
+      e.preventDefault();
+      window.history.back();
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-    
+        trueorfalse2? setTrueorFalse2(false):setTrueorFalse2(true)
     dispatch(postUserAddress(user.email, input));
-    alert('Su dirección de envío se guardó correctamente')
+    swal('Su dirección de envío se guardó correctamente')
     setInput({
         reference: "",
         UserEmail: user.email,
@@ -75,12 +81,13 @@ function UserShippingAddress() {
         country: "",
         department:""
     });
-    history.push("/userPanel");
+    
+    window.history.back();
     };
 
   return (
     <React.Fragment>
-    <UserPanel/>
+
     <div className={styles.containerForm}>
       <form
         className={styles.productContainer}
@@ -203,12 +210,9 @@ function UserShippingAddress() {
          </div>
         </div>
         <br/>
-        <div className={styles.containerBtn}>
-          
+        <div className={styles.containerBtn}>   
+            <button className={styles.btnS} onClick={handleClose}>Salir</button>
           <button className={styles.btn} type='submit'>Guardar</button>
-          <NavLink to={"/userPanel"}>
-            <button className={styles.btnS}>Salir</button>
-          </NavLink>
         </div>
       </form>
     </div>

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUserData } from "../../../Actions/index.js";
-import UserPanel from "../UserPanel";
+import { getUserDetail, updateUserData } from "../../../Actions/index.js";
 import styles from './UpdateUserData.module.css';
 import loadingLogo from "../../../imagenes/loading.png"
+import swal from "sweetalert";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function validate(input) {
   const errors = {};
@@ -34,16 +35,23 @@ function validate(input) {
 
 function UpdateUserData() {
   const dispatch = useDispatch();
+
   const [loading, setLoading] = useState(true)
-  const user = useSelector((state) => state.user.email);
-  const info = useSelector((state) => state.userDetail.PersonalDatum)
+  const email = useSelector((state) => state.user.email);
+  const info = useSelector((state) => state.userDetail.PersonalDatum);
+  const { user } = useAuth0();
+
+  useEffect(() => {
+    
+    if(user?.email.length > 0) dispatch(getUserDetail(user.email));
+  }, [user]);
 
   const history = useHistory();
 
   const [input, setInput] = useState({
-    fullname: info?.fullname,
-    UserEmail: user,
-    address: info?.address,
+    fullname: "",
+    UserEmail: email,
+    address: "",
     CP: info?.CP,
     telephone: info?.telephone,
     city: info?.city,
@@ -72,38 +80,56 @@ function UpdateUserData() {
     );
   };
 
+  const handleClose = (e) => {
+    e.preventDefault();
+    window.history.back();
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(updateUserData(user, input));
-    alert('Sus datos de perfil se actualizaron correctamente')
-    setIsDisabled(true)
-    history.push("/userPanel");
+    dispatch(updateUserData(email, input));
+    swal('Sus datos de perfil se actualizaron correctamente');
+    setIsDisabled(true);
+    setInput({
+      fullname: info?.fullname,
+      UserEmail: email,
+      address: info?.address,
+      CP: info?.CP,
+      telephone: info?.telephone,
+      city: info?.city,
+      country: info?.country,
+      department: info?.department
+    });
+
+    /* history.push("/presentationCard"); */
+    window.history.back();
   };
-
-
 
   setTimeout((loading) => {
     setLoading(false)
-  }, 4000);
+  }, 1000);
+
   if (loading) {
     return (
       <div className={styles.contenedorLoading}>
         <div className={styles.loading}>
           <img className={styles.img} src={loadingLogo} />
         </div>
-
       </div>
     )
-  } else {
+  } 
+  else {
     return (
       <React.Fragment>
-        <UserPanel />
+       
         <div className={styles.containerForm}>
           <form
             className={styles.productContainer}
             onSubmit={(e) => handleSubmit(e)}>
+              <div className={styles.titleCont}>
             <h2 className={styles.titleForm}>Datos Personales</h2>
+            </div>
             <div className={styles.contenedor}>
               <div className={styles.name}>
                 <label className={styles.lab}>Nombre Completo:
@@ -113,7 +139,10 @@ function UpdateUserData() {
                     required={true}
                     type="text"
                     name="fullname"
-                    value={input.fullname}
+                    value={input?.fullname/* ?input?.fullname:setInput({
+                      ...input,
+                      fullname:info?.fullname
+                    }) */}
                     placeholder="Por ej.: Juan Pérez"
                     onChange={(e) => handleInput(e)}
                   />
@@ -141,7 +170,10 @@ function UpdateUserData() {
                     required={true}
                     type="text"
                     name="address"
-                    value={input.address}
+                    value={input?.address?input?.address:setInput({
+                      ...input,
+                      address:info?.address
+                    })}
                     placeholder="Calle y Número"
                     onChange={(e) => handleInput(e)}
                   />
@@ -231,13 +263,9 @@ function UpdateUserData() {
             </div>
 
             <div className={styles.containerBtn}>
+                <button className={styles.btnS} onClick={handleClose}>Salir</button>
               <button className={styles.btn} disabled={!isDisabled} onClick={handleClick}>Editar</button>
-
               <button className={styles.btn} type='submit' disabled={isDisabled}>Guardar</button>
-
-              <NavLink to={"/userPanel"}>
-                <button className={styles.btnS}>Salir</button>
-              </NavLink>
             </div>
           </form>
         </div>

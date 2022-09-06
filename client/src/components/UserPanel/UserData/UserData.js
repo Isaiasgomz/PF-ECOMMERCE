@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import React, { createContext, useContext, useState } from "react";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postUserData } from "../../../Actions/index.js";
-import UserPanel from "../UserPanel";
 import styles from './UserData.module.css';
+import swal from "sweetalert";
+import { createCont } from "../../contexto/contextProvider";
 
 function validate(input) {
   const errors = {};
@@ -34,7 +35,7 @@ function UserData() {
     const dispatch = useDispatch();
 
     const user = useSelector((state) => state.user);
-
+    const {trueorfalse2, setTrueorFalse2} = useContext(createCont)
     const history = useHistory();
 
     const [input, setInput] = useState({
@@ -63,11 +64,11 @@ function UserData() {
         );
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    
+    const handleSubmit =  (e) => {
+        /* e.preventDefault(); */
+        trueorfalse2?   setTrueorFalse2(false):setTrueorFalse2(true)
     dispatch(postUserData(user.email, input));
-    alert('Sus datos de perfil se guardaron correctamente')
+    swal('Sus datos de perfil se guardaron correctamente')
     setInput({
         fullname: "",
         UserEmail: user.email,
@@ -78,12 +79,13 @@ function UserData() {
         country: "",
         department:""
     });
-    history.push("/userPanel");
+    history.push("/presentationCard");
+    /* window.history.back(); */
     };
 
   return (
     <React.Fragment>
-    <UserPanel/>
+    
     <div className={styles.containerForm}>
       <form
         className={styles.productContainer}
@@ -210,10 +212,10 @@ function UserData() {
         </div>
         <br/>
         <div className={styles.containerBtn}>
+            <Link to={"/home"}>
+              <button className={styles.btn}>Cancelar</button>
+            </Link>
           <button className={styles.btn} type='submit'>Guardar</button>
-          <NavLink to={"/userPanel"}>
-            <button className={styles.btn}>Cancelar</button>
-          </NavLink>
         </div>
       </form>
     </div>

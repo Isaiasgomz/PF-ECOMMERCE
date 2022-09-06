@@ -5,14 +5,29 @@ import "./Cards.css";
 import { createCont } from "../contexto/contextProvider";
 import { FiArrowLeft } from "react-icons/fi";
 import { FiArrowRight } from "react-icons/fi";
+import toast, { Toaster } from 'react-hot-toast';
+import { red } from "@mui/material/colors";
 
 const Cards = (props) => {
   const { Products } = useSelector((state) => state);
 
-  const { currentPage, setCurrentPage, stringLocalStorage } =
+  const { currentPage, setCurrentPage, stringLocalStorage,trueorfalse,setTrueorFalse  } =
     useContext(createCont);
 
   let x = [];
+  const notify = () => toast.success('Agregado al carrito!',{style:{
+    background: "rgb(67, 160, 71)",
+    color:"white"
+  }});
+  const notifyInCart = () => toast('➡️ El producto ya está en el carrito!', {
+    style:{
+      background: "rgb(52,131,250)",
+      color: "white",
+      display: "flex",
+      alignItems:"center",
+      justifyContent: "center"
+    }
+  });
   const addProductCartStorage = (o) => {
     let fromLocalStorage = JSON.parse(localStorage.getItem(stringLocalStorage));
 
@@ -20,16 +35,21 @@ const Cards = (props) => {
       let filtered = fromLocalStorage.filter(
         (e) => e.idProduct === o.idProduct
       );
-      if (filtered.length) return;
+      if (filtered.length) {
+        notifyInCart()
+        return
+      };
+
       x = [...fromLocalStorage, o];
-      console.log(x);
+      
       localStorage.setItem(stringLocalStorage, JSON.stringify(x));
-      console.log(x);
+      notify()
+      
       return;
     }
     x = [...x, o];
     localStorage.setItem(stringLocalStorage, JSON.stringify(x));
-    console.log(x);
+    
   };
 
   //Paginado.
@@ -48,7 +68,9 @@ const Cards = (props) => {
   useEffect(() => {
     // 👇️ scroll to top on page load
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, []);
+    setMaxPageNumberLimit(5)
+  setMinPageNumberLimit(0)
+  }, [trueorfalse]);
 
   const scroll = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -67,8 +89,10 @@ const Cards = (props) => {
 
   const renderPageNumbers = pages.map((number) => {
     //creamos una funcion para renderizar los numeros
+    
     if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
       //si el numero de paginas es menos al maximo de numero de paginas mas uno y el numero de paginas es mayor  al minimo,
+      
       return (
         <li
           key={number}
@@ -81,11 +105,17 @@ const Cards = (props) => {
           {number}
         </li>
       );
+      
     } else {
+      
       return null; //sino q no haga nada
     }
   });
-
+/*   setTimeout(() => {
+    setMaxPageNumberLimit(5)
+  setMinPageNumberLimit(0)
+  }, 1500); */
+  
   //handle next
 
   const handleNext = () => {
@@ -119,16 +149,37 @@ const Cards = (props) => {
     pageDecrementBtn = <li> &hellip; </li>;
   }
 
+
+
+
+  // Toasters para favoritos!
+
+  const notifyRemove=  ()=> toast.error("Removido de favoritos!",{style:{
+    background:"red",
+    color:"white"
+}})
+
+const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
+  background: "rgb(67, 160, 71)",
+  color:"white"
+}});
+
+
+
+
   useEffect(() => {
     // 👇️ scroll to top on page load
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
+  
   return (
     <div>
       <div className="mapeoCards">
         {currentItems?.map((e, index) => (
           <Card
+            notifyRemove= {notifyRemove}
+            notifyAddFav={notifyAddFav}
             localStor={addProductCartStorage}
             ob={e}
             price={e.price}
@@ -138,6 +189,8 @@ const Cards = (props) => {
             id={e.idProduct}
             key={index}
             stock={e.stock}
+            reduction={e.reduction}
+            reducedAmount={e.reducedAmount}
           />
         ))}
       </div>
@@ -170,6 +223,10 @@ const Cards = (props) => {
           </li>
         </ul>
       </div>
+      <Toaster
+      position="bottom-left"
+      reverseOrder={false}
+       />
     </div>
   );
 };

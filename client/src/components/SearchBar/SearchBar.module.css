@@ -1,11 +1,46 @@
+.searchs {
+  width: 100%;
+}
+
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: absolute;
+  top: 29px !important;
+  width: 700px;
+}
+
+.dropdownProdConteiner {
+  display: flex;
+  flex-direction: column;
+  background-color: #eeeeee;
+  z-index: 1;
+  margin-right: 58px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-bottom: 10px;
+}
+
+.products {
+  margin-top: 15px;
+  font-size: 18px;
+  width: 25vw;
+  font-weight: 500;
+}
+
+.products:hover {
+  background-color: #37373f;
+  color: white;
+}
+
 .searchBar {
   border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  background-color: transparent;
+  background-color: white;
   border: 1px solid white;
-  color: white;
-  padding: 5px;
-  width: 15vw;
+  color: black;
+  padding: 7px;
+  width: 22vw;
 }
 
 .searchButton {
@@ -13,8 +48,8 @@
   border-bottom-right-radius: 10px;
   border: 1px solid white;
   color: white;
-  background-color: #37373f;
-  padding: 5px;
+  background-color: #91c612;
+  padding: 7px;
   width: 3vw;
 }
 .searchButton:hover {
@@ -31,4 +66,20 @@
 
 .searchBar:focus {
   outline: none;
+}
+
+@media screen and (max-width:450px) {
+  .searchButton{
+    width: 33px;
+  }
+  .search {
+    width: 135px;
+    margin: 0%;
+    display: flex;
+  }
+  .searchBar{
+    width: 95px;
+  }
+
+
 }

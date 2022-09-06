@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./Paginado.module.css";
 
-function Paginado({ ProductsPerPage, allProducts, paginado }) {
+function Paginado({ ProductsPerPage, allProducts, paginado, currentPage }) {
   const pageNumbers = [];
   for (
     let index = 1;
@@ -18,7 +18,7 @@ function Paginado({ ProductsPerPage, allProducts, paginado }) {
           pageNumbers.map((number) => (
             <li className={style.number} key={number}>
               <button
-                className={style.paginadoA}
+                className={number === currentPage ? style.current : style.paginadoA}
                 onClick={() => paginado(number)}
               >
                 {number}

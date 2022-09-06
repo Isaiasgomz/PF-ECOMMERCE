@@ -1,13 +1,15 @@
 .containerSideBar{
-    background-color: rgb(231, 231, 231);
+    background-color:white;
+    color: rgb(48, 48, 48);
     width: 250px;
     height: 650px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    border: 2px solid black;
+    border: 1px solid rgb(230, 230, 230);
     border-radius: 25px;
+    box-shadow: 0px 5px 8px 0px rgba(48, 48, 48, 0.527);
     
 }
 
@@ -20,17 +22,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-bottom:2px solid black ;
+    margin-top: 20px;
 }
 
 .imagen {
-    border-radius: 100px;
-    border: solid;
+    border-radius: 50%;
+    border: none;
     height: 150px;
-    width: 160px; 
+    width: 160px;
+    
 }
 
+.fullName{
+    font-size: 20px;
+}
 
+.administrator{
+    font-size: 30px;
+}
 
 .containerOptions{
 
@@ -41,7 +50,8 @@
     align-items: center;
     justify-content: center;
     gap: 15px;
-    padding: 20px;
+    
+    
 }
 
 
@@ -54,6 +64,7 @@
     justify-content: center;
     background-color: #91C612;
     color: white ;
+    border-radius: 7px;
     
 } 
 
@@ -62,7 +73,7 @@
 }
 
 .items:hover{
-    background-color: #3483FA;
+    background-color: #a2da21;
     color: white;
 }
 

@@ -17,7 +17,7 @@ function Filter() {
     const dispatch = useDispatch()
 
     
-    const {setCurrentPage} = useContext(createCont)
+    const {setCurrentPage,trueorfalse, setTrueorFalse} = useContext(createCont)
 
 
     const [dropDown, setDropDown] = useState(false)
@@ -48,6 +48,7 @@ function Filter() {
             })
             dispatch(sortProductByPrice(productSorted))
             setCurrentPage(1);
+            trueorfalse===true?setTrueorFalse(false):setTrueorFalse(true)
         }
 
         if (e.target.textContent.slice(2) === "Mayor precio") {
@@ -63,6 +64,16 @@ function Filter() {
 
             dispatch(sortProductByPrice(productSorted))
             setCurrentPage(1);
+            trueorfalse===true?setTrueorFalse(false):setTrueorFalse(true)
+        }
+
+        if (e.target.textContent.slice(2) === "Descuentos") {
+            let productSorted = (productsByName.length === 0 ? Products : productsByName).filter(
+                (product) => product.reduction > 0 )
+
+            dispatch(sortProductByPrice(productSorted))
+            setCurrentPage(1);
+            trueorfalse===true?setTrueorFalse(false):setTrueorFalse(true)
         }
     }
 
@@ -81,6 +92,7 @@ function Filter() {
                     AllProducts).filter(g => g.brand === e.target.textContent.slice(2))
         dispatch(sortProductByBrand(productSorted))
         setCurrentPage(1);
+        trueorfalse===true?setTrueorFalse(false):setTrueorFalse(true)
     }
 
     const sortByCategory = (e) => {
@@ -98,6 +110,8 @@ function Filter() {
                     AllProducts).filter(g => g.category === e.target.textContent.slice(2))
         dispatch(sortProductByCategory(productSorted))
         setCurrentPage(1);
+        trueorfalse===true?setTrueorFalse(false):setTrueorFalse(true)
+        
     }
 
     const clearFilters = (e) =>{
@@ -156,6 +170,7 @@ function Filter() {
             <div>
             <div className={styles.toggleItem} value="Menor precio" onClick={sortByPrice}><span>- Menor precio</span></div>
             <div className={styles.toggleItem} value="Mayor precio" onClick={sortByPrice}><span>- Mayor precio</span></div>
+            <div className={styles.toggleItem} value="Descuentos" onClick={sortByPrice}><span>- Descuentos</span></div>
             </div>
             :null}
         
