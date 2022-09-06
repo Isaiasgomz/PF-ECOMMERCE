@@ -19,6 +19,9 @@
     align-items: center;
     justify-content: center;
     /* height: 65%; */
+    width: 100%;
+    flex-wrap: wrap;
+
    
 }
 
@@ -33,3 +36,17 @@
     outline: none;
 }
 
+
+@media screen and (max-width:450px) {
+    .spanMenu {
+      display: none;
+    }
+
+    .categories{
+        display: flex;
+        justify-content: end;
+    }
+  
+    
+  
+  }

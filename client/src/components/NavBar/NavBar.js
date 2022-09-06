@@ -15,10 +15,10 @@ function NavBar() {
   return (
     <div className={styles.menus}>
       <div className={styles.container}>
-        
+
           <Link to="/">
             <div className={styles.imagen}>
-              <img alt="imagen" className={styles.imagen} src={logo} />
+              <img alt="imagen" className={styles.imagenLogo} src={logo} />
             </div>
           </Link>
        
@@ -39,7 +39,7 @@ function NavBar() {
           
             <Link to="/cart">
               <button className={styles.cart}>
-                <i className="fa-solid fa-cart-shopping"></i> Carrito
+                <i className="fa-solid fa-cart-shopping"></i> <span className={styles.spanText}>Carrito</span>
               </button>
             </Link>
           

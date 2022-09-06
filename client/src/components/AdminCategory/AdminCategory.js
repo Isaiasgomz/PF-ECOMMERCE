@@ -25,7 +25,7 @@ function AdminCategory() {
   })
 
    let [currentPage, setCurrentPage] = useState(1);
-  let [categoryPerPage, setCategoryPerPage] = useState(4);
+  let [categoryPerPage, setCategoryPerPage] = useState(6);
   let indexOfLastCategory = currentPage * categoryPerPage;
   let indexOfFirstCategory= indexOfLastCategory - categoryPerPage;
   let currentCategory = categoryFilter.slice(
@@ -35,9 +35,7 @@ function AdminCategory() {
 
   return (
     <div className={style.containerAll}>
-      <div className={style.containerAdminSideBar}>
-       {/*  <AdminSideBar></AdminSideBar> */}
-      </div>
+
 
     <div className={style.productContainer}>
       <div className={style.containerInfoTable}>

@@ -68,3 +68,19 @@
 .searchBar:focus {
   outline: none;
 }
+
+@media screen and (max-width:450px) {
+  .searchButton{
+    width: 33px;
+  }
+  .search {
+    width: 135px;
+    margin: 0%;
+    display: flex;
+  }
+  .searchBar{
+    width: 95px;
+  }
+
+
+}
