@@ -184,3 +184,14 @@ input:checked + section.box .box-title:before {
 .btnFAQs:active {
   filter: brightness(0.8);
 }
+
+
+@media screen and (max-width:1400px) {
+
+  
+  .FAQScont{
+      height: 140vh;
+  }
+
+ 
+}

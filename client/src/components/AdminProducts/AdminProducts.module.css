@@ -435,3 +435,16 @@
     color: transparent;
 }
 
+@media screen and (max-width:1400px) {
+
+  
+    .containerAll{
+        height: auto;
+    }
+  
+    .infoConteiner{
+        flex-wrap: wrap;
+    }
+
+   
+  }
