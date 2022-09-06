@@ -5,7 +5,6 @@
     width: 530px;
     height: 80px;
     /* display: flex; */
-    background-color:red;
 }
 
 .fila{
@@ -36,4 +35,12 @@
     background-color: #aadd32;
     transition: 0.3s ease;
 }
+
+@media screen and (max-width:1400px) {
+
+  
+    .card{
+        width: 100%;
+    }
+  }
 
