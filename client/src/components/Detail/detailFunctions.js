@@ -12,7 +12,7 @@ module.exports = {
     const errors = {}
 
     if (!input.qualification) {
-      errors.qualification = 'La valoracion es requerida'
+      errors.qualification = 'La valoración es requerida'
     }
     if (input.review?.split(' ').length < 5) {
       errors.review = 'Debes dejar al menos un texto con 5 palabras'

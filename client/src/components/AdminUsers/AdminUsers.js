@@ -85,7 +85,7 @@ function AdminUsers() {
           <div className={style.infoProduct}>
             <div className={style.info}>
               <h3>{usersBanned}</h3>
-              <p>Usuarios Desabilitados</p>
+              <p>Usuarios Deshabilitados</p>
             </div>
             <div className={style.icon}>
               <div className={style.containerCheckx}>
@@ -107,7 +107,7 @@ function AdminUsers() {
               <li className={style.headerItem}>Correo</li>
             </div>
             <div className={style.headerMove}>
-              <li className={style.headerItem}>Role</li>
+              <li className={style.headerItem}>Rol</li>
             </div>
             <div className={style.headerMove}>
               <li className={style.headerItem}>Estatus</li>

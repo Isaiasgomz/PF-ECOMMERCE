@@ -52,7 +52,7 @@ const UserOrderDetail = (props) => {
       <div className={style.containerCart}>
         <div className={style.productos4}>
           <Link to="/myOrders">
-            <button className={style.button}>Volver a mis ordenes</button>
+            <button className={style.button}>Volver a mis órdenes</button>
           </Link>
         </div>
         <div className={style.containerCart2}>

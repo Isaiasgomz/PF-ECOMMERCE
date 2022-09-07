@@ -105,9 +105,9 @@ function EditDiscount(props) {
             <span className={style.title}>{detail.productName}</span>
 
             <div className={style.infoProduct}>
-              <span className={style.info}>Categoria: {detail.category}</span>
+              <span className={style.info}>Categoría: {detail.category}</span>
               <span className={style.info}>Marca: {detail.brand}</span>
-              <span className={style.info}>stock: {detail.stock}</span>
+              <span className={style.info}>Stock: {detail.stock}</span>
               <span className={style.info}>Precio actual: {detail.price}</span>
               <span className={style.info}>
                 Precio final con {product.reduction}% de descuento:{" "}

@@ -90,7 +90,7 @@ function UserAllAddresses() {
             </div>
             <div className={style.anadir}>
               <Link to="/userShippingAddress">
-                <button className={style.button}>AÑADIR NUEVA DIRECCION</button>
+                <button className={style.button}>AÑADIR NUEVA DIRECCIÓN</button>
               </Link>
             </div>
           </div>

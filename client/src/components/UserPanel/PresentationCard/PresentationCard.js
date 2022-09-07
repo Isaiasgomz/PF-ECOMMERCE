@@ -41,7 +41,7 @@ function PresentationCard() {
               <h6 className={style.title}>Nombre completo: {info.fullname}</h6>
               <h6 className={style.title}>Dirección: {info.address}</h6>
               <h6 className={style.title}>Ciudad: {info.city}</h6>
-              <h6 className={style.title}>Pais: {info.country}</h6>
+              <h6 className={style.title}>País: {info.country}</h6>
             </div>
 
             <div className={style.data}>
@@ -51,7 +51,7 @@ function PresentationCard() {
               </h6>{" "}
               <br />
               <h6 className={style.title}>CP: {info.CP}</h6>
-              <h6 className={style.title}>teléfono: {info.telephone}</h6>
+              <h6 className={style.title}>Teléfono: {info.telephone}</h6>
             </div>
           </div>
         </div>
