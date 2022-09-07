@@ -138,6 +138,6 @@ function EditDiscount(props) {
         </div>
       </div>
     );
-  
+    }
 
 export default EditDiscount;
