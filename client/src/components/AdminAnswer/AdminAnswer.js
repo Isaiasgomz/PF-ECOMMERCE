@@ -57,6 +57,7 @@ function AdminAnswer(props) {
       QuestionId: id,
       answer: "",
     });
+    window.history.back();
   };
   const handleEdit = (e) => {
     /* e.preventDefault(); */
@@ -84,7 +85,7 @@ function AdminAnswer(props) {
 
       [e.target.name]: e.target.value,
     });
-    window.history.back();
+    
   };
 
   const handleClik = (e) => {
