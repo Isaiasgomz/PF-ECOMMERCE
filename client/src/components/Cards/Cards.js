@@ -197,7 +197,7 @@ const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
       <div className="divPaginado">
         <ul className="pageNumbers">
           <li>
-            <button
+            <button className="arrowCards"
               onClick={() => {
                 scroll();
                 handlePrev();
@@ -211,7 +211,7 @@ const notifyAddFav = () => toast.success('Agregado a favoritos!',{style:{
           {renderPageNumbers}
 
           <li>
-            <button
+            <button className="arrowCards"
               onClick={() => {
                 scroll();
                 handleNext();

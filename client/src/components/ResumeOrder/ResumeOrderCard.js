@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import style from "./ResumeOrderCard.module.css";
+import MediaQuery from 'react-responsive';
 
 const ResumeOrderCard = ({ obj }) => {
   return (
@@ -15,6 +15,12 @@ const ResumeOrderCard = ({ obj }) => {
         <div className={style.containerName}>
           <p>{obj.productName}</p>
         </div>
+        <MediaQuery maxWidth={450}>
+          
+        <div className={style.containerNameQuery}>
+          <span>{obj.productName.slice(0,50)}</span>
+        </div>
+        </MediaQuery>
         <div className={style.containerCant}>
           <p> x{obj.quantity ? obj.quantity : 1} </p>
         </div>
