@@ -57,7 +57,7 @@ function UserAllAddresses() {
                     <div className={style.text}>
                       <i class="fa-solid fa-house"></i> Mi dirección
                     </div>
-                    <div>
+                    <div className={style.spanText}>
                       {" "}
                       {personalData.address}, {personalData.city},{" "}
                       {personalData.country}{" "}
