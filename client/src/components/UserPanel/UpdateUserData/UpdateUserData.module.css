@@ -70,6 +70,17 @@
   background-color: red;
   width: 5px;
 
+/* ESTILO JULIA VER*/
+.name2{ 
+  margin-left: 20px;
+  padding-left: 8px;
+  background-color: transparent;
+  width: 43%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .contenedor {
@@ -112,6 +123,24 @@
   margin: 10px 0 0;
   font-size: 14px;
   color: black;
+}
+
+.lab2::before {
+  content: attr(type);
+  display: block;
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: black;
+}
+
+.lab3::before {
+  content: attr(type);
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: black;
+  margin-left: 120px;
+  margin-right: -20px;
 }
 
 .containerBtn {
@@ -218,7 +247,8 @@
   }
 }
 
-@media screen and (max-width: 450px) {
+/* ESTILOS JULIA VER*/
+/*@media screen and (max-width: 450px) {
   .containerForm {
     height: auto;
   }
@@ -264,4 +294,45 @@
     padding: 5px 12px;
     margin: 8px 0 0;
   }
+}*/
+
+@media screen and (max-width:450px) {
+  .formInput{
+    width: 200px;
+
+  }
+.contenedor{
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
+  align-items: center;
+  margin-left: 160px;
 }
+
+.containerForm{
+  height: 100%;
+  background-color: white;
+}
+.containerBtn{
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-left: 60px;
+}
+
+.btn{
+  margin-left: 10px;
+}
+.titleCont{
+  margin-left: 60px;
+}
+.lab2{
+  margin-left: -17px;
+}
+.lab3{
+  margin-left: -17px;
+}
+}
+
