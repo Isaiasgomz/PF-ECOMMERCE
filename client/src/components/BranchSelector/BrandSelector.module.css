@@ -176,7 +176,14 @@
     display: flex;
 }
 
-@media screen and (max-width:1400px) {
+
+
+.iconButton{
+ color: transparent;
+ font-size: 1px;
+}
+
+@media screen and (max-width:1400px) and (min-width: 500px) {
   
     .containerBuild{
         padding-left: 60px;
@@ -220,10 +227,11 @@
 
   .build{
     height: 410px;
-    width: 70px;
+    width: 50px;
     margin-top: 10px;
-    margin-right: 0;
+    
     padding: 5px;
+    margin-right: 0px;
   }
   .containerBuild{
     margin-top: 20px;
@@ -235,19 +243,49 @@
     position: fixed;
     right: 0;
     margin-left: -5px;
+    
 }
 .imgLabel{
     padding: 0px;
     margin: 0px;
+    margin-right: 10px;
+    height: 50px;
+    margin-top: 5px;
 }
 
 .buildImg{
-    margin: 10px;
+    margin: 0px;
+
 }
 .containerProducts{
     
     flex-wrap: wrap;
+    margin: 0;
     padding-top: 20px;
-   
+    width: 300px;
 }
+
+.contLink{
+    display: flex;
+    flex-direction: column;
+}
+
+.button{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+}
+
+.textButton{
+    display: none;
+}
+
+.iconButton{
+    font-size: 20px;
+    color: white;
+}
+
+
+
   }
