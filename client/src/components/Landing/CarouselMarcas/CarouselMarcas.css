@@ -71,3 +71,9 @@
 .slideLogo:hover {
   transform: translateY(-5px);
 }
+
+@media screen and (max-width: 450px) {
+  .containerCarouselMarcas {
+  display: none;
+}
+}
