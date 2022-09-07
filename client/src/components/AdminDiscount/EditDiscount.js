@@ -53,6 +53,7 @@ function EditDiscount(props) {
     });
   };
 
+
     const handleSubmit = (e) => {
       e.preventDefault();
 
@@ -98,6 +99,7 @@ function EditDiscount(props) {
               width="300px"
               height="300px"
             />
+
           </div>
           <div className={style.containerText}>
             <span className={style.title}>{detail.productName}</span>
@@ -137,5 +139,5 @@ function EditDiscount(props) {
       </div>
     );
   
-}
+
 export default EditDiscount;

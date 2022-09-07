@@ -119,6 +119,11 @@ a {
   filter: brightness(1.2);
 }
 
+@media screen and (max-width:1400px) {
+  
+  .contAccesorios{
+    display: none;
+
 @media screen and (max-width: 450px) {
   .containerAcc {
     width: 100%;
@@ -235,5 +240,6 @@ a {
 
   .thumblist img:hover {
     filter: brightness(1.2);
+
   }
 }

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserDetail, updateUserData } from "../../../Actions/index.js";
 import styles from './UpdateUserData.module.css';
@@ -36,22 +35,17 @@ function validate(input) {
 function UpdateUserData() {
   const dispatch = useDispatch();
 
-  const [loading, setLoading] = useState(true)
-  const email = useSelector((state) => state.user.email);
   const info = useSelector((state) => state.userDetail.PersonalDatum);
   const { user } = useAuth0();
 
-  useEffect(() => {
-    
+  useEffect(() => {  
     if(user?.email.length > 0) dispatch(getUserDetail(user.email));
   }, [user]);
 
-  const history = useHistory();
-
   const [input, setInput] = useState({
-    fullname: "",
-    UserEmail: email,
-    address: "",
+    fullname: info?.fullname,
+    UserEmail: user?.email,
+    address: info?.address,
     CP: info?.CP,
     telephone: info?.telephone,
     city: info?.city,
@@ -88,12 +82,12 @@ function UpdateUserData() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(updateUserData(email, input));
+    dispatch(updateUserData(user.email, input));
     swal('Sus datos de perfil se actualizaron correctamente');
     setIsDisabled(true);
     setInput({
       fullname: info?.fullname,
-      UserEmail: email,
+      UserEmail: user?.email,
       address: info?.address,
       CP: info?.CP,
       telephone: info?.telephone,
@@ -102,15 +96,10 @@ function UpdateUserData() {
       department: info?.department
     });
 
-    /* history.push("/presentationCard"); */
     window.history.back();
   };
 
-  setTimeout((loading) => {
-    setLoading(false)
-  }, 1000);
-
-  if (loading) {
+  if (!info || !user) {
     return (
       <div className={styles.contenedorLoading}>
         <div className={styles.loading}>
@@ -121,8 +110,7 @@ function UpdateUserData() {
   } 
   else {
     return (
-      <React.Fragment>
-       
+      <React.Fragment>       
         <div className={styles.containerForm}>
           <form
             className={styles.productContainer}
@@ -139,10 +127,10 @@ function UpdateUserData() {
                     required={true}
                     type="text"
                     name="fullname"
-                    value={input?.fullname/* ?input?.fullname:setInput({
+                    value={input?.fullname? input?.fullname:setInput({
                       ...input,
                       fullname:info?.fullname
-                    }) */}
+                    })}
                     placeholder="Por ej.: Juan Pérez"
                     onChange={(e) => handleInput(e)}
                   />
@@ -158,7 +146,10 @@ function UpdateUserData() {
                     readOnly={true}
                     type="email"
                     name="UserEmail"
-                    value={input.UserEmail}
+                    value={input?.UserEmail? input?.UserEmail:setInput({
+                      ...input,
+                      UserEmail:user?.email
+                    })}
                   />
                 </label>
               </div>
@@ -188,7 +179,10 @@ function UpdateUserData() {
                     required={true}
                     type="number"
                     name="department"
-                    value={input.department}
+                    value={input?.department?input?.department:setInput({
+                      ...input,
+                      department:info?.department
+                    })}
                     placeholder="N° de Dpto - Si vives en casa -> 0"
                     onChange={(e) => handleInput(e)}
                   />
@@ -205,7 +199,10 @@ function UpdateUserData() {
                     required={true}
                     type="text"
                     name="city"
-                    value={input.city}
+                    value={input?.city?input?.city:setInput({
+                      ...input,
+                      city:info?.city
+                    })}
                     placeholder="Ciudad"
                     onChange={(e) => handleInput(e)}
                   />
@@ -220,7 +217,10 @@ function UpdateUserData() {
                     required={true}
                     type="number"
                     name="CP"
-                    value={input.CP}
+                    value={input?.CP ?input?.CP:setInput({
+                      ...input,
+                      CP:info?.CP
+                    })}
                     placeholder="Código Postal"
                     onChange={(e) => handleInput(e)}
                   />
@@ -228,29 +228,35 @@ function UpdateUserData() {
                 </label>
               </div>
               <div className={styles.name1}>
-                <label className={styles.lab}>País:
+                <label className={styles.lab2}>País:
                   <input
                     className={styles.formInput}
                     disabled={isDisabled}
                     required={true}
                     type="text"
                     name="country"
-                    value={input.country}
+                    value={input?.country?input?.country:setInput({
+                      ...input,
+                      country:info?.country
+                    })}
                     placeholder="País"
                     onChange={(e) => handleInput(e)}
                   />
                   {errors.country && <label className={styles.textError}>{errors.country}</label>}
                 </label>
               </div>
-              <div className={styles.name1}>
-                <label className={styles.lab}>Teléfono:
+              <div className={styles.name2}>
+                <label className={styles.lab3}>Teléfono:
                   <input
                     className={styles.formInput}
                     disabled={isDisabled}
                     required={true}
                     type="tel"
                     name="telephone"
-                    value={input.telephone}
+                    value={input?.telephone?input?.telephone:setInput({
+                      ...input,
+                      telephone:info?.telephone
+                    })}
                     placeholder="Teléfono"
                     onChange={(e) => handleInput(e)}
                   />
@@ -272,7 +278,6 @@ function UpdateUserData() {
       </React.Fragment>
     );
   }
-
 }
 
 export default UpdateUserData;

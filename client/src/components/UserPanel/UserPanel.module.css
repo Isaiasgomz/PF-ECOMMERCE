@@ -89,6 +89,16 @@ position: absolute;
 }
 
 
+@media screen and (max-width:1400px) {
+  
+  .conteiner{
+    height: 510px !important;
+  }
+}
+
+
+
+
 /* @media screen and (max-width:450px) {
   .Success {
     width: 60%;

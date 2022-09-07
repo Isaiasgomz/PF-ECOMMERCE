@@ -152,3 +152,76 @@
   color: red;
 }
 
+
+
+
+@media screen and (max-width:450px) {
+
+
+  .containerForm{
+  height: 100%;
+  background-color: white;
+}
+.contenedor{
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
+  align-items: center;
+  margin-left: 140px;
+}
+  .productContainer{
+
+    padding: 0%;
+
+  }
+
+  .formInput{
+    width: 200px;
+  }
+
+  
+
+ /* .containerBtn{
+    margin-left: 30px;
+    width: 150px;
+    display: flex;
+  justify-content: space-between;
+  }*/
+.containerBtn{
+  display: flex;
+  
+  margin-left: 60px;
+}
+  /*.btn{
+    width: auto;
+    height: 40px;
+    margin-right: 8px;
+    float: center;
+  }
+
+  .btnS{
+    height: 40px;
+    margin-right: 8px;
+
+  }*/
+.btn{
+  margin-left: 10px;
+}
+
+.btnS{
+  width: 100px;
+  
+}
+  .titleForm{
+  margin-left: 35px;
+}
+.lab2{
+  margin-left: -17px;
+}
+.lab3{
+  margin-left: -17px;
+}
+
+}

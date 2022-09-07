@@ -73,7 +73,7 @@ function UserAllAddressesOrder() {
                     </div>
 
                     <div className="radio">
-                            <div className="radio1">
+                            <div className={style.radio1}>
                                 <input
                                   key = {personalData.id}
                                   type= 'radio'
@@ -107,7 +107,7 @@ function UserAllAddressesOrder() {
                           {a.address}, {a.city}, {a.country}
                         </div>
                         <div className="radio">
-                            <div className="radio1">
+                            <div className={style.radio1}>
                                 <input
                                   id = {a.id}
                                   type= 'radio'
@@ -132,9 +132,9 @@ function UserAllAddressesOrder() {
               </Link>
             </div>
             <div className={style.control} >
-              <Link to="/resumeOrder">
+              {/* <Link to="/resumeOrder">
                 <button className={style.button}>VOLVER AL CARRITO</button>
-              </Link>
+              </Link> */}
               <Link to="/payment">
                 <button className={style.button} onClick={handleConfirm} >CONFIRMAR</button>
               </Link>

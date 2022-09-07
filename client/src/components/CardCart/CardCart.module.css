@@ -133,8 +133,17 @@
 @media screen and (max-width:450px) {
     .quantity {
         margin-bottom: -15px;
-        
+        justify-content: space-evenly;
+        width: 100%;
     }
 
 }
+
+
+@media screen and (max-width:1400px) {
+  
+    .containerCard{
+      width: 590px;
+    }
+  }
 

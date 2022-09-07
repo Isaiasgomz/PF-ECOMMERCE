@@ -82,11 +82,10 @@ function AdminAnswer(props) {
     setCheckbox({
       ...checkbox,
 
-      [e.target.name]: e.target.value
-    })
+      [e.target.name]: e.target.value,
+    });
     window.history.back();
-  }
-
+  };
 
   const handleClik = (e) => {
     /* e.preventDefault() */
@@ -116,6 +115,7 @@ function AdminAnswer(props) {
   return (
     <div className={style.containerAll}>
       <div className={style.prodandQACont}>
+      <div className={style.containerProdCont}>
         <div className={style.productCont}>
           <div className={style.imgCont}>
             <img src={product?.image} className={style.img}></img>
@@ -139,6 +139,7 @@ function AdminAnswer(props) {
               <span>Stock: {product?.stock}</span>
             </div>
           </div>
+        </div>
         </div>
         <div className={style.qAndAcont}>
           <div className={style.questionCont2}>{oneQuestion?.question}</div>
