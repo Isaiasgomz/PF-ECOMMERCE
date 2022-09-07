@@ -54,7 +54,7 @@ function UserAllAddresses() {
                       <i className="fa-solid fa-house"></i> Mi dirección
                     </div>
 
-                    /*<div className={style.adress}>*/
+                    {/* <div className={style.adress}> */}
 
                     <div className={style.spanText}>
 
