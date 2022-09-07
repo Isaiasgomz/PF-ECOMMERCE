@@ -242,7 +242,7 @@ function UpdateUserData() {
                   {errors.country && <label className={styles.textError}>{errors.country}</label>}
                 </label>
               </div>
-              <div className={styles.name1}>
+              <div className={styles.name3}>
                 <label className={styles.lab}>Teléfono:
                   <input
                     className={styles.formInput}
