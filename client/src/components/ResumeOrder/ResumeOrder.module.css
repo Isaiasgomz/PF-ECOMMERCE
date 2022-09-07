@@ -79,9 +79,10 @@
 
 @media screen and (max-width:450px) {
   .containerCart {
-    width: 487px;
+    width: 300px;
     height: auto;
     margin-top: 25px;
+    margin-left: 62px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,6 +95,7 @@
     flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 30px;
+
   }
 
   .button{
