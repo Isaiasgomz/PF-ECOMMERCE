@@ -53,15 +53,6 @@ function EditDiscount(props) {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const updatingPrice = {
-      idProduct: props.match.params.id,
-      price: detail.price,
-      reduction: parseInt(product.reduction),
-    };
-
     const handleSubmit = (e) => {
       e.preventDefault();
 
@@ -83,7 +74,7 @@ function EditDiscount(props) {
         category: "",
         brand: "",
       });
-      history.push("/adminDiscount");
+      history.push("/adminProducts");
     };
 
     const handleCheckBoxSeason = (e) => {
@@ -145,6 +136,6 @@ function EditDiscount(props) {
         </div>
       </div>
     );
-  };
+  
 }
 export default EditDiscount;
