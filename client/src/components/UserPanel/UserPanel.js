@@ -181,7 +181,7 @@ userAdm?
       <Link to={"/adminOrders"} className={styles.link}><i className="fa-solid fa-bag-shopping" style={{ fontSize: "1.75em" }}></i> </Link>
     </NavIcon>
     <NavText>
-      <Link to={"/adminOrders"} className={styles.link}>  Ordenes</Link>
+      <Link to={"/adminOrders"} className={styles.link}>  Órdenes</Link>
     </NavText>
   </NavItem>
   <NavItem eventKey="5" className={styles.items}>
@@ -189,7 +189,7 @@ userAdm?
       <Link to={"/adminCategory"} className={styles.link}><i className="fa-solid fa-boxes-packing" style={{ fontSize: "1.75em" }}></i> </Link>
     </NavIcon>
     <NavText>
-      <Link to={"/adminCategory"} className={styles.link}>Categorias</Link>
+      <Link to={"/adminCategory"} className={styles.link}>Categorías</Link>
     </NavText>
   </NavItem>
   <NavItem eventKey="6" className={styles.items}>

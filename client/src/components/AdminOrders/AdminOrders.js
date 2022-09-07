@@ -41,7 +41,7 @@ function AdminOrders() {
               <li className={style.header}>Usuario</li>
             </div>
             <div className={style.containHeadr}>
-              <li className={style.header}>Order</li>
+              <li className={style.header}>Orden</li>
             </div>
             <div className={style.containHeadr}>
               <li className={style.header}>Precio Total</li>

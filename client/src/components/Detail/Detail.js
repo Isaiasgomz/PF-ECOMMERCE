@@ -284,7 +284,7 @@ function Detail(props) {
               </Box>
             </div>
             <div className={style.category}>
-              <span>Categoria: </span> <span>{product.category}</span>
+              <span>Categoría: </span> <span>{product.category}</span>
             </div>
           </div>
           <div className={style.priceConteiner}>
@@ -317,7 +317,7 @@ function Detail(props) {
 
             <div className={style.price}>
               <span className={style.pr}>$ {Math.round(product.price / 12)}.99</span>
-              <span className={style.textPrice}>12 cuotas sin interes </span>
+              <span className={style.textPrice}>12 cuotas sin interés </span>
             </div>
           </div>
           <div className={style.garantiaConteiner}>
@@ -325,7 +325,7 @@ function Detail(props) {
               <span>
                 <i className="fa-solid fa-shield-halved"></i>{" "}
               </span>{" "}
-              <span className={style.miniGarantia2}>Garantia - 12 meses</span>
+              <span className={style.miniGarantia2}>Garantía - 12 meses</span>
             </div>
             {product.stock > 0 ? (
               <div>
@@ -347,7 +347,7 @@ function Detail(props) {
                 {" "}
                 <i className="fa-solid fa-truck"></i>
               </span>{" "}
-              <span className={style.miniGarantia}> Envio a todo el Pais</span>
+              <span className={style.miniGarantia}> Envíos a todo el País</span>
             </div>
           </div>
 
@@ -394,7 +394,7 @@ function Detail(props) {
               className={toggleState === 1 ? style.activeTabs : style.tabs}
               onClick={() => toggleTab(1)}
             >
-              Descripcion
+              Descripción
             </div>
             <div
               className={toggleState === 2 ? style.activeTabs : style.tabs}
@@ -495,8 +495,8 @@ function Detail(props) {
                                 autoComplete="off"
                               >
                                 <label>
-                                  Vimos que compraste este producto, dejanos tu
-                                  opinion!
+                                  Vimos que compraste este producto, déjanos tu
+                                  opinión!
                                 </label>
                                 <hr />
                                 <Box
@@ -569,8 +569,8 @@ function Detail(props) {
                                 autoComplete="off"
                               >
                                 <label>
-                                  Vimos que compraste este producto, dejanos tu
-                                  opinion!
+                                  Vimos que compraste este producto, déjanos tu
+                                  opinión!
                                 </label>
                                 <hr />
                                 <Box
@@ -676,7 +676,7 @@ function Detail(props) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Descripcion</Typography>
+          <Typography>Descripción</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -740,7 +740,7 @@ function Detail(props) {
                                 noValidate
                                 autoComplete="off"
                               >
-                                <label>Vimos que compraste este producto, dejanos tu opinion!</label>
+                                <label>Vimos que compraste este producto, déjanos tu opinión!</label>
                                 <hr />
                                 <Box component="fieldset" mb={3} borderColor="transparent">
                                   <StyledRating
@@ -790,7 +790,7 @@ function Detail(props) {
                                 noValidate
                                 autoComplete="off"
                               >
-                                <label>Vimos que compraste este producto, dejanos tu opinion!</label>
+                                <label>Vimos que compraste este producto, déjanos tu opinión!</label>
                                 <hr />
                                 <Box component="fieldset" mb={3} borderColor="transparent">
                                   <StyledRating

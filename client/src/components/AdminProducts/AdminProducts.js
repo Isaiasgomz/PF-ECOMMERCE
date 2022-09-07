@@ -221,7 +221,7 @@ function AdminProducts() {
 
         <div className={style.containerNabvar}>
           <select className={style.searchBar}>
-            <option>Desabilitados</option>
+            <option>Deshabilitados</option>
             {productsDisabled &&
               productsDisabled.map((product) => (
                 <option>
@@ -258,7 +258,7 @@ function AdminProducts() {
               <li className={style.header}>Nombre</li>
             </div>
             <div className={style.containHeadr}>
-              <li className={style.header}>Descripcion</li>
+              <li className={style.header}>Descripción</li>
             </div>
             <div className={style.containHeadr}>
               <li className={style.header}>Marca</li>

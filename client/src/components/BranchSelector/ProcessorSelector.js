@@ -240,7 +240,7 @@ function ProcessorSelector(props) {
                   className={style.button}
                 >
                   {" "}
-                  Agregar Perifericos
+                  Agregar Periféricos
                 </button>
               </Link>
             </div>

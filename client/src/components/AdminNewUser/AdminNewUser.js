@@ -14,19 +14,19 @@ function validate (input){
     errors.email = 'El email es requerido'
   }
   if(!input.address){
-    errors.address = 'La direccion es requerida'
+    errors.address = 'La dirección es requerida'
   }
   if(!input.city){
     errors.city = 'La ciudad es requerida'
   }
   if(!input.country){
-    errors.country = 'El pais es requerido'
+    errors.country = 'El país es requerido'
   }
   if(!input.CP){
-    errors.CP = 'El codigo postal es requerido'
+    errors.CP = 'El código postal es requerido'
   }
   if(!input.telephone){
-    errors.telephone = 'El numero de telefono es requerido'
+    errors.telephone = 'El número de teléfono es requerido'
   }
 
   return errors
@@ -96,7 +96,7 @@ function AdminNewUser() {
   }
   return (
     <div className={styles.productContainer}>
-      <h2>Crear nuevo adminstrador</h2>
+      <h2>Crear nuevo administrador</h2>
       <form onSubmit={(e) => handleSubmit(e)}>
       <label htmlFor='fullname'>Nombre</label>
       <input className={styles.formInput} required={true} type="text" 
@@ -118,7 +118,7 @@ function AdminNewUser() {
         <p className={styles.textError} >{errors.email}</p>)
       }
 
-      <label htmlFor='address'>Direccion</label>
+      <label htmlFor='address'>Dirección</label>
       <input className={styles.formInput} required={true} type="text" 
       name='address' value={input.address}
       placeholder='Direccion'
@@ -147,7 +147,7 @@ function AdminNewUser() {
         errors.city && (
         <p className={styles.textError} >{errors.city}</p>)
       }
-      <label htmlFor='country'>Pais</label>
+      <label htmlFor='country'>País</label>
       <input className={styles.formInput} required={true} type="text"
       name='country' value={input.country} 
       placeholder='Pais' 
@@ -167,7 +167,7 @@ function AdminNewUser() {
         <p className={styles.textError} >{errors.CP}</p>)
       }
 
-      <label htmlFor='telephone'>Telefono</label>
+      <label htmlFor='telephone'>Teléfono</label>
       <input className={styles.formInput} required={true} type="number"
       name='telephone' value={input.telephone}
       placeholder='Telefono' 
