@@ -64,7 +64,7 @@
 
 }
 
-@media screen and (max-width:1400px) {
+@media screen and (max-width:1400px) and (min-width:500px){
     
     .mapeoCards{
         display: flex;
@@ -89,5 +89,8 @@
     .divPaginado{
         position: relative;
         margin-left: -125px;
+    }
+    .arrowCards{
+        /* display: none; */
     }
 }

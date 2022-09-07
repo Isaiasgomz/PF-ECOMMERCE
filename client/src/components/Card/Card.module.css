@@ -253,11 +253,13 @@
 
 @media screen and (max-width:450px) {
     .containerImg {
-        height: 160px;
+        
+        height: 140px;
         width: 160px;
     }
 
     .img {
+        padding-top: 1px;
         width: 160px;
         height: 160px;
     }
@@ -266,7 +268,9 @@
         display: none;
         font-size: 15px;
     }
-
+    .containerInfo{
+        margin-top: -10px;
+    }
     .containerPriceCart {
         padding-top: 10px;
         width: 100%;
@@ -290,7 +294,10 @@
     margin-left: -10px;
     }
 
+.containerTitleQuery{
+    margin-top: -5px;
 
+}
     .containerDescuento{
         margin-right: -20px;
     }
