@@ -5,6 +5,7 @@ import style from "./ShoppingCar.module.css";
 import swal from "sweetalert";
 import { createCont } from "../contexto/contextProvider";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useSelector } from "react-redux";
 
 
 function ShoppingCar() {
@@ -15,6 +16,8 @@ function ShoppingCar() {
 
   const { user } = useAuth0();
 
+  const {user: usuariodb} = useSelector(s => s)
+  console.log("acadb",usuariodb)
 
   let y = JSON.parse(localStorage.getItem(stringLocalStorage));
   let productsFromLocalStorage = y ? Array.from(y) : "No hay productos"
@@ -62,6 +65,11 @@ function ShoppingCar() {
 
   const handleClickNoVerified = (e) => {
     e.preventDefault()
+
+    if(user && usuariodb.status === "false"){
+      swal("Su cuenta está deshabilitada!", "Escríbenos a pullrequest.ecommerce@gmail.com", "error");
+      return
+    }
 
     if (user && user.email_verified === false) {
       swal("No estás verificado!", "Verificación enviada a su casilla de correo", "error");
@@ -119,7 +127,7 @@ function ShoppingCar() {
           </Link>
 
           <div>
-            {user && user.email_verified && productsFromLocalStorage.length ? (
+            {user && usuariodb.status !== "false" && user.email_verified && productsFromLocalStorage.length ? (
               <Link to="/resumeOrder">
                 <button className={style.button}><span className={style.textButton}>Resumen de la orden</span> <span className={style.iconButton}><i className="fa-solid fa-check"></i></span></button>
               </Link>

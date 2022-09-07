@@ -391,3 +391,20 @@
     color: transparent;
 }
 
+@media screen and (max-width:1400px) and (min-width:500px) {
+
+    .containerAll{
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+  
+    .productContainer{
+        width: 80%;
+    }
+  
+   
+   
+  }
+
