@@ -104,6 +104,7 @@
   border-radius: 10px;
   width: 100%;
   height: 80px;
+  background-color: white;
   /* display: flex; */
 }
 .fila{
@@ -111,4 +112,36 @@
   justify-content: space-around;
   margin-top: 22px;
   /* border: purple 1px solid; */
+}
+
+@media screen and (max-width: 450px){
+  .card{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 270px;
+    height: 200px;
+  }
+.fila{
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+}
+
+.containerCards{
+  width: 270px;
+}
+
+.pencil{
+  font-size: 22px;
+}
+  .container{
+    width: 330px;
+    margin-left: 60px;
+  }
+  .button{
+    height: 55px;
+  }
 }

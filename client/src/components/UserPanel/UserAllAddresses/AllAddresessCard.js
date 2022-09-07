@@ -7,14 +7,14 @@ const AllAddresessCard = ({ reference, address, city, country, id }) => {
   return (
     <div className={style.card}>
       <div className={style.fila}>
-        <div className={style.text}><i class="fa-solid fa-house"></i>  {reference}</div>
+        <div className={style.text}><i className="fa-solid fa-house"></i>  {reference}</div>
 
-        <div>
+        <div className={style.adress}>
           {address}, {city}, {country}
         </div>
         <Link to={`/updateAddres/${id}`}>
           <div className={style.containerPencil}>
-            <i class="fa-solid fa-pencil"></i>
+            <i className="fa-solid fa-pencil"></i>
           </div>
           {/* <button className={style.button}> Editar </button> */}
         </Link>

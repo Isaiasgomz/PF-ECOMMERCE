@@ -132,9 +132,9 @@ function UserAllAddressesOrder() {
               </Link>
             </div>
             <div className={style.control} >
-              <Link to="/resumeOrder">
+              {/* <Link to="/resumeOrder">
                 <button className={style.button}>VOLVER AL CARRITO</button>
-              </Link>
+              </Link> */}
               <Link to="/payment">
                 <button className={style.button} onClick={handleConfirm} >CONFIRMAR</button>
               </Link>

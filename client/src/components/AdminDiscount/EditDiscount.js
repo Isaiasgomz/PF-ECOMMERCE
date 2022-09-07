@@ -81,7 +81,7 @@ function EditDiscount(props) {
       category: '',
       brand: '',
     })
-    history.push('/adminDiscount')
+    history.push('/adminProducts')
   }
 
 

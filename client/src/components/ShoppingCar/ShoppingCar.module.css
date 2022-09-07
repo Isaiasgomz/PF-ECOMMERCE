@@ -166,13 +166,24 @@ cursor: default;
 }
 @media screen and (max-width:450px) {
     .containerSup {
-        width: 80%;
+        width: 70%;
         font-size: 8px;
         display: flex;
         flex-direction: column;
+        margin-left: 30px;
+    
     }
 
+    .textButton{
+        display: none;
+    }
+.iconButton{
+    font-size: 25px;
 }
+}
+
+
+
 .button2:hover{
     background-color: #3276dd;
     transition: 0.3s ease;
