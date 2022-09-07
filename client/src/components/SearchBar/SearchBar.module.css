@@ -94,10 +94,10 @@
     width: 33px;
   }
   .search {
-    width: 300px;
+    width: 250px;
     margin: 0%;
     display: flex;
-    justify-content: flex-start;
+    justify-content:center;
   }
   .searchBar {
     width: 170px;

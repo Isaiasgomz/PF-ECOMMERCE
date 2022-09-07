@@ -183,7 +183,7 @@ cursor: default;
     }
     .button {
         width: 60px;
-        
+        height: 50%;
         
     }
     .button1 {
@@ -192,7 +192,7 @@ cursor: default;
     }
     .button2 {
         width: 60px;
-        height: 65px;
+        height: 50%;
     }
     .textButton{
         display: none;
