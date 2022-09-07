@@ -113,6 +113,45 @@
   /* border: purple 1px solid; */
 }
 
+
+
+@media screen and (max-width:450px) {
+   
+  .spanText{
+      display: none;
+  }
+
+  .containerCards{
+    width: 250px;
+    margin-left: 50px;
+  }
+
+  .card{
+    /* width: 400px */
+  }
+  
+  .container{
+    box-shadow: none;
+    background-color: white;
+    margin-top: 0%;
+  }
+
+  .span{
+    display: none;
+  }
+
+  .containerTitle{
+    width: 200px;
+  }
+
+  .button{
+    margin-left: 50px;
+  }
+
+  
+
+}
+
 @media screen and (max-width:1400px) {
   
   .containerForm{
@@ -124,3 +163,4 @@
   }
 
 }
+

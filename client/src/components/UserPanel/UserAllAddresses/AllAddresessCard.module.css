@@ -36,11 +36,23 @@
     transition: 0.3s ease;
 }
 
+
+
+@media screen and (max-width:450px) {
+   
+    .spanText{
+        display: none;
+    }
+  
+    
+  
+
 @media screen and (max-width:1400px) {
 
   
     .card{
         width: 100%;
     }
+
   }
 
