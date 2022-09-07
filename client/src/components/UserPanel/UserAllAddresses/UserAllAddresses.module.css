@@ -114,6 +114,7 @@
 }
 
 
+
 @media screen and (max-width:450px) {
    
   .spanText{
@@ -150,3 +151,16 @@
   
 
 }
+
+@media screen and (max-width:1400px) {
+  
+  .containerForm{
+    padding-bottom: 35px;
+  }
+
+  .containerCards{
+    width: 100%;
+  }
+
+}
+

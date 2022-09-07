@@ -187,3 +187,23 @@ cursor: default;
     margin-top: 20px;
     margin-bottom: 25px;
 }
+
+
+
+@media screen and (max-width:1400px) {
+  
+    .cards{
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .containerPrice1 span{
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    .containerPrice span{
+        margin: 0;
+        font-size: 2rem;
+    }
+  }

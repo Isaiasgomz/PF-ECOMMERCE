@@ -9,6 +9,16 @@
     margin: 10px 0 0 0;
 }
 
+@media screen and (max-width:1400px) {
+  
+  .SuccessMap{
+    padding-left: 62px;
+
+  }
+
+}
+
+
 @media screen and (max-width:450px) {
     .Success {
       width: 100%;
