@@ -139,3 +139,11 @@
 
 }
 
+
+@media screen and (max-width:1400px) {
+  
+    .containerCard{
+      width: 590px;
+    }
+  }
+

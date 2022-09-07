@@ -17,6 +17,7 @@
     border: 1px solid rgb(231, 231, 231);
     padding-left: 5px;
     padding-right: 5px;
+    
 }
 
 .contrimg{
@@ -27,6 +28,7 @@
     justify-content: center;
     padding-right: 5px;
 }
+
 /* 
 .review:hover{
     transform: translateY(-3px);
@@ -43,6 +45,7 @@
       object-position: center center;
     }
 }
+
 
 /* comentario: le agregue height para que no sobresalga de la card */
 .rimg{
@@ -95,3 +98,42 @@
     justify-content:left;
     margin-bottom: 15px;
 }
+@media screen and (max-width:1400px) {
+
+    .review{
+        width: 100%;
+    }
+
+  }
+
+
+
+@media screen and (max-width:450px) {
+    .review {
+        width: 80%;
+        margin-left: 66px;
+        display: flex;
+    flex-direction: column;
+    padding: 0px;
+    }
+    .containerrTitle{
+        width: fit-content;
+    }
+    .containerreview{
+        padding: 10px;
+    }
+    .contrimg{
+        padding: 0px;
+    }
+
+    @supports(object-fit: cover){
+        .contrimg img{
+        width: 130px;
+          height: 170px;
+          object-fit: contain;
+          object-position: center center;
+        }
+    }
+    
+}
+

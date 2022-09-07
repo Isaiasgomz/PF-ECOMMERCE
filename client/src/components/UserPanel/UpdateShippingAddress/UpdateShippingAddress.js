@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {clearAddress, getAddress, getUserDetail, updateShippingAddress} from '../../../Actions';
 import styles from './UpdateShippingAddress.module.css';
 import swal from "sweetalert";
+import { useAuth0 } from "@auth0/auth0-react";
+import loadingLogo from "../../../imagenes/loading.png"
 
 function validate(input) {
   const errors = {};
@@ -30,18 +32,18 @@ function validate(input) {
 function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, country, department}) {
     const dispatch = useDispatch();
  
-    const user = useSelector((state) => state.user.email);
-    /* const addresses = useSelector((state) => state.userDetail.ShippingAddresses) */
-    useEffect(async ()=> {
-        await dispatch(getAddress(id))
-    },[dispatch, user])
+    const { user } = useAuth0();
+
+    useEffect(()=> {
+        dispatch(getAddress(id))
+    },[dispatch])
     
     const history = useHistory();
 
     const [input, setInput] = useState({
-        /* id: id, */
+        id: id, 
         reference: reference,
-        UserEmail: user,
+        UserEmail: user?.email,
         address: address,
         CP: CP,
         telephone: telephone,
@@ -55,12 +57,7 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
     const [errors, setErrors] = useState({});
 
     const handleClick = () => {
-        if (!input.reference) {
-            swal('Debe seleccionar una dirección de envío para eliminar')
-        }
-            else {
-                setIsDisabled(!isDisabled);
-            }
+        setIsDisabled(!isDisabled);
     };
 
     const handleInput = (e) => {
@@ -82,39 +79,55 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!input.reference) {
-            swal('Debe seleccionar una dirección de envío para editar')
-        }
-            else {  
-                dispatch(updateShippingAddress(user, input));
+        e.preventDefault(); 
+            dispatch(updateShippingAddress(user.email, input));
                 /* dispatch(getUserDetail(user)); */
-                swal('Su dirección de envío se actualizó correctamente');
-                clearAddress();
-                setIsDisabled(true);
-                window.history.back();
-                /* history.push("/userAllAddresses"); */
-            }
-    };
+            swal('Su dirección de envío se actualizó correctamente');
+        /*     setInput({
+                reference: reference,
+                UserEmail: user?.email,
+                address: address,
+                CP: CP,
+                telephone: telephone,
+                city: city,
+                country: country,
+                department: department
+              }); */
+            clearAddress();
+            setIsDisabled(true);
+            window.history.back();
+    }
 
-    return (
+    if (!user) {
+        return (
+          <div className={styles.contenedorLoading}>
+            <div className={styles.loading}>
+              <img className={styles.img} src={loadingLogo} />
+            </div>
+          </div>
+        )
+    } 
+      else {
+        return (
        <>
     
             <div className={styles.containerForm}>
                 <form
                     className={styles.productContainer}
                     onSubmit={(e) => handleSubmit(e)}>
-                    <h2 className={styles.titleForm}>Dirección de {reference}</h2>
+                    <h2 className={styles.titleForm}>Dirección de {input.reference}</h2>
                     <div className={styles.contenedor}>
                         <div className={styles.name}>
                             <label className={styles.lab}>Referencia:
                                 <input
                                     className={styles.formInput}
                                     disabled={isDisabled}
-                                    readOnly={true}
+                                    required={true}
                                     type="text"
                                     name="reference"
-                                    value={input.reference} />
+                                    value={input.reference}
+                                    onChange={(e) => handleInput(e)} 
+                                />
                                 {errors.reference && (
                                     <label className={styles.textError}>{errors.reference}</label>)}
                             </label>
@@ -127,7 +140,11 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
                                     readOnly={true}
                                     type="email"
                                     name="UserEmail"
-                                    value={input.UserEmail} />
+                                    value={input?.UserEmail? input?.UserEmail:setInput({
+                                        ...input,
+                                        UserEmail:user?.email
+                                      })}
+                                 />
                             </label>
                         </div>
                         <div className={styles.name}>
@@ -221,9 +238,8 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
                 </form>
             </div>
         </>
- 
-  );
-
+        );
+    }
 }
 
 export default UpdateShippingAddress;

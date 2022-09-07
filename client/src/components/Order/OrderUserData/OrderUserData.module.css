@@ -114,3 +114,14 @@ justify-content: space-evenly;
 .textError {
   color: red;
 }
+
+@media screen and (max-width:1400px) {
+  
+  .containerForm{
+    height: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+  }
+
+}

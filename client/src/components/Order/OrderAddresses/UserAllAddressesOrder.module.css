@@ -123,3 +123,26 @@ align-items: center;
   font-weight: 600;
   color:  black;
 }
+
+
+@media screen and (max-width:1400px) {
+  
+  .containerForm{
+    padding-bottom: 35px;
+
+
+  }
+
+  .containerCards{
+    width: 100%;
+  }
+
+  .radio1 input:hover{
+    cursor: pointer;
+  }
+
+  .control{
+    gap: 30px;
+  }
+
+}

@@ -2,10 +2,13 @@
     border: 2px solid rgba(255, 255, 255, 0);
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.637);
     border-radius: 10px;
-    width: 530px;
+    width: 100%;
     height: 80px;
     /* display: flex; */
+
     background-color:rgb(255, 255, 255);
+
+
 }
 
 .fila{
@@ -36,7 +39,14 @@
     background-color: #aadd32;
     transition: 0.3s ease;
 }
+@media screen and (max-width:1400px) {
 
+  
+    .card{
+        width: 100%;
+    }
+
+  }
 @media screen and (max-width: 450px){
     .card{
       display: flex;
@@ -55,4 +65,8 @@
     .containerPencil{
         font-size: 22px;
       }
+      .spanText{
+        display: none;
+    }
 }
+

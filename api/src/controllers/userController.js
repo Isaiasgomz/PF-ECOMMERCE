@@ -106,15 +106,15 @@ module.exports = {
     },
     /* Actualizacion de direcciones de envío */
     updateAddress: async function(email, dataModify){
-        const filter = {
+       /*  const filter = {
             UserEmail: email,
-            reference: dataModify.reference
-        }
+            id: dataModify.id
+        } */
         try {
             await ShippingAddress.update(dataModify, {
                 where: {
                          UserEmail: email ,
-                         reference: dataModify.reference                 
+                         id: dataModify.id                
                     }
             })
         } catch (error) {

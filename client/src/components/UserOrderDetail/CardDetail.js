@@ -11,13 +11,14 @@ const CardDetail = ({ productName, image, price, quantity, obj }) => {
       </div>
       <div className={style.containerInfo2}>
         <div className={style.containerName}>
-        <div>{productName} </div>
+        <div>{productName.slice(0,50)} </div>
         </div>
+        
         <div className={style.containerCant}>
           {console.log(obj)}
           <p> x{quantity ? quantity : 1} </p>
         </div>
-        <div className={style.containerCant}>
+        <div className={style.containerCant2}>
         <div> ${price} </div>
         </div>
       </div>

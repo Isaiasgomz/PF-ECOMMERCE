@@ -1,9 +1,10 @@
+
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { getAllOrders, updateorder } from "../../Actions";
 import style from './AdminOrderEdit.module.css'
-
+import { useParams } from "react-router-dom";
 
 const validate = (value) => {
 
@@ -36,8 +37,10 @@ function AdminOrderEdit(props) {
 
     const { AllOrders } = useSelector(state => state)
     const { user } = useSelector(state => state)
-
-    const oneOrder = AllOrders.filter(item => item.orderN === props.match.params.id)
+    const propsID = useParams().id
+    
+    const oneOrder = AllOrders.filter((item) => item.orderN === propsID);
+    
 
 
     const [input, setInput] = useState('')
@@ -65,7 +68,7 @@ function AdminOrderEdit(props) {
 
     const handleSubmit = (e) => {
         /* e.preventDefault() */
-        dispatch(updateorder(props.match.params.id, orderUpdate))
+        dispatch(updateorder(propsID, orderUpdate))
         window.history.back();
     }
 
