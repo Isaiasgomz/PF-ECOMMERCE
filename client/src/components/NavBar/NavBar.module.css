@@ -100,11 +100,29 @@
     width: 48px;
     height: 52px;
     background-image: url(../../imagenes/iconoPR.jpeg);
+    margin-left: -140px;
+    
     /* background-repeat: no-repeat; */
   }
 
   .divs{
-    margin: 0%;
+    /* margin: 0%; */
+    margin-left: -170px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 130px;
+    height: 30px;
+  }
+
+  .container{
+    display: flex;
+    justify-content: space-evenly;
+
+  }
+
+  .buttons{
+    display: none;
   }
 
 
