@@ -20,7 +20,6 @@
     
 }
 
-
 .contrimg{
     height: 170px; 
     /* width: 170px; */
@@ -99,11 +98,19 @@
     justify-content:left;
     margin-bottom: 15px;
 }
+@media screen and (max-width:1400px) {
+
+    .review{
+        width: 100%;
+    }
+
+  }
+
 
 
 @media screen and (max-width:450px) {
     .review {
-        width: 85%;
+        width: 80%;
         margin-left: 66px;
         display: flex;
     flex-direction: column;
@@ -129,12 +136,4 @@
     }
     
 }
-
-@media screen and (max-width:1400px) {
-
-    .review{
-        width: 100%;
-    }
-
-  }
 
