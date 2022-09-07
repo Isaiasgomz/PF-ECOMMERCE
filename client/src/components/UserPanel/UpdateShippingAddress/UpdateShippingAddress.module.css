@@ -155,42 +155,33 @@
 
 
 @media screen and (max-width:450px) {
+
   .containerForm{
-    /* padding-left: 20%; */
+
     height: auto;
     display: flex;
-  /* justify-content: flex-end; */
-  /* align-items: center; */
-    /* width: 80%; */
+
   }
   .contenedor{
     display: flex;
     flex-direction: column;
     height: auto;
-    /* margin-left: 30px; */
-
- 
   justify-content: center;
   align-content: center;
 
-    /* width: 80%; */
   }
 
   .productContainer{
-    /* width: 80%; */
+
     padding: 0%;
 
   }
 
   .formInput{
-    /* /* margin-left: 50px; */
-    /* width: 150%;  */
     width: 200px;
   }
 
-  .lab{
-    /* margin-left: 50px; */
-  }
+  
 
   .containerBtn{
     margin-left: 30px;
@@ -200,7 +191,16 @@
   }
 
   .btn{
-    
+    width: auto;
+    height: 40px;
+    margin-right: 8px;
+    float: center;
+  }
+
+  .btnS{
+    height: 40px;
+    margin-right: 8px;
+
   }
 
   
