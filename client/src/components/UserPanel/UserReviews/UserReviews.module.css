@@ -6,9 +6,19 @@
     padding: 20px;
 }
 
-.containerTitle{
+.containerTitle {
     padding-bottom: 10px;
+
 }
+
+/* @media screen and (max-width:450px) {
+    .containerTitle {
+        width: 80%;
+        height: 80%;
+    }
+
+}
+ */
 .noReview {
     display: flex;
     flex-direction: column;
@@ -16,9 +26,11 @@
     align-items: center;
     padding: 30px;
 }
-.noTienes{
-    color:#37373f ;
+
+.noTienes {
+    color: #37373f;
 }
+
 .noCartImgConteiner {
     height: 500px;
 
@@ -28,13 +40,13 @@
     height: 100%;
 }
 
-.veAcomprar{
+.veAcomprar {
     font-size: 30px;
     color: #91C612;
-    
+
 }
 
-.container{
+.container {
     width: 60%;
     height: auto;
     padding: 25px;
@@ -43,21 +55,24 @@
     justify-content: center;
     align-items: center;
     border: 2px solid rgba(255, 255, 255, 0);
-      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.637);
-      border-radius: 10px;
-      background-color: #EEEEEE;
-   
-  }
-.contenedorLoading{
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.637);
+    border-radius: 10px;
+    background-color: #EEEEEE;
+
+}
+
+
+
+.contenedorLoading {
     /* background: #c61212; */
     width: 100vw;
     height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .loading{
+}
+
+.loading {
     /* background-color: #78788c; */
     /* width: 100vw;
     height: 77.7vh;
@@ -69,15 +84,32 @@
     justify-content: center;
     height: 100%;
     width: 100%;
-  }
-  
-  .img{ 
+}
+
+.img {
     border-radius: 50%;
     box-shadow: 0 0 35px rgb(155, 255, 108);
     width: 200px;
     height: 200px;
     animation: loading 16s infinite;
-  }
+
+}
+
+@keyframes loading {
+    100% {
+        transform: rotate(1560deg);
+    }
+
+}
+@media screen and (max-width:450px) {
+    .container {
+        display: none;
+        
+    }
+
+}
+
+  
   @keyframes loading {
    100%{
     transform: rotate(1560deg);
@@ -93,3 +125,4 @@
     }
 
   }
+
