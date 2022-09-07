@@ -6,11 +6,12 @@ import { deleteFavourite, getFavourite } from "../../Actions";
 import { createCont } from "../contexto/contextProvider";
 import style from "./FavouriteCard.module.css";
 import agotado from "../../imagenes/agotado.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import MediaQuery from 'react-responsive';
 
 const FavouriteCard = ({ obj }) => {
   const dispatch = useDispatch();
-console.log("props", obj)
+  console.log("props", obj)
   const { stringLocalStorage } = useContext(createCont);
 
   const { user } = useAuth0();
@@ -94,6 +95,14 @@ console.log("props", obj)
             <p>{obj.productName}</p>
           </Link>
         </div>
+        <MediaQuery maxWidth={450}>
+          <div className={style.containerNameQuery}>
+            <Link to={`/detail/${obj.idProduct}`}>
+              <span>{obj.productName.slice(0,50)}...</span>
+            </Link>
+          </div>
+
+        </MediaQuery>
         <div className={style.containerIcons}>
           <div
             onClick={() => deleteProduct(obj)}

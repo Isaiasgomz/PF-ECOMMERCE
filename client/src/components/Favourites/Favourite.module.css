@@ -64,9 +64,6 @@
     justify-content: center;
 }
 
-.title{
-    border-bottom: 2px solid red;
-}
 
 .containerInfoNoLoged{
     border: 2px solid black;
@@ -119,7 +116,8 @@
 }
 
 @media screen and (max-width:450px) {
-    .containerFav{
-        padding-left: 10px;
+    .containerCardsFav{
+        margin-left: 66px;
+        width: 280px;
     }
 }
