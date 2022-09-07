@@ -66,12 +66,12 @@
   justify-content: center;
   align-items: center;
 }
-.name2 {
+/* .name2 {
   background-color: red;
   width: 5px;
-}
+} */
 /* ESTILO JULIA VER*/
-/*.name2{ 
+.name2{ 
   margin-left: 20px;
   padding-left: 8px;
   background-color: transparent;
@@ -81,7 +81,7 @@
   justify-content: center;
   align-items: center;
 
-}*/
+}
 
 .contenedor {
   display: flex;
