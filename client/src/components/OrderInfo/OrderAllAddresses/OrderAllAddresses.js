@@ -47,9 +47,9 @@ function OrderAllAddresses() {
             return (
             <React.Fragment>
             <div className={styles.containerForm}>
-                <span className={styles.titleForm}> Mis Direcciones de envío</span>
+                <span className={styles.titleForm}> Seleccionar direccion</span>
                 <div className={styles.searchbar}>
-                    <span>Seleccione la dirección a la cual se le enviará su compra:</span>
+                    {/* <span>Seleccione la dirección a la cual se le enviará su compra:</span> */}
                     <div className={styles.buttonCont}>
                     {   
                         addresses && addresses.map(a => {

@@ -42,7 +42,7 @@ export default function OrderInfo() {
                 {
                   personalData?
                     <div className={styles.container}>
-                      <h1>Dirección de envío</h1>
+                      {/* <h1>Dirección de envío</h1> */}
                         <UserAllAddressesOrder
                           key= {addresses.id}
                         />

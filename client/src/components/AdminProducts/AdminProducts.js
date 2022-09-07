@@ -90,24 +90,30 @@ function AdminProducts() {
 
   const filterProductByIconGreen = () => {
     dispatch(adminProduct(productsAbiable));
+    setCurrentPage(1)
   };
 
   const filterProductByAll = () => {
     dispatch(adminProduct(allProductsBackup));
+    setCurrentPage(1)
   };
 
   const filterProductByIconBlue = () => {
     dispatch(adminProduct(productsDisabled));
+    setCurrentPage(1)
   };
   const filterProductByIconRed = () => {
     dispatch(adminProduct(productsDrained));
+    setCurrentPage(1)
   };
   const filterProductByIconYellow = () => {
     dispatch(adminProduct(productsOutOfStock));
+    setCurrentPage(1)
   };
 
   const filterProductByIconDiscount = () => {
     dispatch(adminProduct(productsDiscount));
+    setCurrentPage(1)
   };
 
   return (

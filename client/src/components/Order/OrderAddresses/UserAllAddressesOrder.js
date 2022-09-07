@@ -54,11 +54,7 @@ function UserAllAddressesOrder() {
       <React.Fragment>
         <div className={style.containerForm}>
           <div className={style.container}>
-            <div className={style.containerTitle}>
-              <h2> Mis direcciones</h2>
-            </div>
-
-            <div className={style.span}>Seleccione la dirección a la cual se enviará su compra</div>
+            <div className={style.span}>Seleccione la dirección de envío</div>
             <div className={style.containerCards}>
             {personalData ? (
                 <div className={style.card}>
@@ -75,6 +71,7 @@ function UserAllAddressesOrder() {
                     <div className="radio">
                             <div className={style.radio1}>
                                 <input
+                                  className={style.radio2}
                                   key = {personalData.id}
                                   type= 'radio'
                                   name= 'radio' 
@@ -87,7 +84,7 @@ function UserAllAddressesOrder() {
 
                       {" "}
                       <Link to={"/updateUserData"}>
-                        <div className={style.pencil}>
+                        <div className={style.containerPencil}>
                           <i class="fa-solid fa-pencil"></i>
                         </div>
                       </Link>
@@ -109,6 +106,7 @@ function UserAllAddressesOrder() {
                         <div className="radio">
                             <div className={style.radio1}>
                                 <input
+                                className={style.radio2}
                                   id = {a.id}
                                   type= 'radio'
                                   name= 'radio' 
