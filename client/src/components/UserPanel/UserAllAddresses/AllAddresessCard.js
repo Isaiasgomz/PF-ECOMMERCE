@@ -9,9 +9,9 @@ const AllAddresessCard = ({ reference, address, city, country, id }) => {
       <div className={style.fila}>
         <div className={style.text}><i class="fa-solid fa-house"></i>  {reference}</div>
 
-        <div>
+        <span className={style.spanText}>
           {address}, {city}, {country}
-        </div>
+        </span>
         <Link to={`/updateAddres/${id}`}>
           <div className={style.containerPencil}>
             <i class="fa-solid fa-pencil"></i>

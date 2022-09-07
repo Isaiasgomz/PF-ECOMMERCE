@@ -35,7 +35,7 @@ export default function UserPanel() {
     if (user?.email?.length > 0) dispatch(getUserDetail(user.email));
   }, [user,trueorfalse2]);
 
-console.log("personaldata: ",personalData);
+// console.log("personaldata: ",personalData);
 
   return (
     <>

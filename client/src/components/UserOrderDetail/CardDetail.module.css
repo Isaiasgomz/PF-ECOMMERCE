@@ -196,3 +196,27 @@
  }
  
 }
+
+
+@media screen and (max-width:1400px) {
+  
+  .containerCart2{
+    width: 850px;
+
+  }
+
+  .cards{
+    width: 100%;
+  }
+
+  .productos2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .containerCard{
+    height: 90px;
+  }
+
+}

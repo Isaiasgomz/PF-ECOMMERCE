@@ -18,12 +18,11 @@ function AdminProducts() {
 
   const { user } = useSelector((state) => state);
 
-  useEffect( () => {
-
+  useEffect(() => {
     if (Object.keys(user).length > 0) {
       dispatch(getUserDetail(user.email));
     }
-  },[])
+  }, []);
 
   let allProducts = useSelector((state) => state.adminProducts);
   let allProductsBackup = useSelector((state) => state.allAdminProducts);
@@ -45,12 +44,10 @@ function AdminProducts() {
 
   const productsDiscount = allProductsBackup.filter(
     (product) => product.reduction > 0
-    
   );
 
   const productsAbiable = allProductsBackup.filter(
     (product) => product.disabled !== true
-    
   );
 
   let [currentPage, setCurrentPage] = useState(1);
@@ -62,7 +59,6 @@ function AdminProducts() {
     indexOfLastProduct
   );
 
-  
   const [product, setProduct] = useState("");
 
   const handleInput = (e) => {
@@ -92,35 +88,27 @@ function AdminProducts() {
     await dispatch(getAdminProducts());
   };
 
-  const filterProductByIconGreen = () =>{
-    dispatch(adminProduct(productsAbiable))
- }
+  const filterProductByIconGreen = () => {
+    dispatch(adminProduct(productsAbiable));
+  };
 
-   const filterProductByAll = () =>{
-    dispatch(adminProduct(allProductsBackup))  
-  } 
+  const filterProductByAll = () => {
+    dispatch(adminProduct(allProductsBackup));
+  };
 
-  const filterProductByIconBlue = () =>{
-      
-    dispatch(adminProduct(productsDisabled))
-     
-  }
-  const filterProductByIconRed = () =>{
-    dispatch(adminProduct(productsDrained))
-    
-  }
-  const filterProductByIconYellow = () =>{
-    dispatch(adminProduct(productsOutOfStock)) 
-     
-  }
+  const filterProductByIconBlue = () => {
+    dispatch(adminProduct(productsDisabled));
+  };
+  const filterProductByIconRed = () => {
+    dispatch(adminProduct(productsDrained));
+  };
+  const filterProductByIconYellow = () => {
+    dispatch(adminProduct(productsOutOfStock));
+  };
 
-  const filterProductByIconDiscount = () =>{
-    dispatch(adminProduct(productsDiscount))  
-    
- }
-
-
-  
+  const filterProductByIconDiscount = () => {
+    dispatch(adminProduct(productsDiscount));
+  };
 
   return (
     <div className={style.containerAll}>
@@ -128,94 +116,101 @@ function AdminProducts() {
         {/* <AdminSideBar></AdminSideBar> */}
       </div>
       <div className={style.productContainer}>
-        
         <div className={style.infoConteiner}>
-
-        <button onClick={filterProductByAll} className={style.infoButton}>
-          <div className={style.infoProduct}>
-            <div className={style.info}>
-              <h3>{allProductsBackup.length}</h3>
-              <p>Todos los Productos</p>
-            </div>
-            <div className={style.icon}>
-              <div className={style.containerCheckAll}>
-              <i className="fa-solid fa-database"></i>
+          <button onClick={filterProductByAll} className={style.infoButton}>
+            <div className={style.infoProduct}>
+              <div className={style.info}>
+                <h3>{allProductsBackup.length}</h3>
+                <p>Todos los Productos</p>
+              </div>
+              <div className={style.icon}>
+                <div className={style.containerCheckAll}>
+                  <i className="fa-solid fa-database"></i>
+                </div>
               </div>
             </div>
-          </div>
           </button>
 
-
-          <button onClick={filterProductByIconGreen} className={style.infoButton}>
-          <div className={style.infoProduct}>
-            <div className={style.info}>
-              <h3>{allProductsBackup.length - productsDisabled.length}</h3>
-              <p>Productos Habilitados</p>
-            </div>
-            <div className={style.icon}>
-              <div className={style.containerCheckv}>
-                <i class="fa-solid fa-check"></i>
+          <button
+            onClick={filterProductByIconGreen}
+            className={style.infoButton}
+          >
+            <div className={style.infoProduct}>
+              <div className={style.info}>
+                <h3>{allProductsBackup.length - productsDisabled.length}</h3>
+                <p>Productos Habilitados</p>
+              </div>
+              <div className={style.icon}>
+                <div className={style.containerCheckv}>
+                  <i class="fa-solid fa-check"></i>
+                </div>
               </div>
             </div>
-          </div>
           </button>
 
-          <button onClick={filterProductByIconDiscount} className={style.infoButton}>
-          <div className={style.infoProduct}>
-            <div className={style.info}>
-              <h3>{productsDiscount.length}</h3>
-              <p>Productos con Descuento</p>
-            </div>
-            <div className={style.icon}>
-              <div className={style.containerCheckD}>
-                <i class="fa-solid fa-percent"></i>
+          <button
+            onClick={filterProductByIconDiscount}
+            className={style.infoButton}
+          >
+            <div className={style.infoProduct}>
+              <div className={style.info}>
+                <h3>{productsDiscount.length}</h3>
+                <p>Productos con Descuento</p>
+              </div>
+              <div className={style.icon}>
+                <div className={style.containerCheckD}>
+                  <i class="fa-solid fa-percent"></i>
+                </div>
               </div>
             </div>
-          </div>
           </button>
 
-          <button  onClick={filterProductByIconBlue} className={style.infoButton}>
-          <div className={style.infoProduct}>
-            <div className={style.info}>
-              <h3>{productsDisabled.length}</h3>
-              <p>Productos Deshabilitados</p>
-            </div>
-            <div className={style.icon}>
-              <div className={style.containerCheckx}>
-              <i class="fa-solid fa-x"></i>
+          <button
+            onClick={filterProductByIconBlue}
+            className={style.infoButton}
+          >
+            <div className={style.infoProduct}>
+              <div className={style.info}>
+                <h3>{productsDisabled.length}</h3>
+                <p>Productos Deshabilitados</p>
+              </div>
+              <div className={style.icon}>
+                <div className={style.containerCheckx}>
+                  <i class="fa-solid fa-x"></i>
+                </div>
               </div>
             </div>
-          </div>
           </button>
 
-
-                  <button onClick={filterProductByIconRed} className={style.infoButton}>
-          <div className={style.infoProduct}>
-            <div className={style.info}>
-              <h3>{productsDrained.length}</h3>
-              <p>Productos Agotados</p>
-            </div>
-            <div className={style.icon}>
-            <div className={style.containerCheckarrow}>
-            <i class="fa-solid fa-arrow-trend-up"></i>
-            </div>
-            </div>
-          </div>
-          </button>
-                  <button onClick={filterProductByIconYellow} className={style.infoButton}>
-          <div className={style.infoProduct}>
-            <div className={style.info}>
-              <h3>{productsOutOfStock.length}</h3>
-              <p>Productos Poco Stock</p>
-            </div>
-            <div className={style.icon}>
-              <div className={style.containerCheckEx}>
-              <i class="fa-solid fa-exclamation"></i>
+          <button onClick={filterProductByIconRed} className={style.infoButton}>
+            <div className={style.infoProduct}>
+              <div className={style.info}>
+                <h3>{productsDrained.length}</h3>
+                <p>Productos Agotados</p>
+              </div>
+              <div className={style.icon}>
+                <div className={style.containerCheckarrow}>
+                  <i class="fa-solid fa-arrow-trend-up"></i>
+                </div>
               </div>
             </div>
-          </div>
           </button>
-
+          <button
+            onClick={filterProductByIconYellow}
+            className={style.infoButton}
+          >
+            <div className={style.infoProduct}>
+              <div className={style.info}>
+                <h3>{productsOutOfStock.length}</h3>
+                <p>Productos Poco Stock</p>
+              </div>
+              <div className={style.icon}>
+                <div className={style.containerCheckEx}>
+                  <i class="fa-solid fa-exclamation"></i>
+                </div>
+              </div>
+            </div>
+          </button>
         </div>
 
         <div className={style.containerNabvar}>
@@ -243,9 +238,10 @@ function AdminProducts() {
             onChange={(e) => handleInput(e)}
             placeholder="Buscar Producto"
           ></input>
-          <button 
+          <button
             className={style.searchBarButton}
-            onClick={(e) => handleSubmit(e)}>
+            onClick={(e) => handleSubmit(e)}
+          >
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
@@ -286,7 +282,19 @@ function AdminProducts() {
 
           {currentProducts &&
             currentProducts.map((product) => (
-              <div className={product.disabled? style.containercDisable : product.stock <= 0? style.containercAgotado : product.stock <= 3? style.containercLow : product.reduction > 0? style.containercDiscount : style.containerc}>
+              <div
+                className={
+                  product.disabled
+                    ? style.containercDisable
+                    : product.stock <= 0
+                    ? style.containercAgotado
+                    : product.stock <= 3
+                    ? style.containercLow
+                    : product.reduction > 0
+                    ? style.containercDiscount
+                    : style.containerc
+                }
+              >
                 <div className={style.containCardInfo}>
                   <p> {product.productName.split(" ").slice(0, 2).join(" ")}</p>
                 </div>
@@ -318,32 +326,37 @@ function AdminProducts() {
                 <div className={style.containerActions}>
                   <NavLink to={`/admin/update/${product.idProduct}`}>
                     <div className={style.containerPencil}>
-                     <i class="fa-solid fa-pencil"></i>
+                      <i class="fa-solid fa-pencil"></i>
                     </div>
                   </NavLink>
 
-                  <NavLink to={`/adminDiscount/editDiscount/${product.idProduct}`}>
+                  <NavLink
+                    to={`/adminDiscount/editDiscount/${product.idProduct}`}
+                  >
                     <div className={style.containerTag}>
-                    <i class="fa-sharp fa-solid fa-tag"></i>
+                      <i class="fa-sharp fa-solid fa-tag"></i>
                     </div>
                   </NavLink>
                   <div>
-
-                  
-
-                  {
-                    
-                  product.disabled?
-                  <div className={style.actionDisable}>
-                  <i onClick={() => handleDisabled(product.idProduct, product.disabled)} className="fa-solid fa-arrow-rotate-left"></i>
-                  </div>
-                    :
-                  <div className={style.actionNotDisable}>
-                    
-                    <i onClick={() => handleDisabled(product.idProduct, product.disabled)} className="fa-solid fa-trash"></i>
-                  </div>
-                  }
-
+                    {product.disabled ? (
+                      <div className={style.actionDisable}>
+                        <i
+                          onClick={() =>
+                            handleDisabled(product.idProduct, product.disabled)
+                          }
+                          className="fa-solid fa-arrow-rotate-left"
+                        ></i>
+                      </div>
+                    ) : (
+                      <div className={style.actionNotDisable}>
+                        <i
+                          onClick={() =>
+                            handleDisabled(product.idProduct, product.disabled)
+                          }
+                          className="fa-solid fa-trash"
+                        ></i>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -351,10 +364,9 @@ function AdminProducts() {
         </div>
 
         <div className={style.containerButtonCreate}>
-          <NavLink  className={style.link} to={"/createProduct"}>
+          <NavLink className={style.link} to={"/createProduct"}>
             <div className={style.containerIcon}>
-            <i class="fa-solid fa-plus"></i>
-              
+              <i class="fa-solid fa-plus"></i>
             </div>
           </NavLink>
         </div>
@@ -367,8 +379,6 @@ function AdminProducts() {
             currentPage={currentPage}
           />
         </div>
-
-        
       </div>
     </div>
   );
