@@ -64,8 +64,9 @@
 
 @media screen and (max-width:450px) {
   .containerCard{
-    width: 300px;
+    width: 280px;
     height: 150px;
     margin-bottom: 25px;
+    margin-left: 15px;
   }
 }
