@@ -26,7 +26,7 @@ function UserAllAddresses() {
   },[user])
 
  
-  if (!user || !addresses || !personalData) {
+  /* if (!user || !addresses || !personalData) {
     return (
       <div className={style.contenedorLoading}>
         <div className={style.loading}>
@@ -34,7 +34,7 @@ function UserAllAddresses() {
         </div>
       </div>
     );
-  } else {
+  } else { */
     return (
       <React.Fragment>
         <div className={style.containerForm}>
@@ -97,7 +97,7 @@ function UserAllAddresses() {
         </div>
       </React.Fragment>
     );
-  }
+  /* } */
 }
 
 export default UserAllAddresses;
