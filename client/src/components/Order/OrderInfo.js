@@ -48,8 +48,8 @@ export default function OrderInfo() {
                         />
                     </div>    
                     : 
-                    <div className={styles.container}>
-                      <h1>Información de contacto y envío</h1>
+                    <div >
+                      <h1 className={styles.container1}>Información de contacto y envío</h1>
                       <br></br>
                         <OrderUserData/>
                     </div>

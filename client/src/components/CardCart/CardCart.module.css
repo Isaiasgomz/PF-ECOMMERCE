@@ -133,7 +133,8 @@
 @media screen and (max-width:450px) {
     .quantity {
         margin-bottom: -15px;
-        
+        justify-content: space-evenly;
+        width: 100%;
     }
 
 }

@@ -45,15 +45,15 @@ i:hover{
 
 @media screen and (max-width:450px) {
     .fa-circle-plus {
-        font-size: 20px;
+        font-size: 30px;
         
     }
     .fa-trash{
-        font-size: 20px;
+        font-size: 30px;
         
     }
     .fa-circle-minus{
-        font-size: 20px;
+        font-size: 30px;
         
     }
 }
