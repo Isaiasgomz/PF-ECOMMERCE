@@ -219,7 +219,7 @@
 }
 
 
-@media screen and (max-width:1400px) {
+@media screen and (max-width:1400px) and (min-width:500px)  {
   
   .containerCart2{
     width: 850px;
@@ -239,6 +239,14 @@
   .containerCard{
     height: 90px;
   }
+
+    .contenedorLoading{
+      width: 100%;
+    }
+  
+    .loading{
+      width: 100%;
+    }
 
 }
 @media screen and (max-width:450px) {

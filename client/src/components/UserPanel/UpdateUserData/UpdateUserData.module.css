@@ -239,11 +239,19 @@
   }
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1400px) and (min-width:500px) {
   .containerForm {
     height: auto;
     padding-top: 25px;
     padding-bottom: 25px;
+  }
+
+  .contenedorLoading{
+    width: 100%;
+  }
+
+  .loading{
+    width: 100%;
   }
 }
 

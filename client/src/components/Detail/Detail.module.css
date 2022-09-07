@@ -556,3 +556,10 @@ con reviews sin login .mapReviewConteiner {
     margin-left: 66px;
     
 }
+
+@media screen and (max-width: 1400px) and (min-width:500px) {
+
+    .pr{
+        font-size: 1.8rem;
+    }
+  }
