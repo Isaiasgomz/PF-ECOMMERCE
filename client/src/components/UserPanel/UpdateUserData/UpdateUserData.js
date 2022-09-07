@@ -245,8 +245,13 @@ function UpdateUserData() {
                   {errors.country && <label className={styles.textError}>{errors.country}</label>}
                 </label>
               </div>
+
+           {/*   <div className={styles.name3}>
+                <label className={styles.lab}>Teléfono:*/}
+
               <div className={styles.name2}>
                 <label className={styles.lab3}>Teléfono:
+
                   <input
                     className={styles.formInput}
                     disabled={isDisabled}
