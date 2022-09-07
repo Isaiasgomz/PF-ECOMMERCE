@@ -435,7 +435,7 @@
     color: transparent;
 }
 
-@media screen and (max-width:1400px) {
+@media screen and (max-width:1400px) and (min-width:500px){
 
   
     .containerAll{

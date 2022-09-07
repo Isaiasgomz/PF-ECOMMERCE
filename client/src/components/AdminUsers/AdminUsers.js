@@ -42,7 +42,7 @@ function AdminUsers() {
     let disabledUser;
     if (status === "Autorizado") {
       disabledUser = {
-        status: "Disabled",
+        status: false,
       };
     } else {
       disabledUser = {
