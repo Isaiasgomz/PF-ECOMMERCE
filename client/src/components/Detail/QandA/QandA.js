@@ -47,7 +47,7 @@ function QandA({ idProduct, email, questions }) {
             {Object.keys(user).length === 0 && questions?.length === 0 ?
                 <div className={style.noNoConteiner}>
                     <div className={style.noPregNoLog}>
-                        <span> No hay preguntas! se el primero, pero antes deberias loguearte</span>
+                        <span> No hay preguntas! sé el primero, pero antes deberías loguearte</span>
                         <span>  <button className={style.loginButton} onClick={() => loginWithRedirect()}>Iniciar Sesión</button></span>
                         <hr />
 
@@ -63,7 +63,7 @@ function QandA({ idProduct, email, questions }) {
                             noValidate
                             autoComplete="off"
                         >
-                            <label>Tenes alguna pregunta? Dejala aca!</label>
+                            <label>Tenés alguna pregunta? Dejalá acá!</label>
 
                             <TextField
                                 fullWidth
@@ -95,7 +95,7 @@ function QandA({ idProduct, email, questions }) {
                             </div>
                             <hr className={style.hrAulti} />
 
-                            <span> Ultimas preguntas realizadas</span>
+                            <span> Últimas preguntas realizadas</span>
                             <hr />
 
                             {questions?.map(e => {
@@ -131,7 +131,7 @@ function QandA({ idProduct, email, questions }) {
                                 noValidate
                                 autoComplete="off"
                             >
-                                <label>Tenes alguna pregunta? Dejala aca!</label>
+                                <label>Tenés alguna pregunta? Dejalá acá!</label>
 
                                 <TextField
                                     fullWidth
@@ -153,7 +153,7 @@ function QandA({ idProduct, email, questions }) {
                             </Boxx>
                             </div>
                             <hr />
-                            <span> Ultimas preguntas realizadas</span>
+                            <span> últimas preguntas realizadas</span>
                             <hr className={style.hrAulti}/>
                             {questions?.map(e => {
                                 return <div key={e.id} className={style.qandAConteiner}>

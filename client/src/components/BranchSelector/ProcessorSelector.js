@@ -242,9 +242,11 @@ function ProcessorSelector(props) {
                   className={style.button}
                 >
                   {" "}
+
                   
                   <span className={style.textButton}>Agregar Perifericos</span>
                   <span className={style.iconButton}><i className="fa-solid fa-headset"></i></span>
+
                 </button>
               </Link>
             </div>

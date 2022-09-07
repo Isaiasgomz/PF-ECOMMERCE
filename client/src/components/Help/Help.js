@@ -23,7 +23,7 @@ function Help() {
             garantías, hacer seguimiento de tu envío y mucho más.
           </span>
           <br />
-          <span>Contactate con nuestros asesores via:</span>
+          <span>Contactate con nuestros asesores vía:</span>
         </div>
       </div>
       <br />

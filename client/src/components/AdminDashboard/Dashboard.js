@@ -36,7 +36,7 @@ function AdminDashboard() {
   return (
     <div className={style.container}>
       <div className={style.containerTitle}>
-        <h2>Estadisticas</h2>
+        <h2>Estadísticas</h2>
       </div>
       <div className={style.containerAllEstadisticas}>
         <div className={style.containerEstadisticas}>

@@ -9,7 +9,7 @@ const validate = (value) => {
   const errors = {};
   if (!value) {
     errors.name =
-      "Debes Ingresar Un Nombre mayor a 2 letras y no debe incluir caracteres especiales ni simbolos";
+      "Debes Ingresar Un Nombre mayor a 2 letras y no debe incluir caracteres especiales ni símbolos";
   }
   return errors;
 };
@@ -70,7 +70,7 @@ function AdminOrderEdit(props) {
             <div className={style.containerPandO}>
               <div className={style.productCont}>
                 <div className={style.containerTitle}>
-                  <span> Numero de Orden: {item.orderN}</span>
+                  <span> Número de Orden: {item.orderN}</span>
                 </div>
                 <div className={style.containerTitle}>
                   <span>Usuario: {item.UserEmail}</span>
@@ -105,7 +105,7 @@ function AdminOrderEdit(props) {
                 <hr className={style.hR} />
                 <label className={style.text}>
                   {" "}
-                  Preparando Envio
+                  Preparando Envío
                   <div className={style.circulo}>
                     <input
                       className={style.season}

@@ -195,3 +195,32 @@ input:checked + section.box .box-title:before {
 
  
 }
+
+@media screen and (max-width: 450px) {
+  .FAQScont {
+  background: radial-gradient(
+    circle,
+    rgba(55, 48, 52, 1) 0%,
+    rgba(0, 0, 0, 1) 60%
+  );
+  width: 100%;
+  height: 110vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.containerFAQs {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  margin-top: 160px;
+  width: 90%;
+  height: 110vh;
+}
+.accordionFAQs input {
+  display: none;
+}
+}

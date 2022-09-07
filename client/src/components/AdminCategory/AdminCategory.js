@@ -41,13 +41,13 @@ function AdminCategory() {
       <div className={style.containerInfoTable}>
           <ul className={style.ul}>
             <div className={style.containHeadr}>
-              <li className={style.header}>Categoria</li>
+              <li className={style.header}>Categoría</li>
             </div>
             <div className={style.containHeadr}>
               <li className={style.header}>Habilitados</li>
             </div>
             <div className={style.containHeadr}>
-              <li className={style.header}>Desabilitados</li>
+              <li className={style.header}>Deshabilitados</li>
             </div>
             <div className={style.containHeadr}>
               <li className={style.header}>Agotados</li>

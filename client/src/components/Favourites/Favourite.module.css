@@ -117,3 +117,9 @@
     background-color: #81af15;
     
 }
+
+@media screen and (max-width:450px) {
+    .containerFav{
+        padding-left: 10px;
+    }
+}
