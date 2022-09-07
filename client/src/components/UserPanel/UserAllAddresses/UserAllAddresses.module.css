@@ -131,8 +131,8 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    width: 270px;
-    height: 200px;
+    width: 270px; 
+    height: 130px;
   }
 .fila{
   flex-direction: column;
@@ -156,6 +156,7 @@
   .container{
     width: 330px;
     margin-left: 60px;
+    margin-top: 15px;
   }
  /*   .container{
     box-shadow: none;

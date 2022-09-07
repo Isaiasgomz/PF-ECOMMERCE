@@ -107,7 +107,7 @@ function AdminUsers() {
               <li className={style.headerItem}>Correo</li>
             </div>
             <div className={style.headerMove}>
-              <li className={style.headerItem}>Rol</li>
+              <li className={style.headerItem}>Role</li>
             </div>
             <div className={style.headerMove}>
               <li className={style.headerItem}>Estatus</li>

@@ -1,10 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { postUserAddress } from "../../../Actions/index.js";
+import { getUserDetail, postUserAddress } from "../../../Actions/index.js";
 import styles from './UserShippingAddress.module.css';
 import swal from "sweetalert";
 import { createCont } from "../../contexto/contextProvider.js";
+import { useAuth0 } from "@auth0/auth0-react";
+import loadingLogo from "../../../imagenes/loading.png"
 
 function validate(input) {
   const errors = {};
@@ -31,13 +33,13 @@ function validate(input) {
 function UserShippingAddress() {
     const dispatch = useDispatch();
 
-    const user = useSelector((state) => state.user);
+    const { user } = useAuth0();
     const { trueorfalse2,setTrueorFalse2} = useContext(createCont)
     const history = useHistory();
 
     const [input, setInput] = useState({
         reference: "",
-        UserEmail: user.email,
+        UserEmail: user?.email,
         address: "",
         CP: "",
         telephone: "",
@@ -45,6 +47,11 @@ function UserShippingAddress() {
         country: "",
         department:""
     });
+
+    
+  useEffect(() => {
+    if(user?.email.length>0) dispatch(getUserDetail(user.email))
+  },[user])
 
     const [errors, setErrors] = useState({});
 
@@ -73,7 +80,7 @@ function UserShippingAddress() {
     swal('Su dirección de envío se guardó correctamente')
     setInput({
         reference: "",
-        UserEmail: user.email,
+        UserEmail: user?.email,
         address: "",
         CP: "",
         telephone: "",
@@ -85,139 +92,153 @@ function UserShippingAddress() {
     window.history.back();
     };
 
-  return (
-    <React.Fragment>
-
-    <div className={styles.containerForm}>
-      <form
-        className={styles.productContainer}
-        onSubmit={(e) => handleSubmit(e)}>
-        <h2 className={styles.titleForm}>Nueva Dirección de Envío</h2>
-        <div className={styles.contenedor}>
-        <div className={styles.name}>
-            <label className={styles.lab}>Referencia:
-            <input
-                className={styles.formInput}
-                required={true}
-                type="text"
-                name="reference"
-                value={input.reference}
-                placeholder="Por ej.: Mi casa, Lugar de Trabajo..."
-                onChange={(e) => handleInput(e)}
-            />                     
-            {errors.reference && (
-                <label className={styles.textError}>{errors.reference}</label>)}
-            </label>    
-          </div>      
-          <div className={styles.name}> 
-            <label className={styles.lab}>Correo:
-            <input
-                className={styles.formInput}
-                disabled={true}
-                type="email"
-                name="UserEmail"
-                value={input.UserEmail}
-            /> 
-            </label> 
-         </div>    
-         <div className={styles.name}>     
-            <label className={styles.lab}>Dirección:
-            <input
-                className={styles.formInput}
-                required={true}
-                type="text"
-                name="address"
-                value={input.address}
-                placeholder="Calle y Número"
-                onChange={(e) => handleInput(e)}
-            />            
-            {errors.address && <label className={styles.textError}>{errors.address}</label>}
-            </label>
-         </div>
-         <div className={styles.name}>
-            <label className={styles.lab}>Departamento:
-            <input
-                className={styles.formInput}
-                required={true}
-                type="number"
-                name="department"
-                value={input.department}
-                placeholder="N° de Dpto - Si vives en casa -> 0"
-                onChange={(e) => handleInput(e)}
-            />
-            {errors.department && (
-            <label className={styles.textError}>{errors.department}</label>
-            )}
-            </label>
-         </div>
-         <div className={styles.name}>
-            <label className={styles.lab}>Ciudad:
-            <input
-                className={styles.formInput}
-                required={true}
-                type="text"
-                name="city"
-                value={input.city}
-                placeholder="Ciudad"
-                onChange={(e) => handleInput(e)}
-            />
-            {errors.city && <label className={styles.textError}>{errors.city}</label>}
-            </label>
-         </div>
-         <div className={styles.name}>
-            <label className={styles.lab}>C.P.:
-            <input
-                className={styles.formInput}
-                required={true}
-                type="number"
-                name="CP"
-                value={input.CP}
-                placeholder="Código Postal"
-                onChange={(e) => handleInput(e)}
+    
+    if (!user) {
+      return (
+        <div className={styles.contenedorLoading}>
+          <div className={styles.loading}>
+            <img className={styles.img} src={loadingLogo} />
+          </div>
+        </div>
+      )
+  } 
+    else {
+      return (
+        <React.Fragment>
+        <div className={styles.containerForm}>
+          <form
+            className={styles.productContainer}
+            onSubmit={(e) => handleSubmit(e)}>
+            <h2 className={styles.titleForm}>Nueva Dirección de Envío</h2>
+            <div className={styles.contenedor}>
+            <div className={styles.name}>
+                <label className={styles.lab}>Referencia:
+                <input
+                    className={styles.formInput}
+                    required={true}
+                    type="text"
+                    name="reference"
+                    value={input.reference}
+                    placeholder="Por ej.: Mi casa, Lugar de Trabajo..."
+                    onChange={(e) => handleInput(e)}
+                />                     
+                {errors.reference && (
+                    <label className={styles.textError}>{errors.reference}</label>)}
+                </label>    
+              </div>      
+              <div className={styles.name}> 
+                <label className={styles.lab}>Correo:
+                <input
+                    className={styles.formInput}
+                    disabled={true}
+                    type="email"
+                    name="UserEmail"
+                    value={input?.UserEmail? input?.UserEmail:setInput({
+                      ...input,
+                      UserEmail:user?.email
+                    })}
+                /> 
+                </label> 
+            </div>    
+            <div className={styles.name}>     
+                <label className={styles.lab}>Dirección:
+                <input
+                    className={styles.formInput}
+                    required={true}
+                    type="text"
+                    name="address"
+                    value={input.address}
+                    placeholder="Calle y Número"
+                    onChange={(e) => handleInput(e)}
+                />            
+                {errors.address && <label className={styles.textError}>{errors.address}</label>}
+                </label>
+            </div>
+            <div className={styles.name}>
+                <label className={styles.lab}>Departamento:
+                <input
+                    className={styles.formInput}
+                    required={true}
+                    type="number"
+                    name="department"
+                    value={input.department}
+                    placeholder="N° de Dpto - Si vives en casa -> 0"
+                    onChange={(e) => handleInput(e)}
                 />
-            {errors.CP && <label className={styles.textError}>{errors.CP}</label>}
-            </label>
-         </div>
-         <div className={styles.name}>
-            <label className={styles.lab}>País:
-            <input
-                className={styles.formInput}
-                required={true}
-                type="text"
-                name="country"
-                value={input.country}
-                placeholder="País"
-                onChange={(e) => handleInput(e)}
-            />
-            {errors.country && <label className={styles.textError}>{errors.country}</label>}
-            </label>            
-         </div>
-         <div className={styles.name}>
-            <label className={styles.lab}>Teléfono:
-            <input
-                className={styles.formInput}
-                required={true}
-                type="tel"
-                name="telephone"
-                value={input.telephone}
-                placeholder="Teléfono"
-                onChange={(e) => handleInput(e)}
-            />
-            {errors.telephone && (
-            <label className={styles.textError}>{errors.telephone}</label>
-            )}
-            </label>            
-         </div>
+                {errors.department && (
+                <label className={styles.textError}>{errors.department}</label>
+                )}
+                </label>
+            </div>
+            <div className={styles.name}>
+                <label className={styles.lab}>Ciudad:
+                <input
+                    className={styles.formInput}
+                    required={true}
+                    type="text"
+                    name="city"
+                    value={input.city}
+                    placeholder="Ciudad"
+                    onChange={(e) => handleInput(e)}
+                />
+                {errors.city && <label className={styles.textError}>{errors.city}</label>}
+                </label>
+            </div>
+            <div className={styles.name}>
+                <label className={styles.lab}>C.P.:
+                <input
+                    className={styles.formInput}
+                    required={true}
+                    type="number"
+                    name="CP"
+                    value={input.CP}
+                    placeholder="Código Postal"
+                    onChange={(e) => handleInput(e)}
+                    />
+                {errors.CP && <label className={styles.textError}>{errors.CP}</label>}
+                </label>
+            </div>
+            <div className={styles.name}>
+                <label className={styles.lab}>País:
+                <input
+                    className={styles.formInput}
+                    required={true}
+                    type="text"
+                    name="country"
+                    value={input.country}
+                    placeholder="País"
+                    onChange={(e) => handleInput(e)}
+                />
+                {errors.country && <label className={styles.textError}>{errors.country}</label>}
+                </label>            
+            </div>
+            <div className={styles.name}>
+                <label className={styles.lab}>Teléfono:
+                <input
+                    className={styles.formInput}
+                    required={true}
+                    type="tel"
+                    name="telephone"
+                    value={input.telephone}
+                    placeholder="Teléfono"
+                    onChange={(e) => handleInput(e)}
+                />
+                {errors.telephone && (
+                <label className={styles.textError}>{errors.telephone}</label>
+                )}
+                </label>            
+            </div>
+            </div>
+            <br/>
+            <div className={styles.containerBtn}>   
+                <button className={styles.btnS} onClick={handleClose}>Salir</button>
+              <button className={styles.btn} type='submit'>Guardar</button>
+            </div>
+          </form>
         </div>
-        <br/>
-        <div className={styles.containerBtn}>   
-            <button className={styles.btnS} onClick={handleClose}>Salir</button>
-          <button className={styles.btn} type='submit'>Guardar</button>
-        </div>
-      </form>
-    </div>
-    </React.Fragment>
-  );
+        </React.Fragment>
+      );
+    }
 }
 
 export default UserShippingAddress;
