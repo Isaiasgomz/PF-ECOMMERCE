@@ -53,7 +53,7 @@ function AdminOrders() {
               <li className={style.header}>Fecha</li>
             </div>
             <div className={style.containHeadr}>
-              <li className={style.header}>Actiones</li>
+              <li className={style.header}>Acciones</li>
             </div>
           </ul>
 
