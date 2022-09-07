@@ -308,7 +308,7 @@ function Detail(props) {
               
 
               <div className={style.price}>
-                <span>$ {product.price} </span>
+                <span className={style.pr}>$ {product.price} </span>
                 <span className={style.textPrice}>Precio de lista</span>
               </div>
 
@@ -316,7 +316,7 @@ function Detail(props) {
 
 
             <div className={style.price}>
-              <span>$ {Math.round(product.price / 12)}.99</span>
+              <span className={style.pr}>$ {Math.round(product.price / 12)}.99</span>
               <span className={style.textPrice}>12 cuotas sin interes </span>
             </div>
           </div>

@@ -176,6 +176,15 @@
     display: flex;
 }
 
+@media screen and (max-width:1400px) {
+  
+    .containerBuild{
+        padding-left: 60px;
+    }
+
+  }
+
+
 @media screen and (max-width:450px) {
     .containerBrand0 {
         height: 70vh;

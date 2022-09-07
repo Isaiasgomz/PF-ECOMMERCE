@@ -153,7 +153,15 @@
 }
 
 
+@media screen and (max-width:1400px) and (min-width:500px) {
 
+  .containerForm{
+    height: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+}
 
 @media screen and (max-width:450px) {
 

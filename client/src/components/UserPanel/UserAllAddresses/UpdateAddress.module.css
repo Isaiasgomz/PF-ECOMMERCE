@@ -18,3 +18,14 @@
       transform: rotate(1560deg);
     }
   }
+
+  @media screen and (max-width: 1400px) and (min-width:500px) {
+
+    .contenedorLoading{
+      width: 100%;
+    }
+  
+    .loading{
+      width: 100%;
+    }
+  }

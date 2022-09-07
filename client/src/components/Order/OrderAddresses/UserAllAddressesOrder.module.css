@@ -125,7 +125,7 @@ align-items: center;
 }
 
 
-@media screen and (max-width:1400px) {
+@media screen and (max-width:1400px)  and (min-width:500px) {
   
   .containerForm{
     padding-bottom: 35px;
@@ -143,6 +143,15 @@ align-items: center;
 
   .control{
     gap: 30px;
+  }
+
+  
+  .contenedorLoading{
+    width: 100%;
+  }
+
+  .loading{
+    width: 100%;
   }
 
 }

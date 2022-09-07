@@ -101,6 +101,23 @@
     }
 
 }
+
+@media screen and (max-width:1400px) and (min-width:500px) {
+
+    .container{
+        width: 80%;
+    }
+
+    .contenedorLoading{
+        width: 100%;
+      }
+    
+      .loading{
+        width: 100%;
+      }
+
+  }
+
 @media screen and (max-width:450px) {
     .container {
         display: none;
@@ -118,11 +135,5 @@
   }
 
 
-  @media screen and (max-width:1400px) {
-
-    .container{
-        width: 80%;
-    }
-
-  }
+ 
 

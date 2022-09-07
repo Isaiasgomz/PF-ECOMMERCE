@@ -125,9 +125,9 @@ a {
   filter: brightness(1.2);
 }
 
-@media screen and (max-width:1400px) {
-
-  .contAccesorios {
+@media screen and (max-width:1400px) and (min-width: 500px) {
+  
+  .contAccesorios{
     display: none;
 
     @media screen and (max-width: 450px) {
