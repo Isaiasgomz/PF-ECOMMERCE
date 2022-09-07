@@ -92,6 +92,7 @@
     width: 200px;
     height: 200px;
     animation: loading 16s infinite;
+
 }
 
 @keyframes loading {
@@ -107,3 +108,21 @@
     }
 
 }
+
+  }
+  @keyframes loading {
+   100%{
+    transform: rotate(1560deg);
+   }
+   
+  }
+
+
+  @media screen and (max-width:1400px) {
+
+    .container{
+        width: 80%;
+    }
+
+  }
+
