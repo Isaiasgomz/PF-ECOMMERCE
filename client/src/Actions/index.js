@@ -302,6 +302,7 @@ export function modifyStock(data) {
 }
 
 export function updateShippingAddress(email, data) {
+    console.log('data',data)
     return async function (dispatch) {
         await axios.put(`http://localhost:3001/user/${email}/updateShippingAddress`,data)
         .catch(error => console.log(error.response.data))
