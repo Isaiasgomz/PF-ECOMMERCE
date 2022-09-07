@@ -44,16 +44,20 @@ function UserAllAddresses() {
             </div>
 
             <div className={style.span}>
-              Seleccione la dirección que quiere ver y/o editar
+              
             </div>
             <div className={style.containerCards}>
               {personalData ? (
                 <div className={style.card}>
                   <div className={style.fila}>
                     <div className={style.text}>
-                      <i class="fa-solid fa-house"></i> Mi dirección
+                      <i className="fa-solid fa-house"></i> Mi dirección
                     </div>
+
+                    /*<div className={style.adress}>*/
+
                     <div className={style.spanText}>
+
                       {" "}
                       {personalData.address}, {personalData.city},{" "}
                       {personalData.country}{" "}
@@ -62,7 +66,7 @@ function UserAllAddresses() {
                       {" "}
                       <Link to={"/updateUserData"}>
                         <div className={style.pencil}>
-                          <i class="fa-solid fa-pencil"></i>
+                          <i className="fa-solid fa-pencil"></i>
                         </div>
                       </Link>
                     </div>

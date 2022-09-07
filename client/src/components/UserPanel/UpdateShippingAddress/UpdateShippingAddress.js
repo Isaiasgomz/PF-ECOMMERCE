@@ -202,7 +202,7 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
                             </label>
                         </div>
                         <div className={styles.name2}>
-                            <label className={styles.lab}>País:
+                            <label className={styles.lab2}>País:
                                 <input
                                     className={styles.formInput}
                                     disabled={isDisabled}
@@ -216,7 +216,7 @@ function UpdateShippingAddress({ id,  reference, address, CP, telephone, city, c
                             </label>
                         </div>
                         <div className={styles.name2}>
-                            <label className={styles.lab}>Teléfono:
+                            <label className={styles.lab2}>Teléfono:
                                 <input
                                     className={styles.formInput}
                                     disabled={isDisabled}

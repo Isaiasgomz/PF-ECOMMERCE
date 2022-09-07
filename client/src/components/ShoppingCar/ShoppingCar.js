@@ -115,20 +115,20 @@ function ShoppingCar() {
       <div className={style.containerSup}>
         <div className={style.containerButtons}>
           <Link to={"/home"}>
-            <button className={style.button2}>Volver a la tienda</button>
+            <button className={style.button2}><span className={style.textButton}>Volver a la tienda</span> <span className={style.iconButton}><i className="fa-solid fa-rotate-left"></i></span></button>
           </Link>
 
           <div>
             {user && user.email_verified && productsFromLocalStorage.length ? (
               <Link to="/resumeOrder">
-                <button className={style.button}>Resumen de la orden</button>
+                <button className={style.button}><span className={style.textButton}>Resumen de la orden</span> <span className={style.iconButton}><i className="fa-solid fa-check"></i></span></button>
               </Link>
             ) : (
               <button
                 className={style.button}
                 onClick={(e) => handleClickNoVerified(e)}
               >
-                Resumen de la orden
+                <span className={style.textButton}>Resumen de la orden</span> <span className={style.iconButton}><i className="fa-solid fa-check"></i></span>
               </button>
             )}
           </div>
@@ -136,7 +136,8 @@ function ShoppingCar() {
             {
               productsFromLocalStorage.length &&
                 Array.isArray(productsFromLocalStorage) ?
-                <div><button className={style.button1} onClick={e => clearCart(e)}>Vaciar todo el carrito</button></div> : <div><button className={style.button1} disabled={true} onClick={e => clearCart(e)}>Vaciar todo el carrito</button></div>
+                <div><button className={style.button1} onClick={e => clearCart(e)}><span className={style.textButton}>Vaciar todo el carrito</span> <span className={style.iconButton}><i className="fa-solid fa-trash-can"></i></span></button></div> :
+                 <div><button className={style.button1} disabled={true} onClick={e => clearCart(e)}><span className={style.textButton}>Vaciar todo el carrito</span> <span className={style.iconButton}><i className="fa-solid fa-trash-can"></i></span></button></div>
             }
           </div>
         </div>

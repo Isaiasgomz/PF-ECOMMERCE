@@ -60,6 +60,7 @@ function EditDiscount(props) {
       idProduct: props.match.params.id,
       price: detail.price,
       reduction: parseInt(product.reduction),
+
     };
 
     const handleSubmit = (e) => {
@@ -107,6 +108,7 @@ function EditDiscount(props) {
               width="300px"
               height="300px"
             />
+
           </div>
           <div className={style.containerText}>
             <span className={style.title}>{detail.productName}</span>
