@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import style from "./Card.module.css";
-import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
-
+import MediaQuery from 'react-responsive';
 import agotado from "../../imagenes/agotado.png";
-import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavourite, deleteFavourite, getFavourite } from "../../Actions";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -131,7 +129,15 @@ function Card({
           </div>
       </div>
 
+<MediaQuery maxWidth={450}>
+<div className={style.containerTitleQuery}>
+          <Link to={`/detail/${id}`}>
+            {" "}
+            <span>{name.slice(0,40)}</span>
+          </Link>
+        </div>
 
+</MediaQuery>
       <div className={style.containerInfo}>
         <div className={style.containerTitle}>
           <Link to={`/detail/${id}`}>

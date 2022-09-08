@@ -38,4 +38,11 @@
     .filterContainer {
         height: 2300px;
     }
+    .scrolltotop1{
+        position: absolute!important;
+        left: 0;
+        margin-left: 15px;
+        bottom: 0;
+        margin-bottom: 83px !important;
+    }
   }

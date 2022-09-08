@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import style from "./ResumeOrder.module.css";
 import ResumeOrderCard from "./ResumeOrderCard";
 import { createCont } from "../contexto/contextProvider";
+import { useAuth0 } from "@auth0/auth0-react";
+import loading from "../../imagenes/loading.png"
 
 function ResumeOrder() {
   const { stringLocalStorage } = useContext(createCont);
+
+  const {user} = useAuth0()
 
   let y = JSON.parse(localStorage.getItem(stringLocalStorage));
   let productsFromLocalStorage = Array.from(y);
@@ -16,6 +20,17 @@ function ResumeOrder() {
     return acc;
   }, 0);
 
+  if(!user || !user.email_verified){
+    return (
+      <div className={style.contenedorLoading}>
+        <div className={style.loading}>
+          <img src={loading} className={style.img} alt={"loading"}/>
+        </div>
+      </div>
+    )
+  }else{
+
+  
   return (
     <div className={style.containerCart}>
 
@@ -50,9 +65,8 @@ function ResumeOrder() {
           ))}
       </div>
 
-
     </div>
-  );
+  )};
 }
 
 export default ResumeOrder;

@@ -107,7 +107,7 @@ function ProcessorSelector(props) {
                 {buildPCState[0].productName}
               </label>
             ) : (
-              <label>- Procesador</label>
+              <label className={style.labelBuild2}>- Procesador</label>
             )}
           </div>
           <div className={style.imgLabel}>
@@ -125,7 +125,7 @@ function ProcessorSelector(props) {
                 {buildPCState[1].productName}
               </label>
             ) : (
-              <label>- Mother</label>
+              <label className={style.labelBuild2}>- Mother</label>
             )}
           </div>
           <div className={style.imgLabel}>
@@ -143,7 +143,7 @@ function ProcessorSelector(props) {
                 {buildPCState[2].productName}
               </label>
             ) : (
-              <label>- Placa de Video</label>
+              <label className={style.labelBuild2}>- Placa de Video</label>
             )}
           </div>
           <div className={style.imgLabel}>
@@ -161,7 +161,7 @@ function ProcessorSelector(props) {
                 {buildPCState[3].productName}
               </label>
             ) : (
-              <label>- Memoria RAM</label>
+              <label className={style.labelBuild2}>- Memoria RAM</label>
             )}
           </div>
           <div className={style.imgLabel}>
@@ -179,7 +179,7 @@ function ProcessorSelector(props) {
                 {buildPCState[4].productName}
               </label>
             ) : (
-              <label>- Almacenamiento</label>
+              <label className={style.labelBuild2}>- Almacenamiento</label>
             )}
           </div>
           <div className={style.imgLabel}>
@@ -197,7 +197,7 @@ function ProcessorSelector(props) {
                 {buildPCState[5].productName}
               </label>
             ) : (
-              <label>- Fuente</label>
+              <label className={style.labelBuild2}>- Fuente</label>
             )}
           </div>
           <div className={style.imgLabel}>
@@ -215,7 +215,7 @@ function ProcessorSelector(props) {
                 {buildPCState[6].productName}
               </label>
             ) : (
-              <label>- Gabinete</label>
+              <label className={style.labelBuild2}>- Gabinete</label>
             )}
 
           </div>
@@ -229,7 +229,9 @@ function ProcessorSelector(props) {
                 className={style.button}
               >
                 {" "}
-                Agregar al carrito
+               
+                <span className={style.textButton}>Agregar al carrito</span>
+                  <span className={style.iconButton}><i className="fa-solid fa-cart-plus"></i></span>
               </button>
             </div>
             <div>
@@ -240,7 +242,11 @@ function ProcessorSelector(props) {
                   className={style.button}
                 >
                   {" "}
-                  Agregar Periféricos
+
+                  
+                  <span className={style.textButton}>Agregar Perifericos</span>
+                  <span className={style.iconButton}><i className="fa-solid fa-headset"></i></span>
+
                 </button>
               </Link>
             </div>
