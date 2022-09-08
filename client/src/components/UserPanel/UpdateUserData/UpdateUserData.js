@@ -103,7 +103,7 @@ function UpdateUserData() {
     return (
       <div className={styles.contenedorLoading}>
         <div className={styles.loading}>
-          <img className={styles.img} src={loadingLogo} />
+          <img className={styles.img} alt={"loading"} src={loadingLogo} />
         </div>
       </div>
     )
