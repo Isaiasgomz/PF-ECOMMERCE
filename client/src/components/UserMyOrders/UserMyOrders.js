@@ -22,7 +22,6 @@ const UserMyOrders = () => {
     const quantity = x.map((e) => e.quantity).reduce((a, b) => a + b, 0);
     return quantity;
   };
-
   return (
     <div>
 

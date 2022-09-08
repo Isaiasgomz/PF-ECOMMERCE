@@ -7,12 +7,20 @@ module.exports = {
     postCart: async function (cart) {
 
         try {
-            if (cart.length === 0) throw 'No hay productos en el carrito';
-            else {               
-                let newCart= await ShoppingCart.bulkCreate(cart);
+            console.log(11,cart)
+            if (cart.length === 0){
+                console.log("55",cart)
+                throw 'No hay productos en el carrito';
+            } 
+            else {   
+                console.log(22,cart)            
+                // let newCart= await ShoppingCart.bulkCreate(cart);
+                cart.forEach(async(e)=>{
+                    await ShoppingCart.create(e)
+                })
                 console.log("entro a EN PROCESO");
-                    let inProgress = pInProgress()
-                    await sendEmail(cart[0].UserEmail, "Estamos procesando su pago", inProgress)
+                let inProgress = pInProgress()
+                await sendEmail(cart[0].UserEmail, "Estamos procesando su pago", inProgress)
                 return newCart;
             }
         } catch (e) {
