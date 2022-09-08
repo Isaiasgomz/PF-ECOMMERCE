@@ -4,14 +4,18 @@ const nodemailer = require('nodemailer');
 
 require('dotenv').config();
 
+const {
+    DB_EMAIL, DB_EMAIL_PASSWORD
+  } = process.env;
+  
 
 let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-        user: "prequestecommerce@gmail.com", // generated ethereal user
-        pass: "ecgqamcvbkzbvzhx", // generated ethereal password
+        user: DB_EMAIL, // generated ethereal user
+        pass: DB_EMAIL_PASSWORD, // generated ethereal password
     },
     tls: {
         rejectUnauthorized: false

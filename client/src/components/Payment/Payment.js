@@ -8,6 +8,16 @@ import './Payment.css'
 
 // npm i react-paypal-button-v2  react v-- 17
 import { createCont } from "../contexto/contextProvider";
+import dotenv from "dotenv";
+
+dotenv.config()
+
+
+const {
+  REACT_APP_PAYPAL
+  } = process.env;
+  
+
 
 const Payment = () => {
   const dispatch = useDispatch();
@@ -23,8 +33,7 @@ const Payment = () => {
   const { stringLocalStorage } = useContext(createCont);
 
   const paypalOtions = {
-    clientId:
-      "AffjftSi14wqkpaYtcSOkUIOqN3cmYxIW3-51TX84jsgecsOs4lvssCHtzi08_6axU8T1_9_f6CegucW",
+    clientId: REACT_APP_PAYPAL,
     intent: "capture",
     currency: "USD",
   };
