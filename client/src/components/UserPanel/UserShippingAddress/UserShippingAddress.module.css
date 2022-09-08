@@ -146,3 +146,95 @@
 .textError {
   color: red;
 }
+@media screen and (max-width:1400px) {
+  
+  .containerForm{
+    height: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+  }
+
+
+}
+
+
+@media screen and (max-width: 450px){
+ 
+  .contenedor{
+    height: 580px;
+    width: 270px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+  }
+  .productContainer{
+    height: 750px;
+    width:270px;
+    display: flex;
+    margin-top: -20px;
+    flex-wrap: wrap;
+    
+  }
+.formInput{
+  width: 250px;
+}
+
+.lab::before {
+  content: attr(type);
+  display: flex;
+  margin: 0;
+  font-size: 14px;
+  color: black;
+}
+
+.name { 
+  background-color: transparent;
+  width: 70%; 
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleForm{
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+.containerBtn{
+ margin: 0px;
+ margin-left: 20px;
+}
+.btn{
+ width: 90px;
+ margin-left: 10px;
+}
+
+.btnS{
+  margin-right: 10px;
+width: 90px;
+}
+
+.containerForm{
+  width: 300px;
+  margin-top: 10px;
+  margin-left: 70px;
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.textError{
+  display: none;
+  position: absolute;
+  left:0;
+  font-size: 15px;
+  margin-left: 160px;
+}
+  }
+

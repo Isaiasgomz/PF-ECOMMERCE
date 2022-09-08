@@ -15,13 +15,13 @@ function NavBar() {
   return (
     <div className={styles.menus}>
       <div className={styles.container}>
-        <div >
+
           <Link to="/">
             <div className={styles.imagen}>
               <img alt="imagen" className={styles.imagenLogo} src={logo} />
             </div>
           </Link>
-        </div>
+       
         <div className={styles.divs}>
           <SearchBar />
         </div>
@@ -31,10 +31,11 @@ function NavBar() {
               <div className={styles.email}>
                 <Profile />
               </div>
-              <LogoutButton />
+              <div className={styles.logout}> <LogoutButton />  </div>
+              
             </>
           ) : (
-            <LoginButton />
+            <div className={styles.login}> <LoginButton /> </div>
           )}
           
             <Link to="/cart">

@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import style from "./Card.module.css";
-import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
-
+import MediaQuery from 'react-responsive';
 import agotado from "../../imagenes/agotado.png";
-import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavourite, deleteFavourite, getFavourite } from "../../Actions";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -109,15 +107,6 @@ function Card({
             </Link>
           </div>
         ) :
-        
-     /* )}
-      {reduction !== 0 ? (
-        <div className={style.containerDescuento}>
-          <div className={style.reduction}>
-            <span className={style.porcentaje}>{reduction} %</span>
-
-
-        ) :*/
           
           <Link to={`/detail/${id}`}>
             <div className={style.containerImg}>
@@ -130,9 +119,9 @@ function Card({
           {user && (
             <div hidden={ ob.fav === true? false : hidden} onClick={(e) => HandleChangeFav(ob, e)} className={estilos}>
               {estilos === style.favContainer ? (
-                <i class="fa-solid fa-heart"></i>
+                <i className="fa-solid fa-heart"></i>
               ) : (
-                <i class="fa-regular fa-heart"></i>
+                <i className="fa-solid fa-heart"></i>
               )}
             </div>
           )}
@@ -140,7 +129,15 @@ function Card({
           </div>
       </div>
 
+<MediaQuery maxWidth={450}>
+<div className={style.containerTitleQuery}>
+          <Link to={`/detail/${id}`}>
+            {" "}
+            <span>{name.slice(0,40)}</span>
+          </Link>
+        </div>
 
+</MediaQuery>
       <div className={style.containerInfo}>
         <div className={style.containerTitle}>
           <Link to={`/detail/${id}`}>
@@ -151,7 +148,7 @@ function Card({
 
         <div className={style.containerPriceCart}>
 
-          <span className={style.spanPrice}>${price}</span>
+          <span className={style.price}>${price}</span>
           
         
 

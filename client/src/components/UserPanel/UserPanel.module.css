@@ -5,6 +5,7 @@
   margin-top: 97px;
   margin-bottom: 58px;
   color: white !important;
+  min-width: 59px;
   
 }
 
@@ -86,6 +87,16 @@ position: absolute;
 .link{
   color: white;
 }
+
+
+@media screen and (max-width:1400px) {
+  
+  .conteiner{
+    height: 510px !important;
+  }
+}
+
+
 
 
 /* @media screen and (max-width:450px) {

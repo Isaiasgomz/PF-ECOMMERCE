@@ -54,11 +54,7 @@ function UserAllAddressesOrder() {
       <React.Fragment>
         <div className={style.containerForm}>
           <div className={style.container}>
-            <div className={style.containerTitle}>
-              <h2> Mis direcciones</h2>
-            </div>
-
-            <div className={style.span}>Seleccione la dirección a la cual se enviará su compra</div>
+            <div className={style.span}>Seleccione la dirección de envío</div>
             <div className={style.containerCards}>
             {personalData ? (
                 <div className={style.card}>
@@ -73,8 +69,9 @@ function UserAllAddressesOrder() {
                     </div>
 
                     <div className="radio">
-                            <div className="radio1">
+                            <div className={style.radio1}>
                                 <input
+                                  className={style.radio2}
                                   key = {personalData.id}
                                   type= 'radio'
                                   name= 'radio' 
@@ -87,7 +84,7 @@ function UserAllAddressesOrder() {
 
                       {" "}
                       <Link to={"/updateUserData"}>
-                        <div className={style.pencil}>
+                        <div className={style.containerPencil}>
                           <i class="fa-solid fa-pencil"></i>
                         </div>
                       </Link>
@@ -107,8 +104,9 @@ function UserAllAddressesOrder() {
                           {a.address}, {a.city}, {a.country}
                         </div>
                         <div className="radio">
-                            <div className="radio1">
+                            <div className={style.radio1}>
                                 <input
+                                className={style.radio2}
                                   id = {a.id}
                                   type= 'radio'
                                   name= 'radio' 
@@ -126,17 +124,18 @@ function UserAllAddressesOrder() {
                   </div>
                ))}    
             </div> 
-            <div className={style.anadir} >
-              <Link to="/userShippingAddress">
-                <button className={style.button}>AÑADIR NUEVA DIRECCIÓN</button>
-              </Link>
-            </div>
+
             <div className={style.control} >
-              <Link to="/resumeOrder">
-                <button className={style.button}>VOLVER AL CARRITO</button>
-              </Link>
+              
               <Link to="/payment">
                 <button className={style.button} onClick={handleConfirm} >CONFIRMAR</button>
+              </Link>
+            </div>
+
+            
+            <div className={style.anadir} >
+              <Link to="/userShippingAddress">
+                <button className={style.buttonNew}>AÑADIR NUEVA DIRECCIÓN</button>
               </Link>
             </div>
           </div>

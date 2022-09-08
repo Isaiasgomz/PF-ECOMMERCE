@@ -10,7 +10,10 @@ const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
 const dispatch = useDispatch();
 let obj={}
-  if(user.email=== 'aglens1818@gmail.com' || user.email === 'leonelfrobledo@gmail.com'){
+
+
+  if(user.email=== 'marcoslaurens25@gmail.com' || user.email === 'leonelfrobledo@gmail.com' || user.email=== 'bautibaigorri.bb@gmail.com' ){
+
      obj = {
       email: user.email,
       admin: true

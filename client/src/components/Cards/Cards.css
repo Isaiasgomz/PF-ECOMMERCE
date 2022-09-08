@@ -63,3 +63,34 @@
     margin-bottom: 15px;
 
 }
+
+@media screen and (max-width:1400px) and (min-width:500px){
+    
+    .mapeoCards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* grid-template-columns: auto auto; */
+
+    }
+
+    
+  }
+
+@media screen and (max-width:450px) {
+    .mapeoCards {
+        display: flex;
+        flex-direction: column;
+       flex-wrap: wrap;
+        margin: 0px;
+        margin-top: 20px;
+    }
+
+    .divPaginado{
+        position: relative;
+        margin-left: -125px;
+    }
+    .arrowCards{
+        /* display: none; */
+    }
+}

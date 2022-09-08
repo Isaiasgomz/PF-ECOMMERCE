@@ -61,3 +61,25 @@
   font-weight: bolder;
 
 }
+
+@media screen and (max-width:450px) {
+
+  .containerCard{
+    width: 280px;
+    height: 150px;
+    margin-bottom: 25px;
+    margin-left: 15px;
+  }
+  .containerName{
+    display: none;
+    
+  }
+  .containerNameQuery{
+    border-left: 1px #ededed solid;
+    border-right: 1px #ededed solid;
+    padding: 12px;
+  }
+  .containerInfo2{
+    font-size: 14px;
+  }
+}

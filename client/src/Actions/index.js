@@ -198,6 +198,7 @@ export function productDisabled(id,data) {
     return async function (dispatch) {
          await axios.put(`/products/update/${id}`,data)
         .catch(error => console.log(error.response.data))
+
         return dispatch({ type: 'PRODUCT_DISABLED' })
     }
 }
@@ -299,6 +300,7 @@ export function modifyStock(data) {
 }
 
 export function updateShippingAddress(email, data) {
+    console.log('data',data)
     return async function (dispatch) {
         await axios.put(`/user/${email}/updateShippingAddress`,data)
         .catch(error => console.log(error.response.data))

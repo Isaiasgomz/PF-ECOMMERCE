@@ -35,7 +35,6 @@ export default function UserPanel() {
     if (user?.email?.length > 0) dispatch(getUserDetail(user.email));
   }, [user,trueorfalse2]);
 
-console.log("personaldata: ",personalData);
 
   return (
     <>
@@ -44,10 +43,10 @@ console.log("personaldata: ",personalData);
 <div className={styles.buttonCont}>
   {state.isVisible ? <button className={styles.butonX} onClick={() => {
     setState({ isVisible: !state.isVisible });
-  }}> <i class="fa-solid fa-xmark"></i> </button>
+  }}> <i className="fa-solid fa-xmark"></i> </button>
     : <button className={styles.buton} onClick={() => {
       setState({ isVisible: !state.isVisible });
-    }}> <i class="fa-solid fa-bars"></i> </button>}
+    }}> <i className="fa-solid fa-bars"></i> </button>}
 
   
 </div>
@@ -113,7 +112,7 @@ console.log("personaldata: ",personalData);
   </NavItem>
   <NavItem eventKey="6" className={styles.items}>
     <NavIcon>
-      <Link to={"/cart"} className={styles.link}><i class="fa-sharp fa-solid fa-cart-shopping" style={{ fontSize: "1.75em" }}></i> </Link>
+      <Link to={"/cart"} className={styles.link}><i className="fa-sharp fa-solid fa-cart-shopping" style={{ fontSize: "1.75em" }}></i> </Link>
     </NavIcon>
     <NavText>
       <Link to={"/cart"} className={styles.link}>Carrito</Link>
@@ -134,10 +133,10 @@ userAdm?
 <div className={styles.buttonCont}>
   {state.isVisible ? <button className={styles.butonX} onClick={() => {
     setState({ isVisible: !state.isVisible });
-  }}> <i class="fa-solid fa-xmark"></i> </button>
+  }}> <i className="fa-solid fa-xmark"></i> </button>
     : <button className={styles.buton} onClick={() => {
       setState({ isVisible: !state.isVisible });
-    }}> <i class="fa-solid fa-bars"></i> </button>}
+    }}> <i className="fa-solid fa-bars"></i> </button>}
 
   
 </div>
@@ -182,7 +181,7 @@ userAdm?
       <Link to={"/adminOrders"} className={styles.link}><i className="fa-solid fa-bag-shopping" style={{ fontSize: "1.75em" }}></i> </Link>
     </NavIcon>
     <NavText>
-      <Link to={"/adminOrders"} className={styles.link}>  Ordenes</Link>
+      <Link to={"/adminOrders"} className={styles.link}>  Órdenes</Link>
     </NavText>
   </NavItem>
   <NavItem eventKey="5" className={styles.items}>
@@ -190,7 +189,7 @@ userAdm?
       <Link to={"/adminCategory"} className={styles.link}><i className="fa-solid fa-boxes-packing" style={{ fontSize: "1.75em" }}></i> </Link>
     </NavIcon>
     <NavText>
-      <Link to={"/adminCategory"} className={styles.link}>Categorias</Link>
+      <Link to={"/adminCategory"} className={styles.link}>Categorías</Link>
     </NavText>
   </NavItem>
   <NavItem eventKey="6" className={styles.items}>

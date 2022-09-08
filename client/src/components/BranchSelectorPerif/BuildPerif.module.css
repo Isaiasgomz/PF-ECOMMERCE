@@ -163,3 +163,89 @@
 .contLink{
     display: flex;
 }
+
+@media screen and (max-width:450px) {
+
+
+    .labelBuild{
+        display: none;
+       }
+      .labelBuild2{
+        display: none;
+      }
+    
+      .build{
+        height: 280px;
+        width: 55px;
+        margin-top: 10px;
+        margin-right: 0;
+        padding: 5px;
+      }
+      .containerBuild{
+        margin-top: -20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        flex-wrap: wrap;
+        position: fixed;
+        right: 0;
+        margin-left: -5px;
+    }
+    .imgLabel{
+        padding: 0px;
+        margin: 0px;
+    }
+    
+    .buildImg{
+        font-size: 40px;
+        color: #91C612;
+        margin-left: 1.5px;
+        margin-right: 10px;
+    }
+    
+    
+    .buildImg2{
+        font-size: 40px;
+        color: rgb(172, 172, 172);
+        margin-left: 1.5px;
+        margin-right: 10px;
+    }
+    
+    .buildImg3{
+        font-size: 40px;
+        color: #91C612;
+        margin-left: 9px;
+        margin-right: 17px;
+    }
+    
+    
+    .buildImg4{
+        font-size: 40px;
+        color: rgb(172, 172, 172);
+        margin-left: 9px;
+        margin-right: 17px;
+    }
+    
+    .containerProducts{
+        
+        flex-wrap: wrap;
+        padding-top: 20px;
+       
+    }
+    .button{
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        margin: 5px;
+    }
+    
+    .textButton{
+        display: none;
+    }
+    
+    .iconButton{
+        font-size: 20px;
+        color: white;
+    }
+}

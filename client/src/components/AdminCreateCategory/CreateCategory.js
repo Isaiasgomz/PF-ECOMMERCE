@@ -19,13 +19,13 @@ function validate (input){
     errors.image = 'La Imagen es requerida'
   }
   if(!input.description){
-    errors.description = 'La Description es requerida'
+    errors.description = 'La Descripción es requerida'
   }
   if(!input.stock){
     errors.stock = 'La Cantidad es requerida' 
   }
   if(!input.category){
-    errors.category = 'La Categoria es requerida'
+    errors.category = 'La Categoría es requerida'
   }
   if(!input.brand){
     errors.brand = 'La Marca es requerida'
@@ -169,7 +169,7 @@ function CreateCategory() {
         <input className={styles.formInput} type={'file'} placeholder={'Subir Imagen'}
         name={'file'} 
         onChange={(e)=> handleImage(e)} />
-        {loading? (<h8>Cargando imagenes...</h8>) : <img src={image} style={{width: "300px"}}/> }
+        {loading? (<h8>Cargando imágenes...</h8>) : <img src={image} style={{width: "300px"}}/> }
         <br/>
         </FormGroup>
           {
@@ -177,7 +177,7 @@ function CreateCategory() {
               <p className={styles.textError} >{errors.image}</p>
           )}
 
-        <label htmlFor='description'>Description</label>
+        <label htmlFor='description'>Descripción</label>
         <input className={styles.formInput} type={'text'} placeholder={'descripcion'}
         name={'description'} value={product.description} 
         onChange={(e)=> handleInput(e)} /><br/>
@@ -195,7 +195,7 @@ function CreateCategory() {
             <p className={styles.textError} >{errors.stock}</p>
         )}
 
-        <label htmlFor='category'>Categoria</label>
+        <label htmlFor='category'>Categoría</label>
         <input className={styles.formInput}  type={'text'} placeholder={'Categoria'} 
         name={'category'} value={product.category}  
         onChange={(e)=> handleInput(e)} /><br/>

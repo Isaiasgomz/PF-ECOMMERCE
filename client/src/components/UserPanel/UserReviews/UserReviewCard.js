@@ -28,7 +28,7 @@ function UserReviewCard({ id, img, nameP, review, qualification }) {
         <div className={x.containerrTitle}>
           <Link to={`/detail/${id}`}> <span>{nameP}</span></Link>
         </div>
-        <div className={x.containerrTitle}><span>Tu opinion: </span></div>
+        <div className={x.containerrTitle}><span>Tu opinión: </span></div>
         <div className={x.qualification}>
           <Box component="fieldset" mb={3} borderColor="transparent">
             <StyledRating name="read-only" value={qualification} readOnly />

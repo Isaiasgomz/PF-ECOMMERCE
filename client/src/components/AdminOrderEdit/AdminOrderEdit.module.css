@@ -136,3 +136,25 @@ background-color: rgb(247, 247, 247);
     opacity: 0.7;
     transition: 0.3s ease;
 }
+
+@media screen and (max-width:1400px) {
+
+    .containerAll1{
+        width: 100%;
+        height: auto;
+    }
+    .containerAll{
+        height: auto;
+        
+    }
+
+    .containerPandO{
+        height: auto;
+    }
+
+    .ckeckbox{
+        height: auto;
+        padding-bottom: 25px;
+    }
+
+  }

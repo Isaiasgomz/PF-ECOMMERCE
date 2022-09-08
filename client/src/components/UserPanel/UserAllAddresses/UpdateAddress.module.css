@@ -1,18 +1,4 @@
-@media screen and (max-width: 450px) {
-.container1{
-    width: auto;
-    margin-left: 17%;
-    margin-top: 5%;
-}
-}
-
-.contenedorLoading {
-    background-color: white;
-    width: 100vw;
-    height: 77.7vh;
-  }
-  
-  .loading {
+.loading {
     width: 100vw;
     height: 77.7vh;
     display: flex;
@@ -33,7 +19,7 @@
     }
   }
 
-  @media screen and (max-width:1400px) and (min-width:500px) {
+  @media screen and (max-width: 1400px) and (min-width:500px) {
 
     .contenedorLoading{
       width: 100%;
@@ -42,5 +28,4 @@
     .loading{
       width: 100%;
     }
-  
   }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getShoppingCart } from "../../Actions";
 import CardDetail from "./CardDetail";
 import style from "./CardDetail.module.css";
@@ -11,7 +11,7 @@ const UserOrderDetail = (props) => {
 
   const dispatch = useDispatch();
 
-  const nOrder = props.match.params?.PurchaseOrderOrderN;
+  const nOrder = useParams().PurchaseOrderOrderN;
 
   useEffect(() => {
     dispatch(getShoppingCart(nOrder));
@@ -52,7 +52,7 @@ const UserOrderDetail = (props) => {
       <div className={style.containerCart}>
         <div className={style.productos4}>
           <Link to="/myOrders">
-            <button className={style.button}>Volver a mis ordenes</button>
+            <button className={style.button}>Volver a mis órdenes</button>
           </Link>
         </div>
         <div className={style.containerCart2}>

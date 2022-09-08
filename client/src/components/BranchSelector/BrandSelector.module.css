@@ -175,3 +175,117 @@
 .contLink{
     display: flex;
 }
+
+
+
+.iconButton{
+ color: transparent;
+ font-size: 1px;
+}
+
+@media screen and (max-width:1400px) and (min-width: 500px) {
+  
+    .containerBuild{
+        padding-left: 60px;
+    }
+
+  }
+
+
+@media screen and (max-width:450px) {
+    .containerBrand0 {
+        height: 70vh;
+        padding: 0%;
+        padding-top: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .containerBrand1{
+        display: flex;
+        flex-direction: column;  
+    }
+    .containerBrand2{
+        display: flex;
+        flex-wrap: wrap;
+       justify-content: flex-end;
+       align-items: flex-start;
+    }
+    .brandButton{
+        width: 250px;
+        height: 250px;
+        margin-left: 100px;
+        
+    }
+   .labelBuild{
+    display: none;
+   }
+  .labelBuild2{
+    display: none;
+  }
+
+  .build{
+    height: 410px;
+    width: 50px;
+    margin-top: 10px;
+    
+    padding: 5px;
+    margin-right: 0px;
+  }
+  .containerBuild{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    position: fixed;
+    right: 0;
+    margin-left: -5px;
+    
+}
+.imgLabel{
+    padding: 0px;
+    margin: 0px;
+    margin-right: 10px;
+    height: 50px;
+    margin-top: 5px;
+}
+
+.buildImg{
+    margin: 0px;
+
+}
+.containerProducts{
+    
+    flex-wrap: wrap;
+    margin: 0;
+    padding-top: 20px;
+    width: 300px;
+}
+
+.contLink{
+    display: flex;
+    flex-direction: column;
+}
+
+.button{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+}
+
+.textButton{
+    display: none;
+}
+
+.iconButton{
+    font-size: 20px;
+    color: white;
+}
+
+
+
+  }

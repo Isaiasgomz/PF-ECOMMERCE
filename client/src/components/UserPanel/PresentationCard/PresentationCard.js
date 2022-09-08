@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./PresentationCard.module.css";
 import loadingLogo from "../../../imagenes/loading.png";
@@ -8,9 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function PresentationCard() {
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(true);
   const { user } = useAuth0();
-  const email = useSelector((state) => state.user.email);
   const info = useSelector((state) => state.userDetail.PersonalDatum);
 
   useEffect(() => {
@@ -18,11 +16,7 @@ function PresentationCard() {
   }, [user]);
 
 
-  if (loading === true) {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
+  if (!info || !user) {
     return (
       <div className={style.contenedorLoading}>
         <div className={style.loading}>
@@ -30,7 +24,7 @@ function PresentationCard() {
         </div>
       </div>
     );
-  } else if (loading === false) {
+  } else {
     return (
       <div className={style.containerCart}>
         <div className={style.containerCart2}>
@@ -47,17 +41,17 @@ function PresentationCard() {
               <h6 className={style.title}>Nombre completo: {info.fullname}</h6>
               <h6 className={style.title}>Dirección: {info.address}</h6>
               <h6 className={style.title}>Ciudad: {info.city}</h6>
-              <h6 className={style.title}>Pais: {info.country}</h6>
+              <h6 className={style.title}>País: {info.country}</h6>
             </div>
 
             <div className={style.data}>
-              <h6 className={style.title}>Correo: {email}</h6>
+              <h6 className={style.title}>Correo: {user.email}</h6>
               <h6 className={style.title}>
                 Departamento: {info.department}
               </h6>{" "}
               <br />
               <h6 className={style.title}>CP: {info.CP}</h6>
-              <h6 className={style.title}>teléfono: {info.telephone}</h6>
+              <h6 className={style.title}>Teléfono: {info.telephone}</h6>
             </div>
           </div>
         </div>

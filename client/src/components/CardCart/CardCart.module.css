@@ -79,6 +79,7 @@
     align-items: center;
 }
 
+
 .containerPriceCart{
     width: 40%;
     height: 100%;
@@ -103,4 +104,53 @@
     justify-content: space-around;
 }
 
+
+@media screen and (max-width:450px) {
+    .quantity {
+        margin-bottom: 5px;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    .containerCard {
+        height: auto;
+        
+    }
+    .containerButtons {
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .containerPriceCart {
+        width: 150px;
+        
+    }
+    .price {
+        height: auto;
+        font-size: 16px;
+        margin-top: -20px;
+        margin-bottom: 15px;
+        /* 
+        width: 100%;
+        */
+    }
+    .nameProduct {
+       display: none;
+        
+    }
+    .nameProductQuery {
+        width: auto;
+        
+    }
+    .containerNameQuery{
+        margin-top: 5px;
+    }
+
+}
+
+@media screen and (max-width:1400px) and (min-width:500px){
+  
+    .containerCard{
+      width: 590px;
+    }
+  }
 

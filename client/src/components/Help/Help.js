@@ -23,7 +23,7 @@ function Help() {
             garantías, hacer seguimiento de tu envío y mucho más.
           </span>
           <br />
-          <span>Contactate con nuestros asesores via:</span>
+          <span>Contactate con nuestros asesores vía:</span>
         </div>
       </div>
       <br />
@@ -38,12 +38,12 @@ function Help() {
             width="60"
           ></img>
           <span className={style.spanContacto}>
-            <a href="mailto:pullrequest.ecommerce@gmail.com">
+            <a href="mailto:pullrequest.ecommerce@gmail.com" target={"_blank"}>
               pullrequest.ecommerce@gmail.com
             </a>
           </span>
         </a>
-        <a href="https://wa.me/5492358413208">
+        <a href="https://wa.me/5492358413208" target={"_blank"}>
           <img
             alt="nombre"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/479px-WhatsApp.svg.png"

@@ -2,6 +2,7 @@
     font-size: 28px;
     color: #3483FA;
 }
+
 .fa-circle-plus:hover{
     color: #5497fc;
     
@@ -40,4 +41,19 @@
 i:hover{
     
     cursor: pointer;
+}
+
+@media screen and (max-width:450px) {
+    .fa-circle-plus {
+        font-size: 30px;
+        
+    }
+    .fa-trash{
+        font-size: 30px;
+        
+    }
+    .fa-circle-minus{
+        font-size: 30px;
+        
+    }
 }

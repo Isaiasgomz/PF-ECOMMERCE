@@ -5,6 +5,7 @@ import style from "./ShoppingCar.module.css";
 import swal from "sweetalert";
 import { createCont } from "../contexto/contextProvider";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useSelector } from "react-redux";
 
 
 function ShoppingCar() {
@@ -15,6 +16,8 @@ function ShoppingCar() {
 
   const { user } = useAuth0();
 
+  const {user: usuariodb} = useSelector(s => s)
+  console.log("acadb",usuariodb)
 
   let y = JSON.parse(localStorage.getItem(stringLocalStorage));
   let productsFromLocalStorage = y ? Array.from(y) : "No hay productos"
@@ -63,7 +66,12 @@ function ShoppingCar() {
   const handleClickNoVerified = (e) => {
     e.preventDefault()
 
-    if(user && user.email_verified === false){
+    if(user && usuariodb.status === "false"){
+      swal("Su cuenta está deshabilitada!", "Escríbenos a pullrequest.ecommerce@gmail.com", "error");
+      return
+    }
+
+    if (user && user.email_verified === false) {
       swal("No estás verificado!", "Verificación enviada a su casilla de correo", "error");
       return
     }
@@ -112,47 +120,48 @@ function ShoppingCar() {
   return (
     <div className={style.containerCart}>
 
-  <div className={style.containerSup}>
-      <div className={style.containerButtons}>
-        <Link to={"/home"}>
-          <button className={style.button2}>Volver a la tienda</button>
-        </Link>
-        
-        <div>
-          {user && user.email_verified && productsFromLocalStorage.length ? (
-            <Link to="/resumeOrder">
-              <button className={style.button}>Resumen de la orden</button>
-            </Link>
-          ) : (
-            <button
-              className={style.button}
-              onClick={(e) => handleClickNoVerified(e)}
-            >
-              Resumen de la orden
-            </button>
-          )}
-        </div>
-        <div>
-        {
-            productsFromLocalStorage.length &&
-              Array.isArray(productsFromLocalStorage) ?
-              <div><button className={style.button1} onClick={e => clearCart(e)}>Vaciar todo el carrito</button></div> : <div><button className={style.button1} disabled={true} onClick={e => clearCart(e)}>Vaciar todo el carrito</button></div>
-          }
-        </div>
-      </div>
+      <div className={style.containerSup}>
+        <div className={style.containerButtons}>
+          <Link to={"/home"}>
+            <button className={style.button2}><span className={style.textButton}>Volver a la tienda</span> <span className={style.iconButton}><i className="fa-solid fa-rotate-left"></i></span></button>
+          </Link>
 
-      
-      <div className={style.containerInfo}>
+          <div>
+            {user && usuariodb.status !== "false" && user.email_verified && productsFromLocalStorage.length ? (
+              <Link to="/resumeOrder">
+                <button className={style.button}><span className={style.textButton}>Resumen de la orden</span> <span className={style.iconButton}><i className="fa-solid fa-check"></i></span></button>
+              </Link>
+            ) : (
+              <button
+                className={style.button}
+                onClick={(e) => handleClickNoVerified(e)}
+              >
+                <span className={style.textButton}>Resumen de la orden</span> <span className={style.iconButton}><i className="fa-solid fa-check"></i></span>
+              </button>
+            )}
+          </div>
+          <div>
+            {
+              productsFromLocalStorage.length &&
+                Array.isArray(productsFromLocalStorage) ?
+                <div><button className={style.button1} onClick={e => clearCart(e)}><span className={style.textButton}>Vaciar todo el carrito</span> <span className={style.iconButton}><i className="fa-solid fa-trash-can"></i></span></button></div> :
+                 <div><button className={style.button1} disabled={true} onClick={e => clearCart(e)}><span className={style.textButton}>Vaciar todo el carrito</span> <span className={style.iconButton}><i className="fa-solid fa-trash-can"></i></span></button></div>
+            }
+          </div>
+        </div>
 
-          <div className={style.containerPrice}>
+
+        <div className={style.containerInfo}>
+
+          <div className={style.containerPrice1}>
             <span>Mi orden</span>
           </div>
-          
+
           <div className={style.containerPrice}>
             <span>Precio total: ${price}</span>
           </div>
+        </div>
       </div>
-  </div>      
 
 
       <div className={style.cards}>

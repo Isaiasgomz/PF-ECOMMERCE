@@ -64,9 +64,6 @@
     justify-content: center;
 }
 
-.title{
-    border-bottom: 2px solid red;
-}
 
 .containerInfoNoLoged{
     border: 2px solid black;
@@ -116,4 +113,11 @@
 .buttonNoLoged:active{
     background-color: #81af15;
     
+}
+
+@media screen and (max-width:450px) {
+    .containerCardsFav{
+        margin-left: 66px;
+        width: 280px;
+    }
 }

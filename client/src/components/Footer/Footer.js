@@ -25,13 +25,13 @@ function Footer() {
         </Link>
       </div>
       <div className={style.containerIcons}>
-        <a href="https://www.instagram.com/">
+        <a href="https://www.instagram.com/" target={"_blank"}>
           <i className="fa-brands fa-instagram"></i>
         </a>
-        <a href="https://www.facebook.com/">
+        <a href="https://www.facebook.com/" target={"_blank"}>
           <i className="fa-brands fa-facebook-f"></i>
         </a>
-        <a href="https://www.linkedin.com/">
+        <a href="https://www.linkedin.com/" target={"_blank"}>
           <i className="fa-brands fa-linkedin-in"></i>
         </a>
       </div>

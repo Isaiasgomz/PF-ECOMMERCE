@@ -1,4 +1,4 @@
-.containerCard{
+.containerCard {
     /* border: 2px solid black; */
     width: 340px;
     height: 385px;
@@ -14,13 +14,21 @@
     border: 1px solid rgb(231, 231, 231);
 }
 
-.containerCard:hover{
+@media screen and (max-width:450px) {
+    .containerCard {
+        width: 200px;
+        height: 245px;
+
+    }
+}
+
+.containerCard:hover {
     transform: translateY(-3px);
-  box-shadow: 0px 7px 7px 0px rgba(0, 0, 0, 0.767);
+    box-shadow: 0px 7px 7px 0px rgba(0, 0, 0, 0.767);
 }
 
 
-.buttonCarrito{
+.buttonCarrito {
     background-color: #1180e7;
     border-radius: 50%;
     width: 39px;
@@ -33,15 +41,15 @@
     font-size: 15px;
 }
 
-.buttonCarrito:hover{
+.buttonCarrito:hover {
     background-color: #ace42a;
 }
 
-.buttonCarrito:active{
+.buttonCarrito:active {
     background-color: #7aaa0a;
 }
 
-.buttonCarritoAgotado{
+.buttonCarritoAgotado {
     background-color: #666666;
     border-radius: 50%;
     width: 39px;
@@ -57,25 +65,24 @@
 
 
 
-.containerImg{
-    
+.containerImg {
+
     height: 170px;
     width: 340px;
-    
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1;
-    
+
 }
 
-.superiorPart{
-    
+.superiorPart {
+
     position: relative;
 }
 
-.containerDescuento{
-    
+.containerDescuento {
+
     height: 30px;
     width: 70px;
     position: absolute;
@@ -84,7 +91,7 @@
 }
 
 
-.reduction{
+.reduction {
     border-top-right-radius: 7px;
     border-bottom-left-radius: 7px;
     background-color: #91C612;
@@ -94,23 +101,23 @@
     z-index: 3;
 }
 
-.porcentaje{
+.porcentaje {
     font-weight: bold;
     font-size: 18px;
     color: rgb(39, 38, 38);
 }
 
 
-.containerImgAgot{
-    height: 170px; 
+.containerImgAgot {
+    height: 170px;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 
-.contAgotado{
+.contAgotado {
     height: 130px;
     width: 130px;
     position: absolute;
@@ -118,7 +125,7 @@
     z-index: 2;
 }
 
-.containerAgotado{
+.containerAgotado {
     display: flex;
     justify-content: flex-start;
 }
@@ -129,32 +136,32 @@
 
 
 
-@supports(object-fit: cover){
-    .containerImg img{
-    width: 80%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center center;
+@supports(object-fit: cover) {
+    .containerImg img {
+        width: 80%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center center;
     }
 }
 
 /* comentario: le agregue height para que no sobresalga de la card */
-.img{
+.img {
     padding-top: 15px;
     width: 100%;
 }
 
 
 
-.imgAgot{
+.imgAgot {
     padding-top: 15px;
     z-index: 1;
     height: 155px;
-    
-    
+
+
 }
 
-.containerInfo{
+.containerInfo {
     width: 70%;
     height: 100%;
     display: flex;
@@ -163,7 +170,7 @@
     align-items: center;
 }
 
-.containerTitle{
+.containerTitle {
     width: 130%;
     height: 50%;
     display: flex;
@@ -172,27 +179,28 @@
     font-size: 18px;
     flex-wrap: wrap;
 }
-.containerTitle p{
+
+.containerTitle p {
     margin: 0;
 }
 
-.containerPriceCart{
+.containerPriceCart {
     border-top: 1px solid rgb(221, 221, 221);
     width: 340px;
     height: 50%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    
+
 }
 
-.containerPriceCart p{
+.containerPriceCart p {
     margin: 0;
     font-size: 20px;
     font-weight: bolder;
 }
 
-.favConteiner{
+.favConteiner {
     position: absolute;
     right: 0;
     margin-right: 25px;
@@ -204,25 +212,25 @@
 }
 
 
-.favContainer{
+.favContainer {
     font-size: 32.5px;
-    color:  rgb(255, 82, 82);
+    color: rgb(255, 82, 82);
 }
 
-.favContainer:hover{
+.favContainer:hover {
     cursor: pointer;
-    color:  rgb(255, 111, 111);
+    color: rgb(255, 111, 111);
 }
 
 
-.noFavContainer{
+.noFavContainer {
     color: rgb(255, 202, 202);
     font-size: 32.5px;
 
 }
 
-.noFavContainer:hover{
-    color:  rgb(255, 101, 101);
+.noFavContainer:hover {
+    color: rgb(255, 101, 101);
     cursor: pointer;
 }
 
@@ -231,13 +239,67 @@
     color: rgb(255, 175, 175);
 }
 
-.spanPrice{
-    
+
+.price {
+    width: 61px;
+    font-weight: 350;
     text-align: left;
-    font-size: 23px;
-}
-.discount{
-    text-decoration:line-through
-
+    font-size: 25px;
 }
 
+.discount {
+    text-decoration: line-through
+}
+
+@media screen and (max-width:450px) {
+    .containerImg {
+        
+        height: 140px;
+        width: 160px;
+    }
+
+    .img {
+        padding-top: 1px;
+        width: 160px;
+        height: 160px;
+    }
+
+    .containerTitle {
+        display: none;
+        font-size: 15px;
+    }
+    .containerInfo{
+        margin-top: -10px;
+    }
+    .containerPriceCart {
+        padding-top: 10px;
+        width: 100%;
+    }
+
+    .favConteiner {
+        margin-right: 5px;
+
+        margin-bottom: 5px;
+    }
+
+    .price {
+
+        font-size: 18px;
+
+    }
+
+    .contAgotado{
+        height: 100px;
+    width: 100px;
+    margin-left: -10px;
+    }
+
+.containerTitleQuery{
+    margin-top: -5px;
+
+}
+    .containerDescuento{
+        margin-right: -20px;
+    }
+
+}

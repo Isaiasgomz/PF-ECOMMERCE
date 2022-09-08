@@ -85,6 +85,8 @@ body {
   }
   .containerFooter{
     justify-content: space-evenly;
+    position: absolute;
+    bottom: 0;
   }
 
   .containerCopy{

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getUsersAdmin, userDisabled } from "../../Actions";
 import style from "./AdminUsers.module.css";
-import AdminSideBar from "../AdminSideBar/AdminSideBar";
 import AdminProfile from "../AdminProfile/AdminProfile";
 import PaginadoUsers from "./Paginado";
 
@@ -43,7 +42,7 @@ function AdminUsers() {
     let disabledUser;
     if (status === "Autorizado") {
       disabledUser = {
-        status: "Disabled",
+        status: false,
       };
     } else {
       disabledUser = {
@@ -86,7 +85,7 @@ function AdminUsers() {
           <div className={style.infoProduct}>
             <div className={style.info}>
               <h3>{usersBanned}</h3>
-              <p>Usuarios Desabilitados</p>
+              <p>Usuarios Deshabilitados</p>
             </div>
             <div className={style.icon}>
               <div className={style.containerCheckx}>

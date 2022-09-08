@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import UserPanel from "../UserPanel";
+import React, {  useState } from "react";
+import { useSelector } from "react-redux";
+
 import UserReviewCard from "./UserReviewCard";
 import style from "./UserReviews.module.css";
 import loadingLogo from "../../../imagenes/loading.png";
+import MediaQuery from 'react-responsive';
 
 function UserReviews() {
   const { userDetail } = useSelector((state) => state);
@@ -59,7 +59,21 @@ function UserReviews() {
               />
             ))}
           </div>
-        
+        <MediaQuery maxWidth={450}> 
+        <div className={style.containerTitle}>
+            <h2>Mis opiniones</h2>
+          </div>
+            {productsReview?.map((e, index) => (
+              <UserReviewCard
+                key={index}
+                id={e?.idProduct}
+                img={e?.img}
+                nameP={e?.productName}
+                review={e?.review}
+                qualification={e?.qualification}
+              />
+            ))}
+        </MediaQuery>
       </div>
 
     );

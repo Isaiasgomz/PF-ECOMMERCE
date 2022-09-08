@@ -10,7 +10,10 @@ function About() {
           <div className="containerCardAbout3">
             <div className="card-client">
               <div className="user-picture">
-                <img alt="nombre"  src="https://avatars.githubusercontent.com/u/99367244?v=4" />
+                <img
+                  alt="nombre"
+                  src="https://avatars.githubusercontent.com/u/99367244?v=4"
+                />
               </div>
               <p className="name-client">
                 {" "}
@@ -18,7 +21,7 @@ function About() {
                 <span>Full-Stack Developer</span>
               </p>
               <div className="social-media">
-                <a href="https://github.com/Isaiasgomz">
+                <a href="https://github.com/Isaiasgomz" target={"_blank"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 850 1020"
@@ -30,7 +33,10 @@ function About() {
                   </svg>
                   <span className="tooltip-social">GitHub</span>
                 </a>
-                <a href="https://www.linkedin.com/in/isa%C3%ADas-g%C3%B3mez-dev027/">
+                <a
+                  href="https://www.linkedin.com/in/isa%C3%ADas-g%C3%B3mez-dev027/"
+                  target={"_blank"}
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
                   </svg>
@@ -41,7 +47,10 @@ function About() {
 
             <div className="card-client">
               <div className="user-picture">
-                <img alt="nombre"  src="https://media-exp1.licdn.com/dms/image/C4D03AQFdQrlMwRu9Ng/profile-displayphoto-shrink_800_800/0/1661208671888?e=1666828800&v=beta&t=LEpM69Ovp7q-4hd1tyBSMbNyOiC5B-j3muXp2FE1_64" />
+                <img
+                  alt="nombre"
+                  src="https://media-exp1.licdn.com/dms/image/C4D03AQFdQrlMwRu9Ng/profile-displayphoto-shrink_800_800/0/1661208671888?e=1666828800&v=beta&t=LEpM69Ovp7q-4hd1tyBSMbNyOiC5B-j3muXp2FE1_64"
+                />
               </div>
               <p className="name-client">
                 {" "}
@@ -49,7 +58,7 @@ function About() {
                 <span>Back-End Developer</span>
               </p>
               <div className="social-media">
-                <a href="https://github.com/Ery-Romero">
+                <a href="https://github.com/Ery-Romero" target={"_blank"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 850 1020"
@@ -61,7 +70,10 @@ function About() {
                   </svg>
                   <span className="tooltip-social">GitHub</span>
                 </a>
-                <a href="https://www.linkedin.com/in/erica-romero-418729211/">
+                <a
+                  href="https://www.linkedin.com/in/erica-romero-418729211/"
+                  target={"_blank"}
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
                   </svg>
@@ -72,7 +84,10 @@ function About() {
 
             <div className="card-client">
               <div className="user-picture">
-                <img alt="nombre"  src="https://media-exp1.licdn.com/dms/image/C4E03AQEm3gZPtHMjEg/profile-displayphoto-shrink_800_800/0/1645544139923?e=1666224000&v=beta&t=VbLFQ6l00JBn1DdPGLCZOLIvd8U0-rnw4n5rh5w-plk" />
+                <img
+                  alt="nombre"
+                  src="https://media-exp1.licdn.com/dms/image/C4E03AQEm3gZPtHMjEg/profile-displayphoto-shrink_800_800/0/1645544139923?e=1666224000&v=beta&t=VbLFQ6l00JBn1DdPGLCZOLIvd8U0-rnw4n5rh5w-plk"
+                />
               </div>
               <p className="name-client">
                 {" "}
@@ -80,7 +95,7 @@ function About() {
                 <span>Back-End Developer</span>
               </p>
               <div className="social-media">
-                <a href="https://github.com/agustinslens">
+                <a href="https://github.com/agustinslens" target={"_blank"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 850 1020"
@@ -92,7 +107,10 @@ function About() {
                   </svg>
                   <span className="tooltip-social">GitHub</span>
                 </a>
-                <a href="https://www.linkedin.com/in/agustinslens/">
+                <a
+                  href="https://www.linkedin.com/in/agustinslens/"
+                  target={"_blank"}
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
                   </svg>
@@ -104,7 +122,10 @@ function About() {
           <div className="containerCardAbout4">
             <div className="card-client">
               <div className="user-picture">
-                <img alt="nombre"  src="https://avatars.githubusercontent.com/u/103950921?v=4" />
+                <img
+                  alt="nombre"
+                  src="https://avatars.githubusercontent.com/u/103950921?v=4"
+                />
               </div>
               <p className="name-client">
                 {" "}
@@ -112,7 +133,7 @@ function About() {
                 <span>Front-End Developer</span>
               </p>
               <div className="social-media">
-                <a href="https://github.com/BautistaBaigorri">
+                <a href="https://github.com/BautistaBaigorri" target={"_blank"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 850 1020"
@@ -124,7 +145,10 @@ function About() {
                   </svg>
                   <span className="tooltip-social">GitHub</span>
                 </a>
-                <a href="https://www.linkedin.com/in/bautista-omar-baigorri/">
+                <a
+                  href="https://www.linkedin.com/in/bautista-omar-baigorri/"
+                  target={"_blank"}
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
                   </svg>
@@ -135,7 +159,10 @@ function About() {
 
             <div className="card-client">
               <div className="user-picture">
-                <img alt="nombre"  src="https://ca.slack-edge.com/TPRS7H4PN-U03EZRDJZLN-a079b9158fbf-512" />
+                <img
+                  alt="nombre"
+                  src="https://ca.slack-edge.com/TPRS7H4PN-U03EZRDJZLN-a079b9158fbf-512"
+                />
               </div>
               <p className="name-client">
                 {" "}
@@ -143,7 +170,7 @@ function About() {
                 <span>Front-End Developer</span>
               </p>
               <div className="social-media">
-                <a href="https://github.com/Marquisl2">
+                <a href="https://github.com/Marquisl2" target={"_blank"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 850 1020"
@@ -155,7 +182,10 @@ function About() {
                   </svg>
                   <span className="tooltip-social">GitHub</span>
                 </a>
-                <a href="https://www.linkedin.com/in/marcos-laurens/">
+                <a
+                  href="https://www.linkedin.com/in/marcos-laurens/"
+                  target={"_blank"}
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
                   </svg>
@@ -166,7 +196,10 @@ function About() {
 
             <div className="card-client">
               <div className="user-picture">
-                <img alt="nombre"  src="https://media-exp1.licdn.com/dms/image/C4E03AQGFcZQ_U2Sirg/profile-displayphoto-shrink_800_800/0/1620957720468?e=1666224000&v=beta&t=nTYaPIwbuiJmpjmcCPBEAe2iDmzyLIeORLuRKpgKtYs" />
+                <img
+                  alt="nombre"
+                  src="https://media-exp1.licdn.com/dms/image/C4E03AQGFcZQ_U2Sirg/profile-displayphoto-shrink_800_800/0/1620957720468?e=1666224000&v=beta&t=nTYaPIwbuiJmpjmcCPBEAe2iDmzyLIeORLuRKpgKtYs"
+                />
               </div>
               <p className="name-client">
                 {" "}
@@ -174,7 +207,7 @@ function About() {
                 <span>Front-End Developer</span>
               </p>
               <div className="social-media">
-                <a href="https://github.com/JuliaParlavec">
+                <a href="https://github.com/JuliaParlavec" target={"_blank"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 850 1020"
@@ -186,7 +219,10 @@ function About() {
                   </svg>
                   <span className="tooltip-social">GitHub</span>
                 </a>
-                <a href="https://www.linkedin.com/in/julia-parlavecchio-096335211/">
+                <a
+                  href="https://www.linkedin.com/in/julia-parlavecchio-096335211/"
+                  target={"_blank"}
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
                   </svg>
@@ -197,7 +233,10 @@ function About() {
 
             <div className="card-client">
               <div className="user-picture">
-                <img alt="nombre"  src="https://ca.slack-edge.com/TPRS7H4PN-U037NEY57GE-811b3e0122bc-512" />
+                <img
+                  alt="nombre"
+                  src="https://ca.slack-edge.com/TPRS7H4PN-U037NEY57GE-811b3e0122bc-512"
+                />
               </div>
               <p className="name-client">
                 {" "}
@@ -205,7 +244,7 @@ function About() {
                 <span>Front-End Developer</span>
               </p>
               <div className="social-media">
-                <a href="https://github.com/leotano">
+                <a href="https://github.com/leotano" target={"_blank"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 850 1020"
@@ -217,7 +256,10 @@ function About() {
                   </svg>
                   <span className="tooltip-social">GitHub</span>
                 </a>
-                <a href="https://www.linkedin.com/in/leonel-robledo-574961241/">
+                <a
+                  href="https://www.linkedin.com/in/leonel-robledo-574961241/"
+                  target={"_blank"}
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
                   </svg>
