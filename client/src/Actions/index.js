@@ -66,7 +66,7 @@ export function createReview(obj) {
         console.log(obj)
 
         return axios.post(`/review`,  obj )
-            .then(data => alert('Review added!'))
+            .then(data => console.log('Review added!'))
             .catch(error => alert(error.response.data))
 
     }
