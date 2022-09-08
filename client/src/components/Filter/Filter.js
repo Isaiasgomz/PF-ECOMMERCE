@@ -113,7 +113,7 @@ function Filter() {
 
   const sortByCategory = (e) => {
     console.log(e.target.textContent.slice(2));
-    if (e.target.textContent.slice(2) === "Todas las categorias") {
+    if (e.target.textContent.slice(2) === "Todas las categorías") {
       dispatch(getProducts());
       dispatch(clearAllFilters());
     }
@@ -141,8 +141,10 @@ function Filter() {
     ? productsByName?.map((e) => e.category)
     : !!productsByBrand?.length
     ? productsByBrand?.map((e) => e.category)
-    : AllProducts?.map((e) => e.category);
+    : Products?.map((e) => e.category);
 
+/*     let arrCatPerif = arrCat.filter
+ */
   let categorias = new Set(arrCat);
   const category = [...categorias];
 
@@ -152,7 +154,7 @@ function Filter() {
     ? productsByName?.map((e) => e.brand)
     : !!productsByCategory?.length
     ? productsByCategory?.map((e) => e.brand)
-    : AllProducts?.map((e) => e.brand);
+    : Products?.map((e) => e.brand);
 
   let marcas = new Set(arrMarca);
 
@@ -221,7 +223,7 @@ function Filter() {
           ))}
           <div
             className={styles.toggleItem}
-            value="Todas las categorias"
+            value="Todas las categorías"
             onClick={sortByCategory}
           >
             <span>- Todas las categorías</span>

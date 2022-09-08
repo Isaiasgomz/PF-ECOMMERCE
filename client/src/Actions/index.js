@@ -151,6 +151,7 @@ export function postNorder(email,orderN,totalP){
 }
 
 export function postShoppingCart(cart){
+    console.log("aaaaaaaaaaa", cart)
     return async function () {
         return axios.post(`/cart`, cart)
             .then(data => console.log('carrito guardado'))
