@@ -141,8 +141,10 @@ function Filter() {
     ? productsByName?.map((e) => e.category)
     : !!productsByBrand?.length
     ? productsByBrand?.map((e) => e.category)
-    : AllProducts?.map((e) => e.category);
+    : Products?.map((e) => e.category);
 
+/*     let arrCatPerif = arrCat.filter
+ */
   let categorias = new Set(arrCat);
   const category = [...categorias];
 
@@ -152,7 +154,7 @@ function Filter() {
     ? productsByName?.map((e) => e.brand)
     : !!productsByCategory?.length
     ? productsByCategory?.map((e) => e.brand)
-    : AllProducts?.map((e) => e.brand);
+    : Products?.map((e) => e.brand);
 
   let marcas = new Set(arrMarca);
 
