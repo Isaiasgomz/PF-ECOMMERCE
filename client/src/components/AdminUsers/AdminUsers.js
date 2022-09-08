@@ -56,7 +56,7 @@ function AdminUsers() {
 
 
   let [currentPage, setCurrentPage] = useState(1);
-  let [usersPerPage, setUsersPerPage] = useState(1);
+  let [usersPerPage, setUsersPerPage] = useState(5);
   let indexOfLastUser = currentPage * usersPerPage;
   let indexOfFirstUser = indexOfLastUser - usersPerPage;
   let currentUsers = users.slice(
