@@ -113,7 +113,7 @@ function Filter() {
 
   const sortByCategory = (e) => {
     console.log(e.target.textContent.slice(2));
-    if (e.target.textContent.slice(2) === "Todas las categorias") {
+    if (e.target.textContent.slice(2) === "Todas las categorías") {
       dispatch(getProducts());
       dispatch(clearAllFilters());
     }
@@ -221,7 +221,7 @@ function Filter() {
           ))}
           <div
             className={styles.toggleItem}
-            value="Todas las categorias"
+            value="Todas las categorías"
             onClick={sortByCategory}
           >
             <span>- Todas las categorías</span>

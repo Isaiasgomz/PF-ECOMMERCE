@@ -18,7 +18,7 @@ const Favourites = () => {
         dispatch(getFavourite(user?.email))
     },[dispatch,user?.email])
 
-    let products = useSelector(state=> state.Products)
+    let products = useSelector(state=> state.AllProducts)
 
     let favs = useSelector(state=> state.Favourites)
 
