@@ -17,7 +17,7 @@ function ShoppingCar() {
   const { user } = useAuth0();
 
   const {user: usuariodb} = useSelector(s => s)
-  console.log("acadb",usuariodb)
+
 
   let y = JSON.parse(localStorage.getItem(stringLocalStorage));
   let productsFromLocalStorage = y ? Array.from(y) : "No hay productos"
