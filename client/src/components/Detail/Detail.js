@@ -32,6 +32,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/material/styles';
+import loadingLogo from "../../imagenes/loading.png"
 
 
 
@@ -46,7 +47,6 @@ const StyledRating = withStyles({
 
 function Detail(props) {
   const { stringLocalStorage } = useContext(createCont);
-
   const id = useParams().id;
   const dispatch = useDispatch();
   const product = useSelector((state) => state.productDetail);
@@ -236,6 +236,26 @@ function Detail(props) {
   };
 
   let totalPrice = product.price + product.reducedAmount;
+
+
+  const [loading, setLoading] = useState(true);
+
+  if (loading === true) {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }
+
+  if(loading){
+    return(
+      <div className={style.contenedorLoading}>
+        <div className={style.loading}>
+          <img className={style.imgload} alt="loading" src={loadingLogo} />
+        </div>
+      </div>
+    )
+  }
+  else{
 
   return (
     <div className={style.conteiner}>
@@ -872,6 +892,7 @@ function Detail(props) {
       />
     </div >
   )
+}
 
 }
 
