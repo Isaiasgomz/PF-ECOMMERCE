@@ -53,7 +53,7 @@
       flex-wrap: wrap;
       flex-direction: column;
       width: 270px;
-      height: 200px;
+      height: 130px;
     }
     .fila{
         flex-direction: column;
@@ -65,6 +65,6 @@
     .containerPencil{
         font-size: 22px;
       }
-      
+
 }
 

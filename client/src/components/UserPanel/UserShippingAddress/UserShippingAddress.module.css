@@ -169,18 +169,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 20px;
+    margin-left: 5px;
   }
   .productContainer{
     height: 750px;
     width:270px;
     display: flex;
-    
+    margin-top: -20px;
     flex-wrap: wrap;
     
   }
 .formInput{
-  width: 200px;
+  width: 250px;
 }
 
 .lab::before {
@@ -203,11 +203,12 @@
 
 .titleForm{
   font-size: 20px;
+  padding-top: 10px;
 }
 
 .containerBtn{
  margin: 0px;
- margin-left: 10px;
+ margin-left: 20px;
 }
 .btn{
  width: 90px;
