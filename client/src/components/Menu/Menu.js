@@ -59,11 +59,11 @@ function Menu() {
 
     <Link to="/home"><button  className={styles.buttons} onClick={clear}>  <span className={styles.spanMenu}>Productos</span> <i className="fa-solid fa-database"></i></button></Link>
 
-    <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("perifericos")}> <span className={styles.spanMenu}>Perifericos</span> <i className="fa-solid fa-keyboard"></i> </button></Link>
-
     <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("Laptops")}> <span className={styles.spanMenu}>Notebooks</span> <i className="fa-solid fa-laptop"></i> </button></Link>
 
     <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("componentes")}> <span className={styles.spanMenu}>Componentes</span> <i className="fa-solid fa-screwdriver-wrench"></i> </button></Link>
+    
+    <Link to="/home"><button className={styles.buttons} onClick={()=>sortByCategory("perifericos")}> <span className={styles.spanMenu}>Perifericos</span> <i className="fa-solid fa-keyboard"></i> </button></Link>
 
     <Link to="/build"><button  className={styles.buttons} onClick={clear}> <span className={styles.spanMenu}>Armar tu PC</span> <i className="fa-solid fa-computer"></i></button></Link>
 

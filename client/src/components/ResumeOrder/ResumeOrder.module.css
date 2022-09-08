@@ -50,6 +50,21 @@
   font-weight: 600;
 }
 
+.buttonContinue{
+  margin: 10px;
+  background-color:#2576e0;
+  height: 68px;
+  border: none;
+  padding: 10px;
+  width: 130px;
+  border-radius: 7px;
+  color: white;
+  font-weight: 600;
+}
+.buttonContinue:hover{
+  background-color: #3481e6;
+  transition: 0.3s ease;
+}
 .button:hover{
   background-color: #aadd32;
   transition: 0.3s ease;
@@ -110,7 +125,7 @@
     width: 300px;
     height: auto;
     margin-top: 25px;
-    margin-left: 62px;
+    margin-left: 88px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -129,7 +144,7 @@
   .button{
     margin: 10px;
     background-color:#91C612;
-    height: 30px;
+    height: 68px;
     border: none;
     padding:2px;
     width: 130px;
