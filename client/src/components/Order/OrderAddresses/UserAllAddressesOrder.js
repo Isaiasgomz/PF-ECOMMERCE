@@ -124,17 +124,18 @@ function UserAllAddressesOrder() {
                   </div>
                ))}    
             </div> 
-            <div className={style.anadir} >
-              <Link to="/userShippingAddress">
-                <button className={style.button}>AÑADIR NUEVA DIRECCIÓN</button>
-              </Link>
-            </div>
+
             <div className={style.control} >
-              {/* <Link to="/resumeOrder">
-                <button className={style.button}>VOLVER AL CARRITO</button>
-              </Link> */}
+              
               <Link to="/payment">
                 <button className={style.button} onClick={handleConfirm} >CONFIRMAR</button>
+              </Link>
+            </div>
+
+            
+            <div className={style.anadir} >
+              <Link to="/userShippingAddress">
+                <button className={style.buttonNew}>AÑADIR NUEVA DIRECCIÓN</button>
               </Link>
             </div>
           </div>

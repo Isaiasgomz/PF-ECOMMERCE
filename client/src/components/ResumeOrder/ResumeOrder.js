@@ -26,7 +26,7 @@ function ResumeOrder() {
         </Link>
 
         <Link to="/orderInfo">
-          <button className={style.button}>Continuar</button>
+          <button className={style.buttonContinue}>Continuar</button>
         </Link>
         </div>
 

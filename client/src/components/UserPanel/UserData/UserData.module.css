@@ -72,6 +72,12 @@
   border-bottom: 2px solid #91C612 ;
 }
 
+.formInput:disabled {
+  border: 2px dotted rgb(184, 184, 184);
+  background-color: #eeeeee;
+  color: gray;
+}
+
 .lab::before {
     content: attr(type);
     display: block;

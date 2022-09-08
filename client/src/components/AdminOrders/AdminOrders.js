@@ -59,7 +59,19 @@ function AdminOrders() {
 
           {currentOrder.length > 0 &&
             currentOrder.map(order => (
-            <div className={style.containerc}>
+              <div
+              className={
+                order.status === "Procesando Pago"
+                  ? style.containercDisable
+                  : order.status === "Enviado"
+                  ? style.containercAgotado
+                  : order.status === "Preparando Envio"
+                  ? style.containercLow
+                  : order.status === "Completado"
+                  ? style.containercDiscount
+                  : style.containerc
+              }
+            >
                 <div className={style.containCardInfo}>
                   <p> {order.UserEmail}</p>
                 </div>
