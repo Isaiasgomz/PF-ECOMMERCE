@@ -9,6 +9,7 @@ const router = Router();
 //agregar un producto a la lista cart de un usuario
 router.post("/", async (req, res) => {
   try {
+    console.log("asdasdasd", req.body)
       let newCart = await postCart(req.body)
       res.status(200).send(newCart)
   } catch (error) {
