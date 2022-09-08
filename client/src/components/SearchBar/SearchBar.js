@@ -73,6 +73,7 @@ function SearchBar() {
           <div className={styles.dropdownProdConteiner}>
             {filterData.slice(0, 5).map((e) => {
               return (
+                <div>
                 <a
                   href={`/detail/${e.idProduct}`}
                   type="button"
@@ -83,6 +84,8 @@ function SearchBar() {
                 >
                   {e.productName}
                 </a>
+                <hr/>
+                </div>
               );
             })}
           </div>

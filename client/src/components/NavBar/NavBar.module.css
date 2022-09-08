@@ -103,6 +103,7 @@
     /* margin-left: -140px; */
     
     /* background-repeat: no-repeat; */
+    margin-left: -20px;
   }
 
   .divs{
@@ -112,7 +113,8 @@
     align-items: center;
     justify-content: flex-start;
     width: 130px;
-    height: 30px;
+    height: 10px;
+    margin-left: -50px;
   }
 
   .container{
@@ -125,12 +127,14 @@
     display: none;
   }
   .cart{
-    display: none;
+    margin-left: 140px;
+    font-size: 20px;
   }
 
   .login{
-    right: 0;
+    margin-left: 50px;
     position: absolute;
-    margin-right: 30px;
+    
   }
+
 }
