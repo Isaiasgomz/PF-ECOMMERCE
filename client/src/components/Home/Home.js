@@ -31,6 +31,7 @@ function Home(props) {
       <ScrollToTop
         smooth={true}
         color="white"
+        className={styles.scrolltotop1}
         style={{
           backgroundColor: "#91C612",
           marginBottom: "30px",

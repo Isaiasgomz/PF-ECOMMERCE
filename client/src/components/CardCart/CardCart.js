@@ -3,6 +3,7 @@ import { useState } from "react";
 import { createCont } from "../contexto/contextProvider";
 import style from "./CardCart.module.css";
 import "./CardCartIcons.css";
+import MediaQuery from 'react-responsive';
 
 const CardCart = ({ obj, deleteP, returnPrice }) => {
   const { addToCart, removeToCart } = useContext(createCont);
@@ -39,6 +40,12 @@ const CardCart = ({ obj, deleteP, returnPrice }) => {
         <div className={style.containerName}>
           <p className={style.nameProduct}>{obj.productName}</p>
         </div>
+        <MediaQuery maxWidth={450}>
+        <div className={style.containerNameQuery}>
+          <span className={style.nameProductQuery}>{obj.productName.slice(0,50)}</span>
+        </div>
+
+</MediaQuery>
         <div className={style.containerButtons}>
           <div className={style.containerPriceCart}>
             <p className={style.price}>

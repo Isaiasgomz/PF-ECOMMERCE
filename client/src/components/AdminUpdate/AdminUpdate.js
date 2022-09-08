@@ -278,13 +278,13 @@ function validate (input){
     errors.image = 'La Imagen es requerida'
   }
   if(!input.description){
-    errors.description = 'La Description es requerida'
+    errors.description = 'La Descripción es requerida'
   }
   if(!input.stock){
     errors.stock = 'La Cantidad es requerida' 
   }
   if(!input.category){
-    errors.category = 'La Categoria es requerida'
+    errors.category = 'La Categoría es requerida'
   }
   if(!input.brand){
     errors.brand = 'La Marca es requerida'
@@ -342,7 +342,7 @@ function validate (input){
         <div className={styles.image}>
           {image === ""? 
           <img src={detail.image} alt="imagenes_publicadas" width='300px' height='300px' /> :
-          loading? (<h8>Cargando imagenes...</h8>) : <img src={image} style={{width: "300px"}} alt={'product'}/> 
+          loading? (<h8>Cargando imágenes...</h8>) : <img src={image} style={{width: "300px"}} alt={'product'}/> 
           }
           <span className={styles.title}>{detail.productName} </span>
         </div>
@@ -376,19 +376,19 @@ function validate (input){
         </div>
 
             <div className={styles.divForm}>
-              <label className={styles.info} htmlFor='description'>Description</label>
+              <label className={styles.info} htmlFor='description'>Descripción</label>
               <input className={styles.formInput} type={'text'} placeholder={'Editar Descripcion'}
                 name={'description'} value={product.description}
                 onChange={(e) => handleInput(e)} /></div>
 
             <div className={styles.divForm}>
-              <span className={styles.info}>stock: </span>
+              <span className={styles.info}>Stock: </span>
               <input className={styles.formInput} type={'number'} placeholder={detail.stock}
                 name={'stock'} value={product.stock}
                 onChange={(e) => handleInput(e)} /></div>
 
             <div className={styles.divForm}>
-              <span className={styles.info}>Categoria: </span>
+              <span className={styles.info}>Categoría: </span>
               <input className={styles.formInput} type={'text'} placeholder={detail.category}
                 name={'category'} value={product.category}
                 onChange={(e) => handleInput(e)} /></div>

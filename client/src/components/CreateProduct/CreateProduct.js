@@ -190,7 +190,7 @@ function CreateProduct() {
         <input className={styles.formInput} type={'file'} placeholder={'Subir Imagen'}
         name={'file'} 
         onChange={(e)=> handleImage(e)} />
-        {loading? (<h8>Cargando imagenes...</h8>) : <img src={image} style={{width: "300px"}} alt={'product'}/> }
+        {loading? (<h8>Cargando imágenes...</h8>) : <img src={image} style={{width: "300px"}} alt={'product'}/> }
         <br/>
         </FormGroup>
           {
@@ -198,7 +198,7 @@ function CreateProduct() {
               <p className={styles.textError} >{errors.image}</p>
           )}
 
-        <label htmlFor='description'>Description</label>
+        <label htmlFor='description'>Descripción</label>
         <input className={styles.formInput} type={'text'} placeholder={'descripcion'}
         name={'description'} value={product.description} 
         onChange={(e)=> handleInput(e)} /><br/>
@@ -219,7 +219,7 @@ function CreateProduct() {
 
          <label>Categoria</label><br/>
             <select className={styles.formInput} onChange={(e)=> handleSelectCategory(e)}>
-                <option>Seleccionar Categoria</option>
+                <option>Seleccionar Categoría</option>
                 { categoryFilter && categoryFilter.map(item => (
                     <option key={item} 
                     value={item}>{item}</option>

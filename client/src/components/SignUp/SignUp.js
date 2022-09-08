@@ -12,7 +12,7 @@ function validate (input){
     errors.email = 'El email es requerido'
   }
   if(!input.lastName){
-    errors.lastName = 'Los Apellidos es requerido'
+    errors.lastName = 'El Apellido es requerido'
   }
   return errors
 }
@@ -93,7 +93,7 @@ function SignUp() {
           onChange={(e) => handleInput(e)}/>
           
 
-          <label for="lastName" className="label">Apellidos</label>
+          <label for="lastName" className="label">Apellido</label>
           <input type="text" 
           required= {true}
           name='lastName' 

@@ -100,14 +100,14 @@
     width: 48px;
     height: 52px;
     background-image: url(../../imagenes/iconoPR.jpeg);
-    margin-left: -140px;
+    /* margin-left: -140px; */
     
     /* background-repeat: no-repeat; */
   }
 
   .divs{
     /* margin: 0%; */
-    margin-left: -170px;
+   /*  margin-left: -170px; */
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -121,9 +121,16 @@
 
   }
 
-  .buttons{
+  .logout{
+    display: none;
+  }
+  .cart{
     display: none;
   }
 
-
+  .login{
+    right: 0;
+    position: absolute;
+    margin-right: 30px;
+  }
 }

@@ -123,7 +123,7 @@ function AdminDiscount() {
               <li className={style.header}>Nombre</li>
             </div>
             <div className={style.containHeadr}>
-              <li className={style.header}>Descripcion</li>
+              <li className={style.header}>Descripción</li>
             </div>
             {/* <div className={style.containHeadr}>
               <li className={style.header}>Marc</li>

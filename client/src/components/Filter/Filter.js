@@ -224,7 +224,7 @@ function Filter() {
             value="Todas las categorias"
             onClick={sortByCategory}
           >
-            <span>- Todas las categorias</span>
+            <span>- Todas las categorías</span>
           </div>
         </div>
       ) : null}
