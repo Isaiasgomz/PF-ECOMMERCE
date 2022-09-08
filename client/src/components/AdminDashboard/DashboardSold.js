@@ -12,10 +12,10 @@ function DashboardSold() {
      },[])
 
     const {allProductSold} =  useSelector(state => state)
-    console.log(allProductSold)
+
 
     const allProducts = allProductSold.map(product => product.Product.productName.split(' ').slice(0,2).join(' '))
-    console.log(allProducts)
+
 
     const countOcurrences = (arr) => arr.reduce((prev, curr) => ((prev[curr] = ++prev[curr] || 1), prev), {});
     const data = {

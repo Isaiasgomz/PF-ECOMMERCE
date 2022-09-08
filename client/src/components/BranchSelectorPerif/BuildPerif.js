@@ -27,7 +27,8 @@ function BuildPerif(props) {
   let productos = AllProducts?.filter(e => e.compatible === "false")
   let sinlaptop = productos.filter(e => e.category !== "Laptops")
   let categorias = new Set(sinlaptop?.map(e => e.category))
-  const category = [...categorias]
+  /* const category = [...categorias] */
+  const category = ["Keyboards", "Monitors" , "Mouses" , "Headsets"]
   const [cat, setCat] = useState(0)
 
   useEffect(() => {
