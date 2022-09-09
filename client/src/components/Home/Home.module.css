@@ -18,6 +18,45 @@
     justify-content: center;
 }
 
+.contenedorLoading {
+    /* background: #c61212; */
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading {
+    /* background-color: #78788c; */
+    /* width: 100vw;
+    height: 77.7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.imgload {
+    border-radius: 50%;
+    box-shadow: 0 0 35px rgb(155, 255, 108);
+    width: 200px;
+    height: 200px;
+    animation: loading 16s infinite;
+
+}
+
+@keyframes loading {
+    100% {
+        transform: rotate(1560deg);
+    }
+
+}
+
 
 @media screen and (max-width:1400px ) and (min-width: 500px) {
   
